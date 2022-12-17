@@ -43,22 +43,24 @@ export const LoginFormTitle = styled.h3`
 `
 
 export const LoginFormLabel = styled.label`
-  font-size: ${p => p.theme.fontSizes.m};
-  margin-bottom: ${p => p.theme.space[3]}px;
+  font-size: 14px;
 `;
 
 export const LoginFormItem = styled(Field)`
-  margin-bottom: ${p => p.theme.space[5]}px;
-  width: ${p => p.theme.space[8]}px;
-`;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  width: 100%;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
+  color: #9B9FAA;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
 
-export const LoginFormBtn = styled.button`
-  width: ${p => p.theme.space[7]}px;
-  cursor: pointer;
-  background-color: ${p => p.theme.colors.btnColor};
-  border-radius: ${p => p.theme.radii.small};
-
-  &:focus, &:hover {
-    background-color: ${p => p.theme.colors.accentColor};
+  @media screen and (min-width: 768px) {
+    width: 240px;
   }
 `;
+
