@@ -1,0 +1,64 @@
+import styled from "styled-components";
+import { Form, Field } from 'formik';
+
+export const LoginFormWrapper = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 40px;
+
+  @media screen and (min-width: 480px) {
+    width: 280px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    padding-top: 160px;
+    padding-left: 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 0;
+  }
+`;
+
+export const LoginFormTitle = styled.h3`
+  
+  margin: 0 auto;
+  margin-bottom: 60px;
+  align-items: center;
+  text-align: center;
+  font-family: 'Gotham Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(13 / 14);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FC842D;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
+`
+
+export const LoginFormLabel = styled.label`
+  font-size: ${p => p.theme.fontSizes.m};
+  margin-bottom: ${p => p.theme.space[3]}px;
+`;
+
+export const LoginFormItem = styled(Field)`
+  margin-bottom: ${p => p.theme.space[5]}px;
+  width: ${p => p.theme.space[8]}px;
+`;
+
+export const LoginFormBtn = styled.button`
+  width: ${p => p.theme.space[7]}px;
+  cursor: pointer;
+  background-color: ${p => p.theme.colors.btnColor};
+  border-radius: ${p => p.theme.radii.small};
+
+  &:focus, &:hover {
+    background-color: ${p => p.theme.colors.accentColor};
+  }
+`;
