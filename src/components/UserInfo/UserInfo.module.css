@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    font-family: 'Gotham Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 13px;
+    letter-spacing: 0.04em;
+    color: #9B9FAA;
+}
+
+.username {
+    padding-right: 15px;
+    border-right: 2px solid #E0E0E0;
+    color: #212121;
+}
+
+.exit {
+    padding-left: 15px;
+    color: #9B9FAA;
+}
