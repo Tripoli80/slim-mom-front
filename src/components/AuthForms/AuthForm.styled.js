@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Form, Field } from 'formik';
 
-export const LoginFormWrapper = styled(Form)`
+export const AuthFormWrapper = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -22,7 +22,7 @@ export const LoginFormWrapper = styled(Form)`
   }
 `;
 
-export const LoginFormTitle = styled.h3`
+export const AuthFormTitle = styled.h3`
   
   margin: 0 auto;
   margin-bottom: 60px;
@@ -42,11 +42,11 @@ export const LoginFormTitle = styled.h3`
   }
 `
 
-export const LoginFormLabel = styled.label`
+export const AuthFormLabel = styled.label`
   font-size: 14px;
 `;
 
-export const LoginFormItem = styled(Field)`
+export const AuthFormItem = styled(Field)`
   margin-bottom: 40px;
   padding-bottom: 20px;
   width: 100%;
@@ -63,4 +63,18 @@ export const LoginFormItem = styled(Field)`
     width: 240px;
   }
 `;
+
+export const AuthBtnsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 60px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+`
 
