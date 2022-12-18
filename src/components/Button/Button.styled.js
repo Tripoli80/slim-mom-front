@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export const  PrimaryBtn = styled.button`
+const PrimaryBtn = styled.button`
   cursor: pointer;
   min-width: 180px;
   height: 42px;
+  padding-left: 24px;
+  padding-right: 24px;
   color: #FFFFFF;
   background-color: #FC842D;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
@@ -14,10 +16,12 @@ export const  PrimaryBtn = styled.button`
   }
 `;
 
-export const SecondaryBtn = styled.button`
+const SecondaryBtn = styled.button`
   cursor: pointer;
   min-width: 180px;
   height: 42px;
+  padding-left: 24px;
+  padding-right: 24px;  
   color: #FC842D;
   background-color: #FFFFFF;
   border: 2px solid #FC842D;
@@ -28,7 +32,7 @@ export const SecondaryBtn = styled.button`
   }
 `;
 
-export const RoundBtn = styled.button`
+const RoundBtn = styled.button`
   cursor: pointer;
   width: 48px;
   height: 48px;
@@ -39,4 +43,11 @@ export const RoundBtn = styled.button`
   &:focus, &:hover {
     scale: 1.1;
   }
-`
+`;
+
+export {
+  PrimaryBtn,
+  SecondaryBtn,
+  RoundBtn
+}
+;
