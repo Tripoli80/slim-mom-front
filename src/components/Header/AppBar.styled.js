@@ -3,8 +3,10 @@ import styled from 'styled-components';
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+  align-items: flex-end;
+  margin: 0;
+  margin-top: 80px;
+  padding-bottom: 16px;
   border-bottom: 2px solid #e0e0e0;
 
   @media screen and (min-width: 480px) {
