@@ -3,6 +3,7 @@ import './App.css';
 
 import { AppBar } from '../Header/AppBar';
 import { Route, Routes } from 'react-router-dom';
+import Sidebar from 'components/SideBar/Sidebar';
 
 const MainPage = lazy(() => import('pages/MainPage'));
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} /> */}
         </Route>
       </Routes>
+      <Sidebar />
     </div>
   );
 }
