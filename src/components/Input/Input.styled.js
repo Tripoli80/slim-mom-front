@@ -59,6 +59,10 @@ export const InputRadioStyled = styled.span`
       border-radius: 50%;
     }
   }
+
+  ${InputRadio}:focus + && {
+    box-shadow: 0 0 0 1px #e0e0e0;
+  }
 `;
 
 export const LabelRadioText = styled.span`
