@@ -1,7 +1,17 @@
+import Container from 'components/Container/Container';
 import Input from 'components/Input/Input';
+import {
+  Box,
+  BtnSub,
+  InputRadio,
+  Label,
+  LabelRadio,
+  TitleRaioGroup,
+  WrapperRadio,
+} from 'components/Input/Input.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Form } from './Component.styled';
+import { Form, Image, Section, Title, Wrapper } from './Component.styled';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
@@ -58,92 +68,107 @@ const DailyCaloriesForm = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-  console.log(formik);
 
   return (
     <>
-      <h2>Calculate your daily calorie intake right now</h2>
+      <Image>
+        <Container>
+          <Form onSubmit={formik.handleSubmit}>
+            <Title>Calculate your daily calorie intake right now</Title>
+            <Wrapper>
+              <Section>
+                <Input
+                  placeHolder="Heigth*"
+                  id="height"
+                  name="height"
+                  onChange={formik.handleChange}
+                  value={formik.values.height}
+                />
+                {formik.touched.height && <p>{formik.errors.height}</p>}
 
-      <Form onSubmit={formik.handleSubmit}>
-        <div>
-          <Input
-            placeHolder="Heigth*"
-            id="height"
-            name="height"
-            onChange={formik.handleChange}
-            value={formik.values.height}
-          />
-          {formik.touched.height && <p>{formik.errors.height}</p>}
-        </div>
-        <div>
-          <Input
-            placeHolder="Age*"
-            id="age"
-            name="age"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.age}
-          />
-          {formik.touched.age && <p>{formik.errors.age}</p>}
-        </div>
-        <div>
-          <Input
-            placeHolder="Current weight*"
-            id="currentWeight"
-            name="currentWeight"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.currentWeight}
-          />
-          {formik.touched.currentWeight && <p>{formik.errors.currentWeight}</p>}
-        </div>
-        <div>
-          <Input
-            placeHolder="Desired weight*"
-            id="desiredWeight"
-            name="desiredWeight"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.desiredWeight}
-          />
-          {formik.touched.desiredWeight && <p>{formik.errors.desiredWeight}</p>}
-        </div>
-        <div>
-          <label htmlFor="bloodType">bloodType</label>
-          <input
-            id="1-radio-button"
-            name="bloodType"
-            type="radio"
-            value="1"
-            onChange={formik.handleChange}
-          />
-          <input
-            id="2-radio-button"
-            name="bloodType"
-            type="radio"
-            onChange={formik.handleChange}
-            value="2"
-          />
-          <input
-            id="3-radio-button"
-            name="bloodType"
-            type="radio"
-            onChange={formik.handleChange}
-            value="3"
-          />
-          <input
-            id="4-radio-button"
-            name="bloodType"
-            type="radio"
-            onChange={formik.handleChange}
-            value="4"
-          />
-        </div>
+                <Input
+                  placeHolder="Age*"
+                  id="age"
+                  name="age"
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.age}
+                />
+                {formik.touched.age && <p>{formik.errors.age}</p>}
 
-        {formik.touched.bloodType && <p>{formik.errors.bloodType}</p>}
+                <Input
+                  placeHolder="Current weight*"
+                  id="currentWeight"
+                  name="currentWeight"
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.currentWeight}
+                />
+                {formik.touched.currentWeight && (
+                  <p>{formik.errors.currentWeight}</p>
+                )}
+              </Section>
+              <div>
+                <Input
+                  placeHolder="Desired weight*"
+                  id="desiredWeight"
+                  name="desiredWeight"
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.desiredWeight}
+                />
+                {formik.touched.desiredWeight && (
+                  <p>{formik.errors.desiredWeight}</p>
+                )}
 
-        <button type="submit">Submit</button>
-      </Form>
+                <Box>
+                  <TitleRaioGroup>Blood type *</TitleRaioGroup>
+                  <WrapperRadio>
+                    <LabelRadio>
+                      <InputRadio
+                        name="bloodType"
+                        type="radio"
+                        value="1"
+                        onChange={formik.handleChange}
+                      />
+                      1
+                    </LabelRadio>
+                    <LabelRadio>
+                      <InputRadio
+                        name="bloodType"
+                        type="radio"
+                        onChange={formik.handleChange}
+                        value="2"
+                      />
+                      2
+                    </LabelRadio>
+                    <LabelRadio>
+                      <InputRadio
+                        name="bloodType"
+                        type="radio"
+                        onChange={formik.handleChange}
+                        value="3"
+                      />
+                      3
+                    </LabelRadio>
+                    <LabelRadio>
+                      <InputRadio
+                        name="bloodType"
+                        type="radio"
+                        onChange={formik.handleChange}
+                        value="4"
+                      />
+                      4
+                    </LabelRadio>
+                  </WrapperRadio>
+                </Box>
+              </div>
+              {formik.touched.bloodType && <p>{formik.errors.bloodType}</p>}
+            </Wrapper>
+            <BtnSub type="submit">Submit</BtnSub>
+          </Form>
+        </Container>
+      </Image>
     </>
   );
 };
