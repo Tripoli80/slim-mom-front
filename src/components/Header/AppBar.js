@@ -1,14 +1,16 @@
 import { Navigation } from '../Navigation/Navigation';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { UserInfo } from '../UserInfo/UserInfo';
-import css from './AppBar.module.css';
+import { Header } from './AppBar.styled';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const AppBar = () => {
   return (
-    <header className={css.header}>
+    <Header>
       <Navigation />
       <AuthNav />
       <UserInfo />
-    </header>
+      <GiHamburgerMenu />
+    </Header>
   );
 };

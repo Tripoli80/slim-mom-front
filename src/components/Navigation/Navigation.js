@@ -1,18 +1,11 @@
-import { NavLink } from 'react-router-dom';
-import css from './Navigation.module.css';
+import { Link } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
     <nav>
-      <NavLink className={css.link} to="/">
-        Logo
-      </NavLink>
-      <NavLink className={css.link} to="diary">
-        Diary
-      </NavLink>
-      <NavLink className={css.link} to="calculator">
-        Calculator
-      </NavLink>
+      <Link to="/">Logo</Link>
+      <Link to="diary">Diary</Link>
+      <Link to="calculator">Calculator</Link>
     </nav>
   );
 };

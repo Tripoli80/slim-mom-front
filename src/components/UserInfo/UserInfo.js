@@ -1,10 +1,10 @@
-import css from './UserInfo.module.css';
+import { Wrapper, UserName, Exit } from './UserInfo.styled';
 
 export const UserInfo = () => {
   return (
-    <div className={css.wrapper}>
-      <p className={css.username}>Nik</p>
-      <p className={css.exit}>Exit</p>
-    </div>
+    <Wrapper>
+      <UserName>Nik</UserName>
+      <Exit>Exit</Exit>
+    </Wrapper>
   );
 };
