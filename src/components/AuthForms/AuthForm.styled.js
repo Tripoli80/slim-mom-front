@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Form, Field } from 'formik';
+import { NavLink } from "react-router-dom";
 
 export const AuthFormWrapper = styled(Form)`
   display: flex;
@@ -76,5 +77,21 @@ export const AuthBtnsWrapper = styled.div`
     justify-content: flex-start;
     gap: 32px;
   }
+`
+
+export const AuthFormNavLink = styled(NavLink)`
+  cursor: pointer;
+  min-width: 180px;
+  height: 42px;
+  padding-left: 24px;
+  padding-right: 24px;  
+  color: #FC842D;
+  background-color: #FFFFFF;
+  border: 2px solid #FC842D;
+  border-radius: 30px;
+
+  &:focus, &:hover {
+    scale: 1.1;
+  }  
 `
 

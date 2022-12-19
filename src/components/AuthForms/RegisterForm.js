@@ -1,8 +1,7 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { NavLink } from "react-router-dom";
-import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper } from 'components/AuthForms/AuthForm.styled';
+import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 
 
@@ -32,7 +31,7 @@ function RegisterForm() {
         <AuthFormItem type="password" name="password" placeholder="password *" required />
         <AuthBtnsWrapper>
           <Button PrimeryBtn type="submit">Register</Button>
-          <Button SecondaryBtn type="button" href="/login">Log in</Button>
+          <AuthFormNavLink to="/login">Log in</AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
