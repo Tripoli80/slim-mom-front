@@ -1,0 +1,46 @@
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import {
+  Overlay,
+  ModalWindow,
+  Title,
+  CloseBtn,
+  Button,
+  BackArrow,
+} from './Component.styled';
+
+const modalRoot = document.querySelector('#modal-root');
+
+export const Modal = ({ onClose, children }) => {
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handleBackDropClick = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
+
+  return createPortal(
+    <Overlay onClick={handleBackDropClick}>
+      <ModalWindow onClose={onClose}>
+        <CloseBtn type="button" onClick={onClose}></CloseBtn>
+        <BackArrow color="black" size="20px" onClick={onClose} left="20px" />
+        <Title>Your recommended daily {'\n'}calorie intake is</Title>
+        <Button type="button" onClick={onClose}>
+          Start losing weight
+        </Button>
+      </ModalWindow>
+    </Overlay>,
+    modalRoot
+  );
+};

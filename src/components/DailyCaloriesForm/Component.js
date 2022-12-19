@@ -14,9 +14,13 @@ import {
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Image, Section, Title, Wrapper } from './Component.styled';
+import { useState } from 'react';
+import { useWindowWidth } from '@react-hook/window-size';
+import { Modal } from 'components/Modal/Component';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
+  const [showModal, setShowModal] = useState(false);
   const validation = Yup.object().shape({
     height: Yup.number()
       .typeError('Must be a number')
@@ -68,8 +72,23 @@ const DailyCaloriesForm = () => {
     onSubmit: values => {
       localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
       alert(JSON.stringify(values, null, 2));
+      setShowModal(true);
     },
   });
+
+  const onClose = () => {
+    setShowModal(false);
+  };
+
+  const windowWidth = useWindowWidth();
+  if (showModal) {
+    if (windowWidth >= 768) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  if (!showModal) {
+    document.body.style.overflow = 'unset';
+  }
 
   return (
     <>
@@ -171,10 +190,13 @@ const DailyCaloriesForm = () => {
               </div>
               {formik.touched.bloodType && <p>{formik.errors.bloodType}</p>}
             </Wrapper>
-            <BtnSub type="submit">Submit</BtnSub>
+            <BtnSub type="submit" onSubmit={formik.handleSubmit}>
+              Submit
+            </BtnSub>
           </Form>
         </Container>
       </Image>
+      {showModal && <Modal onClose={onClose}></Modal>}
     </>
   );
 };
