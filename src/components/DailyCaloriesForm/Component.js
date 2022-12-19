@@ -4,8 +4,10 @@ import {
   Box,
   BtnSub,
   InputRadio,
+  InputRadioStyled,
   Label,
   LabelRadio,
+  LabelRadioText,
   TitleRaioGroup,
   WrapperRadio,
 } from 'components/Input/Input.styled';
@@ -131,7 +133,8 @@ const DailyCaloriesForm = () => {
                         value="1"
                         onChange={formik.handleChange}
                       />
-                      1
+                      <InputRadioStyled />
+                      <LabelRadioText>1</LabelRadioText>
                     </LabelRadio>
                     <LabelRadio>
                       <InputRadio
@@ -140,7 +143,8 @@ const DailyCaloriesForm = () => {
                         onChange={formik.handleChange}
                         value="2"
                       />
-                      2
+                      <InputRadioStyled />
+                      <LabelRadioText>2</LabelRadioText>
                     </LabelRadio>
                     <LabelRadio>
                       <InputRadio
@@ -149,7 +153,8 @@ const DailyCaloriesForm = () => {
                         onChange={formik.handleChange}
                         value="3"
                       />
-                      3
+                      <InputRadioStyled />
+                      <LabelRadioText>3</LabelRadioText>
                     </LabelRadio>
                     <LabelRadio>
                       <InputRadio
@@ -158,7 +163,8 @@ const DailyCaloriesForm = () => {
                         onChange={formik.handleChange}
                         value="4"
                       />
-                      4
+                      <InputRadioStyled />
+                      <LabelRadioText>4</LabelRadioText>
                     </LabelRadio>
                   </WrapperRadio>
                 </Box>
