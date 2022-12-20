@@ -1,23 +1,40 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+
+  align-items: center;
   margin: 0;
-  margin-top: 80px;
-  padding-bottom: 16px;
+  padding: 20px 20px 16px 20px;
   border-bottom: 2px solid #e0e0e0;
+  position: relative;
 
-  @media screen and (min-width: 480px) {
-    width: 480px;
+  @media (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
-  @media screen and (min-width: 768px) {
-    width: 768px;
+  @media (min-width: 1280px) {
+    padding-top: 80px;
+    border-bottom: none;
+    align-items: flex-end;
+    justify-content: flex-start;
   }
+`;
 
-  @media screen and (min-width: 1200px) {
-    width: 100%;
+export const Link = styled(NavLink)`
+  text-decoration: none;
+  color: #9b9faa;
+
+  &.active {
+    color: #212121;
+  }
+`;
+
+export const BurgerMenu = styled.div`
+  @media (min-width: 1280px) {
+    display: none;
   }
 `;
