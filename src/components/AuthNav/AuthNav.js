@@ -1,4 +1,4 @@
-import { Link, Wrapper, SignInText } from './AuthNav.styled';
+import { Link, Wrapper, SignInText, RegistrationText } from './AuthNav.styled';
 
 export const AuthNav = () => {
   return (
@@ -6,9 +6,9 @@ export const AuthNav = () => {
       <SignInText>
         <Link to="/singin">Sign in</Link>
       </SignInText>
-      <div>
+      <RegistrationText>
         <Link to="/registration">Registration</Link>
-      </div>
+      </RegistrationText>
     </Wrapper>
   );
 };

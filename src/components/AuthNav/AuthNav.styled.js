@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   margin: 0;
-  /* margin-left: 20px; */
+
   font-family: 'Gotham Pro';
   font-style: normal;
   font-weight: 700;
@@ -15,7 +15,16 @@ export const Wrapper = styled.div`
   text-transform: uppercase;
   color: #9b9faa;
 
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  @media (min-width: 768px) {
+    position: static;
+  }
+
   @media (min-width: 1280px) {
+    margin-left: 20px;
     border-left: 2px solid #e0e0e0;
   }
 `;
@@ -23,7 +32,13 @@ export const Wrapper = styled.div`
 export const Link = styled(NavLink)`
   text-decoration: none;
   color: #9b9faa;
+
   &.active {
+    color: #212121;
+  }
+
+  :hover:not(.active),
+  &:focus-visible:not(.active) {
     color: #212121;
   }
 `;
@@ -38,5 +53,13 @@ export const SignInText = styled.div`
 
   @media (min-width: 1280px) {
     margin-left: 20px;
+  }
+`;
+
+export const RegistrationText = styled.div`
+  margin-right: 0px;
+
+  @media (min-width: 768px) {
+    margin: 0;
   }
 `;

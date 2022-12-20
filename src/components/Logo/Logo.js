@@ -1,11 +1,15 @@
 import picture from '../../favicon.png';
-import { Wrapper, TextMom, TextSlim, Container } from './Logo.styled';
+import { Wrapper, TextMom, TextSlim, Container, Img } from './Logo.styled';
+
+import { useIsLoading } from '../../hooks/hooks';
 
 export const Logo = () => {
+  const { isLoggedIn } = useIsLoading();
+
   return (
     <Wrapper>
-      <img src={picture} alt=""></img>
-      <Container>
+      <Img src={picture} alt="logo"></Img>
+      <Container user={isLoggedIn}>
         <TextSlim>Slim</TextSlim>
         <TextMom>Mom</TextMom>
       </Container>

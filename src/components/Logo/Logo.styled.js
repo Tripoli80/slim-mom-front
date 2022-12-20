@@ -6,18 +6,21 @@ export const Wrapper = styled.div`
   margin: 0;
   flex-grow: 1;
 
-  @media (min-width: 1280px) {
-    margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+
+  @media (min-width: 768px) {
+    margin: 0;
   }
 `;
 
 export const Img = styled.img`
-  width: 44px;
-  height: 47px;
+  width: 47px;
+  height: 44px;
 
   @media (min-width: 1280px) {
-    width: 66px;
-    height: 71px;
+    width: 71px;
+    height: 76px;
   }
 `;
 
@@ -39,7 +42,20 @@ export const Container = styled.div`
 `;
 
 export const TextMom = styled.p`
-  display: none;
+  /* display: none; */
+
+  display: ${props => {
+    switch (props.user) {
+      case true:
+        return 'block';
+
+      case false:
+        return 'none';
+
+      default:
+        return 'none';
+    }
+  }};
 
   @media (min-width: 768px) {
     display: block;
@@ -50,7 +66,20 @@ export const TextMom = styled.p`
 `;
 
 export const TextSlim = styled.p`
-  display: none;
+  /* display: none; */
+
+  display: ${props => {
+    switch (props.user) {
+      case true:
+        return 'block';
+
+      case false:
+        return 'none';
+
+      default:
+        return 'none';
+    }
+  }};
 
   @media (min-width: 768px) {
     display: block;
