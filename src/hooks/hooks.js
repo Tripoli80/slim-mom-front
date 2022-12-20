@@ -1,16 +1,29 @@
+import { useSelector } from 'react-redux';
+import {
+  selectUser,
+  selectIsLoggedIn,
+  selectPendingUserData,
+} from '../redux/auth/authSelectors';
 import {
   getAuth,
   getIsLoading,
   getNotifyMassage,
   getNotifyStatus,
   getReflashing,
-  getSigIn,
   getUserName,
-} from 'components/redux/selectors';
-import { useSelector } from 'react-redux';
+} from '../redux/selectors';
+
 
 export const useAuth = () => {
-  return useSelector(getSigIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isRefreshing = useSelector(selectPendingUserData);
+  const user = useSelector(selectUser);
+
+  return {
+    isLoggedIn,
+    isRefreshing,
+    user,
+  };
 };
 
 export const useReflashing = () => {

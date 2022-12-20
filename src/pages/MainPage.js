@@ -24,7 +24,7 @@ function MainPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());
+    dispatch(authOperations.refreshUser());
     currentPath && navigate(currentPath);
   }, [currentPath, dispatch, navigate]);
 

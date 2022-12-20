@@ -1,28 +1,48 @@
-import { lazy } from 'react';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { useEffect, lazy } from "react";
+import { useDispatch } from "react-redux";
+import { PrivateRoute } from '../../redux/routes/PrivateRoute';
+import { PublicRoute } from '../../redux/routes/RestrictedRoute';
+import { Layout } from "components/Layout";
+import { useAuth } from '../../hooks/hooks';
+import { refreshUser } from "redux/auth/authOperations";
 
-import { AppBar } from '../Header/AppBar';
-import { Route, Routes } from 'react-router-dom';
-import Sidebar from 'components/SideBar/Sidebar';
+const MainPage = lazy(() => import('../../pages/MainPage'));
+const DairyPage = lazy(() => import('../../pages/DairyPage'));
+const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
+const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
-const MainPage = lazy(() => import('pages/MainPage'));
+const App = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-// const RegisterPage = lazy(() => import('../pages/Register'));
-// const LoginPage = lazy(() => import('../pages/Login'));
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-function App() {
-  return (
-    <div className="App">
-      <AppBar />
-      <Routes>
-        <Route element={<MainPage />} path="/">
-          {/* <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/login" element={<LoginPage />} /> */}
-        </Route>
-      </Routes>
-      <Sidebar />
-    </div>
+ 
+
+  return  isRefreshing ? (
+    <b>Refreshing user...</b>
+    ) : (
+    <Routes>
+      <Route path="/" element={<Layout />} >
+        <Route index element={<MainPage />} />
+        <Route path="/registration" element={
+          <PublicRoute redirectTo="/diary" component={<RegisterPage />} />
+        }
+        />
+        <Route path="/singin" element={
+          <PublicRoute redirectTo="/diary" component={<LoginPage />} />
+        }
+        />
+        <Route path="/dairy" element={
+          <PrivateRoute redirectTo="/login" component={<DairyPage />} />
+        }
+        />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;

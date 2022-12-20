@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authReducer } from './auth/authSlice';
+import { authReduser } from './auth/authSlice';
 import { modalSlice } from './services/modalSlice';
 import { filterSlice } from './services/filterSlice';
 import { diaryApi } from './services/createApi';
@@ -24,7 +24,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReduser),
     [diaryApi.reducerPath]: diaryApi.reducer,
     [filterSlice.name]: filterSlice.reducer,
     [modalSlice.name]: modalSlice.reducer,
