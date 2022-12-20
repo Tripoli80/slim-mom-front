@@ -48,4 +48,4 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-export const authReduser = persistReducer(authPersistConfig, authSlice.reducer);
+export const authReducer = persistReducer(authPersistConfig, authSlice.reducer);
