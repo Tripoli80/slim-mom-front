@@ -28,7 +28,7 @@ export const LoginForm = () => {
         <AuthFormItem type="password" name="password" placeholder="password *" required />
         <AuthBtnsWrapper>
           <Button type="submit">Log in</Button>
-          <AuthFormNavLink to="/register">Register</AuthFormNavLink>
+          <AuthFormNavLink to="/registration">Register</AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
