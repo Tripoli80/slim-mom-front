@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   margin: 0;
+  /* margin-left: 20px; */
   font-family: 'Gotham Pro';
   font-style: normal;
   font-weight: 700;
@@ -13,6 +14,10 @@ export const Wrapper = styled.div`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
+
+  @media (min-width: 1280px) {
+    border-left: 2px solid #e0e0e0;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -25,4 +30,13 @@ export const Link = styled(NavLink)`
 
 export const SignInText = styled.div`
   margin-right: 16px;
+  margin-left: 0;
+
+  @media (min-width: 768px) {
+    margin-left: 20px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-left: 20px;
+  }
 `;

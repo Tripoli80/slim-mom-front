@@ -6,13 +6,11 @@ import {
 } from '../redux/auth/authSelectors';
 import {
   getAuth,
-  getIsLoading,
   getNotifyMassage,
   getNotifyStatus,
   getReflashing,
   getUserName,
 } from '../redux/selectors';
-
 
 export const useAuth = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -43,5 +41,6 @@ export const useUserName = () => {
   return useSelector(getUserName);
 };
 export const useIsLoading = () => {
-  return useSelector(getIsLoading);
+  const isLoggedIn = useSelector(getIsLoading);
+  return isLoggedIn;
 };
