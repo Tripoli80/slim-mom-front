@@ -5,7 +5,6 @@ import {
   BtnSub,
   InputRadio,
   InputRadioStyled,
-  Label,
   LabelRadio,
   LabelRadioText,
   TitleRaioGroup,
@@ -13,10 +12,19 @@ import {
 } from 'components/Input/Input.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Form, Image, Section, Title, Wrapper } from './Component.styled';
+
+import {
+  ErrorMessage,
+  Form,
+  Image,
+  Section,
+  Title,
+  Wrapper,
+} from './DailyCaloriesForm.styled';
 import { useState } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
 import { Modal } from 'components/Modal/Component';
+import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
@@ -32,20 +40,20 @@ const DailyCaloriesForm = () => {
       .min(18, 'Minimal 18')
       .max(120, 'Max 120')
       .required('Required!'),
-    currentWeight: Yup.number()
+    cWeight: Yup.number()
       .typeError('Must be a number')
       .min(50, 'Minimal 50')
       .max(250, 'Max 250')
       .required('Required!'),
-    desiredWeight: Yup.number()
+    dWeight: Yup.number()
       .typeError('Must be a number')
       .min(45, 'Minimal 45')
       .max(
-        Yup.ref('currentWeight'),
+        Yup.ref('cWeight'),
         'The maximum value cannot be greater than the current one.'
       )
       .required('Required!'),
-    bloodType: Yup.number().required('Required!'),
+    blood: Yup.number().required('Required!'),
   });
   const getFromLocalStorage = JSON.parse(
     localStorage.getItem(KEY_DAILY_CALORIE)
@@ -54,16 +62,16 @@ const DailyCaloriesForm = () => {
     ? {
         height: getFromLocalStorage.height,
         age: getFromLocalStorage.age,
-        currentWeight: getFromLocalStorage.currentWeight,
-        desiredWeight: getFromLocalStorage.desiredWeight,
-        bloodType: getFromLocalStorage.bloodType,
+        cWeight: getFromLocalStorage.cWeight,
+        dWeight: getFromLocalStorage.dWeight,
+        blood: getFromLocalStorage.blood,
       }
     : {
         height: '',
         age: '',
-        currentWeight: '',
-        desiredWeight: '',
-        bloodType: '',
+        cWeight: '',
+        dWeight: '',
+        blood: '',
       };
   const formik = useFormik({
     initialValues: initialValues,
@@ -71,7 +79,7 @@ const DailyCaloriesForm = () => {
     validationSchema: validation,
     onSubmit: values => {
       localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
-      alert(JSON.stringify(values, null, 2));
+
       setShowModal(true);
     },
   });
@@ -90,11 +98,12 @@ const DailyCaloriesForm = () => {
     document.body.style.overflow = 'unset';
   }
 
+  const { handleSubmit, handleChange, values, touched, errors } = formik;
   return (
     <>
       <Image>
         <Container>
-          <Form onSubmit={formik.handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <Title>Calculate your daily calorie intake right now</Title>
             <Wrapper>
               <Section>
@@ -102,44 +111,44 @@ const DailyCaloriesForm = () => {
                   placeHolder="Heigth*"
                   id="height"
                   name="height"
-                  onChange={formik.handleChange}
-                  value={formik.values.height}
+                  onChange={handleChange}
+                  value={values.height}
                 />
-                {formik.touched.height && <p>{formik.errors.height}</p>}
+                {touched.height && <ErrorMessage>{errors.height}</ErrorMessage>}
 
                 <Input
                   placeHolder="Age*"
                   id="age"
                   name="age"
                   type="text"
-                  onChange={formik.handleChange}
-                  value={formik.values.age}
+                  onChange={handleChange}
+                  value={values.age}
                 />
-                {formik.touched.age && <p>{formik.errors.age}</p>}
+                {touched.age && <ErrorMessage>{errors.age}</ErrorMessage>}
 
                 <Input
                   placeHolder="Current weight*"
-                  id="currentWeight"
-                  name="currentWeight"
+                  id="cWeight"
+                  name="cWeight"
                   type="text"
-                  onChange={formik.handleChange}
-                  value={formik.values.currentWeight}
+                  onChange={handleChange}
+                  value={values.cWeight}
                 />
-                {formik.touched.currentWeight && (
-                  <p>{formik.errors.currentWeight}</p>
+                {touched.cWeight && (
+                  <ErrorMessage>{errors.cWeight}</ErrorMessage>
                 )}
               </Section>
               <div>
                 <Input
                   placeHolder="Desired weight*"
-                  id="desiredWeight"
-                  name="desiredWeight"
+                  id="dWeight"
+                  name="dWeight"
                   type="text"
-                  onChange={formik.handleChange}
-                  value={formik.values.desiredWeight}
+                  onChange={handleChange}
+                  value={values.dWeight}
                 />
-                {formik.touched.desiredWeight && (
-                  <p>{formik.errors.desiredWeight}</p>
+                {touched.dWeight && (
+                  <ErrorMessage>{errors.dWeight}</ErrorMessage>
                 )}
 
                 <Box>
@@ -147,56 +156,64 @@ const DailyCaloriesForm = () => {
                   <WrapperRadio>
                     <LabelRadio>
                       <InputRadio
-                        name="bloodType"
+                        name="blood"
                         type="radio"
                         value="1"
-                        onChange={formik.handleChange}
+                        onChange={handleChange}
+                        checked={values.blood === '1'}
                       />
                       <InputRadioStyled />
                       <LabelRadioText>1</LabelRadioText>
                     </LabelRadio>
                     <LabelRadio>
                       <InputRadio
-                        name="bloodType"
+                        name="blood"
                         type="radio"
-                        onChange={formik.handleChange}
+                        onChange={handleChange}
                         value="2"
+                        checked={values.blood === '2'}
                       />
                       <InputRadioStyled />
                       <LabelRadioText>2</LabelRadioText>
                     </LabelRadio>
                     <LabelRadio>
                       <InputRadio
-                        name="bloodType"
+                        name="blood"
                         type="radio"
-                        onChange={formik.handleChange}
+                        onChange={handleChange}
                         value="3"
+                        checked={values.blood === '3'}
                       />
                       <InputRadioStyled />
                       <LabelRadioText>3</LabelRadioText>
                     </LabelRadio>
                     <LabelRadio>
                       <InputRadio
-                        name="bloodType"
+                        name="blood"
                         type="radio"
-                        onChange={formik.handleChange}
+                        onChange={handleChange}
                         value="4"
+                        checked={values.blood === '4'}
                       />
                       <InputRadioStyled />
                       <LabelRadioText>4</LabelRadioText>
                     </LabelRadio>
                   </WrapperRadio>
                 </Box>
+                {touched.blood && <ErrorMessage>{errors.blood}</ErrorMessage>}
               </div>
-              {formik.touched.bloodType && <p>{formik.errors.bloodType}</p>}
             </Wrapper>
-            <BtnSub type="submit" onSubmit={formik.handleSubmit}>
+            <BtnSub type="submit" onSubmit={handleSubmit}>
               Submit
             </BtnSub>
           </Form>
         </Container>
       </Image>
-      {showModal && <Modal onClose={onClose}></Modal>}
+      {showModal && (
+        <Modal onClose={onClose}>
+          <DailyCalorieIntake data={values}> </DailyCalorieIntake>
+        </Modal>
+      )}
     </>
   );
 };

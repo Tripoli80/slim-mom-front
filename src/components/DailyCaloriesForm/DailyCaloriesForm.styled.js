@@ -62,3 +62,7 @@ export const Image = styled.div`
     background-position: right 0 top 0;
   }
 `;
+export const ErrorMessage = styled.p`
+  position: absolute;
+  color: rgb(200, 10, 65);
+`;

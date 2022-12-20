@@ -7,7 +7,7 @@ import Header from '../components/Header/Component';
 import { PublicRoute } from '../redux/routes/RestrictedRoute';
 import { PrivateRoute } from '../redux/routes/PrivateRoute';
 import { useNavigate } from 'react-router-dom';
-import DailyCaloriesForm from 'components/DailyCaloriesForm/Component';
+import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 
 // ПРИВ'ЯЖІТЬ свої сторінки!
 
@@ -27,7 +27,6 @@ function MainPage() {
     dispatch(authOperations.fetchCurrentUser());
     currentPath && navigate(currentPath);
   }, [currentPath, dispatch, navigate]);
-
 
   return (
     <>
