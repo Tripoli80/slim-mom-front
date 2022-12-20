@@ -12,6 +12,19 @@ export const Container = styled.nav`
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin-left: 20px;
+  display: none;
+
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    /* margin-left: 32px; */
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
+    /* margin-left: 16px; */
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -26,5 +39,8 @@ export const Link = styled(NavLink)`
 export const DiaryLink = styled.div`
   padding-left: 20px;
   margin-right: 16px;
-  border-left: 2px solid #e0e0e0;
+
+  @media (min-width: 1280px) {
+    border-left: 2px solid #e0e0e0;
+  }
 `;
