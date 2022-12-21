@@ -23,12 +23,12 @@ export const RegisterForm = () => {
   return (
     <Formik onSubmit={handleSubmit} initialValues={{ name: '', email: '', password: '' }}>
       <AuthFormWrapper>
-        <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="name" name="name" placeholder="name *" required />
-        <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="email" name="email" placeholder="email *" required />
-        <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="password" name="password" placeholder="password *" required />
+        <AuthFormLabel>name *</AuthFormLabel>
+        <AuthFormItem type="name" name="name" required />
+        <AuthFormLabel>email *</AuthFormLabel>
+        <AuthFormItem type="email" name="email" required />
+        <AuthFormLabel>password *</AuthFormLabel>
+        <AuthFormItem type="password" name="password" required />
         <AuthBtnsWrapper>
           <Button type="submit">Register</Button>
           <AuthFormNavLink to="/singin">Log in</AuthFormNavLink>

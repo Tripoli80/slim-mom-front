@@ -7,6 +7,7 @@ const PrimaryBtn = styled.button`
   padding-left: 24px;
   padding-right: 24px;
   color: #FFFFFF;
+  border: none;
   background-color: #FC842D;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
