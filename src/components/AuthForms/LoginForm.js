@@ -22,10 +22,10 @@ export const LoginForm = () => {
   return (
     <Formik onSubmit={handleSubmit} initialValues={{ email: '', password: '' }}>
       <AuthFormWrapper>
-        <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="email" name="email" placeholder="email *" required />
-        <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="password" name="password" placeholder="password *" required />
+        <AuthFormLabel>email *</AuthFormLabel>
+        <AuthFormItem type="email" name="email" required />
+        <AuthFormLabel>password *</AuthFormLabel>
+        <AuthFormItem type="password" name="password" required />
         <AuthBtnsWrapper>
           <Button type="submit">Log in</Button>
           <AuthFormNavLink to="/registration">Register</AuthFormNavLink>
