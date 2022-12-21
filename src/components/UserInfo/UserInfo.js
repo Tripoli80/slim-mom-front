@@ -1,15 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
-import { selectUser } from 'redux/auth/authSelectors';
+import { useAuth } from '../../hooks/hooks';
 import { Wrapper, UserName, Exit } from './UserInfo.styled';
 
 export const UserInfo = () => {
   const dispatch = useDispatch();
-  const { user } = selectUser();
+  const { user } = useAuth();
 
   return (
     <Wrapper>
-      {user && <UserName>Nik {user.name}</UserName>}
+      {user ? <UserName>{user.name}</UserName> : <>Nik</>}
       <Exit onClick={() => dispatch(logOut())}>Exit</Exit>
     </Wrapper>
   );
