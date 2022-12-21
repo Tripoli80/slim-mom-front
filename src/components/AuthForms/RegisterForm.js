@@ -1,11 +1,11 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
+import { register } from 'redux/auth/authOperations';
 import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 
 
-function RegisterForm() {
+export const RegisterForm = () => {
 
   const dispatch = useDispatch();
 
@@ -30,12 +30,10 @@ function RegisterForm() {
         <AuthFormLabel></AuthFormLabel>
         <AuthFormItem type="password" name="password" placeholder="password *" required />
         <AuthBtnsWrapper>
-          <Button PrimeryBtn type="submit">Register</Button>
-          <AuthFormNavLink to="/login">Log in</AuthFormNavLink>
+          <Button type="submit">Register</Button>
+          <AuthFormNavLink to="/singin">Log in</AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
   );
 };
-
-export default RegisterForm; 

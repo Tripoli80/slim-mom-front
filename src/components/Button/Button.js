@@ -1,24 +1,22 @@
-import { PrimaryBtn, SecondaryBtn, RoundBtn } from 'components/Button/Button.styled';
+import { PrimaryBtn } from 'components/Button/Button.styled';
 
-const buttonsByStyleName = {
-  primary: PrimaryBtn,
-  secondary: SecondaryBtn,
-  round: RoundBtn
-};
+// const buttonsByStyleName = {
+//   primary: PrimaryBtn,
+//   secondary: SecondaryBtn,
+//   round: RoundBtn
+// };
 
-const Button = ({
-  children, onclick, styleName, ...attrs
+export const Button = ({
+  children, onclick,  ...attrs
 }) => {
 
-  const Tag = buttonsByStyleName[styleName];
+  //const Tag = buttonsByStyleName[styleName];
 
   return (
-    <Tag
+    <PrimaryBtn
       {...attrs}
       onclick={onclick}
-    >{children}</Tag>
+    >{children}</PrimaryBtn>
   );
 };
-
-export default Button;
 
