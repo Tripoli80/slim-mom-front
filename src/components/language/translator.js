@@ -7,13 +7,32 @@ import { DEU } from './LanguageDeu';
 
 export const Translator = name => {
   const len = useSelector(getLanguage);
-  let titles = '';
-  if (len === 'EN') titles = EN[name];
-  if (len === 'RU') titles = RU[name];
-  if (len === 'UA') titles = UA[name];
-  if (len === 'DEU') titles = DEU[name];
+  const titles = [];
 
-  return <>{titles}</>;
+  const audit = Obj => {
+    const auditEN = Object.keys(Obj).includes(name);
+    return auditEN ? titles.push(Obj[name]) : titles.push('*!!!*');
+  };
+
+  switch (len) {
+    case 'EN':
+      audit(EN);
+      break;
+    case 'RU':
+      audit(RU);
+      break;
+    case 'UA':
+      audit(UA);
+      break;
+    case 'DEU':
+      audit(DEU);
+      break;
+    default:
+      titles.push('*!!!*');
+      console.log(`no such language pack((`);
+  }
+
+  return <>{[titles]}</>;
 };
 
 export default Translator;

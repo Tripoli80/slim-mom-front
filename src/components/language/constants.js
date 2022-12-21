@@ -1,6 +1,6 @@
 export const statusOptions = {
   EN: 'EN',
-  RU: 'RU',
+  RU: 'УЁЫ',
   UA: 'UA',
   DEU: 'DEU',
 };
