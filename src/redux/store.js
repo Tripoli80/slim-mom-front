@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
-import { modalSlice } from './services/modalSlice';
+import { modalReducer } from './services/modalSlice';
 import { filterSlice } from './services/filterSlice';
 import { diaryApi } from './services/createApi';
 
@@ -27,7 +27,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     [diaryApi.reducerPath]: diaryApi.reducer,
     [filterSlice.name]: filterSlice.reducer,
-    [modalSlice.name]: modalSlice.reducer,
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
@@ -38,4 +38,5 @@ export const store = configureStore({
     diaryApi.middleware,
   ],
 });
+
 export const persistor = persistStore(store);

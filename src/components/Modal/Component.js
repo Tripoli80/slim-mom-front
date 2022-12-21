@@ -5,13 +5,19 @@ import {
   ModalWindow,
   Title,
   CloseBtn,
-  Button,
+  // Button,
   BackArrow,
 } from './Component.styled';
+import { Button } from 'components/Button/Button';
+// import { useNavigate } from 'react-router-dom';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children }) => {
+  // const navigate = useNavigate();
+  // const goToRegistrationPage = () =>
+  //   navigate('/registration', { replace: true });
+
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') onClose();
