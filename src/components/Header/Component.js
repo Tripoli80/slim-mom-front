@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/authOperations';
+import { Translator } from 'components/language/translator';
 
 // нижче заглушка треба переписати
 
@@ -16,6 +17,9 @@ const ResponsiveAppBar = () => {
   const logout = () => {
     dispatch(authOperations.logOut());
   };
+  const Langu = ({ name }) => {
+    return Translator(name);
+  };
 
   return (
     <>
@@ -27,7 +31,7 @@ const ResponsiveAppBar = () => {
           onClick={handleCloseNavMenu}
           sx={{ my: 2, color: 'white', display: 'block' }}
         >
-          Home Page
+          {<Langu name="calculateYourDaily" />}
         </button>
       )}
 
@@ -39,7 +43,7 @@ const ResponsiveAppBar = () => {
           onClick={logout}
           sx={{ my: 2, color: 'white', display: 'block' }}
         >
-          Logout
+          {<Langu name="logout" />}
         </button>
       )}
     </>

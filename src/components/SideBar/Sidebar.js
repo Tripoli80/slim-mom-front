@@ -7,43 +7,52 @@ import {
   SidebarList,
   SidebarItem,
 } from './Sidebar.styled';
+import { Translator } from 'components/language/translator';
 
 export default function Sidebar({ date, summary, diet }) {
+  const Langu = ({ name }) => {
+    return Translator(name);
+  };
   const currentDate = format(Date.now(), 'dd/MM/yyyy');
   return (
     <SidebarWrap>
       <div>
         <SidebarTitle>
-          {date ? `Summary for ${date}` : `Summary for ${currentDate}`}
+          {<Langu name="summaryFor" />}
+          {date ? ` ${date}` : ` ${currentDate}`}
         </SidebarTitle>
         <SidebarList>
           <SidebarItem>
-            <SidebarText>Left</SidebarText>
+            <SidebarText>{<Langu name="left" />}</SidebarText>
             <SidebarText>{`${summary.left || '000'} kcal`}</SidebarText>
           </SidebarItem>
           <SidebarItem>
-            <SidebarText>Consumed</SidebarText>
+            <SidebarText>{<Langu name="consumed" />}</SidebarText>
             <SidebarText>{`${summary.consumed || '000'} kcal`}</SidebarText>
           </SidebarItem>
           <SidebarItem>
-            <SidebarText>Daily rate</SidebarText>
+            <SidebarText>{<Langu name="dailyRate" />}</SidebarText>
             <SidebarText>{`${summary.dailyRate || '000'} kcal`}</SidebarText>
           </SidebarItem>
           <SidebarItem>
-            <SidebarText>n% of normal</SidebarText>
+            <SidebarText>{<Langu name="nOfNormal" />}</SidebarText>
             <SidebarText>{`${summary.partOfNormal || '00'} %`}</SidebarText>
           </SidebarItem>
         </SidebarList>
       </div>
       <div>
-        <SidebarTitle>Food not recommended</SidebarTitle>
-        {!diet.length
-          ? (<SidebarText>Your diet will be displayed here</SidebarText>)
-          : (diet.map(({ id, product }) => (
+        <SidebarTitle>{<Langu name="foodNotRecommended" />}</SidebarTitle>
+        {!diet.length ? (
+          <SidebarText>{<Langu name="yourDietWill" />}</SidebarText>
+        ) : (
+          diet.map(({ id, product }) => (
             <SidebarList>
-              <li key={id}><SidebarText>{product}</SidebarText></li>
+              <li key={id}>
+                <SidebarText>{product}</SidebarText>
+              </li>
             </SidebarList>
-          )))}
+          ))
+        )}
       </div>
     </SidebarWrap>
   );

@@ -5,7 +5,7 @@ import {
   BtnSub,
   InputRadio,
   InputRadioStyled,
-  Label,
+  // Label,
   LabelRadio,
   LabelRadioText,
   TitleRaioGroup,
@@ -17,9 +17,15 @@ import { Form, Image, Section, Title, Wrapper } from './Component.styled';
 import { useState } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
 import { Modal } from 'components/Modal/Component';
+import { Translator } from 'components/language/translator';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
+
+  const Langu = ({ name }) => {
+    return Translator(name);
+  };
+
   const [showModal, setShowModal] = useState(false);
   const validation = Yup.object().shape({
     height: Yup.number()
@@ -95,11 +101,13 @@ const DailyCaloriesForm = () => {
       <Image>
         <Container>
           <Form onSubmit={formik.handleSubmit}>
-            <Title>Calculate your daily calorie intake right now</Title>
+            <Title>
+              <Langu name="calculateYourDaily" />
+            </Title>
             <Wrapper>
               <Section>
                 <Input
-                  placeHolder="Heigth*"
+                  placeHolder={<Langu name="height" />}
                   id="height"
                   name="height"
                   onChange={formik.handleChange}
@@ -108,7 +116,7 @@ const DailyCaloriesForm = () => {
                 {formik.touched.height && <p>{formik.errors.height}</p>}
 
                 <Input
-                  placeHolder="Age*"
+                  placeHolder={<Langu name="age" />}
                   id="age"
                   name="age"
                   type="text"
@@ -118,7 +126,7 @@ const DailyCaloriesForm = () => {
                 {formik.touched.age && <p>{formik.errors.age}</p>}
 
                 <Input
-                  placeHolder="Current weight*"
+                  placeHolder={<Langu name="currentWeight" />}
                   id="currentWeight"
                   name="currentWeight"
                   type="text"
@@ -131,7 +139,7 @@ const DailyCaloriesForm = () => {
               </Section>
               <div>
                 <Input
-                  placeHolder="Desired weight*"
+                  placeHolder={<Langu name="desiredWeight" />}
                   id="desiredWeight"
                   name="desiredWeight"
                   type="text"
@@ -143,7 +151,9 @@ const DailyCaloriesForm = () => {
                 )}
 
                 <Box>
-                  <TitleRaioGroup>Blood type *</TitleRaioGroup>
+                  <TitleRaioGroup>
+                    <Langu name="bloodType" />
+                  </TitleRaioGroup>
                   <WrapperRadio>
                     <LabelRadio>
                       <InputRadio
@@ -191,7 +201,7 @@ const DailyCaloriesForm = () => {
               {formik.touched.bloodType && <p>{formik.errors.bloodType}</p>}
             </Wrapper>
             <BtnSub type="submit" onSubmit={formik.handleSubmit}>
-              Submit
+              <Langu name="submit" />
             </BtnSub>
           </Form>
         </Container>

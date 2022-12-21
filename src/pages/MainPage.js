@@ -8,6 +8,9 @@ import { PublicRoute } from '../redux/routes/RestrictedRoute';
 import { PrivateRoute } from '../redux/routes/PrivateRoute';
 import { useNavigate } from 'react-router-dom';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/Component';
+// import {
+//   getLanguage,
+// } from '../redux/services/languageSlice'
 
 // ПРИВ'ЯЖІТЬ свої сторінки!
 
@@ -29,9 +32,19 @@ function MainPage() {
   }, [currentPath, dispatch, navigate]);
 
 
+  // useEffect(() => {
+  //   console.log(
+  //     'len = ',
+  //     useSelector(state => state.language)
+  //   );
+  // }, [useSelector]);
+
+  
+
+
   return (
     <>
-      <DailyCaloriesForm>
+      <DailyCaloriesForm>        
         {!pendingUserData && (
           <>
             <Header />

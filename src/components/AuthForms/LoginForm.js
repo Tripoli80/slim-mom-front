@@ -3,9 +3,14 @@ import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
+import { Translator } from 'components/language/translator';
 
 
 function LoginForm() {
+
+  const Langu = ({ name }) => {
+    return Translator(name);
+  };
 
   const dispatch = useDispatch();
 
@@ -23,12 +28,26 @@ function LoginForm() {
     <Formik onSubmit={handleSubmit} initialValues={{ email: '', password: '' }}>
       <AuthFormWrapper>
         <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="email" name="email" placeholder="email *" required />
+        <AuthFormItem
+          type="email"
+          name="email"
+          placeholder={<Langu name="email" />}
+          required
+        />
         <AuthFormLabel></AuthFormLabel>
-        <AuthFormItem type="password" name="password" placeholder="password *" required />
+        <AuthFormItem
+          type="password"
+          name="password"
+          placeholder={<Langu name="password" />}
+          required
+        />
         <AuthBtnsWrapper>
-          <Button PrimeryBtn type="submit">Log in</Button>
-          <AuthFormNavLink to="/register">Register</AuthFormNavLink>
+          <Button PrimeryBtn type="submit">
+            {<Langu name="logIn" />}
+          </Button>
+          <AuthFormNavLink to="/register">
+            {<Langu name="register" />}
+          </AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>

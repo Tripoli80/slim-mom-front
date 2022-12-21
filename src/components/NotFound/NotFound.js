@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Translator } from 'components/language/translator';
 
 // нижче заглушка треба переписати
 
 const setTimer = 5;
 const NotFoundView = () => {
+  const Langu = ({ name }) => {
+    return Translator(name);
+  };
   const [time, setTime] = useState(setTimer);
 
   let navigate = useNavigate();
@@ -39,18 +43,18 @@ const NotFoundView = () => {
       }}
     >
       <p>
-        <> Page not found,
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <>
           {' '}
-          go to homepage
-        </Link>
+          {<Langu name="pageNotFound" />}
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            {' '}
+            {<Langu name="goToHomepage" />}
+          </Link>
         </>
       </p>
 
       <p style={{ textAlign: 'center', marginTop: '10px' }}>
-        <>
-        {`Redirecting in ${time} seconds`}
-        </>
+        <>{`Redirecting in ${time} seconds`}</>
       </p>
     </div>
   );

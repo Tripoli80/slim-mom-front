@@ -8,10 +8,15 @@ import {
   Button,
   BackArrow,
 } from './Component.styled';
+import { Translator } from 'components/language/translator';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children }) => {
+  const Langu = ({ name }) => {
+    return Translator(name);
+  };
+
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') onClose();
@@ -35,9 +40,12 @@ export const Modal = ({ onClose, children }) => {
       <ModalWindow onClose={onClose}>
         <CloseBtn type="button" onClick={onClose}></CloseBtn>
         <BackArrow color="black" size="20px" onClick={onClose} left="20px" />
-        <Title>Your recommended daily {'\n'}calorie intake is</Title>
+        <Title>
+          {<Langu name="yourRecommendedDaily" />} {'\n'}
+          {<Langu name="calorieIntakeIs" />}
+        </Title>
         <Button type="button" onClick={onClose}>
-          Start losing weight
+          {<Langu name="startLosingweight" />}
         </Button>
       </ModalWindow>
     </Overlay>,
