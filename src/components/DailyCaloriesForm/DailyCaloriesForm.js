@@ -21,14 +21,20 @@ import {
   Title,
   Wrapper,
 } from './DailyCaloriesForm.styled';
-import { useState } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
 import { Modal } from 'components/Modal/Component';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
+import { useDispatch, useSelector } from 'react-redux';
+import { openModal, closeModal } from 'redux/services/modalSlice';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const { isOpen } = useSelector(store => store.modal);
+  const onOpenModal = () => {
+    dispatch(openModal());
+  };
+
   const validation = Yup.object().shape({
     height: Yup.number()
       .typeError('Must be a number')
@@ -79,22 +85,17 @@ const DailyCaloriesForm = () => {
     validationSchema: validation,
     onSubmit: values => {
       localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
-
-      setShowModal(true);
+      onOpenModal();
     },
   });
 
-  const onClose = () => {
-    setShowModal(false);
-  };
-
   const windowWidth = useWindowWidth();
-  if (showModal) {
+  if (isOpen) {
     if (windowWidth >= 768) {
       document.body.style.overflow = 'hidden';
     }
   }
-  if (!showModal) {
+  if (!isOpen) {
     document.body.style.overflow = 'unset';
   }
 
@@ -209,8 +210,12 @@ const DailyCaloriesForm = () => {
           </Form>
         </Container>
       </Image>
-      {showModal && (
-        <Modal onClose={onClose}>
+      {isOpen && (
+        <Modal
+          onClose={() => {
+            dispatch(closeModal());
+          }}
+        >
           <DailyCalorieIntake data={values}> </DailyCalorieIntake>
         </Modal>
       )}
