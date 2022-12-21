@@ -9,6 +9,8 @@ import {
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 const DailyCalorieIntake = ({ data }) => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,27 +35,26 @@ const DailyCalorieIntake = ({ data }) => {
 
   return (
     <>
-      {loading ? (
-        'Loading'
-      ) : (
+      <div>
+        <WrapperCallories>
+          <Callories>
+            {loading ? <Skeleton width={20} /> : stats.dailyCalorie}
+            <CalloriesText>ккал</CalloriesText>
+          </Callories>
+        </WrapperCallories>
         <div>
-          <WrapperCallories>
-            <Callories>
-              {stats.dailyCalorie} <CalloriesText>ккал</CalloriesText>
-            </Callories>
-          </WrapperCallories>
-          <div>
-            <TitleList>Foods you should not eat</TitleList>
-            <List>
-              {stats.products.map(product => {
-                return (
-                  <ListItem key={nanoid()}>{product.categories[0]}</ListItem>
-                );
-              })}
-            </List>
-          </div>
+          <TitleList>Foods you should not eat</TitleList>
+          <List>
+            {loading ? (
+              <Skeleton count={5} width={200} />
+            ) : (
+              stats.products.map(product => {
+                return <ListItem key={nanoid()}>{product._id[0]}</ListItem>;
+              })
+            )}
+          </List>
         </div>
-      )}
+      </div>
     </>
   );
 };

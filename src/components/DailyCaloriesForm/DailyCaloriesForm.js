@@ -26,6 +26,7 @@ import { Modal } from 'components/Modal/Component';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal, closeModal } from 'redux/services/modalSlice';
+import { Button } from 'components/Button/Button';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
@@ -204,9 +205,15 @@ const DailyCaloriesForm = () => {
                 {touched.blood && <ErrorMessage>{errors.blood}</ErrorMessage>}
               </div>
             </Wrapper>
-            <BtnSub type="submit" onSubmit={handleSubmit}>
-              Submit
+            <BtnSub>
+              <Button type="submit" onSubmit={handleSubmit}>
+                Submit
+              </Button>
             </BtnSub>
+
+            {/* <BtnSub type="submit" onSubmit={handleSubmit}>
+              Submit
+            </BtnSub> */}
           </Form>
         </Container>
       </Image>

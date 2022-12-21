@@ -42,6 +42,7 @@ export const Modal = ({ onClose, children }) => {
         <CloseBtn type="button" onClick={onClose}></CloseBtn>
         <BackArrow color="black" size="20px" onClick={onClose} left="20px" />
         <Title>Your recommended daily {'\n'}calorie intake is</Title>
+        {children}
         <Button type="button" onClick={onClose}>
           Start losing weight
         </Button>
