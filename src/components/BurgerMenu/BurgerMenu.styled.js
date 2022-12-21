@@ -5,13 +5,14 @@ export const Menu = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
-  top: 60px;
+  top: 66px;
   left: 0;
   transform: translateX(-100%);
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  /* &.active {
+  &.active {
     transform: translateX(0);
-  } */
+  }
 
   font-family: 'Verdana';
   font-style: normal;
@@ -21,13 +22,10 @@ export const Menu = styled.div`
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-`;
 
-export const Blur = styled.div`
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(2px);
-  position: absolute;
+  @media (min-width: 768px) {
+    top: 82px;
+  }
 `;
 
 export const MenuContent = styled.div`
@@ -37,7 +35,7 @@ export const MenuContent = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
-  transition: oll 0.2s;
+  transition: all 0.4s;
 
   background-color: #264061;
 

@@ -25,13 +25,14 @@ export const Wrapper = styled.div`
 
   @media (min-width: 1280px) {
     margin-left: 760px;
+    align-items: flex-end;
   } ;
 `;
 
 export const UserName = styled.p`
   margin: 0;
-  padding-right: 15px;
-  border-right: 2px solid #e0e0e0;
+  margin-right: 15px;
+
   color: #212121;
 `;
 
@@ -40,5 +41,6 @@ export const Exit = styled.p`
   padding-left: 15px;
   padding-right: 15px;
   color: #9b9faa;
+  border-left: 2px solid #e0e0e0;
   cursor: pointer;
 `;
