@@ -6,8 +6,7 @@ export const Wrapper = styled.div`
   margin: 0;
   flex-grow: 1;
 
-  margin-left: 20px;
-  margin-top: 20px;
+  margin: 20px 0 16px 20px;
 
   @media (min-width: 768px) {
     margin: 0;
@@ -28,7 +27,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 
   font-size: 18px;
 
@@ -42,7 +41,6 @@ export const TextMom = styled.p`
   text-transform: capitalize;
   color: #fc842d;
   display: ${props => {
-    console.log(props);
     switch (props.user) {
       case true:
         return 'block';
@@ -51,21 +49,20 @@ export const TextMom = styled.p`
         return 'none';
 
       default:
-        return 'none';
+        break;
     }
   }};
 
   @media (min-width: 768px) {
+    display: block;
     margin: 0;
   }
 `;
 
 export const TextSlim = styled.p`
-  margin: 0 6px 0 0;
-
   text-transform: capitalize;
   color: #212121;
-
+  margin: 0 6px 0 0;
   display: ${props => {
     switch (props.user) {
       case true:
@@ -75,7 +72,11 @@ export const TextSlim = styled.p`
         return 'none';
 
       default:
-        return 'none';
+        break;
     }
   }};
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;

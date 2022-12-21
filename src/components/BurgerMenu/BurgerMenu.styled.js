@@ -5,7 +5,7 @@ export const Menu = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
-  top: 66px;
+  top: 82px;
   left: 0;
   transform: translateX(-100%);
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
