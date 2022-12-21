@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Navigation } from '../Navigation/Navigation';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { UserInfo } from '../UserInfo/UserInfo';
@@ -5,10 +6,13 @@ import { Header } from './AppBar.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useIsLoading } from '../../hooks/hooks';
 import { Logo } from '../Logo/Logo';
-import { Link, BurgerMenu } from './AppBar.styled';
+import { Link, BurgerMenuStyle } from './AppBar.styled';
+import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 
 export const AppBar = () => {
   const { isLoggedIn } = useIsLoading();
+  const [menuActive, setMenuactive] = useState(false);
+
   return (
     <Header>
       <Link to="/">
@@ -18,9 +22,10 @@ export const AppBar = () => {
         <>
           <Navigation />
           <UserInfo />
-          <BurgerMenu>
-            <GiHamburgerMenu />
-          </BurgerMenu>
+          <BurgerMenuStyle onClick={() => setMenuactive(!menuActive)}>
+            <GiHamburgerMenu size={24} />
+            <BurgerMenu active={menuActive} setActive={setMenuactive} />
+          </BurgerMenuStyle>
         </>
       )}
       <AuthNav />
@@ -32,9 +37,10 @@ export const AppBar = () => {
     //   </Link>
     //   <Navigation />
     //   <UserInfo />
-    //   <BurgerMenu>
-    //     <GiHamburgerMenu />
-    //   </BurgerMenu>
+    //   <BurgerMenuStyle onClick={() => setMenuactive(!menuActive)}>
+    //     <GiHamburgerMenu size={24} />
+    //     <BurgerMenu active={menuActive} setActive={setMenuactive} />
+    //   </BurgerMenuStyle>
     //   {isLoggedIn && <AuthNav />}
     // </Header>
   );

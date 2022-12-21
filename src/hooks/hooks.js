@@ -1,13 +1,11 @@
 import {
   getAuth,
-  // getIsLoading,
   getNotifyMassage,
   getNotifyStatus,
   getReflashing,
   getSigIn,
-  getUserName,
 } from '../redux/selectors';
-import { getIsLoading } from '../redux/auth/selectors';
+import { getIsLoading, selectUser } from '../redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
 export const useAuth = () => {
@@ -28,8 +26,10 @@ export const useToken = () => {
   return useSelector(getAuth);
 };
 export const useUserName = () => {
-  return useSelector(getUserName);
+  const user = useSelector(selectUser);
+  return user;
 };
+
 export const useIsLoading = () => {
   const isLoggedIn = useSelector(getIsLoading);
   return isLoggedIn;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin: 0;
   font-family: 'Gotham Pro';
   font-style: normal;
@@ -10,17 +10,17 @@ export const Wrapper = styled.div`
   font-size: 14px;
   line-height: 13px;
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  border-top: 2px solid #e0e0e0;
 
-  background: #eff1f3;
-  position: absolute;
-  bottom: -29px;
-  right: 20px;
+  background-color: #eff1f3;
+  justify-content: flex-end;
+  height: 40px;
 
   @media (min-width: 768px) {
     position: static;
     background: #fff;
     margin-left: 300px;
+    border: none;
   }
 
   @media (min-width: 1280px) {
@@ -38,6 +38,7 @@ export const UserName = styled.p`
 export const Exit = styled.p`
   margin: 0;
   padding-left: 15px;
+  padding-right: 15px;
   color: #9b9faa;
   cursor: pointer;
 `;

@@ -17,13 +17,8 @@ export const Container = styled.nav`
 
   flex-wrap: wrap;
 
-  @media (min-width: 768px) {
-    /* margin-left: 32px; */
-  }
-
   @media (min-width: 1280px) {
     display: flex;
-    /* margin-left: 16px; */
   }
 `;
 
@@ -32,6 +27,11 @@ export const Link = styled(NavLink)`
   color: #9b9faa;
 
   &.active {
+    color: #212121;
+  }
+
+  :hover:not(.active),
+  &:focus-visible:not(.active) {
     color: #212121;
   }
 `;

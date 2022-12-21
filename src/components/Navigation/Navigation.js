@@ -4,10 +4,10 @@ export const Navigation = () => {
   return (
     <Container>
       <DiaryLink>
-        <Link to="diary">Diary</Link>
+        <Link to="/diary">Diary</Link>
       </DiaryLink>
       <div>
-        <Link to="calculator">Calculator</Link>
+        <Link to="/calculator">Calculator</Link>
       </div>
     </Container>
   );
