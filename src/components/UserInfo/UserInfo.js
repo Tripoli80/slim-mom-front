@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
+import { selectUser } from 'redux/auth/authSelectors';
 import { Wrapper, UserName, Exit } from './UserInfo.styled';
-import { useUserName } from '../../hooks/hooks';
 
 export const UserInfo = () => {
   const dispatch = useDispatch();
-  const { user } = useUserName();
+  const { user } = selectUser();
 
   return (
     <Wrapper>

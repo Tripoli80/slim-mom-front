@@ -5,7 +5,6 @@ import {
   BtnSub,
   InputRadio,
   InputRadioStyled,
-  Label,
   LabelRadio,
   LabelRadioText,
   TitleRaioGroup,

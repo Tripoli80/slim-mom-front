@@ -26,22 +26,22 @@ export const useAuth = () => {
   };
 };
 
-export const useNotify = () => {
-  return useSelector(getNotifyStatus);
-};
-export const useNotifyMassege = () => {
-  return useSelector(getNotifyMassage);
-};
-export const useToken = () => {
-  return useSelector(getAuth);
-};
-export const useUserName = () => {
-  return useSelector(getUserName);
-};
-export const useIsLoading = () => {
-  const isLoggedIn = useSelector(getIsLoading);
-  return isLoggedIn;
-};
+// export const useNotify = () => {
+//   return useSelector(getNotifyStatus);
+// };
+// export const useNotifyMassege = () => {
+//   return useSelector(getNotifyMassage);
+// };
+// export const useToken = () => {
+//   return useSelector(getAuth);
+// };
+// export const useUserName = () => {
+//   return useSelector(getUserName);
+// };
+// export const useIsLoading = () => {
+//   const isLoggedIn = useSelector(getIsLoading);
+//   return isLoggedIn;
+// };
 
 // export const useNotify = () => {
 //   return useSelector(getNotifyStatus);
