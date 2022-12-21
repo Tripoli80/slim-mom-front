@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Navigation } from '../Navigation/Navigation';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { UserInfo } from '../UserInfo/UserInfo';
@@ -20,9 +19,9 @@ export const AppBar = () => {
         <>
           <Navigation />
           <UserInfo />
-          <BurgerMenuStyle onClick={() => setMenuactive(!menuActive)}>
+          <BurgerMenuStyle>
             <GiHamburgerMenu size={24} />
-            <BurgerMenu active={menuActive} setActive={setMenuactive} />
+            <BurgerMenu />
           </BurgerMenuStyle>
         </>
       )}
