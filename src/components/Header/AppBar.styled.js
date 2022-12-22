@@ -2,10 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: 100%;
   align-items: center;
   margin: 0;
   border-bottom: 2px solid #e0e0e0;
-  position: relative;
 
   @media (min-width: 768px) {
     display: flex;
@@ -33,7 +37,7 @@ export const Link = styled(NavLink)`
 export const BurgerMenuStyle = styled.div`
   cursor: pointer;
   position: absolute;
-  top: 5px;
+  top: 30px;
   right: 20px;
 
   @media (min-width: 768px) {

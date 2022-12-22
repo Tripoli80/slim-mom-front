@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   color: #9b9faa;
 
   position: absolute;
-  top: 20px;
+  bottom: 30px;
   right: 20px;
 
   @media (min-width: 768px) {
