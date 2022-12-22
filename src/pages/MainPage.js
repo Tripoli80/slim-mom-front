@@ -30,44 +30,43 @@ function MainPage() {
 
   return (
     <>
-      <DailyCaloriesForm>
-        {!pendingUserData && (
-          <>
-            <Header />
-            <Suspense fallback={<Loader />}>
-              <Routes>
-                <Route
-                  path="/"
-                  element={<PublicRoute>{/* <Home /> */}</PublicRoute>}
-                />
-                <Route
-                  path="/register"
-                  element={
-                    <PublicRoute path={'/'} restricted>
-                      {/* <SignUp /> */}
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="/login"
-                  element={
-                    <PublicRoute path={'/'} restricted>
-                      {/* <SignIn /> */}
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="/contacts"
-                  element={
-                    <PrivateRoute path={'/'}>{/* <Product /> */}</PrivateRoute>
-                  }
-                />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </>
-        )}
-      </DailyCaloriesForm>
+      <DailyCaloriesForm> </DailyCaloriesForm>
+      {!pendingUserData && (
+        <>
+          <Header />
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path="/"
+                element={<PublicRoute>{/* <Home /> */}</PublicRoute>}
+              />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute path={'/'} restricted>
+                    {/* <SignUp /> */}
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute path={'/'} restricted>
+                    {/* <SignIn /> */}
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/contacts"
+                element={
+                  <PrivateRoute path={'/'}>{/* <Product /> */}</PrivateRoute>
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </>
+      )}
     </>
   );
 }

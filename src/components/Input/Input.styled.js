@@ -13,7 +13,8 @@ export const InputValue = styled.input.attrs(props => ({
   border: none;
   border-bottom: 1px solid #9b9faa;
   font: inherit;
-  color: #9b9faa;
+  font-size: 14px;
+  color: #212121;
   background-color: transparent;
   outline: none;
   width: 100%;
@@ -74,6 +75,9 @@ export const LabelRadioText = styled.span`
   line-height: 17px;
   letter-spacing: 0.04em;
   color: #9b9faa;
+  ${InputRadio}:hover ~ && {
+    color: #fc842d;
+  }
   ${InputRadio}:checked ~ && {
     font-weight: 700;
     color: #fc842d;
@@ -89,11 +93,15 @@ export const TitleRaioGroup = styled.span`
   color: #9b9faa;
   margin-bottom: 8px;
 `;
-export const BtnSub = styled.button`
-  width: 100px;
-  margin: 0 auto;
+export const BtnSub = styled.div`
+  min-width: 100px;
+  margin: 10px auto;
   @media (min-width: 768px) {
     margin-top: 60px;
     margin-left: 32px;
+  }
+  @media (min-width: 1260px) {
+    margin-top: 60px;
+    margin-left: 280px;
   }
 `;

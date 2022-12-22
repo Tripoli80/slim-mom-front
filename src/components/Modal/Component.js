@@ -45,6 +45,8 @@ export const Modal = ({ onClose, children }) => {
           {Translator('yourRecommendedDaily')} {'\n'}
           {Translator('calorieIntakeIs')}
         </Title>
+        <Title>Your recommended daily {'\n'}calorie intake is</Title>
+        {children}
         <Button type="button" onClick={onClose}>
           {Translator('startLosingweight')}
         </Button>

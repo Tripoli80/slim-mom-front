@@ -9,6 +9,8 @@ import {
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Translator } from 'components/language/translator';
 const DailyCalorieIntake = ({ data }) => {
   const [stats, setStats] = useState(null);
@@ -34,18 +36,21 @@ const DailyCalorieIntake = ({ data }) => {
 
   return (
     <>
-      {loading ? (
-        'Loading'
-      ) : (
+      <div>
+        <WrapperCallories>
+          <Callories>
+            {loading ? <Skeleton width={20} /> : stats.dailyCalorie}
+            <CalloriesText>ккал</CalloriesText>
+          </Callories>
+        </WrapperCallories>
         <div>
           <WrapperCallories>
             <Callories>
-              {stats.dailyCalorie}{' '}
-              <CalloriesText>{Translator('kcal')}</CalloriesText>
+              {stats.dailyCalorie} <CalloriesText>ккал</CalloriesText>
             </Callories>
           </WrapperCallories>
           <div>
-            <TitleList>{Translator('foodsYouShouldNotEat')}</TitleList>
+            <TitleList>Foods you should not eat</TitleList>
             <List>
               {stats.products.map(product => {
                 return (
@@ -55,7 +60,7 @@ const DailyCalorieIntake = ({ data }) => {
             </List>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

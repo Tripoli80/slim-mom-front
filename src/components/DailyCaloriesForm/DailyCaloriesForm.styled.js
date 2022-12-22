@@ -27,7 +27,7 @@ export const Title = styled.h2`
   }
   @media (min-width: 1264px) {
     width: 600px;
-    margin-top: 150px;
+    margin-top: 200px;
   }
 `;
 export const Wrapper = styled.div`
@@ -46,8 +46,6 @@ export const Section = styled.div`
 export const Image = styled.div`
   height: 100%;
   @media (min-width: 768px) {
-    height: 1004px;
-
     background-image: url(${Lust}), url(${Strawberry}), url(${Banan}),
       url(${Vector});
     background-repeat: no-repeat;
@@ -56,7 +54,6 @@ export const Image = styled.div`
       right 0 bottom 0, right 0 bottom 0;
   }
   @media (min-width: 1264px) {
-    height: 800px;
     background-image: url(${FrameDeck});
     background-size: 980px 820px;
     background-position: right 0 top 0;
