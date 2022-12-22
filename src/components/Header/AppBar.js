@@ -9,6 +9,7 @@ import { useAuth } from '../../hooks/hooks';
 import { Logo } from '../Logo/Logo';
 import { Link, BurgerMenuStyle } from './AppBar.styled';
 import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
+import { Language } from 'components/language/index';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
@@ -32,6 +33,7 @@ export const AppBar = () => {
       ) : (
         <AuthNav />
       )}
+      <Language />
     </Header>
   );
 };

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
+import { Translator } from 'components/language/translator';
 import { useSelector, useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/authOperations';
 
@@ -27,7 +27,7 @@ const ResponsiveAppBar = () => {
           onClick={handleCloseNavMenu}
           sx={{ my: 2, color: 'white', display: 'block' }}
         >
-          Home Page
+          {Translator('homePage')}
         </button>
       )}
 
@@ -39,7 +39,7 @@ const ResponsiveAppBar = () => {
           onClick={logout}
           sx={{ my: 2, color: 'white', display: 'block' }}
         >
-          Logout
+          {Translator('logout')}
         </button>
       )}
     </>

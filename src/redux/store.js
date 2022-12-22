@@ -3,6 +3,7 @@ import { authReducer } from './auth/authSlice';
 import { modalReducer } from './services/modalSlice';
 import { filterSlice } from './services/filterSlice';
 import { diaryApi } from './services/createApi';
+import { languageSlice } from './services/languageSlice';
 
 import {
   persistStore,
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     [diaryApi.reducerPath]: diaryApi.reducer,
     [filterSlice.name]: filterSlice.reducer,
+    [languageSlice.name]: languageSlice.reducer,
     modal: modalReducer,
   },
   middleware: getDefaultMiddleware => [

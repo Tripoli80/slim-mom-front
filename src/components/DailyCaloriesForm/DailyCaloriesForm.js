@@ -12,7 +12,7 @@ import {
 } from 'components/Input/Input.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
+import { Translator } from 'components/language/translator';
 import {
   ErrorMessage,
   Form,
@@ -105,11 +105,11 @@ const DailyCaloriesForm = () => {
       <Image>
         <Container>
           <Form onSubmit={handleSubmit}>
-            <Title>Calculate your daily calorie intake right now</Title>
+            <Title>{Translator('calculateYourDaily')}</Title>
             <Wrapper>
               <Section>
                 <Input
-                  placeHolder="Heigth*"
+                  placeHolder={Translator('height')}
                   id="height"
                   name="height"
                   onChange={handleChange}
@@ -118,7 +118,7 @@ const DailyCaloriesForm = () => {
                 {touched.height && <ErrorMessage>{errors.height}</ErrorMessage>}
 
                 <Input
-                  placeHolder="Age*"
+                  placeHolder={Translator('age')}
                   id="age"
                   name="age"
                   type="text"
@@ -128,7 +128,7 @@ const DailyCaloriesForm = () => {
                 {touched.age && <ErrorMessage>{errors.age}</ErrorMessage>}
 
                 <Input
-                  placeHolder="Current weight*"
+                  placeHolder={Translator('currentWeight')}
                   id="cWeight"
                   name="cWeight"
                   type="text"
@@ -141,7 +141,7 @@ const DailyCaloriesForm = () => {
               </Section>
               <div>
                 <Input
-                  placeHolder="Desired weight*"
+                  placeHolder={Translator('desiredWeight')}
                   id="dWeight"
                   name="dWeight"
                   type="text"
@@ -153,7 +153,7 @@ const DailyCaloriesForm = () => {
                 )}
 
                 <Box>
-                  <TitleRaioGroup>Blood type *</TitleRaioGroup>
+                  <TitleRaioGroup>{Translator('bloodType')}</TitleRaioGroup>
                   <WrapperRadio>
                     <LabelRadio>
                       <InputRadio
@@ -205,7 +205,7 @@ const DailyCaloriesForm = () => {
               </div>
             </Wrapper>
             <BtnSub type="submit" onSubmit={handleSubmit}>
-              Submit
+              {Translator('submit')}
             </BtnSub>
           </Form>
         </Container>

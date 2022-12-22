@@ -1,13 +1,13 @@
 import { Link, Wrapper, SignInText, RegistrationText } from './AuthNav.styled';
-
+import { Translator } from 'components/language/translator';
 export const AuthNav = () => {
   return (
     <Wrapper>
       <SignInText>
-        <Link to="/singin">Sign in</Link>
+        <Link to="/singin">{Translator('signIn')}</Link>
       </SignInText>
       <RegistrationText>
-        <Link to="/registration">Registration</Link>
+        <Link to="/registration">{Translator('registration')}</Link>
       </RegistrationText>
     </Wrapper>
   );
