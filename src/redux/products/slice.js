@@ -14,58 +14,67 @@ const productsInitState = {
       weight: 100,
       title: 'Яйце куряче (жовток сухий)',
       calories: 623,
+      date: '2022-12-10T12:05:45',
     },
     {
       id: '5d51694802b2373622ff5254d',
       weight: 100,
       title: 'Горох маш Ярмарка Платинум',
       calories: 312,
+      date: '2022-12-10T12:05:45',
     },
     {
       id: '5d51694802b2373622ff3555c',
       weight: 100,
       title: 'Гречана крупа (ядриця) зелена',
       calories: 296,
+      date: '2022-12-22T12:05:45',
     },
     {
       id: '5d51694802b23713622ff553b',
       weight: 100,
       title: 'Яйце куряче (жовток сухий)',
       calories: 623,
+      date: '2022-12-22T12:05:45',
     },
     {
       id: '5d516948102b2373622ff554d',
       weight: 100,
       title: 'Горох маш Ярмарка Платинум',
       calories: 312,
+      date: '2022-12-22T12:05:45',
     },
     {
       id: '5d51694802b23731622ff555c',
       weight: 100,
       title: 'Гречана крупа (ядриця) зелена',
       calories: 296,
+      date: '2022-12-22T12:05:45',
     },
     {
       id: '5d516948102b2373622ff553b',
       weight: 100,
       title: 'Яйце куряче (жовток сухий)',
       calories: 623,
+      date: '2022-12-22T12:05:45',
     },
     {
       id: '5d51694802b23731622ff554d',
       weight: 100,
       title: 'Горох маш Ярмарка Платинум',
       calories: 312,
+      date: '2022-12-22T12:05:45',
     },
     {
       id: '5d511694802b2373622ff555c',
       weight: 100,
       title: 'Гречана крупа (ядриця) зелена',
       calories: 296,
+      date: '2022-12-22T12:05:45',
     },
   ],
 
-  filter: '',
+  date: null,
   isLoading: false,
   error: null,
 };
@@ -79,8 +88,8 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: productsInitState,
   reducers: {
-    setFilter: (state, action) => {
-      state.filter = action.payload;
+    setDate: (state, action) => {
+      state.date = action.payload;
     },
   },
 
@@ -106,6 +115,6 @@ const productsSlice = createSlice({
       }),
 });
 
-export const { setFilter } = productsSlice.actions;
+export const { setDate } = productsSlice.actions;
 
 export const productsReducer = productsSlice.reducer;

@@ -8,7 +8,7 @@ const DiaryPage = () => {
   return (
     <>
       <DiaryDateСalendar />
-      {windowWidth > 768 && <DiaryAddProductForm />}
+      {windowWidth >= 768 && <DiaryAddProductForm />}
       <DiaryProductList />
     </>
   );

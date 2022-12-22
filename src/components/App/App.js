@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 const MainPage = lazy(() => import('pages/MainPage'));
-const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'));
+const DiaryPage = lazy(() => import('pages/DiaryPage'));
 
 function App() {
   return (

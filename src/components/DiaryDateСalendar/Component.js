@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
+import moment from 'moment';
 import { DateForm, DateInput, DateButton } from './Component.styled';
+import { setDate } from 'redux/products/slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectDate } from 'redux/products/selectors';
 
 export const DiaryDateСalendar = () => {
-  return <MyDTPicker />;
-};
-class MyDTPicker extends React.Component {
-  render() {
-    return (
-      <Datetime
-        dateFormat="DD.MM.YYYY"
-        timeFormat={false}
-        closeOnSelect={true}
-        initialValue={new Date()}
-        renderInput={this.renderInput}
-      />
-    );
-  }
+  const dispatch = useDispatch();
+  const date = useSelector(selectDate);
+  const [selectedDate, setSelectedDate] = useState(
+    date || moment(new Date()).format('DD.MM.YYYY')
+  );
 
-  renderInput(props, openCalendar) {
+  useEffect(() => {
+    dispatch(setDate(selectedDate));
+  }, [dispatch, selectedDate]);
+
+  const onChangeDate = value => {
+    setSelectedDate(moment(value).format('DD.MM.YYYY'));
+  };
+
+  const renderInput = (props, openCalendar) => {
     return (
       <DateForm>
         <DateInput {...props} />
@@ -32,5 +35,16 @@ class MyDTPicker extends React.Component {
         </DateButton>
       </DateForm>
     );
-  }
-}
+  };
+
+  return (
+    <Datetime
+      dateFormat="DD.MM.YYYY"
+      timeFormat={false}
+      closeOnSelect={true}
+      initialValue={new Date()}
+      renderInput={renderInput}
+      onChange={onChangeDate}
+    />
+  );
+};
