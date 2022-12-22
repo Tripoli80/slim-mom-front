@@ -207,15 +207,8 @@ const DailyCaloriesForm = () => {
             </Wrapper>
             <BtnSub>
               <Button type="submit" onSubmit={handleSubmit}>
-                Submit
+                {Translator('submit')}
               </Button>
-            </BtnSub>
-
-            {/* <BtnSub type="submit" onSubmit={handleSubmit}>
-              Submit
-            </BtnSub> */}
-            <BtnSub type="submit" onSubmit={handleSubmit}>
-              {Translator('submit')}
             </BtnSub>
           </Form>
         </Container>
