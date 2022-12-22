@@ -7,7 +7,7 @@ import {
   SidebarList,
   SidebarItem,
 } from './Sidebar.styled';
-
+import { Translator } from 'components/language/translator';
 export default function Sidebar({ date, summary, diet }) {
   const currentDate = format(Date.now(), 'dd/MM/yyyy');
   return (
@@ -18,32 +18,36 @@ export default function Sidebar({ date, summary, diet }) {
         </SidebarTitle>
         <SidebarList>
           <SidebarItem>
-            <SidebarText>Left</SidebarText>
+            <SidebarText>{Translator('left')}</SidebarText>
             <SidebarText>{`${summary.left || '000'} kcal`}</SidebarText>
           </SidebarItem>
           <SidebarItem>
-            <SidebarText>Consumed</SidebarText>
+            <SidebarText>{Translator('consumed')}</SidebarText>
             <SidebarText>{`${summary.consumed || '000'} kcal`}</SidebarText>
           </SidebarItem>
           <SidebarItem>
-            <SidebarText>Daily rate</SidebarText>
+            <SidebarText>{Translator('dailyRate')}</SidebarText>
             <SidebarText>{`${summary.dailyRate || '000'} kcal`}</SidebarText>
           </SidebarItem>
           <SidebarItem>
-            <SidebarText>n% of normal</SidebarText>
+            <SidebarText>{Translator('nOfNormal')}</SidebarText>
             <SidebarText>{`${summary.partOfNormal || '00'} %`}</SidebarText>
           </SidebarItem>
         </SidebarList>
       </div>
       <div>
-        <SidebarTitle>Food not recommended</SidebarTitle>
-        {!diet.length
-          ? (<SidebarText>Your diet will be displayed here</SidebarText>)
-          : (diet.map(({ id, product }) => (
+        <SidebarTitle>{Translator('foodNotRecommended')}</SidebarTitle>
+        {!diet.length ? (
+          <SidebarText>{Translator('yourDietWill')}</SidebarText>
+        ) : (
+          diet.map(({ id, product }) => (
             <SidebarList>
-              <li key={id}><SidebarText>{product}</SidebarText></li>
+              <li key={id}>
+                <SidebarText>{product}</SidebarText>
+              </li>
             </SidebarList>
-          )))}
+          ))
+        )}
       </div>
     </SidebarWrap>
   );

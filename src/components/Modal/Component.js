@@ -10,7 +10,7 @@ import {
 } from './Component.styled';
 import { Button } from 'components/Button/Button';
 // import { useNavigate } from 'react-router-dom';
-
+import { Translator } from 'components/language/translator';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children }) => {
@@ -41,9 +41,12 @@ export const Modal = ({ onClose, children }) => {
       <ModalWindow onClose={onClose}>
         <CloseBtn type="button" onClick={onClose}></CloseBtn>
         <BackArrow color="black" size="20px" onClick={onClose} left="20px" />
-        <Title>Your recommended daily {'\n'}calorie intake is</Title>
+        <Title>
+          {Translator('yourRecommendedDaily')} {'\n'}
+          {Translator('calorieIntakeIs')}
+        </Title>
         <Button type="button" onClick={onClose}>
-          Start losing weight
+          {Translator('startLosingweight')}
         </Button>
       </ModalWindow>
     </Overlay>,
