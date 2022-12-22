@@ -9,14 +9,16 @@ import {
   BackArrow,
 } from './Component.styled';
 import { Button } from 'components/Button/Button';
+import { useNavigate } from 'react-router-dom';
+
 // import { useNavigate } from 'react-router-dom';
 import { Translator } from 'components/language/translator';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children }) => {
-  // const navigate = useNavigate();
-  // const goToRegistrationPage = () =>
-  //   navigate('/registration', { replace: true });
+  const navigate = useNavigate();
+  const goToRegistrationPage = () =>
+    navigate('/registration', { replace: true });
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -46,9 +48,8 @@ export const Modal = ({ onClose, children }) => {
           {Translator('calorieIntakeIs')}
         </Title>
         <Title>Your recommended daily {'\n'}calorie intake is</Title>
-        {children}
         <Button type="button" onClick={onClose}>
-          {Translator('startLosingweight')}
+          Start losing weight
         </Button>
       </ModalWindow>
     </Overlay>,
