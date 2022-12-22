@@ -29,7 +29,9 @@ const DailyCalorieIntake = ({ data }) => {
 
       fetchMyAPI();
     } catch (e) {
+      console.log('====================================');
       console.log(e);
+      console.log('====================================');
       setLoading(false);
     }
   }, [data]);
@@ -44,19 +46,16 @@ const DailyCalorieIntake = ({ data }) => {
           </Callories>
         </WrapperCallories>
         <div>
-          <WrapperCallories>
-            <Callories>
-              {stats.dailyCalorie} <CalloriesText>ккал</CalloriesText>
-            </Callories>
-          </WrapperCallories>
           <div>
             <TitleList>Foods you should not eat</TitleList>
             <List>
-              {stats.products.map(product => {
-                return (
-                  <ListItem key={nanoid()}>{product.categories[0]}</ListItem>
-                );
-              })}
+              {loading ? (
+                <Skeleton count={5} />
+              ) : (
+                stats.products.map(product => {
+                  return <ListItem key={nanoid()}>{product._id[0]}</ListItem>;
+                })
+              )}
             </List>
           </div>
         </div>
