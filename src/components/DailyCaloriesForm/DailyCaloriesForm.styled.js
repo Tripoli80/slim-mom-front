@@ -27,7 +27,6 @@ export const Title = styled.h2`
   }
   @media (min-width: 1264px) {
     width: 600px;
-    margin-top: 200px;
   }
 `;
 export const Wrapper = styled.div`
@@ -45,6 +44,8 @@ export const Section = styled.div`
 
 export const Image = styled.div`
   height: 100%;
+  width: 100%;
+  position: absolute;
   @media (min-width: 768px) {
     background-image: url(${Lust}), url(${Strawberry}), url(${Banan}),
       url(${Vector});
