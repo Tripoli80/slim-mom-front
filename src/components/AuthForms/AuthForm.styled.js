@@ -8,9 +8,9 @@ export const AuthFormWrapper = styled(Form)`
   width: 100%;
   padding-top: 40px;
 
-  @media screen and (min-width: 480px) {
+  /* @media screen and (min-width: 480px) {
     width: 280px;
-  }
+  } */
 
   @media screen and (min-width: 768px) {
     width: 100%;
@@ -45,17 +45,17 @@ export const AuthFormTitle = styled.h3`
 
 export const AuthFormLabel = styled.label`
   font-size: 14px;
+  font-weight: 700;
   color: #9b9faa;
 `;
 
 export const AuthFormItem = styled(Field)`
   margin-bottom: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 2px;
   width: 100%;
   background-color: transparent;
   outline: none;
   font-family: 'Verdana';
-  font-weight: 700;
   font-size: 14px;
   line-height: calc(17 / 14);
   letter-spacing: 0.04em;
