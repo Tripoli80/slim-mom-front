@@ -1,12 +1,16 @@
 import { lazy } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+
 const MainPage = lazy(() => import('pages/MainPage'));
+const DiaryPage = lazy(() => import('pages/DiaryPage/DiaryPage'));
+
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route element={<MainPage />} path="/"></Route>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/Diary" element={<DiaryPage />} />
       </Routes>
     </div>
   );
