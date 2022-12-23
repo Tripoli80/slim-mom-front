@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { register, login, logOut, refreshUser } from './authOperations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { username: null, email: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -16,7 +16,7 @@ const authSlice = createSlice({
   extraReducers: buider => {
     buider
       .addCase(logOut.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = { username: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
