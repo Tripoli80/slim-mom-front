@@ -4,6 +4,7 @@ import { modalReducer } from './services/modalSlice';
 import { filterSlice } from './services/filterSlice';
 import { diaryApi } from './services/createApi';
 import { languageSlice } from './services/languageSlice';
+import { productsReducer } from './products/slice';
 
 import {
   persistStore,
@@ -30,6 +31,7 @@ export const store = configureStore({
     [filterSlice.name]: filterSlice.reducer,
     [languageSlice.name]: languageSlice.reducer,
     modal: modalReducer,
+    products: productsReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
