@@ -10,6 +10,15 @@ export const Form = styled.form`
   flex-direction: column;
   width: 100%;
   position: relative;
+
+  padding-bottom: 10px;
+
+  @media (min-width: 768px) {
+    padding-bottom: 20px;
+  }
+  @media (min-width: 1280px) {
+    padding-bottom: 40px;
+  }
 `;
 export const Title = styled.h2`
   font-family: 'Verdana';
@@ -19,14 +28,19 @@ export const Title = styled.h2`
   width: 100%;
   font-size: 18px;
   margin-bottom: 34px;
+  padding-top: 32px;
+
   @media (min-width: 768px) {
     width: 700px;
     font-size: 34px;
     line-height: 48px;
     margin-bottom: 32px;
+    padding-top: 100px;
   }
+
   @media (min-width: 1264px) {
     width: 600px;
+    padding-top: 145px;
   }
 `;
 export const Wrapper = styled.div`
@@ -46,18 +60,26 @@ export const Image = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
+  
   @media (min-width: 768px) {
-    background-image: url(${Lust}), url(${Strawberry}), url(${Banan}),
-      url(${Vector});
-    background-repeat: no-repeat;
-    background-size: 531px 602px, 300px 300px, 740px 527px, 803px 750px;
-    background-position: left 0 bottom 0, right 200px bottom 200px,
-      right 0 bottom 0, right 0 bottom 0;
+    // background-image: url(${Lust}), 
+    // url(${Strawberry}), 
+    // url(${Banan}),
+      // url(${Vector});
+    // background-repeat: no-repeat;
+    // background-size: 531px 602px, 300px 300px, 740px 527px, 803px 750px;
+    // background-position: left 0 bottom 0, right 200px bottom 200px,
+    //   right 0 bottom 0, right 0 bottom 0;
   }
   @media (min-width: 1264px) {
-    background-image: url(${FrameDeck});
-    background-size: 980px 820px;
-    background-position: right 0 top 0;
+    // background-image: url(${FrameDeck});
+    // background-size: 980px 820px;
+    // background-position: right 0 top 0;
+  }
+  @media (min-width: 1700px) {
+    // background-image: url(${FrameDeck}), url(${Strawberry});
+    // background-size: 531px 602px, 300px 300px;
+    // background-position: left 0 bottom 0, right 200px bottom 200px;
   }
 `;
 export const ErrorMessage = styled.p`

@@ -7,6 +7,7 @@ import { setLanguageActions } from '../../redux/services/languageSlice';
 export const Language = () => {
   const dispatch = useDispatch();
   const localLen = localStorage.getItem('Language');
+  if (!localLen) localStorage.setItem('Language', 'EN');
 
   const LangOptionsClick = e => {
     dispatch(setLanguageActions(e.target.value));
@@ -17,19 +18,18 @@ export const Language = () => {
     dispatch(setLanguageActions(localLen));
   }, [dispatch, localLen]);
 
+  const arrOpt = [];
+  Object.keys(statusOptions).map(opt =>
+    opt === localLen ? arrOpt.unshift(opt) : arrOpt.push(opt)
+  );
+
   return (
     <SELECTOR onChange={LangOptionsClick}>
-      {Object.keys(statusOptions).map(opt =>
-        opt === localLen ? (
-          <option key={opt} value={opt} selected>
-            {statusOptions[opt]}
-          </option>
-        ) : (
-          <option key={opt} value={opt}>
-            {statusOptions[opt]}
-          </option>
-        )
-      )}
+      {arrOpt.map(opt => (
+        <option key={opt} value={opt}>
+          {statusOptions[opt]}
+        </option>
+      ))}
     </SELECTOR>
   );
 };

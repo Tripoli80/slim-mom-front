@@ -14,18 +14,12 @@ export const Wrapper = styled.div`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
-
-  position: absolute;
-  bottom: 30px;
-  right: 20px;
-
-  @media (min-width: 768px) {
-    position: static;
-  }
+  margin-bottom: 14px;
 
   @media (min-width: 1280px) {
     margin-left: 20px;
     border-left: 2px solid #e0e0e0;
+    margin-bottom: 4px;
   }
 `;
 

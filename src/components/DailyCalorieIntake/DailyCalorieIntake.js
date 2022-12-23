@@ -42,12 +42,12 @@ const DailyCalorieIntake = ({ data }) => {
         <WrapperCallories>
           <Callories>
             {loading ? <Skeleton width={20} /> : stats.dailyCalorie}
-            <CalloriesText>ккал</CalloriesText>
+            <CalloriesText>{Translator('kcal')}</CalloriesText>
           </Callories>
         </WrapperCallories>
         <div>
           <div>
-            <TitleList>Foods you should not eat</TitleList>
+            <TitleList>{Translator('foodsYouShouldNotEat')}</TitleList>
             <List>
               {loading ? (
                 <Skeleton count={5} />

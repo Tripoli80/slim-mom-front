@@ -16,7 +16,6 @@ import { Translator } from 'components/language/translator';
 import {
   ErrorMessage,
   Form,
-  Image,
   Section,
   Title,
   Wrapper,
@@ -103,7 +102,6 @@ const DailyCaloriesForm = () => {
   const { handleSubmit, handleChange, values, touched, errors } = formik;
   return (
     <>
-      <Image>
         <Container>
           <Form onSubmit={handleSubmit}>
             <Title>{Translator('calculateYourDaily')}</Title>
@@ -212,7 +210,6 @@ const DailyCaloriesForm = () => {
             </BtnSub>
           </Form>
         </Container>
-      </Image>
       {isOpen && (
         <Modal
           onClose={() => {
