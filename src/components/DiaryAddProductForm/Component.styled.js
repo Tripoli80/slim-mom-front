@@ -13,8 +13,6 @@ export const Form = styled.form`
     padding-left: 16px;
   }
 
-  display: flex;
-
   align-items: center;
 `;
 
