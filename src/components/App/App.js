@@ -10,7 +10,7 @@ import Container from 'components/Container/Container';
 import { Image } from 'components/App/App.stiled';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 
-const DairyPage = lazy(() => import('../../pages/DairyPage'));
+const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
@@ -44,12 +44,13 @@ const App = () => {
               }
             />
             <Route
-              path="/dairy"
+              path="/diary"
               element={
-                <PrivateRoute redirectTo="/login" component={<DairyPage />} />
+                <PrivateRoute redirectTo="/login" component={<DiaryPage />} />
               }
             />
           </Route>
+          <Route path="/devDiary" element={<DiaryPage />} />
         </Routes>
       </Container>
     </>
