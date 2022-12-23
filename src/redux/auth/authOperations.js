@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const { URL_DB } = process.env;
 
-axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
+axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app2/';
 
 const token = {
   set(token) {
@@ -15,6 +15,10 @@ const token = {
 };
 
 export const register = createAsyncThunk('auth/register', async userData => {
+  console.log(
+    '🚀 ~ file: authOperations.js:18 ~ register ~ userData',
+    userData
+  );
   try {
     const { data } = await axios.post('api/users/signup', userData);
     token.set(data.token);
