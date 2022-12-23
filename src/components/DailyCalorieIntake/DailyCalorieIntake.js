@@ -12,8 +12,12 @@ import { nanoid } from 'nanoid';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Translator } from 'components/language/translator';
+import { useSelector } from 'react-redux';
+import { getLanguage } from 'redux/services/languageSlice';
 const DailyCalorieIntake = ({ data }) => {
+  const len = useSelector(getLanguage);
   const [stats, setStats] = useState(null);
+  
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     try {
@@ -53,7 +57,7 @@ const DailyCalorieIntake = ({ data }) => {
                 <Skeleton count={5} />
               ) : (
                 stats.products.map(product => {
-                  return <ListItem key={nanoid()}>{product._id[0]}</ListItem>;
+                  return <ListItem key={nanoid()}>{product._id[len.toLowerCase()]}</ListItem>;
                 })
               )}
             </List>
