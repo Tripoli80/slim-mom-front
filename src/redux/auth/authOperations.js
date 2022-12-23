@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const { URL_DB } = process.env;
+// const { URL_DB } = process.env;
 
-axios.defaults.baseURL = URL_DB;
+axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
 
 const token = {
   set(token) {
@@ -16,7 +16,7 @@ const token = {
 
 export const register = createAsyncThunk('auth/register', async userData => {
   try {
-    const { data } = await axios.post('/users/signup', userData);
+    const { data } = await axios.post('api/users/signup', userData);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -25,7 +25,7 @@ export const register = createAsyncThunk('auth/register', async userData => {
 });
 export const login = createAsyncThunk('auth/login', async userData => {
   try {
-    const { data } = await axios.post('/users/login', userData);
+    const { data } = await axios.post('api/users/login', userData);
     token.set(data.token);
     return data;
   } catch (error) {
@@ -34,7 +34,7 @@ export const login = createAsyncThunk('auth/login', async userData => {
 });
 export const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('api/users/logout');
     token.unset();
   } catch (error) {
     console.log(error);
@@ -52,7 +52,7 @@ export const refreshUser = createAsyncThunk(
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
+      const { data } = await axios.get('api/users/current');
 
       return data;
     } catch (error) {

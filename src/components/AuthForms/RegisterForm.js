@@ -1,18 +1,23 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
-import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink } from 'components/AuthForms/AuthForm.styled';
+import {
+  AuthFormWrapper,
+  AuthFormLabel,
+  AuthFormItem,
+  AuthBtnsWrapper,
+  AuthFormNavLink,
+} from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 
 export const RegisterForm = () => {
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       register({
-        name: values.name,
+        username: values.name,
         email: values.email,
         password: values.password,
       })

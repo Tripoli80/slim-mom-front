@@ -77,7 +77,7 @@ const DailyCaloriesForm = () => {
         age: '',
         cWeight: '',
         dWeight: '',
-        blood: '',
+        blood: '1',
       };
   const formik = useFormik({
     initialValues: initialValues,
