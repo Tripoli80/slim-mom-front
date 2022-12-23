@@ -6,8 +6,6 @@ export const Wrapper = styled.div`
   margin: 0;
   flex-grow: 1;
 
-  margin: 20px 0 16px 20px;
-
   @media (min-width: 768px) {
     margin: 0;
   }
@@ -28,8 +26,13 @@ export const Container = styled.div`
   align-items: center;
   margin-left: 10px;
   margin-bottom: 14px;
-
   font-size: 18px;
+  font-weight: lighter;
+
+  @media (min-width: 768px) {
+     font-size: 24px;
+     margin-bottom: 8px;
+  }
 
   @media (min-width: 1280px) {
     margin-left: -15px;

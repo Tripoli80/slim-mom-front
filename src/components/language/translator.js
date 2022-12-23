@@ -29,7 +29,6 @@ export const Translator = name => {
       break;
     default:
       titles.push('*!!!*');
-      console.log(`no such language pack((`);
   }
 
   return <>{[titles]}</>;
