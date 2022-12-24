@@ -53,7 +53,7 @@ const productsSlice = createSlice({
       })
       .addCase(removeEatedProduct.fulfilled, (state, action) => {
         const index = state.eatedProducts.findIndex(
-          c => c.id === action.payload
+          ep => ep._id === action.payload
         );
         state.eatedProducts.splice(index, 1);
       })
