@@ -1,5 +1,6 @@
 export const DEU = {
   slim: 'Delgado',
+  refreshingUser: 'Benutzer aktualisieren...',
   startLosingweight: 'Beginnen Sie mit dem Abnehmen',
   age: 'Alter*',
   kcal: 'kcal',
