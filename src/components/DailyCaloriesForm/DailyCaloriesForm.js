@@ -87,6 +87,7 @@ const DailyCaloriesForm = () => {
                 name="height"
                 onChange={handleChange}
                 value={values.height}
+                required
               />
               {touched.height && <ErrorMessage>{errors.height}</ErrorMessage>}
 
@@ -97,6 +98,7 @@ const DailyCaloriesForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={values.age}
+                required
               />
               {touched.age && <ErrorMessage>{errors.age}</ErrorMessage>}
 
@@ -107,6 +109,7 @@ const DailyCaloriesForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={values.cWeight}
+                required
               />
               {touched.cWeight && <ErrorMessage>{errors.cWeight}</ErrorMessage>}
             </Section>
@@ -118,6 +121,7 @@ const DailyCaloriesForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={values.dWeight}
+                required
               />
               {touched.dWeight && <ErrorMessage>{errors.dWeight}</ErrorMessage>}
 
