@@ -11,7 +11,7 @@ export const DiaryDateСalendar = () => {
   const dispatch = useDispatch();
   const date = useSelector(selectDate);
   const [selectedDate, setSelectedDate] = useState(
-    date || moment(new Date()).format('DD.MM.YYYY')
+    date || moment(new Date()).format('YYYY-MM-DD')
   );
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const DiaryDateСalendar = () => {
   }, [dispatch, selectedDate]);
 
   const onChangeDate = value => {
-    setSelectedDate(moment(value).format('DD.MM.YYYY'));
+    setSelectedDate(moment(value).format('YYYY-MM-DD'));
   };
 
   const renderInput = (props, openCalendar) => {

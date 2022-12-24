@@ -4,8 +4,8 @@ const Input = props => {
   return (
     <>
       <Box>
-        <Label>{props.placeHolder}</Label>
         <InputValue {...props} />
+        <Label htmlFor={props.name}>{props.placeHolder}</Label>
       </Box>
     </>
   );

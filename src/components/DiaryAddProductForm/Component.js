@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { addProduct } from 'redux/products/operations';
+import { addEatedProduct } from 'redux/products/operations';
 import {
   Form,
   Input,
@@ -21,7 +21,7 @@ export const DiaryAddProductForm = () => {
   const handleAddProduct = e => {
     e.preventDefault();
 
-    dispatch(addProduct({ title, weight }));
+    // dispatch(addEatedProduct({ title, weight }));
     resetForm();
   };
 

@@ -1,5 +1,6 @@
 export const UA = {
   slim: 'Струнка',
+  refreshingUser: 'Оновлення користувача...',
   startLosingweight: 'Почати худнути',
   age: 'Вік*',
   kcal: 'ккал',

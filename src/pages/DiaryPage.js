@@ -4,6 +4,10 @@ import { DiaryDateСalendar } from 'components/DiaryDateСalendar/Component';
 import { DiaryProductList } from 'components/DiaryProductsList/Component';
 import { useWindowWidth } from 'hooks/useWindowWidth';
 import Sidebar from 'components/SideBar/Sidebar';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsByDate } from 'redux/products/operations';
+import { selectDate } from 'redux/products/selectors';
 
 const DiaryPageWrap = styled.div`
 @media screen and (min-width: 1280px) {
@@ -12,6 +16,15 @@ const DiaryPageWrap = styled.div`
 `
 const DiaryPage = () => {
   const windowWidth = useWindowWidth();
+  const date = useSelector(selectDate);
+  const dispatch = useDispatch();
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(getProductsByDate(date));
+  }, [date, dispatch]);
+
   return (
     <DiaryPageWrap>
       <div>

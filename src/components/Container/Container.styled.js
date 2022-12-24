@@ -3,7 +3,7 @@ const { default: styled } = require('styled-components');
 export const ContainerStyled = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 
   // box-shadow: rgb(0 0 0 / 20%) 0px 8px 11px 4px,
   //  rgb(0 0 0 / 14%) 0px 2px 2px 0px,

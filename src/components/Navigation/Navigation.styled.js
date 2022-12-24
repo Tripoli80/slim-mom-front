@@ -19,6 +19,7 @@ export const Container = styled.nav`
 
   @media (min-width: 1280px) {
     display: flex;
+    margin-bottom: 4px;
   }
 `;
 

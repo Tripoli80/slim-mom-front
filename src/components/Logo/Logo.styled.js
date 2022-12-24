@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   align-items: flex-end;
   margin: 0;
   flex-grow: 1;
+  margin-bottom: 16px;
 
   @media (min-width: 768px) {
     margin: 0;
@@ -12,8 +13,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 47px;
-  height: 44px;
+  width: 38px;
+  height: 41px;
+
+  @media (min-width: 768px) {
+    width: 47px;
+    height: 44px;
+  }
 
   @media (min-width: 1280px) {
     width: 71px;
@@ -25,13 +31,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   font-size: 18px;
   font-weight: lighter;
 
   @media (min-width: 768px) {
-     font-size: 24px;
-     margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 8px;
   }
 
   @media (min-width: 1280px) {
