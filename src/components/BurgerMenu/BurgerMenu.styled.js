@@ -7,6 +7,7 @@ export const Menu = styled.div`
   height: 100vh;
   top: 82px;
   left: 0;
+  z-index: 1100;
   transform: translateX(-100%);
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
@@ -24,7 +25,7 @@ export const Menu = styled.div`
   text-transform: uppercase;
 
   @media (min-width: 768px) {
-    top: 82px;
+    top: 86px;
   }
 `;
 
