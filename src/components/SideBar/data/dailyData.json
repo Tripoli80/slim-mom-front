@@ -1,0 +1,167 @@
+[
+  {
+      "_id": "63a4b2fdcbb12f5a495f678f",
+      "owner": "63a3056ce25056304dc0b15a",
+      "weight": 454,
+      "intakeCalories": 1416.48,
+      "product": {
+          "title": {
+              "ru": "Горох маш Ярмарка Платинум",
+              "ua": "Горох маш Ярмарка Платинум",
+              "en": "Platinum Fair Mung Peas",
+              "deu": "Mungbohnen Fair Trade Platinum"
+          },
+          "_id": "5d51694802b2373622ff554d",
+          "categories": [
+              {
+                  "ru": "зерновые",
+                  "deu": "Körner",
+                  "en": "grains",
+                  "ua": "зернові"
+              }
+          ],
+          "weight": 100,
+          "calories": 312,
+          "groupBloodNotAllowed": [
+              null,
+              true,
+              false,
+              false,
+              false
+          ],
+          "__v": 0
+      }
+  },
+  {
+      "_id": "63a4b352cbb12f5a495f6793",
+      "owner": "63a3056ce25056304dc0b15a",
+      "weight": 300,
+      "intakeCalories": 87,
+      "product": {
+          "title": {
+              "ru": "Капуста брокколи Hortex",
+              "ua": "Капуста брокколі Hortex",
+              "en": "Dried white cabbage",
+              "deu": "Brokkoli-Kohl Hortex"
+          },
+          "_id": "5d51694902b2373622ff5d13",
+          "categories": [
+              {
+                  "ru": "овощи и зелень",
+                  "deu": "Gemüse und Kräuter",
+                  "en": "vegetables and herbs",
+                  "ua": "овочі та зелень"
+              }
+          ],
+          "weight": 100,
+          "calories": 29,
+          "groupBloodNotAllowed": [
+              null,
+              false,
+              false,
+              false,
+              false
+          ],
+          "__v": 0
+      }
+  },
+  {
+      "_id": "63a4b356cbb12f5a495f6797",
+      "owner": "63a3056ce25056304dc0b15a",
+      "weight": 300,
+      "intakeCalories": 87,
+      "product": {
+          "title": {
+              "ru": "Капуста брокколи Hortex",
+              "ua": "Капуста брокколі Hortex",
+              "en": "Dried white cabbage",
+              "deu": "Brokkoli-Kohl Hortex"
+          },
+          "_id": "5d51694902b2373622ff5d13",
+          "categories": [
+              {
+                  "ru": "овощи и зелень",
+                  "deu": "Gemüse und Kräuter",
+                  "en": "vegetables and herbs",
+                  "ua": "овочі та зелень"
+              }
+          ],
+          "weight": 100,
+          "calories": 29,
+          "groupBloodNotAllowed": [
+              null,
+              false,
+              false,
+              false,
+              false
+          ],
+          "__v": 0
+      }
+  },
+  {
+      "_id": "63a4b358cbb12f5a495f679b",
+      "owner": "63a3056ce25056304dc0b15a",
+      "weight": 300,
+      "intakeCalories": 87,
+      "product": {
+          "title": {
+              "ru": "Капуста брокколи Hortex",
+              "ua": "Капуста брокколі Hortex",
+              "en": "Dried white cabbage",
+              "deu": "Brokkoli-Kohl Hortex"
+          },
+          "_id": "5d51694902b2373622ff5d13",
+          "categories": [
+              {
+                  "ru": "овощи и зелень",
+                  "deu": "Gemüse und Kräuter",
+                  "en": "vegetables and herbs",
+                  "ua": "овочі та зелень"
+              }
+          ],
+          "weight": 100,
+          "calories": 29,
+          "groupBloodNotAllowed": [
+              null,
+              false,
+              false,
+              false,
+              false
+          ],
+          "__v": 0
+      }
+  },
+  {
+      "_id": "63a4b39ccbb12f5a495f67a3",
+      "owner": "63a3056ce25056304dc0b15a",
+      "weight": 100,
+      "intakeCalories": 534,
+      "product": {
+          "title": {
+              "ru": "Семена льна",
+              "ua": "Насіння льону",
+              "en": "Dried peach",
+              "deu": "Leinsamen"
+          },
+          "_id": "5d51694902b2373622ff5cb5",
+          "categories": [
+              {
+                  "ru": "семена",
+                  "deu": "Samen",
+                  "en": "seeds",
+                  "ua": "насіння"
+              }
+          ],
+          "weight": 100,
+          "calories": 534,
+          "groupBloodNotAllowed": [
+              null,
+              false,
+              false,
+              false,
+              false
+          ],
+          "__v": 0
+      }
+  }
+]
