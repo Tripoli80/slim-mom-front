@@ -8,6 +8,7 @@ import { useAuth } from '../../hooks/hooks';
 import { refreshUser } from 'redux/auth/authOperations';
 import Container from 'components/Container/Container';
 import { Image } from 'components/App/App.stiled';
+import { Translator } from 'components/language/translator';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 
 const DairyPage = lazy(() => import('../../pages/DairyPage'));
@@ -23,7 +24,7 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <b>{Translator('refreshingUser')}</b>
   ) : (
     <>
       <Image />

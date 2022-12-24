@@ -1,5 +1,6 @@
 export const RU = {
   slim: 'Стройная',
+  refreshingUser: 'Обновление пользователя...',
   startLosingweight: 'Начать худеть',
   age: 'Возраст*',
   kcal: 'ккал',
