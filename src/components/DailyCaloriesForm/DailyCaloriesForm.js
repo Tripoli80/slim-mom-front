@@ -11,7 +11,6 @@ import {
   WrapperRadio,
 } from 'components/Input/Input.styled';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { Translator } from 'components/language/translator';
 import {
   ErrorMessage,
@@ -26,6 +25,7 @@ import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal, closeModal } from 'redux/services/modalSlice';
 import { Button } from 'components/Button/Button';
+import validation from './validateFormik';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
@@ -35,32 +35,6 @@ const DailyCaloriesForm = () => {
     dispatch(openModal());
   };
 
-  const validation = Yup.object().shape({
-    height: Yup.number()
-      .typeError('Must be a number')
-      .min(100, 'Minimal 20')
-      .max(250, 'Max 250')
-      .required('Required!'),
-    age: Yup.number()
-      .typeError('Must be a number')
-      .min(18, 'Minimal 18')
-      .max(100, 'Max 100')
-      .required('Required!'),
-    cWeight: Yup.number()
-      .typeError('Must be a number')
-      .min(20, 'Minimal 20')
-      .max(500, 'Max 500')
-      .required('Required!'),
-    dWeight: Yup.number()
-      .typeError('Must be a number')
-      .min(20, 'Minimal 20')
-      .max(
-        Yup.ref('cWeight'),
-        'The maximum value cannot be greater than the current one.'
-      )
-      .required('Required!'),
-    blood: Yup.number().required('Required!'),
-  });
   const getFromLocalStorage = JSON.parse(
     localStorage.getItem(KEY_DAILY_CALORIE)
   );
