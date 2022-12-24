@@ -50,7 +50,6 @@ const App = () => {
               }
             />
           </Route>
-          <Route path="/diary" element={<DiaryPage />} />
         </Routes>
       </Container>
     </>

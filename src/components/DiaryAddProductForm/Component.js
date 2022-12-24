@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsByTitle } from 'redux/products/operations';
+// import debounce from 'lodash.debounce';
 
-import { useDispatch } from 'react-redux';
-import { addProduct } from 'redux/products/operations';
 import {
   Form,
   Input,
@@ -11,19 +12,24 @@ import {
   InputR,
   FieldProduct,
   FieldWeight,
+  FilteredList,
 } from './Component.styled';
+import { selectSelectedProducts } from 'redux/products/selectors';
 
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
   const [weight, setWeight] = useState('');
   const dispatch = useDispatch();
-
+  // const DEBOUNCE_DELAY = 300;
+  const sp = useSelector(selectSelectedProducts);
   const handleAddProduct = e => {
     e.preventDefault();
-
-    dispatch(addProduct({ title, weight }));
+    // dispatch(getProductsByTitle(title));
+    // dispatch(addProduct({ title, weight }));
     resetForm();
   };
+
+  // const handleChangeTitle = val => {};
 
   const resetForm = () => {
     setTitle('');
@@ -36,13 +42,28 @@ export const DiaryAddProductForm = () => {
         <Input
           id="title"
           type="text"
-          value={title}
-          onChange={e => setTitle(e.currentTarget.value)}
+          // value={title}
+          // onChange={e => {
+          //   setTitle(e.currentTarget.value);
+          //   if (e.currentTarget.value.length > 3)
+          //     dispatch(getProductsByTitle(e.currentTarget.value));
+          // }}
           name="title"
           required
         />
         <LabelL htmlFor="title">Enter product name</LabelL>
+        <FilteredList>
+          {title.length > 3 &&
+            sp.map(({ _id, title }) => (
+              <li key={_id}>
+                <button type="button" onClick={() => setTitle(title.ua)}>
+                  {title.ua}
+                </button>
+              </li>
+            ))}
+        </FilteredList>
       </FieldProduct>
+
       <FieldWeight>
         <InputR
           id="weight"

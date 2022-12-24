@@ -116,3 +116,11 @@ export const Button = styled.button`
     fill: currentColor;
   }
 `;
+
+export const FilteredList = styled.ul`
+  /* border: 1px solid red; */
+  z-index: 10;
+  position: absolute;
+  /* background-color: aliceblue; */
+  width: max-content;
+`;
