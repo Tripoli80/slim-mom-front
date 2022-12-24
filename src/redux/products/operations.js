@@ -55,3 +55,18 @@ export const removeEatedProduct = createAsyncThunk(
     }
   }
 );
+
+export const addNewProduct = createAsyncThunk(
+  'products/addNewProduct',
+  async (newProduct, thunkAPI) => {
+    try {
+      const { data } = await axios.post(
+        'api/products/addnewproduct',
+        newProduct
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

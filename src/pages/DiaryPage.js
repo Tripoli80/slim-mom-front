@@ -29,11 +29,11 @@ const DiaryPage = () => {
 
   return (
     <DiaryPageWrap>
-      <AddNewProductBlock />
       <div>
         <DiaryDateСalendar />
         {windowWidth >= 768 && <DiaryAddProductForm />}
         <DiaryProductList />
+        <AddNewProductBlock />
       </div>
       <Sidebar />
     </DiaryPageWrap>

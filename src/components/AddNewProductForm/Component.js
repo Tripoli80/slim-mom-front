@@ -1,6 +1,9 @@
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { addNewProduct } from '../../redux/products/operations';
 
 const AddNewProductForm = () => {
+  const dispatch = useDispatch();
   // const handleSubmit = e => {
   //   e.preventDefault();
   //   const form = e.currentTarget;
@@ -23,7 +26,9 @@ const AddNewProductForm = () => {
         //   categories: form.elements.categories.value,
         //   calories: form.elements.calories.value,
         // };
+        dispatch(addNewProduct(values));
         console.log('values:', values);
+
         // form.reset();
       }}
       validate={values => {
