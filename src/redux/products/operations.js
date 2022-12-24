@@ -3,13 +3,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
 
-// must create new record with fieds id, name, weight, calories, owner, date
-// return fieds id, name, weight, calories
-export const addProduct = createAsyncThunk(
-  'daily/addProduct',
-  async (product, thunkAPI) => {
+export const getProductsByDate = createAsyncThunk(
+  'products/getByDate',
+  async (date, thunkAPI) => {
     try {
-      const { data } = await axios.post('api/daily', product);
+      const { data } = await axios.get(`api/daily?date=${date}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -17,10 +15,37 @@ export const addProduct = createAsyncThunk(
   }
 );
 
-// must remove record with id
-// return fieds id, name ?
-export const removeProduct = createAsyncThunk(
-  'daily/removeProduct',
+export const getProductsByTitle = createAsyncThunk(
+  'products/fetchAll',
+  async (title, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`api/products?product=${title}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// {
+//     "product":"5d51694802b2373622ff56cf",
+//     "weight":100,
+//     "date":"2022-12-24"
+// }
+export const addEatedProduct = createAsyncThunk(
+  'products/addEatedProduct',
+  async (product, thunkAPI) => {
+    try {
+      const { data } = await axios.post('api/daily/addeated', product);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const removeEatedProduct = createAsyncThunk(
+  'products/removeEatedProduct',
   async (idToRemove, thunkAPI) => {
     try {
       const { data } = await axios.delete(`api/daily/${idToRemove}`);
