@@ -5,8 +5,7 @@ export const SELECTOR = styled.select`
   color: #9b9faa;
   font-size: 14px;
   margin-left: 14px;
-  /* margin-right: 45px; */
-  margin-right: 20px;
+  margin-right: 45px;
   border-left: 2px solid #e0e0e0;
   padding-left: 14px;
   :hover {
@@ -21,3 +20,4 @@ export const SELECTOR = styled.select`
     // margin-left: 45px;
   }
 `;
+
