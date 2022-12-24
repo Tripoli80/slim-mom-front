@@ -43,16 +43,32 @@ export const AuthFormTitle = styled.h3`
   }
 `
 
+export const AuthFormItemWrap = styled.div`
+  position: relative;
+  margin-bottom: 40px;
+`
+
 export const AuthFormLabel = styled.label`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  font-family: 'Verdana';
   font-size: 14px;
   font-weight: 700;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
   color: #9b9faa;
 `;
 
 export const AuthFormItem = styled(Field)`
-  margin-bottom: 40px;
+display: inline-block;
+  
   padding-bottom: 2px;
   width: 100%;
+  height: 48px;
   background-color: transparent;
   outline: none;
   font-family: 'Verdana';
@@ -62,6 +78,11 @@ export const AuthFormItem = styled(Field)`
   color: #000000;
   border: none;
   border-bottom: 1px solid #E0E0E0;
+
+  &:focus ~ label,
+  &:valid ~ label {
+    top: 0;
+  }
 
   @media screen and (min-width: 768px) {
     width: 240px;
