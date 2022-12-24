@@ -19,17 +19,25 @@ export const Wrapper = styled.div`
   @media (min-width: 768px) {
     position: static;
     background: #fff;
-    margin-left: 300px;
+    margin-left: auto;
     border: none;
+    background: inherit;
   }
 
   @media (min-width: 1280px) {
-    margin-left: 760px;
+    margin-bottom: 4px;
     align-items: flex-end;
   } ;
 `;
 
 export const UserName = styled.p`
+  margin: 0;
+  margin-right: 15px;
+
+  color: #212121;
+`;
+
+export const UserNameDefault = styled.p`
   margin: 0;
   margin-right: 15px;
 
@@ -43,4 +51,13 @@ export const Exit = styled.p`
   color: #9b9faa;
   border-left: 2px solid #e0e0e0;
   cursor: pointer;
+
+  &.active {
+    color: #212121;
+  }
+
+  :hover:not(.active),
+  &:focus-visible:not(.active) {
+    color: #212121;
+  }
 `;

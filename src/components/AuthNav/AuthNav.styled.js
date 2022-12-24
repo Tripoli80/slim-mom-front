@@ -9,12 +9,21 @@ export const Wrapper = styled.div`
   font-family: 'Gotham Pro';
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
-  margin-bottom: 14px;
+  /* margin-bottom: 14px; */
+
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+
+  @media (min-width: 768px) {
+    position: static;
+    font-size: 14px;
+  }
 
   @media (min-width: 1280px) {
     margin-left: 20px;

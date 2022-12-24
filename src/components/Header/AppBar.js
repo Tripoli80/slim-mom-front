@@ -16,6 +16,12 @@ export const AppBar = () => {
 
   const [menuActive, setMenuActive] = useState(false);
 
+  const buttomWraper = menuActive ? (
+    <GrClose size={24} />
+  ) : (
+    <GiHamburgerMenu size={24} />
+  );
+
   return (
     <ContainerStyled>
       <Header>
@@ -27,17 +33,13 @@ export const AppBar = () => {
             <Navigation />
             <UserInfo />
             <BurgerMenuStyle onClick={() => setMenuActive(!menuActive)}>
-              {menuActive ? (
-                <GrClose size={24} />
-              ) : (
-                <GiHamburgerMenu size={24} />
-              )}
+              {buttomWraper}
             </BurgerMenuStyle>
             <BurgerMenu active={menuActive} setActive={setMenuActive} />
           </>
         ) : (
           <AuthNav />
-        )}        
+        )}
       </Header>
     </ContainerStyled>
   );
