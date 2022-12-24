@@ -4,14 +4,22 @@ import leavesDesk2x from './sidebarBg/sidebar-leaves-desk-2x.png';
 import leavesTab1x from './sidebarBg/sidebar-leaves-tab-1x.png';
 import leavesTab2x from './sidebarBg/sidebar-leaves-tab-2x.png';
 
+export const SidebarSection = styled.div`
+width: 100%;
+background-color: var(--sidebar-bg);
+@media screen and (min-width: 1280px) {
+  width: 517px;
+}
+`;
 export const SidebarWrap = styled.div`
-  width: 100%;
+  width: 320px;
+  margin: 0 auto;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: #F0F1F3;
   @media screen and (min-width: 768px) {
+    width: 768px;
     padding: 80px 32px;
     flex-direction: row;
     gap: 96px;
@@ -28,7 +36,7 @@ export const SidebarWrap = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 517px;
-    min-height: 850px;
+    height: auto;
     padding: 292px 16px 166px 106px;
     flex-direction: column;
     gap: 60px;
@@ -40,26 +48,24 @@ export const SidebarWrap = styled.div`
       background-image: url(${leavesDesk2x});
     }
     background-repeat: no-repeat;
-    background-size: 517px 850px;
+    background-size: 517px auto;
     background-position: right 0 top 20px;
   }
 `;
 export const SidebarTitle = styled.p`
-  margin-bottom: 20px;
-  font-family: Verdana, sans-serif;
+  margin-bottom: 30px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: #212121;
+  color: var(--primary-text-color);
 `;
 export const SidebarText = styled.p`
-  font-family: Verdana, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: #9B9FAA;
+  color: var(--secondary-text-color);
 `;
 export const SidebarList = styled.ul`
   display: flex;
