@@ -32,7 +32,6 @@ export const getProductsByTitle = createAsyncThunk(
 //     "weight":100,
 //     "date":"2022-12-24"
 // }
-// !!! front must calculate eated calories
 export const addEatedProduct = createAsyncThunk(
   'products/addEatedProduct',
   async (product, thunkAPI) => {
