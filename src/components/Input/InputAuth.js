@@ -4,7 +4,12 @@ const InputAuth = props => {
   return (
     <>
       <Box>
-        <InputValueField id={props.id} name={props.name} type={props.type} />
+        <InputValueField
+          id={props.id}
+          name={props.name}
+          type={props.type}
+          required={props.required}
+        />
         <Label htmlFor={props.name}>{props.placeHolder}</Label>
       </Box>
     </>
