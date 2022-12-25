@@ -15,7 +15,7 @@ export const fetchDaily = createAsyncThunk(
   'daily/getDaily',
   async ({ date, token }, thunkAPI) => {
     try {
-      const response = await axios.post(`api/daily?${date}`, {
+      const response = await axios.post(`api/daily?date=${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

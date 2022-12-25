@@ -1,4 +1,6 @@
+import { Field } from 'formik';
 import styled from 'styled-components';
+
 export const Box = styled.div`
   position: relative;
   margin: 32px 0 0 0;
@@ -25,8 +27,27 @@ export const Label = styled.label`
 
   left: 0;
 `;
-export const InputValue = styled.input.attrs(props => ({
-}))`
+export const InputValue = styled.input.attrs(props => ({}))`
+  display: inline-block;
+  height: 48px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 8px;
+  color: #212121;
+  outline: none;
+  background-color: rgba(rgba(224, 224, 224, 0.5));
+  :hover,
+  :focus {
+    border-color: #fc842d;
+  }
+
+  &:focus ~ label,
+  &:valid ~ label {
+    top: 0px;
+  }
+`;
+export const InputValueField = styled(Field)`
   display: inline-block;
   height: 48px;
   width: 100%;
