@@ -79,11 +79,6 @@ display: inline-block;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 
-  :hover,
-  :focus {
-    border-color: #fc842d;
-  }
-
   &:focus ~ label,
   &:valid ~ label {
     top: 0;
