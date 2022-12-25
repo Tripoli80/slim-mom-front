@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Translator } from 'components/language/translator';
-import { useDispatch } from 'react-redux';
-import { addEatedProduct } from 'redux/products/operations';
+// import { useDispatch } from 'react-redux';
+// import { addEatedProduct } from 'redux/products/operations';
 import {
   Form,
   Input,
@@ -16,7 +16,7 @@ import {
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
   const [weight, setWeight] = useState('');
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleAddProduct = e => {
     e.preventDefault();

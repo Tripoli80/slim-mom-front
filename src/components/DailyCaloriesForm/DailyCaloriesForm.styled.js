@@ -11,10 +11,12 @@ export const Form = styled.form`
   width: 100%;
   position: relative;
 
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
+  align-items: center;
 
   @media (min-width: 768px) {
     padding-bottom: 20px;
+    align-items: normal;
   }
   @media (min-width: 1280px) {
     padding-bottom: 40px;
@@ -29,6 +31,8 @@ export const Title = styled.h2`
   font-size: 18px;
   margin-bottom: 34px;
   padding-top: 32px;
+  display: flex;
+  justify-content: center;
 
   @media (min-width: 768px) {
     width: 700px;

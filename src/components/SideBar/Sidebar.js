@@ -9,7 +9,7 @@ import axios from 'axios';
 import Summary from './Summary';
 //
 import Diet from './Diet';
-import defaultsBaseURL from '../../redux/auth/authOperations';
+// import defaultsBaseURL from '../../redux/auth/authOperations';
 import { SidebarSection, SidebarWrap, Back } from './Sidebar.styled';
 // import dailyData from './data/dailyData.json';
 
