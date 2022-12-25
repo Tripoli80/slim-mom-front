@@ -4,7 +4,7 @@ import { useAuth } from 'hooks/hooks';
 import { addNewProduct } from '../../redux/products/operations';
 import Input from 'components/Input/Input';
 import { Button } from 'components/Button/Button';
-import { AddNewProductFormStyled } from './Component.styled';
+import { AddNewProductFormStyled, ErrorMessage } from './Component.styled';
 import { Translator } from 'components/language/translator';
 
 const AddNewProductForm = () => {
@@ -60,7 +60,9 @@ const AddNewProductForm = () => {
             value={values.titles}
             placeHolder={Translator('enterProductName')}
           />
-          {errors.title && touched.title && errors.title}
+          {errors.title && touched.title && (
+            <ErrorMessage>{errors.title}</ErrorMessage>
+          )}
           <Input
             type="text"
             name="categories"
@@ -70,7 +72,9 @@ const AddNewProductForm = () => {
             value={values.categories}
             placeHolder={Translator('categories')}
           />
-          {errors.categories && touched.categories && errors.categories}
+          {errors.categories && touched.categories && (
+            <ErrorMessage>{errors.categories}</ErrorMessage>
+          )}
           <Input
             type="number"
             name="calories"
@@ -80,7 +84,9 @@ const AddNewProductForm = () => {
             value={values.calories}
             placeHolder={Translator('kca')}
           />
-          {errors.calories && touched.calories && errors.calories}
+          {errors.calories && touched.calories && (
+            <ErrorMessage>{errors.calories}</ErrorMessage>
+          )}
           <Input
             type="number"
             name="weight"
@@ -90,7 +96,9 @@ const AddNewProductForm = () => {
             value={values.weight}
             placeHolder={Translator('grams')}
           />
-          {errors.weight && touched.weight && errors.weight}
+          {errors.weight && touched.weight && (
+            <ErrorMessage>{errors.weight}</ErrorMessage>
+          )}
           <Button
             type="submit"
             // disabled={!values.titles || !values.categories || !values.calories}

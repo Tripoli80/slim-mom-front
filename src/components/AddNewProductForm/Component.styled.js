@@ -22,3 +22,8 @@ export const AddNewProductFormStyled = styled(Form)`
     padding-left: 0;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  /* position: absolute; */
+  color: rgb(200, 10, 65);
+`;
