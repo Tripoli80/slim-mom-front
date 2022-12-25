@@ -11,10 +11,8 @@ import {
 } from './Sidebar.styled';
 // import privateDiet from './data/diet.json';
 
-const Sidebar = () => {
+export default function Sidebar() {
   const dispatch = useDispatch();
-  const privateDiet = useSelector(selectDiet);
-
   useEffect(() => {
     dispatch(
       fetchDiet({
@@ -26,20 +24,8 @@ const Sidebar = () => {
       })
     );
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
-  //   try {
-  //     async function fetchDiet() {
-  //       const response = await axios.post(
-  //         'https://creepy-tan-parrot.cyclic.app/api/diet',
-  //         bodyData
-  //       );
-  //       setPrivateDiet(response.data);
-  //     }
-  //     fetchDiet();
-  //   } catch (e) {console.log(e);}
-  // }, []);
+  
+  const privateDiet = useSelector(selectDiet);
   console.log('diet', privateDiet);
 
   return (
@@ -50,6 +36,5 @@ const Sidebar = () => {
       </SidebarWrap>
     </SidebarSection>
   );
-}
+};
 
-export default Sidebar;
