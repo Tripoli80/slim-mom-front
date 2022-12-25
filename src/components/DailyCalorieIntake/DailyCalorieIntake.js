@@ -13,6 +13,7 @@ import { Translator } from 'components/language/translator';
 import { useSelector } from 'react-redux';
 import { getLanguage } from 'redux/services/languageSlice';
 
+
 const DailyCalorieIntake = ({ stats }) => {
   const len = useSelector(getLanguage);
 

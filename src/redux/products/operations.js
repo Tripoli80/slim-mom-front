@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import defaultsBaseURL from '../../redux/auth/authOperations'
 
-axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
+axios.defaults.baseURL = defaultsBaseURL;
 
 export const getProductsByDate = createAsyncThunk(
   'products/getByDate',
@@ -55,11 +56,23 @@ export const removeEatedProduct = createAsyncThunk(
     }
   }
 );
+
 export const dailyCalorie = createAsyncThunk(
   'products/dailyCalorie',
   async (stats, thunkAPI) => {
     try {
       const { data } = await axios.post(`api/diet/`, stats);
+
+
+
+export const addNewProduct = createAsyncThunk(
+  'products/addNewProduct',
+  async (newProduct, thunkAPI) => {
+    try {
+      const { data } = await axios.post(
+        'api/products/addnewproduct',
+        newProduct
+      );
 
       return data;
     } catch (error) {

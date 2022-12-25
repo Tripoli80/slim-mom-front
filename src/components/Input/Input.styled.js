@@ -18,6 +18,7 @@ export const Label = styled.label`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
+  margin-left: 5px;
   letter-spacing: 0.04em;
   color: #9b9faa;
   cursor: text;
@@ -25,14 +26,13 @@ export const Label = styled.label`
   left: 0;
 `;
 export const InputValue = styled.input.attrs(props => ({
-  // type: props.type || 'text',
-  // placeholder: '',
 }))`
   display: inline-block;
   height: 48px;
   width: 100%;
   border: none;
   border-bottom: 1px solid #e0e0e0;
+  padding-left: 8px;
   color: #212121;
   outline: none;
   background-color: rgba(rgba(224, 224, 224, 0.5));

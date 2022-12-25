@@ -6,11 +6,9 @@ import { PublicRoute } from '../../redux/routes/RestrictedRoute';
 import { Layout } from 'components/Layout';
 import { useAuth } from '../../hooks/hooks';
 import { refreshUser } from 'redux/auth/authOperations';
-import Container from 'components/Container/Container';
-import { Image } from 'components/App/App.stiled';
 import { Translator } from 'components/language/translator';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
-import "./App.css"
+import './App.css';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
@@ -19,7 +17,7 @@ const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();  
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -29,40 +27,37 @@ const App = () => {
     <b>{Translator('refreshingUser')}</b>
   ) : (
     <>
-      <Image />
-      <Container>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<DailyCaloriesForm />} />
-            <Route
-              path="/registration"
-              element={
-                <PublicRoute redirectTo="/diary" component={<RegisterPage />} />
-              }
-            />
-            <Route
-              path="/singin"
-              element={
-                <PublicRoute redirectTo="/diary" component={<LoginPage />} />
-              }
-            />
-            <Route
-              path="/diary"
-              element={
-                <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
-              }
-            />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<DailyCaloriesForm />} />
+          <Route
+            path="/registration"
+            element={
+              <PublicRoute redirectTo="/diary" component={<RegisterPage />} />
+            }
+          />
+          <Route
+            path="/singin"
+            element={
+              <PublicRoute redirectTo="/diary" component={<LoginPage />} />
+            }
+          />
+          <Route
+            path="/diary"
+            element={
+              <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
+            }
+          />
             {/* <Route
               path="/calculator"
               element={
                 <PrivateRoute redirectTo="/singin" component={<CalculatorPage />} />
               }
             /> */}
-          </Route>
-          <Route path="/diary" element={<DiaryPage />} />
-          <Route path="/calculator" element={<CalculatorPage />} />
-        </Routes>
-      </Container>
+        </Route>
+        <Route path="/diary" element={<DiaryPage />} />
+        <Route path="/calculator" element={<CalculatorPage />} />
+      </Routes>
     </>
   );
 };

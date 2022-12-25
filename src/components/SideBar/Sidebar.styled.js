@@ -5,11 +5,35 @@ import leavesTab1x from './sidebarBg/sidebar-leaves-tab-1x.png';
 import leavesTab2x from './sidebarBg/sidebar-leaves-tab-2x.png';
 
 export const SidebarSection = styled.div`
-width: 100%;
-background-color: var(--sidebar-bg);
-@media screen and (min-width: 1280px) {
-  width: 517px;
-}
+  width: 100%;
+  background-color: var(--sidebar-bg);
+  @media screen and (min-width: 1280px) {
+    width: 517px;
+    position: absolute;
+    // border: solid;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 550px;
+    
+  }
+`;
+export const Back = styled.div`
+  width: 100%;
+  background-color: #ffffff;
+  position: absolute;
+  // border: solid;
+  z-index: -1;
+  // padding-top: 100px;
+  height: 400px;
+  // top: 0px;
+
+  right: 0;
+  @media screen and (min-width: 1280px) {
+    top: 0px;
+    height: 100%;
+  }
 `;
 export const SidebarWrap = styled.div`
   width: 320px;

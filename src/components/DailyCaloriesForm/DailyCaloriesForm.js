@@ -184,7 +184,7 @@ const DailyCaloriesForm = () => {
           </Wrapper>
           <BtnSub>
             <Button type="submit" onSubmit={handleSubmit}>
-              {Translator('Start losing weight')}
+              {Translator('startLosingweight')}
             </Button>
           </BtnSub>
         </Form>

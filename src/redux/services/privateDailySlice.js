@@ -7,8 +7,9 @@ import {
   isRejected,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
+import defaultsBaseURL from '../../redux/auth/authOperations';
 
-axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
+axios.defaults.baseURL = defaultsBaseURL;
 
 export const fetchDaily = createAsyncThunk(
   'daily/getDaily',
