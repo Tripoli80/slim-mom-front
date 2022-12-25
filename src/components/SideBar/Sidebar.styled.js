@@ -16,6 +16,23 @@ export const SidebarSection = styled.div`
     top: 0;
     right: 0;
     width: 550px;
+    
+  }
+`;
+export const Back = styled.div`
+  width: 100%;
+  background-color: #ffffff;
+  position: absolute;
+  // border: solid;
+  z-index: -1;
+  // padding-top: 100px;
+  height: 400px;
+  // top: 0px;
+
+  right: 0;
+  @media screen and (min-width: 1280px) {
+    top: 0px;
+    height: 100%;
   }
 `;
 export const SidebarWrap = styled.div`

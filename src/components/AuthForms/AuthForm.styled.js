@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Form, Field } from 'formik';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export const AuthFormWrapper = styled(Form)`
   display: flex;
@@ -14,7 +14,7 @@ export const AuthFormWrapper = styled(Form)`
 
   @media screen and (min-width: 768px) {
     width: 100%;
-    padding-top: 160px;
+    padding-top: 140px;
     padding-left: 16px;
   }
 
@@ -24,7 +24,6 @@ export const AuthFormWrapper = styled(Form)`
 `;
 
 export const AuthFormTitle = styled.h3`
-  
   margin: 0 auto;
   margin-bottom: 60px;
   align-items: center;
@@ -36,23 +35,40 @@ export const AuthFormTitle = styled.h3`
   line-height: calc(13 / 14);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #FC842D;
+  color: #fc842d;
 
   @media screen and (min-width: 768px) {
     margin-left: 0;
   }
-`
+`;
+
+export const AuthFormItemWrap = styled.div`
+  width: 300px;
+  position: relative;
+  margin-bottom: 10px;
+`;
 
 export const AuthFormLabel = styled.label`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: 'Verdana';
   font-size: 14px;
   font-weight: 700;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
   color: #9b9faa;
 `;
 
 export const AuthFormItem = styled(Field)`
-  margin-bottom: 40px;
+  display: inline-block;
+
   padding-bottom: 2px;
   width: 100%;
+  height: 48px;
   background-color: transparent;
   outline: none;
   font-family: 'Verdana';
@@ -61,7 +77,12 @@ export const AuthFormItem = styled(Field)`
   letter-spacing: 0.04em;
   color: #000000;
   border: none;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
+
+  &:focus ~ label,
+  &:valid ~ label {
+    top: 0;
+  }
 
   @media screen and (min-width: 768px) {
     width: 240px;
@@ -80,7 +101,7 @@ export const AuthBtnsWrapper = styled.div`
     justify-content: flex-start;
     gap: 32px;
   }
-`
+`;
 
 export const AuthFormNavLink = styled(NavLink)`
   cursor: pointer;
@@ -89,15 +110,15 @@ export const AuthFormNavLink = styled(NavLink)`
   height: 42px;
   padding-top: 8px;
   padding-left: 24px;
-  padding-right: 24px; 
-  text-align : center;
-  color: #FC842D;
-  background-color: #FFFFFF;
-  border: 2px solid #FC842D;
+  padding-right: 24px;
+  text-align: center;
+  color: #fc842d;
+  background-color: #ffffff;
+  border: 2px solid #fc842d;
   border-radius: 30px;
 
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     scale: 1.1;
-  }  
-`
-
+  }
+`;
