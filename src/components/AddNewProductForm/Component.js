@@ -54,6 +54,7 @@ const AddNewProductForm = () => {
           <Input
             type="text"
             name="title"
+            id="title"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.titles}
@@ -63,6 +64,7 @@ const AddNewProductForm = () => {
           <Input
             type="text"
             name="categories"
+            id="categories"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.categories}
@@ -72,6 +74,7 @@ const AddNewProductForm = () => {
           <Input
             type="number"
             name="calories"
+            id="calories"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.calories}
@@ -81,6 +84,7 @@ const AddNewProductForm = () => {
           <Input
             type="number"
             name="weight"
+            id="weight"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.weight}
