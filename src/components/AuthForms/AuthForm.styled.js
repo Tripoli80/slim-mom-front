@@ -7,6 +7,7 @@ export const AuthFormWrapper = styled(Form)`
   flex-direction: column;
   width: 100%;
   padding-top: 40px;
+  align-items: center;
 
   /* @media screen and (min-width: 480px) {
     width: 280px;
@@ -16,6 +17,7 @@ export const AuthFormWrapper = styled(Form)`
     width: 100%;
     padding-top: 140px;
     padding-left: 16px;
+    align-items: normal;
   }
 
   @media screen and (min-width: 1280px) {
