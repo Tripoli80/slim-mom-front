@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { login } from 'redux/auth/authOperations';
-import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink } from 'components/AuthForms/AuthForm.styled';
+import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink, AuthFormItemWrap } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 
@@ -32,10 +32,14 @@ export const LoginForm = () => {
       initialValues={{ email: '', password: '' }}
     >
       <AuthFormWrapper>
-        <AuthFormLabel>{Translator('email')}</AuthFormLabel>
-        <AuthFormItem type="email" name="email" required />
-        <AuthFormLabel>{Translator('password')}</AuthFormLabel>
-        <AuthFormItem type="password" name="password" required />
+        <AuthFormItemWrap>
+          <AuthFormItem type="email" name="email" id="email" required />
+          <AuthFormLabel htmlFor='email'>{Translator('email')}</AuthFormLabel>       
+        </AuthFormItemWrap>
+        <AuthFormItemWrap>
+          <AuthFormItem type="password" name="password" id="password" required />
+          <AuthFormLabel htmlFor='password'>{Translator('password')}</AuthFormLabel>       
+        </AuthFormItemWrap>
         <AuthBtnsWrapper>
           <Button type="submit">{Translator('logIn')}</Button>
           <AuthFormNavLink to="/registration">
