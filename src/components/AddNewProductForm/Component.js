@@ -2,6 +2,9 @@ import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks/hooks';
 import { addNewProduct } from '../../redux/products/operations';
+import Input from 'components/Input/Input';
+import { Button } from 'components/Button/Button';
+import { AddNewProductFormStyled } from './Component.styled';
 
 const AddNewProductForm = () => {
   const dispatch = useDispatch();
@@ -11,15 +14,8 @@ const AddNewProductForm = () => {
     <Formik
       initialValues={{ title: '', categories: '', calories: '', weight: '' }}
       onSubmit={values => {
-        // const form = e.currentTarget;
-        // const formdata = {
-        //   title: form.elements.title.value,
-        //   categories: form.elements.categories.value,
-        //   calories: form.elements.calories.value,
-        // };
         dispatch(addNewProduct({ newProduct: values, user: user }));
         console.log('newProduct:', values, 'user:', user);
-
         // form.reset();
       }}
       validate={values => {
@@ -44,60 +40,51 @@ const AddNewProductForm = () => {
         handleBlur,
         handleSubmit,
         isSubmitting,
-        /* and other goodies */
       }) => (
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <label>
-            title
-            <input
-              type="text"
-              name="title"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.titles}
-            />
-            {errors.title && touched.title && errors.title}
-          </label>
-          <label>
-            categories
-            <input
-              type="text"
-              name="categories"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.categories}
-            />
-            {errors.categories && touched.categories && errors.categories}
-          </label>
-          <label>
-            calories
-            <input
-              type="number"
-              name="calories"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.calories}
-            />
-            {errors.calories && touched.calories && errors.calories}
-          </label>
-          <label>
-            calories
-            <input
-              type="number"
-              name="weight"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.weight}
-            />
-            {errors.weight && touched.weight && errors.weight}
-          </label>
-          <button
+        <AddNewProductFormStyled onSubmit={handleSubmit} autoComplete="off">
+          <Input
+            type="text"
+            name="title"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.titles}
+            placeHolder={'title'}
+          />
+          {errors.title && touched.title && errors.title}
+          <Input
+            type="text"
+            name="categories"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.categories}
+            placeHolder={'categories'}
+          />
+          {errors.categories && touched.categories && errors.categories}
+          <Input
+            type="number"
+            name="calories"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.calories}
+            placeHolder={'calories'}
+          />
+          {errors.calories && touched.calories && errors.calories}
+          <Input
+            type="number"
+            name="weight"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.weight}
+            placeHolder={'weight'}
+          />
+          {errors.weight && touched.weight && errors.weight}
+          <Button
             type="submit"
             // disabled={!values.titles || !values.categories || !values.calories}
           >
             Add product
-          </button>
-        </form>
+          </Button>
+        </AddNewProductFormStyled>
       )}
     </Formik>
   );
