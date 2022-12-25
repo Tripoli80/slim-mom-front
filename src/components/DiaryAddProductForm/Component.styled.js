@@ -110,8 +110,8 @@ export const Button = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   outline: none;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
   cursor: pointer;
 
   :hover,
@@ -147,7 +147,7 @@ export const FilteredList = styled.ul`
     background-color: #f0f1f3;
     cursor: pointer;
     outline: none;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
   }
   button:focus,
   button:hover {
