@@ -7,7 +7,7 @@ export const RU = {
   refreshingUser: 'Обновление пользователя...',
   startLosingweight: 'Начать худеть',
   age: 'Возраст*',
-  kcal: 'ккал',
+  kca: 'ккал.',
   foodsYouShouldNotEat: 'Продукты, которые вы не должны жрать',
   bloodType: 'Группа крови *',
   calculateYourDaily:

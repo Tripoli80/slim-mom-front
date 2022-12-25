@@ -38,6 +38,6 @@ export const EN = {
   homePage: 'Home Page',
   logout: 'Logout',
   summaryFor: 'Summary for',
-  kcal: 'kcal',
+  kca: 'kcal.',
   foodsYouShouldNotEat: 'Foods you should not eat',
 };

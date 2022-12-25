@@ -10,6 +10,7 @@ import { List, ListItem } from './Component.styled';
 
 export const DiaryProductList = () => {
   const products = useSelector(selectEtedProductsByDate);
+  const timeToEat = Translator('timeToEat');
   return useSelector(selectIsLoading) ? (
     <Loader size={60} color={'#264061'} />
   ) : (
@@ -26,7 +27,7 @@ export const DiaryProductList = () => {
           </ListItem>
         ))
       ) : (
-        <h3>Пора щось з'їсти</h3>
+        <h3>{timeToEat}</h3>
       )}
     </List>
   );

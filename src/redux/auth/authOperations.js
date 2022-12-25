@@ -1,7 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
+// export const defaultsBaseURL = 'https://creepy-tan-parrot.cyclic.app/';
+export const defaultsBaseURL = 'http://localhost:3008/';
+
+  axios.defaults.baseURL = defaultsBaseURL;
 
 const token = {
   set(token) {
@@ -62,3 +65,5 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export default defaultsBaseURL;

@@ -8,6 +8,7 @@ export const SELECTOR = styled.select`
   /* margin-right: 45px; */
   border-left: 2px solid #e0e0e0;
   padding-left: 8px;
+  margin-right: 20px;
 
   :hover {
     color: #212121;
@@ -18,9 +19,10 @@ export const SELECTOR = styled.select`
     margin-left: 14px;
     padding-left: 14px;
     font-size: 14px;
+    margin-right: 54px;
   }
 
   @media (min-width: 1280px) {
-    // margin-left: 45px;
+    // margin-right: 54px;
   }
 `;
