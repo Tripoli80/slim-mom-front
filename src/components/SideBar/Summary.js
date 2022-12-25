@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { selectEtedProductsByDate } from '../../redux/products/selectors';
+import { selectDate } from '../../redux/products/selectors';
 import { format } from 'date-fns';
 // import { Translator } from 'components/language/translator';
 import {
@@ -8,11 +11,13 @@ import {
   SidebarItem,
 } from './Sidebar.styled';
 
-export default function Summary({ dailyData, dailyCalorie, date }) {
-  const currentDate = format(Date.now(), 'dd/MM/yyyy');
-  const trueDate = date !== null ? date.split('.').join('/') : currentDate;
-  // console.log('date:', date, 'currentDate:', currentDate, 'trueDate', trueDate);
+export default function Summary({ dailyCalorie }) {
+  const currentDate = format(Date.now(), 'yyyy-MM-dd');
+  const dateSelected = useSelector(selectDate);
+  const date = dateSelected !== null||'' ? dateSelected : currentDate;
+  const summaryDate = date.split('-').reverse().join('/');
 
+  const dailyData = useSelector(selectEtedProductsByDate);
   const calories = dailyData.length !==0 ? dailyData.flatMap((el) => el.intakeCalories) : [];
   // console.log('calories', calories);
   const consumed = dailyData.length !==0 ? Math.round(calories.reduce((a,b)=>a+b)) : 0;
@@ -23,7 +28,7 @@ export default function Summary({ dailyData, dailyCalorie, date }) {
 
   return (
     <div>
-      <SidebarTitle>Summary for {trueDate}</SidebarTitle>
+      <SidebarTitle>Summary for {summaryDate}</SidebarTitle>
       <SidebarList>
         <SidebarItem>
           <SidebarText>Left</SidebarText>
@@ -47,12 +52,6 @@ export default function Summary({ dailyData, dailyCalorie, date }) {
 }
 
 Summary.propTypes = {
-  dailyData: PropTypes.arrayOf(
-    PropTypes.shape({
-      intakeCalories: PropTypes.number,
-    }),
-  ),
   dailyCalorie: PropTypes.number,
-  date: PropTypes.string
 };
-Summary.defaultProps = { dailyData: [], dailyCalorie: 0, date: '' };
+Summary.defaultProps = { dailyCalorie: 0 };

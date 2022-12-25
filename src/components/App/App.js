@@ -46,12 +46,12 @@ const App = () => {
                 <PublicRoute redirectTo="/diary" component={<LoginPage />} />
               }
             />
-            <Route
+            {/* <Route
               path="/diary"
               element={
                 <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
               }
-            />
+            /> */}
             {/* <Route
               path="/calculator"
               element={
