@@ -1,24 +1,15 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks/hooks';
 import { addNewProduct } from '../../redux/products/operations';
 
 const AddNewProductForm = () => {
   const dispatch = useDispatch();
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-  //   const formdata = {
-  //     title: form.elements.title.value,
-  //     categories: form.elements.categories.value,
-  //     calories: form.elements.calories.value,
-  //   };
-  //   console.log('formdata:', formdata);
-  //   form.reset();
-  // };
+  const { user } = useAuth();
 
   return (
     <Formik
-      initialValues={{ title: '', categories: '', calories: '' }}
+      initialValues={{ title: '', categories: '', calories: '', weight: '' }}
       onSubmit={values => {
         // const form = e.currentTarget;
         // const formdata = {
@@ -26,8 +17,8 @@ const AddNewProductForm = () => {
         //   categories: form.elements.categories.value,
         //   calories: form.elements.calories.value,
         // };
-        dispatch(addNewProduct(values));
-        console.log('values:', values);
+        dispatch(addNewProduct({ values, user }));
+        console.log('values:', values, 'user:', user);
 
         // form.reset();
       }}
@@ -39,6 +30,8 @@ const AddNewProductForm = () => {
           errors.categories = 'Required';
         } else if (!values.calories) {
           errors.calories = 'Required';
+        } else if (!values.weight) {
+          errors.weight = 'Required';
         }
         return errors;
       }}
@@ -86,6 +79,17 @@ const AddNewProductForm = () => {
               value={values.calories}
             />
             {errors.calories && touched.calories && errors.calories}
+          </label>
+          <label>
+            calories
+            <input
+              type="number"
+              name="weight"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.weight}
+            />
+            {errors.weight && touched.weight && errors.weight}
           </label>
           <button
             type="submit"
