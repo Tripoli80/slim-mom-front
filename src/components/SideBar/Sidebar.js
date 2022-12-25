@@ -8,7 +8,8 @@ import { selectDate } from '../../redux/products/selectors';
 import axios from 'axios';
 import Summary from './Summary';
 //
-import Diet from './Diet';import defaultsBaseURL from '../../redux/auth/authOperations';
+import Diet from './Diet';
+import defaultsBaseURL from '../../redux/auth/authOperations';
 import { SidebarSection, SidebarWrap, Back } from './Sidebar.styled';
 // import dailyData from './data/dailyData.json';
 
@@ -18,7 +19,10 @@ export default function Sidebar() {
 
   const currentDate = format(Date.now(), 'yyyy-MM-dd');
   const dateSelected = useSelector(selectDate);
-  const date = dateSelected !== null ? dateSelected.split('.').reverse().join('-') : currentDate;
+  const date =
+    dateSelected !== null
+      ? dateSelected.split('.').reverse().join('-')
+      : currentDate;
   // console.log('date', dateSelected, date);
 
   const token = useSelector(selectToken);
@@ -29,10 +33,16 @@ export default function Sidebar() {
   // const privateDaily = useSelector(selectDaily);
 
   useEffect(() => {
-    const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
-    dispatch(fetchDiet({body: {bodyData}, token: {token}}));
+    const bodyData = {
+      blood: 4,
+      height: 178,
+      age: 26,
+      cWeight: 83,
+      dWeight: 70,
+    };
+    dispatch(fetchDiet({ body: { bodyData }, token: { token } }));
   }, [dispatch, token]);
-  
+
   // useEffect(() => {
   //   async function getDiet() {
   //     const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
@@ -52,11 +62,13 @@ export default function Sidebar() {
     async function getEated() {
       try {
         const response = await axios.get(
-          `https://creepy-tan-parrot.cyclic.app/api/daily?${date}`,
-          { headers: {Authorization: `Bearer ${token}`},},
+          `https://creepy-tan-parrot.cyclic.app/api/daily?date=${date}`,
+          { headers: { Authorization: `Bearer ${token}` } }
         );
         setEated(response.data);
-      } catch (err) {console.log(err);}
+      } catch (err) {
+        console.log(err);
+      }
     }
     getEated();
   }, [token, date]);
