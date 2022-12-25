@@ -9,10 +9,7 @@ import axios from 'axios';
 import Summary from './Summary';
 //
 import Diet from './Diet';import defaultsBaseURL from '../../redux/auth/authOperations';
-import {
-  SidebarSection,
-  SidebarWrap,
-} from './Sidebar.styled';
+import { SidebarSection, SidebarWrap, Back } from './Sidebar.styled';
 // import dailyData from './data/dailyData.json';
 
 export default function Sidebar() {
@@ -68,11 +65,17 @@ export default function Sidebar() {
   console.log('daily', eated);
 
   return (
-    <SidebarSection>
-      <SidebarWrap>
-        <Summary dailyCalorie={privateDiet.dailyCalorie} dailyData={eated} date={dateSelected}/>
-        <Diet diet={privateDiet.products} />
-      </SidebarWrap>
-    </SidebarSection>
+    <Back>
+      <SidebarSection>
+        <SidebarWrap>
+          <Summary
+            dailyCalorie={privateDiet.dailyCalorie}
+            dailyData={eated}
+            date={dateSelected}
+          />
+          <Diet diet={privateDiet.products} />
+        </SidebarWrap>
+      </SidebarSection>
+    </Back>
   );
 }
