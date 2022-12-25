@@ -74,6 +74,16 @@ export const Input = styled.input`
   &:valid ~ label {
     top: 0px;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
 `;
 
 export const LabelR = styled(Label)`
