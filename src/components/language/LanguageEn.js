@@ -3,6 +3,10 @@ export const EN = {
   refreshingUser: 'Refreshing user...',
   password: 'password *',
   logIn: 'Log in',
+  g: 'g',
+  timeToEat: "It's time to eat something",
+  grams: 'Grams',
+  enterProductName: 'Enter product name',
   register: 'Register',
   signIn: 'Sign in',
   registration: 'Registration',
@@ -34,6 +38,6 @@ export const EN = {
   homePage: 'Home Page',
   logout: 'Logout',
   summaryFor: 'Summary for',
-  kcal: 'kcal',
+  kca: 'kcal.',
   foodsYouShouldNotEat: 'Foods you should not eat',
 };

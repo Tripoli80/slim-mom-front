@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectEtedProductsByDate } from '../../redux/products/selectors';
 import { selectDate } from '../../redux/products/selectors';
 import { format } from 'date-fns';
-// import { Translator } from 'components/language/translator';
+import { Translator } from 'components/language/translator';
 import {
   SidebarTitle,
   SidebarText,
@@ -19,31 +19,38 @@ export default function Summary({ dailyCalorie }) {
 
   const dailyData = useSelector(selectEtedProductsByDate);
   const calories = dailyData.length !==0 ? dailyData.flatMap((el) => el.intakeCalories) : [];
-  // console.log('calories', calories);
-  const consumed = dailyData.length !==0 ? Math.round(calories.reduce((a,b)=>a+b)) : 0;
-  // console.log('consumed', consumed);
+  const consumed = dailyData.length !== 0 ? Math.round(calories.reduce((a, b) => a + b)) : 0;
   const dailyRate = dailyCalorie;
   const left = dailyRate - consumed;
   const partOfNormal = dailyRate !== 0 ? Math.round((consumed * 100) / dailyRate) : 0;
 
+  const summaryFor = Translator('summaryFor');
+  const leftTitl = Translator('left');
+  const consumedTitle = Translator('consumed');
+  const dailyRateTitle = Translator('dailyRate');
+  const nOfNormal = Translator('nOfNormal');
+  const kca = Translator('kca');
+
   return (
     <div>
-      <SidebarTitle>Summary for {summaryDate}</SidebarTitle>
+      <SidebarTitle>{summaryFor} {summaryDate}</SidebarTitle>
       <SidebarList>
         <SidebarItem>
-          <SidebarText>Left</SidebarText>
-          <SidebarText>{`${left || '000'} kcal`}</SidebarText>
+          <SidebarText>{leftTitl}</SidebarText>
+          <SidebarText>{`${left || '000'}`} {kca}
+          </SidebarText>
         </SidebarItem>
         <SidebarItem>
-          <SidebarText>Consumed</SidebarText>
-          <SidebarText>{`${consumed || '000'} kcal`}</SidebarText>
+          <SidebarText>{consumedTitle}</SidebarText>
+          <SidebarText>{`${consumed || '000'}`} {kca}
+          </SidebarText>
         </SidebarItem>
         <SidebarItem>
-          <SidebarText>Daily rate</SidebarText>
-          <SidebarText>{`${dailyRate || '000'} kcal`}</SidebarText>
+          <SidebarText>{dailyRateTitle}</SidebarText>
+          <SidebarText>{`${dailyRate || '000'}`} {kca}</SidebarText>
         </SidebarItem>
         <SidebarItem>
-          <SidebarText>n% of normal</SidebarText>
+          <SidebarText>{nOfNormal}</SidebarText>
           <SidebarText>{`${partOfNormal || '00'} %`}</SidebarText>
         </SidebarItem>
       </SidebarList>

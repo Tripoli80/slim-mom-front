@@ -9,7 +9,6 @@ import { dietSlice } from './services/privateDietSlice';
 
 import {
   persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -17,17 +16,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-
-const authPersistConfig = {
-  key: 'userAuthMZ',
-  storage,
-  whitelist: ['token', 'currentPath'],
-};
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: authReducer,
     [diaryApi.reducerPath]: diaryApi.reducer,
     [filterSlice.name]: filterSlice.reducer,
     [languageSlice.name]: languageSlice.reducer,

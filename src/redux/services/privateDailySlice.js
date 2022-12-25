@@ -9,14 +9,13 @@ import {
 import axios from 'axios';
 import defaultsBaseURL from '../../redux/auth/authOperations';
 
-
 axios.defaults.baseURL = defaultsBaseURL;
 
-export const fetchDiet = createAsyncThunk(
-  'diet/getDiet',
-  async ({ bodyData, token }, thunkAPI) => {
+export const fetchDaily = createAsyncThunk(
+  'daily/getDaily',
+  async ({ date, token }, thunkAPI) => {
     try {
-      const response = await axios.post('api/diet/personal', bodyData, {
+      const response = await axios.post(`api/daily?${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,22 +28,22 @@ export const fetchDiet = createAsyncThunk(
   }
 );
 
-const requestActions = [fetchDiet];
+const requestActions = [fetchDaily];
 const isPendingActions = isPending(...requestActions);
 const isFulfilledActions = isFulfilled(...requestActions);
 const isRejectedActions = isRejected(...requestActions);
 
-export const dietSlice = createSlice({
-  name: 'diet',
+export const dailySlice = createSlice({
+  name: 'daily',
   initialState: {
-    items: {},
+    items: [],
     isLoading: false,
     error: null,
   },
   reducers: {},
   extraReducers: buider =>
     buider
-      .addCase(fetchDiet.fulfilled, (state, action) => {
+      .addCase(fetchDaily.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {

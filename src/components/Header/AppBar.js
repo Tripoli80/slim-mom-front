@@ -16,9 +16,9 @@ export const AppBar = () => {
   const [menuActive, setMenuActive] = useState(false);
 
   const btnWrapper = menuActive ? (
-    <GrClose size={24} />
+    <GrClose size={18} />
   ) : (
-    <GiHamburgerMenu size={24} />
+    <GiHamburgerMenu size={20} />
   );
 
   return (

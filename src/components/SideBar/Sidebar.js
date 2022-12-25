@@ -4,7 +4,8 @@
 // import { fetchDiet } from '../../redux/services/privateDietSlice';
 // import { selectToken, selectDiet } from '../../redux/selectors';
 import Summary from './Summary';
-import Diet from './Diet';
+//
+import Diet from './Diet';import defaultsBaseURL from '../../redux/auth/authOperations';
 import {
   SidebarSection,
   SidebarWrap,

@@ -8,12 +8,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsByDate } from 'redux/products/operations';
 import { selectDate } from 'redux/products/selectors';
+// test AddNewProductForm
+import AddNewProductBlock from 'components/AddNewProductBlock/Component';
 
 const DiaryPageWrap = styled.div`
-@media screen and (min-width: 1280px) {
-  display: flex;
-}
-`
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+`;
 const DiaryPage = () => {
   const windowWidth = useWindowWidth();
   const date = useSelector(selectDate);
@@ -31,6 +33,7 @@ const DiaryPage = () => {
         <DiaryDateСalendar />
         {windowWidth >= 768 && <DiaryAddProductForm />}
         <DiaryProductList />
+        <AddNewProductBlock />
       </div>
       <Sidebar />
     </DiaryPageWrap>
