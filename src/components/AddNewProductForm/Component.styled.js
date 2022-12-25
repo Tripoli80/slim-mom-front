@@ -3,9 +3,10 @@ import { Form, Field } from 'formik';
 
 export const AddNewProductFormStyled = styled(Form)`
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   width: 100%;
   padding-top: 40px;
+  outline: 1px tomato dotted;
 
   /* @media screen and (min-width: 480px) {
     width: 280px;

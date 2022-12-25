@@ -40,4 +40,7 @@ export const EN = {
   summaryFor: 'Summary for',
   kca: 'kcal.',
   foodsYouShouldNotEat: 'Foods you should not eat',
+  addNewProduct: 'Add your own product',
+  add: 'Add',
+  categories: 'Category',
 };

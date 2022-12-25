@@ -5,6 +5,7 @@ import { addNewProduct } from '../../redux/products/operations';
 import Input from 'components/Input/Input';
 import { Button } from 'components/Button/Button';
 import { AddNewProductFormStyled } from './Component.styled';
+import { Translator } from 'components/language/translator';
 
 const AddNewProductForm = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,16 @@ const AddNewProductForm = () => {
     <Formik
       initialValues={{ title: '', categories: '', calories: '', weight: '' }}
       onSubmit={values => {
-        dispatch(addNewProduct({ newProduct: values, user: user }));
-        console.log('newProduct:', values, 'user:', user);
+        dispatch(
+          addNewProduct({
+            newProduct: values,
+            user: user,
+          })
+        );
+        console.log({
+          newProduct: values,
+          user: user,
+        });
         // form.reset();
       }}
       validate={values => {
@@ -48,7 +57,7 @@ const AddNewProductForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.titles}
-            placeHolder={'title'}
+            placeHolder={Translator('enterProductName')}
           />
           {errors.title && touched.title && errors.title}
           <Input
@@ -57,7 +66,7 @@ const AddNewProductForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.categories}
-            placeHolder={'categories'}
+            placeHolder={Translator('categories')}
           />
           {errors.categories && touched.categories && errors.categories}
           <Input
@@ -66,7 +75,7 @@ const AddNewProductForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.calories}
-            placeHolder={'calories'}
+            placeHolder={Translator('kca')}
           />
           {errors.calories && touched.calories && errors.calories}
           <Input
@@ -75,14 +84,14 @@ const AddNewProductForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.weight}
-            placeHolder={'weight'}
+            placeHolder={Translator('grams')}
           />
           {errors.weight && touched.weight && errors.weight}
           <Button
             type="submit"
             // disabled={!values.titles || !values.categories || !values.calories}
           >
-            Add product
+            {Translator('add')}
           </Button>
         </AddNewProductFormStyled>
       )}
