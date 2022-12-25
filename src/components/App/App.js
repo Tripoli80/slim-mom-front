@@ -7,6 +7,8 @@ import { Layout } from 'components/Layout';
 import { useAuth } from '../../hooks/hooks';
 import { refreshUser } from 'redux/auth/authOperations';
 import { Translator } from 'components/language/translator';
+import Container from 'components/Container/Container';
+import { Image } from 'components/App/App.stiled';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import './App.css';
 
@@ -27,37 +29,34 @@ const App = () => {
     <b>{Translator('refreshingUser')}</b>
   ) : (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<DailyCaloriesForm />} />
-          <Route
-            path="/registration"
-            element={
-              <PublicRoute redirectTo="/diary" component={<RegisterPage />} />
-            }
-          />
-          <Route
-            path="/singin"
-            element={
-              <PublicRoute redirectTo="/diary" component={<LoginPage />} />
-            }
-          />
-          <Route
-            path="/diary"
-            element={
-              <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
-            }
-          />
-            {/* <Route
-              path="/calculator"
+
+      <Image />
+      <Container>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<DailyCaloriesForm />} />
+            <Route
+              path="/registration"
               element={
-                <PrivateRoute redirectTo="/singin" component={<CalculatorPage />} />
+                <PublicRoute redirectTo="/diary" component={<RegisterPage />} />
               }
-            /> */}
-        </Route>
-        <Route path="/diary" element={<DiaryPage />} />
-        <Route path="/calculator" element={<CalculatorPage />} />
-      </Routes>
+            />
+            <Route
+              path="/singin"
+              element={
+                <PublicRoute redirectTo="/diary" component={<LoginPage />} />
+              }
+            />
+            <Route
+              path="/diary"
+              element={
+                <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
+              }
+            />
+          </Route>
+          <Route path="/diary" element={<DiaryPage />} />
+        </Routes>
+      </Container>
     </>
   );
 };
