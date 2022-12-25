@@ -1,9 +1,13 @@
 export const RU = {
   slim: 'Стройная',
+  g: 'г',
+  timeToEat: 'Пора что-то съесть',
+  grams: 'Граммы',
+  enterProductName: 'Введите название пиродукта',
   refreshingUser: 'Обновление пользователя...',
   startLosingweight: 'Начать худеть',
   age: 'Возраст*',
-  kcal: 'ккал',
+  kca: 'ккал.',
   foodsYouShouldNotEat: 'Продукты, которые вы не должны жрать',
   bloodType: 'Группа крови *',
   calculateYourDaily:

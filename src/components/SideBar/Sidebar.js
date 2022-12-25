@@ -7,7 +7,8 @@ import { selectToken, selectDiet } from '../../redux/selectors';
 import { selectDate } from '../../redux/products/selectors';
 import axios from 'axios';
 import Summary from './Summary';
-import Diet from './Diet';
+//
+import Diet from './Diet';import defaultsBaseURL from '../../redux/auth/authOperations';
 import {
   SidebarSection,
   SidebarWrap,

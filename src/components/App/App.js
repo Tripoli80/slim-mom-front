@@ -10,7 +10,7 @@ import Container from 'components/Container/Container';
 import { Image } from 'components/App/App.stiled';
 import { Translator } from 'components/language/translator';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
-import "./App.css"
+import './App.css';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
@@ -19,7 +19,7 @@ const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();  
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -32,7 +32,14 @@ const App = () => {
       <Image />
       <Container>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route
+            path="/"
+            element={
+              <>
+                <Layout />
+              </>
+            }
+          >
             <Route index element={<DailyCaloriesForm />} />
             <Route
               path="/registration"
