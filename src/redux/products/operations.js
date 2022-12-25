@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import defaultsBaseURL from '../../redux/auth/authOperations'
+import defaultsBaseURL from '../../redux/auth/authOperations';
 
 axios.defaults.baseURL = defaultsBaseURL;
 
@@ -62,8 +62,12 @@ export const dailyCalorie = createAsyncThunk(
   async (stats, thunkAPI) => {
     try {
       const { data } = await axios.post(`api/diet/`, stats);
-
-
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const addNewProduct = createAsyncThunk(
   'products/addNewProduct',
