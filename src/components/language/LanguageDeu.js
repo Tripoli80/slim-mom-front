@@ -1,5 +1,9 @@
 export const DEU = {
   slim: 'Delgado',
+  g: 'g',
+  timeToEat: 'Es ist Zeit, etwas zu essen',
+  grams: 'Gramm',
+  enterProductName: 'Geben Sie den Produktnamen ein',
   refreshingUser: 'Benutzer aktualisieren...',
   startLosingweight: 'Beginnen Sie mit dem Abnehmen',
   age: 'Alter*',

@@ -9,6 +9,11 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
 };
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token', 'currentPath'],
+};
 
 const authSlice = createSlice({
   name: 'auth',
@@ -42,10 +47,6 @@ const authSlice = createSlice({
   },
 });
 
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['token'],
-};
+
 
 export const authReducer = persistReducer(authPersistConfig, authSlice.reducer);

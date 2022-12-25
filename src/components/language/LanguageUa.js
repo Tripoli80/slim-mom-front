@@ -1,5 +1,9 @@
 export const UA = {
   slim: 'Струнка',
+  g: 'г',
+  timeToEat: "Пора щось з'їсти",
+  grams: 'Грами',
+  enterProductName: 'Введіть назву продукту',
   refreshingUser: 'Оновлення користувача...',
   startLosingweight: 'Почати худнути',
   age: 'Вік*',

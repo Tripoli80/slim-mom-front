@@ -1,5 +1,9 @@
 export const RU = {
   slim: 'Стройная',
+  g: 'г',
+  timeToEat: 'Пора что-то съесть',
+  grams: 'Граммы',
+  enterProductName: 'Введите название пиродукта',
   refreshingUser: 'Обновление пользователя...',
   startLosingweight: 'Начать худеть',
   age: 'Возраст*',

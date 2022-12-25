@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const { URL_DB } = process.env;
-
 axios.defaults.baseURL = 'https://creepy-tan-parrot.cyclic.app/';
 
 const token = {
