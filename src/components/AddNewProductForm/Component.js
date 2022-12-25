@@ -17,8 +17,8 @@ const AddNewProductForm = () => {
         //   categories: form.elements.categories.value,
         //   calories: form.elements.calories.value,
         // };
-        dispatch(addNewProduct({ values, user }));
-        console.log('values:', values, 'user:', user);
+        dispatch(addNewProduct({ newProduct: values, user: user }));
+        console.log('newProduct:', values, 'user:', user);
 
         // form.reset();
       }}
