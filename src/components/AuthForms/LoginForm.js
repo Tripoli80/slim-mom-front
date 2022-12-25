@@ -2,20 +2,32 @@ import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { login } from 'redux/auth/authOperations';
-import { AuthFormWrapper, AuthFormLabel, AuthFormItem, AuthBtnsWrapper, AuthFormNavLink, AuthFormItemWrap } from 'components/AuthForms/AuthForm.styled';
+import {
+  AuthFormWrapper,
+  AuthBtnsWrapper,
+  AuthFormNavLink,
+  AuthFormItemWrap,
+} from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 
+import InputAuth from 'components/Input/InputAuth';
+
 const validationLoginSchema = yup.object().shape({
-  email: yup.string().required("The field 'Email' is required").email("Invalid email address"),
+  email: yup
+    .string()
+    .required("The field 'Email' is required")
+    .email('Invalid email address'),
   password: yup.string().required("The field 'Password' is required"),
 });
 
 export const LoginForm = () => {
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
+    console.log('====================================');
+    console.log(values);
+    console.log('====================================');
     dispatch(
       login({
         email: values.email,
@@ -33,13 +45,22 @@ export const LoginForm = () => {
     >
       <AuthFormWrapper>
         <AuthFormItemWrap>
-          <AuthFormItem type="email" name="email" id="email" required />
-          <AuthFormLabel htmlFor='email'>{Translator('email')}</AuthFormLabel>       
+          <InputAuth
+            placeHolder={Translator('email')}
+            id="email"
+            name="email"
+            type="email"
+            required
+          />
+          <InputAuth
+            placeHolder={Translator('password')}
+            id="password"
+            name="password"
+            type="password"
+            required
+          />
         </AuthFormItemWrap>
-        <AuthFormItemWrap>
-          <AuthFormItem type="password" name="password" id="password" required />
-          <AuthFormLabel htmlFor='password'>{Translator('password')}</AuthFormLabel>       
-        </AuthFormItemWrap>
+
         <AuthBtnsWrapper>
           <Button type="submit">{Translator('logIn')}</Button>
           <AuthFormNavLink to="/registration">
