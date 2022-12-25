@@ -55,3 +55,15 @@ export const removeEatedProduct = createAsyncThunk(
     }
   }
 );
+export const dailyCalorie = createAsyncThunk(
+  'products/dailyCalorie',
+  async (stats, thunkAPI) => {
+    try {
+      const { data } = await axios.post(`api/diet/`, stats);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

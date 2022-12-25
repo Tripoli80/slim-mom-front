@@ -26,13 +26,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModal, closeModal } from 'redux/services/modalSlice';
 import { Button } from 'components/Button/Button';
 import validation from './validateFormik';
+import { dailyCalorie } from 'redux/products/operations';
+import { selectCategories } from 'redux/products/selectors';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const { isOpen } = useSelector(store => store.modal);
-  const onOpenModal = () => {
-    dispatch(openModal());
+  const categories = useSelector(selectCategories);
+  const onOpenModal = async () => {
+    await dispatch(dailyCalorie(formik.values));
+
+    await dispatch(openModal());
   };
 
   const getFromLocalStorage = JSON.parse(
@@ -51,7 +56,7 @@ const DailyCaloriesForm = () => {
         age: '',
         cWeight: '',
         dWeight: '',
-        blood: '1',
+        blood: '',
       };
   const formik = useFormik({
     initialValues: initialValues,
@@ -190,7 +195,7 @@ const DailyCaloriesForm = () => {
             dispatch(closeModal());
           }}
         >
-          <DailyCalorieIntake data={values}> </DailyCalorieIntake>
+          <DailyCalorieIntake stats={categories}> </DailyCalorieIntake>
         </Modal>
       )}
     </>
