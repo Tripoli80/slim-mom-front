@@ -3,6 +3,7 @@ import {
   getProductsByDate,
   getProductsByTitle,
   removeEatedProduct,
+  dailyCalorie,
 } from './operations';
 import {
   createSlice,
@@ -56,6 +57,9 @@ const productsSlice = createSlice({
           ep => ep._id === action.payload
         );
         state.eatedProducts.splice(index, 1);
+      })
+      .addCase(dailyCalorie.fulfilled, (state, action) => {
+        state.recomendetToNotEat = action.payload;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {
         state.isLoading = false;

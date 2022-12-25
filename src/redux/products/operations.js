@@ -57,6 +57,14 @@ export const removeEatedProduct = createAsyncThunk(
   }
 );
 
+export const dailyCalorie = createAsyncThunk(
+  'products/dailyCalorie',
+  async (stats, thunkAPI) => {
+    try {
+      const { data } = await axios.post(`api/diet/`, stats);
+
+
+
 export const addNewProduct = createAsyncThunk(
   'products/addNewProduct',
   async (newProduct, thunkAPI) => {
@@ -65,6 +73,7 @@ export const addNewProduct = createAsyncThunk(
         'api/products/addnewproduct',
         newProduct
       );
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
