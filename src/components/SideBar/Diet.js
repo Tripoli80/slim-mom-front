@@ -15,7 +15,7 @@ export default function Diet({ diet }) {
   const leng = useSelector(getLanguage);
   const lengUse = leng !== false ? leng.toLowerCase() : 'en';
   const categoriesArray = diet.length!==0 && diet.flatMap((product) => product._id);
-  const categories = diet.length!==0 ? categoriesArray.map((el, index) => el[lengUse]) : [];
+  const categories = diet.length!==0 ? categoriesArray.map((el) => el[lengUse]) : [];
   console.log('categories', categories);
   // console.log('leng', leng, lengUse);
   return (

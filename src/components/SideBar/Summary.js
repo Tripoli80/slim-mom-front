@@ -19,7 +19,9 @@ export default function Summary({ dailyCalorie }) {
 
   const dailyData = useSelector(selectEtedProductsByDate);
   const calories = dailyData.length !==0 ? dailyData.flatMap((el) => el.intakeCalories) : [];
-  const consumed = dailyData.length !== 0 ? Math.round(calories.reduce((a, b) => a + b)) : 0;
+  // console.log('calories', calories);
+  const consumed = dailyData.length !==0 ? Math.round(calories.reduce((a,b)=>a+b)) : 0;
+  // console.log('consumed', consumed);
   const dailyRate = dailyCalorie;
   const left = dailyRate - consumed;
   const partOfNormal = dailyRate !== 0 ? Math.round((consumed * 100) / dailyRate) : 0;
@@ -37,17 +39,15 @@ export default function Summary({ dailyCalorie }) {
       <SidebarList>
         <SidebarItem>
           <SidebarText>{leftTitl}</SidebarText>
-          <SidebarText>{`${left || '000'}`} {kca}
-          </SidebarText>
+          <SidebarText>{left || '000'} {kca}</SidebarText>
         </SidebarItem>
         <SidebarItem>
           <SidebarText>{consumedTitle}</SidebarText>
-          <SidebarText>{`${consumed || '000'}`} {kca}
-          </SidebarText>
+          <SidebarText>{consumed || '000'} {kca}</SidebarText>
         </SidebarItem>
         <SidebarItem>
           <SidebarText>{dailyRateTitle}</SidebarText>
-          <SidebarText>{`${dailyRate || '000'}`} {kca}</SidebarText>
+          <SidebarText>{dailyRate || '000'} {kca}</SidebarText>
         </SidebarItem>
         <SidebarItem>
           <SidebarText>{nOfNormal}</SidebarText>

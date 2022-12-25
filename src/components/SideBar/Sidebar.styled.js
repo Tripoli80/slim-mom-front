@@ -12,7 +12,7 @@ export const SidebarSection = styled.div`
     position: absolute;
     // border: solid;
     height: 100%;
-     z-index: -1; 
+    z-index: -1;
     top: 0;
     right: 0;
     width: 550px;

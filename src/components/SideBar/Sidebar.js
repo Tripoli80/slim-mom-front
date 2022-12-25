@@ -1,40 +1,31 @@
-// import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 // import axios from 'axios';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { fetchDiet } from '../../redux/services/privateDietSlice';
-// import { selectToken, selectDiet } from '../../redux/selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchDiet } from '../../redux/services/privateDietSlice';
+import { selectDiet } from '../../redux/selectors';
 import Summary from './Summary';
-//
-import Diet from './Diet';import defaultsBaseURL from '../../redux/auth/authOperations';
+import Diet from './Diet';
 import {
   SidebarSection,
   SidebarWrap,
 } from './Sidebar.styled';
-import privateDiet from './data/diet.json';
+// import privateDiet from './data/diet.json';
 
 const Sidebar = () => {
-  // const [privateDiet, setPrivateDiet] = useState({});
-  // const token = useSelector(selectToken);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   async function getDiet() {
-  //     const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
-  //       try {
-  //         const response = await axios.post(
-  //           'https://creepy-tan-parrot.cyclic.app/api/diet/personal',
-  //           bodyData,
-  //           { headers: { Authorization: `Bearer ${token}` },},
-  //         );
-  //         setPrivateDiet(response.data);
-  //       } catch (err) {console.log(err);}
-  //   }
-  //   getDiet();
-  // }, [token]);
-  
-  // useEffect(() => {
-  //   const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
-  //   dispatch(fetchDiet({bodyData: bodyData, token: {token}}));
-  // }, [dispatch, token]);
+  const dispatch = useDispatch();
+  const privateDiet = useSelector(selectDiet);
+
+  useEffect(() => {
+    dispatch(
+      fetchDiet({
+        blood: 4,
+        height: 178,
+        age: 26,
+        cWeight: 83,
+        dWeight: 70,
+      })
+    );
+  }, [dispatch]);
 
   // useEffect(() => {
   //   const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
@@ -49,9 +40,6 @@ const Sidebar = () => {
   //     fetchDiet();
   //   } catch (e) {console.log(e);}
   // }, []);
-  
-  // const privateDiet = useSelector(selectDiet);
-  // console.log('token', token);
   console.log('diet', privateDiet);
 
   return (
