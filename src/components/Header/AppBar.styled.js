@@ -40,7 +40,7 @@ export const BurgerMenuStyle = styled.div`
   position: absolute;
   top: 30px;
   right: 40px;
-  color: #212121;
+  color: #696969;
   @media (min-width: 768px) {
     // top: 26px;
     right: 84px;

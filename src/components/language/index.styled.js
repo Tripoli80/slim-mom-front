@@ -9,9 +9,13 @@ export const SELECTOR = styled.select`
   border-left: 2px solid #e0e0e0;
   padding-left: 8px;
   margin-right: 20px;
+  background-color: transparent;
+  -moz-appearance: none;
+  outline: none;
 
   :hover {
     color: #212121;
+    border-left: 2px solid #e0e0e0;
   }
 
   @media (min-width: 768px) {
