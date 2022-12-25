@@ -14,6 +14,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { Translator } from 'components/language/translator';
 import { useSelector } from 'react-redux';
 import { getLanguage } from 'redux/services/languageSlice';
+import defaultsBaseURL from '../../redux/auth/authOperations';
 const DailyCalorieIntake = ({ data }) => {
   const len = useSelector(getLanguage);
   const [stats, setStats] = useState(null);
@@ -22,10 +23,7 @@ const DailyCalorieIntake = ({ data }) => {
   useEffect(() => {
     try {
       async function fetchMyAPI() {
-        const response = await axios.post(
-          'https://creepy-tan-parrot.cyclic.app/api/diet',
-          data
-        );
+        const response = await axios.post(defaultsBaseURL, data);
 
         setStats(response.data);
         setLoading(false);

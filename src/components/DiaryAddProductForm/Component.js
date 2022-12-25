@@ -1,7 +1,7 @@
 import { useState } from 'react';
-
+import { Translator } from 'components/language/translator';
 import { useDispatch } from 'react-redux';
-import { addProduct } from 'redux/products/operations';
+import { addEatedProduct } from 'redux/products/operations';
 import {
   Form,
   Input,
@@ -21,7 +21,7 @@ export const DiaryAddProductForm = () => {
   const handleAddProduct = e => {
     e.preventDefault();
 
-    dispatch(addProduct({ title, weight }));
+    // dispatch(addEatedProduct({ title, weight }));
     resetForm();
   };
 
@@ -41,7 +41,7 @@ export const DiaryAddProductForm = () => {
           name="title"
           required
         />
-        <LabelL htmlFor="title">Enter product name</LabelL>
+        <LabelL htmlFor="title">{Translator('enterProductName')}</LabelL>
       </FieldProduct>
       <FieldWeight>
         <InputR
@@ -53,7 +53,7 @@ export const DiaryAddProductForm = () => {
           pattern="^[0-9]*$"
           required
         />
-        <LabelR htmlFor="weight">Grams</LabelR>
+        <LabelR htmlFor="weight">{Translator('grams')}</LabelR>
       </FieldWeight>
       <Button type="submit">
         <svg width="14" height="14">

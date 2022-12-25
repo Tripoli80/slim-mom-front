@@ -13,8 +13,13 @@ import { ContainerStyled } from '../Container/Container.styled';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
-
   const [menuActive, setMenuActive] = useState(false);
+
+  const btnWrapper = menuActive ? (
+    <GrClose size={18} />
+  ) : (
+    <GiHamburgerMenu size={20} />
+  );
 
   return (
     <ContainerStyled>
@@ -27,17 +32,13 @@ export const AppBar = () => {
             <Navigation />
             <UserInfo />
             <BurgerMenuStyle onClick={() => setMenuActive(!menuActive)}>
-              {menuActive ? (
-                <GrClose size={24} />
-              ) : (
-                <GiHamburgerMenu size={24} />
-              )}
+              {btnWrapper}
             </BurgerMenuStyle>
             <BurgerMenu active={menuActive} setActive={setMenuActive} />
           </>
         ) : (
           <AuthNav />
-        )}        
+        )}
       </Header>
     </ContainerStyled>
   );

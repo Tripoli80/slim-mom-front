@@ -6,23 +6,47 @@ export const Box = styled.div`
   font-weight: 700;
   width: 100%;
 `;
-export const InputValue = styled.input.attrs(props => ({
-  type: props.type || 'text',
-  placeholder: ' ',
-}))`
-  border: none;
-  border-bottom: 1px solid #9b9faa;
-  font: inherit;
-  font-size: 14px;
-  color: #212121;
-  background-color: transparent;
-  outline: none;
-  width: 100%;
-`;
 export const Label = styled.label`
-  display: flex;
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin-left: 5px;
+  letter-spacing: 0.04em;
   color: #9b9faa;
+  cursor: text;
+
+  left: 0;
 `;
+export const InputValue = styled.input.attrs(props => ({
+}))`
+  display: inline-block;
+  height: 48px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 8px;
+  color: #212121;
+  outline: none;
+  background-color: rgba(rgba(224, 224, 224, 0.5));
+  :hover,
+  :focus {
+    border-color: #fc842d;
+  }
+
+  &:focus ~ label,
+  &:valid ~ label {
+    top: 0px;
+  }
+`;
+
 export const LabelRadio = styled.label`
   display: inline-flex;
   cursor: pointer;

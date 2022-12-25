@@ -6,22 +6,25 @@ import { PublicRoute } from '../../redux/routes/RestrictedRoute';
 import { Layout } from 'components/Layout';
 import { useAuth } from '../../hooks/hooks';
 import { refreshUser } from 'redux/auth/authOperations';
+import { Translator } from 'components/language/translator';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
+import './App.css';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
+const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();  
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <b>{Translator('refreshingUser')}</b>
   ) : (
     <>
       <Routes>
@@ -45,8 +48,15 @@ const App = () => {
               <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
             }
           />
+            {/* <Route
+              path="/calculator"
+              element={
+                <PrivateRoute redirectTo="/singin" component={<CalculatorPage />} />
+              }
+            /> */}
         </Route>
         <Route path="/diary" element={<DiaryPage />} />
+        <Route path="/calculator" element={<CalculatorPage />} />
       </Routes>
     </>
   );

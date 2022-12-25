@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import * as yup from 'yup';
 import {
   AuthFormWrapper,
   AuthFormLabel,
@@ -10,6 +11,12 @@ import {
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
+
+const validationRegisterSchema = yup.object().shape({
+  name: yup.string().required("The field 'Name' is required"),
+  email: yup.string().required("The field 'Email' is required").email("Invalid email address"),
+  password: yup.string().required("The field 'Password' is required"),
+});
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -28,6 +35,7 @@ export const RegisterForm = () => {
   return (
     <Formik
       onSubmit={handleSubmit}
+      validationSchema={validationRegisterSchema}
       initialValues={{ name: '', email: '', password: '' }}
     >
       <AuthFormWrapper>
