@@ -16,6 +16,7 @@ const DiaryPageWrap = styled.div`
     display: flex;
     width: 714px;
     padding: 0 38px;
+    justify-content: space-between;
   }
 `;
 const DiaryPage = () => {
