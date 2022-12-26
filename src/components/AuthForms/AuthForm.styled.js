@@ -114,7 +114,7 @@ export const AuthFormNavLink = styled(NavLink)`
   padding-right: 24px;
   text-align: center;
   color: #fc842d;
-  background-color: #ffffff;
+  // background-color: #ffffff;
   border: 2px solid #fc842d;
   border-radius: 30px;
 
