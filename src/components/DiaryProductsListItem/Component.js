@@ -22,7 +22,7 @@ export const DiaryProductListItem = ({ id, title, weight, calories }) => {
 
         {calories} {Translator('kca')}
 
-     //   {Math.round(calories)} <span>{Translator('kcal')}</span>
+     {/* //   {Math.round(calories)} <span>{Translator('kcal')}</span> */}
 
       </Calories>
       <Button
