@@ -2,9 +2,14 @@ import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks/hooks';
 import { addNewProduct } from '../../redux/products/operations';
-import Input from 'components/Input/Input';
-import { Button } from 'components/Button/Button';
-import { AddNewProductFormStyled, ErrorMessage } from './Component.styled';
+// import Input from 'components/Input/Input';
+// import { Button } from 'components/Button/Button';
+import {
+  AddNewProductFormStyled,
+  AddNewProductInput,
+  AddNewProductButton,
+  ErrorMessage,
+} from './Component.styled';
 import { Translator } from 'components/language/translator';
 
 const AddNewProductForm = () => {
@@ -48,10 +53,10 @@ const AddNewProductForm = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
+        // isSubmitting,
       }) => (
         <AddNewProductFormStyled onSubmit={handleSubmit} autoComplete="off">
-          <Input
+          <AddNewProductInput
             type="text"
             name="title"
             id="title"
@@ -63,7 +68,7 @@ const AddNewProductForm = () => {
           {errors.title && touched.title && (
             <ErrorMessage>{errors.title}</ErrorMessage>
           )}
-          <Input
+          <AddNewProductInput
             type="text"
             name="categories"
             id="categories"
@@ -75,7 +80,7 @@ const AddNewProductForm = () => {
           {errors.categories && touched.categories && (
             <ErrorMessage>{errors.categories}</ErrorMessage>
           )}
-          <Input
+          <AddNewProductInput
             type="number"
             name="calories"
             id="calories"
@@ -87,7 +92,7 @@ const AddNewProductForm = () => {
           {errors.calories && touched.calories && (
             <ErrorMessage>{errors.calories}</ErrorMessage>
           )}
-          <Input
+          <AddNewProductInput
             type="number"
             name="weight"
             id="weight"
@@ -99,12 +104,12 @@ const AddNewProductForm = () => {
           {errors.weight && touched.weight && (
             <ErrorMessage>{errors.weight}</ErrorMessage>
           )}
-          <Button
+          <AddNewProductButton
             type="submit"
             // disabled={!values.titles || !values.categories || !values.calories}
           >
             {Translator('add')}
-          </Button>
+          </AddNewProductButton>
         </AddNewProductFormStyled>
       )}
     </Formik>

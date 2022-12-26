@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   margin-top: 32px;
-  outline: 1px black dotted;
+  /* outline: 1px black dotted; */
 `;
 
 export const Title = styled.h2`
