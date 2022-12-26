@@ -43,4 +43,5 @@ export const DEU = {
   addNewProduct: 'Fügen Sie Ihr eigenes Produkt hinzu',
   add: 'Addieren',
   categories: 'Kategorie',
+  kca100g: 'Kcal/100gramm',
 };

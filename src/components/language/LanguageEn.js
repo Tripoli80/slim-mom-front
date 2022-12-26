@@ -43,4 +43,5 @@ export const EN = {
   addNewProduct: 'Add your own product',
   add: 'Add',
   categories: 'Category',
+  kca100g: 'Kcal/100grams',
 };

@@ -16,7 +16,7 @@ const AddNewProductForm = () => {
 
   return (
     <Formik
-      initialValues={{ title: '', categories: '', calories: '', weight: '' }}
+      initialValues={{ title: '', categories: '', calories: '', weight: '100' }}
       onSubmit={values => {
         dispatch(addNewProduct(values));
         console.log(values);
@@ -31,9 +31,10 @@ const AddNewProductForm = () => {
           errors.categories = 'Required';
         } else if (!values.calories) {
           errors.calories = 'Required';
-        } else if (!values.weight) {
-          errors.weight = 'Required';
         }
+        // } else if (!values.weight) {
+        //   errors.weight = 'Required';
+        // }
         return errors;
       }}
     >
@@ -78,12 +79,12 @@ const AddNewProductForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.calories}
-            placeHolder={Translator('kca')}
+            placeHolder={Translator('kca100g')}
           />
           {errors.calories && touched.calories && (
             <ErrorMessage>{errors.calories}</ErrorMessage>
           )}
-          <AddNewProductInput
+          {/* <AddNewProductInput
             type="number"
             name="weight"
             id="weight"
@@ -94,7 +95,7 @@ const AddNewProductForm = () => {
           />
           {errors.weight && touched.weight && (
             <ErrorMessage>{errors.weight}</ErrorMessage>
-          )}
+          )} */}
           <AddNewProductButton
             type="submit"
             // disabled={!values.titles || !values.categories || !values.calories}
