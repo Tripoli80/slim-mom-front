@@ -9,18 +9,13 @@ import {
 import axios from 'axios';
 import defaultsBaseURL from '../../redux/auth/authOperations';
 
-
 axios.defaults.baseURL = defaultsBaseURL;
 
 export const fetchDiet = createAsyncThunk(
   'diet/getDiet',
-  async ({ bodyData, token }, thunkAPI) => {
+  async (bodyData, thunkAPI) => {
     try {
-      const response = await axios.post('api/diet/personal', bodyData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.post('api/diet/personal', bodyData);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -37,11 +32,16 @@ const isRejectedActions = isRejected(...requestActions);
 export const dietSlice = createSlice({
   name: 'diet',
   initialState: {
+    bodyData: {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70},
     items: {},
     isLoading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setBodyData: (state, action) => {
+      state.bodyData = action.payload;
+    },
+  },
   extraReducers: buider =>
     buider
       .addCase(fetchDiet.fulfilled, (state, action) => {
@@ -59,3 +59,5 @@ export const dietSlice = createSlice({
         state.error = action.payload;
       }),
 });
+
+export const { setBodyData } = dietSlice.actions;
