@@ -40,6 +40,7 @@ export const DiaryAddProductForm = () => {
       dispatch(getProductsByTitle(title));
     } else {
       setProduct('');
+      dispatch(setSelectedProduct());
     }
   }, [dispatch, title]);
 
