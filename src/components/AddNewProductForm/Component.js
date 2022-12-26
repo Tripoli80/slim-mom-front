@@ -26,7 +26,7 @@ const AddNewProductForm = () => {
       validate={values => {
         const errors = {};
         if (!values.title) {
-          errors.title = Translator('required');
+          errors.title = 'Required';
         } else if (!values.categories) {
           errors.categories = 'Required';
         } else if (!values.calories) {
