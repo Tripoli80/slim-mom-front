@@ -113,17 +113,19 @@ export const Button = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 0.3),
     color 250ms cubic-bezier(0.4, 0, 0.2, 0.3);
 
-
   cursor: pointer;
 
-  :hover,
-  :focus {
+  :enabled:hover,
+  :enabled:focus {
     color: #fc842d;
     background-color: #ffffff;
     border: 2px solid #fc842d;
     box-shadow: none;
   }
-
+  :disabled {
+    background-color: #fc842d50;
+    box-shadow: none;
+  }
   & svg {
     fill: currentColor;
   }
@@ -132,24 +134,23 @@ export const Button = styled.button`
 export const FilteredList = styled.ul`
   z-index: 10;
   position: absolute;
-  background-color: #f0f1f3;
-  width: max-content;
+  background-color: #ffffff;
+  width: 630px;
 
   li {
     width: 100%;
-    border-bottom: 1px solid #264061;
-    border-top: 1px solid #e0e0e0;
   }
   button {
-    padding: 4px;
+    padding: 8px;
     border: none;
     width: 100%;
-    font-size: 14px;
-    color: #264061;
-    background-color: #f0f1f3;
+
+    color: #deb887;
+    background-color: transparent;
+    text-align: left;
     cursor: pointer;
     outline: none;
-    /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   button:focus,
   button:hover {

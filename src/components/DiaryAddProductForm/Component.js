@@ -20,9 +20,8 @@ import { setSelectedProduct } from 'redux/products/slice';
 
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
-
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
   const lang = useSelector(getLanguage).toLowerCase();
@@ -32,11 +31,16 @@ export const DiaryAddProductForm = () => {
     e.preventDefault();
     dispatch(addEatedProduct({ product, weight, date }));
     dispatch(setSelectedProduct());
+    setProduct('');
     resetForm();
   };
 
   useEffect(() => {
-    if (title.length > 3) dispatch(getProductsByTitle(title));
+    if (title.length > 3) {
+      dispatch(getProductsByTitle(title));
+    } else {
+      setProduct('');
+    }
   }, [dispatch, title]);
 
   const resetForm = () => {
@@ -60,6 +64,7 @@ export const DiaryAddProductForm = () => {
         <LabelL htmlFor="title">{Translator('enterProductName')}</LabelL>
         <FilteredList>
           {title.length > 3 &&
+            !product &&
             sp.map(({ _id, title }) => (
               <li key={_id}>
                 <button
@@ -88,7 +93,7 @@ export const DiaryAddProductForm = () => {
         />
         <LabelR htmlFor="weight">{Translator('grams')}</LabelR>
       </FieldWeight>
-      <Button type="submit">
+      <Button type="submit" disabled={!product || !title || !weight}>
         <svg width="14" height="14">
           <path d="M13.72 7.96H7.96v5.76H6.04V7.96H.28V6.04h5.76V.28h1.92v5.76h5.76v1.92Z" />
         </svg>
