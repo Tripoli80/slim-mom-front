@@ -21,9 +21,6 @@ const DiaryPage = () => {
   const windowWidth = useWindowWidth();
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
-
   useEffect(() => {
     dispatch(getProductsByDate(date));
   }, [date, dispatch]);

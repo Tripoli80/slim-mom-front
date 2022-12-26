@@ -40,4 +40,7 @@ export const DEU = {
   submit: 'Senden',
   yourDietWill: 'Deine Ernährung wird hier angezeigt',
   yourRecommendedDaily: 'Empfohlene tägliche Zufuhr',
+  addNewProduct: 'Fügen Sie Ihr eigenes Produkt hinzu',
+  add: 'Addieren',
+  categories: 'Kategorie',
 };
