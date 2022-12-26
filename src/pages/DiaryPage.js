@@ -12,11 +12,17 @@ import { selectDate } from 'redux/products/selectors';
 import AddNewProductBlock from 'components/AddNewProductBlock/Component';
 
 const DiaryPageWrap = styled.div`
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // border: solid;
+
   @media screen and (min-width: 1280px) {
-    display: flex;
+    // display: flex;
     width: 714px;
     padding: 0 38px;
-    justify-content: space-between;
+    flex-direction: row;
   }
 `;
 const DiaryPage = () => {
@@ -31,8 +37,7 @@ const DiaryPage = () => {
     <DiaryPageWrap>
       <div>
         <DiaryDateСalendar />
-        {windowWidth >= 768 && <DiaryAddProductForm />}
-        <DiaryProductList />
+        {windowWidth >= 768 && <DiaryAddProductForm />} <DiaryProductList />
         <AddNewProductBlock />
       </div>
       <Sidebar />

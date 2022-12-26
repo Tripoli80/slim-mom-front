@@ -23,7 +23,7 @@ export const FieldProduct = styled.div`
     margin-right: 22px;
   }
   @media screen and (min-width: 1280px) {
-    margin-right: 48px;
+    // margin-right: 48px;
   }
   width: 240px;
 `;
