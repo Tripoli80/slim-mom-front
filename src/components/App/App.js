@@ -47,18 +47,12 @@ const App = () => {
                 <PublicRoute redirectTo="/diary" component={<LoginPage />} />
               }
             />
-            {/* <Route
+            <Route
               path="/diary"
               element={
                 <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
               }
-            /> */}
-            {/* <Route
-              path="/calculator"
-              element={
-                <PrivateRoute redirectTo="/singin" component={<CalculatorPage />} />
-              }
-            /> */}
+            />
           </Route>
           <Route path="/diary" element={<DiaryPage />} />
         </Routes>
