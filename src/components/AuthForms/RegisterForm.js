@@ -48,20 +48,20 @@ export const RegisterForm = () => {
       <AuthFormWrapper>
         <AuthFormItemWrap>
           <InputAuth
-            placeHolder={Translator('Name')}
+            placeHolder={Translator('name')}
             id="name"
             name="name"
             required
           />
           <InputAuth
-            placeHolder={Translator('Email')}
+            placeHolder={Translator('email')}
             id="email"
             name="email"
             type="email"
             required
           />
           <InputAuth
-            placeHolder={Translator('Password')}
+            placeHolder={Translator('password')}
             id="password"
             name="password"
             type="password"
@@ -70,8 +70,8 @@ export const RegisterForm = () => {
         </AuthFormItemWrap>
 
         <AuthBtnsWrapper>
-          <Button type="submit">{Translator('Register')}</Button>
-          <AuthFormNavLink to="/singin">{Translator('LogIn')}</AuthFormNavLink>
+          <Button type="submit">{Translator('register')}</Button>
+          <AuthFormNavLink to="/singin">{Translator('logIn')}</AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
