@@ -44,4 +44,5 @@ export const UA = {
   add: 'Додати',
   categories: 'Категорія',
   kca100g: 'Ккал/100грамів',
+  required: 'Обов’язкове',
 };

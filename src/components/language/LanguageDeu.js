@@ -44,4 +44,5 @@ export const DEU = {
   add: 'Addieren',
   categories: 'Kategorie',
   kca100g: 'Kcal/100gramm',
+  required: 'Verpflichtend',
 };

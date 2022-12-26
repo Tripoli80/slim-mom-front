@@ -16,17 +16,17 @@ const AddNewProductForm = () => {
 
   return (
     <Formik
-      initialValues={{ title: '', categories: '', calories: '', weight: '100' }}
+      initialValues={{ title: '', categories: '', calories: '' }}
       onSubmit={values => {
-        dispatch(addNewProduct(values));
-        console.log(values);
+        dispatch(addNewProduct({ ...values, weight: 100 }));
+        // console.log({ ...values, weight: Number(100) });
         dispatch(closeModal());
         // form.reset();
       }}
       validate={values => {
         const errors = {};
         if (!values.title) {
-          errors.title = 'Required';
+          errors.title = Translator('required');
         } else if (!values.categories) {
           errors.categories = 'Required';
         } else if (!values.calories) {

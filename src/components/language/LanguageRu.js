@@ -45,4 +45,5 @@ export const RU = {
   add: 'Добавить',
   categories: 'Категория',
   kca100g: 'Ккал/100грамов',
+  required: 'Обязательное',
 };
