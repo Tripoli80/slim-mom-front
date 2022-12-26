@@ -207,7 +207,12 @@ const DailyCaloriesForm = () => {
             dispatch(closeModal());
           }}
         >
-          <DailyCalorieIntake stats={categories}> </DailyCalorieIntake>
+          <DailyCalorieIntake
+            stats={categories}
+            onClose={() => {
+              dispatch(closeModal());
+            }}
+          ></DailyCalorieIntake>
         </Modal>
       )}
     </>
