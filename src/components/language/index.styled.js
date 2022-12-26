@@ -15,7 +15,7 @@ export const SELECTOR = styled.select`
   :hover {
     color: #fc842d;
     border-left: 2px solid #e0e0e0;
-    font-size: 16px;
+    // font-size: 16px;
   }
 
   @media (min-width: 768px) {

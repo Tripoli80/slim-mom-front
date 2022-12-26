@@ -7,7 +7,7 @@ export const UA = {
   refreshingUser: 'Оновлення користувача...',
   startLosingweight: 'Почати худнути',
   age: 'Вік*',
-  kca: 'ккал.',
+  kca: 'ккал',
   foodsYouShouldNotEat: 'Продукти, які ви не повинні їсти',
   bloodType: 'Група крові *',
   calculateYourDaily: 'Обчисліть добову норму споживання калорій прямо зараз',
