@@ -151,7 +151,7 @@ const DailyCaloriesForm = () => {
                       type="radio"
                       value="1"
                       onChange={handleChange}
-                      checked={values.blood === '1' || true}
+                      checked={values.blood === '1'}
                     />
                     <InputRadioStyled />
                     <LabelRadioText>1</LabelRadioText>
