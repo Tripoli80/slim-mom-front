@@ -7,10 +7,12 @@ import {
   selectIsLoading,
 } from 'redux/products/selectors';
 import { List, ListItem } from './Component.styled';
+import { getLanguage } from 'redux/selectors';
 
 export const DiaryProductList = () => {
   const products = useSelector(selectEtedProductsByDate);
   const timeToEat = Translator('timeToEat');
+  const lang = useSelector(getLanguage).toLowerCase();
   return useSelector(selectIsLoading) ? (
     <Loader size={60} color={'#264061'} />
   ) : (
@@ -20,7 +22,7 @@ export const DiaryProductList = () => {
           <ListItem key={_id}>
             <DiaryProductListItem
               id={_id}
-              title={product.title.ua}
+              title={product.title[lang]}
               weight={weight}
               calories={intakeCalories}
             />

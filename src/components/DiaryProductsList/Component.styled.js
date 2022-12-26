@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Label } from 'components/Input/Input.styled';
 
 export const List = styled.ul`
   margin-top: 32px;

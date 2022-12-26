@@ -22,12 +22,7 @@ const productsInitState = {
   error: null,
 };
 
-const requestActions = [
-  getProductsByDate,
-  getProductsByTitle,
-  addEatedProduct,
-  removeEatedProduct,
-];
+const requestActions = [getProductsByDate, addEatedProduct, removeEatedProduct];
 const isPendingActions = isPending(...requestActions);
 const isFulfilledActions = isFulfilled(...requestActions);
 const isRejectedActions = isRejected(...requestActions);
@@ -50,13 +45,13 @@ const productsSlice = createSlice({
         state.selectedProduct = action.payload;
       })
       .addCase(addEatedProduct.fulfilled, (state, action) => {
-        state.eatedProducts.push(action.payload);
+        // state.eatedProducts.push(action.payload);
       })
       .addCase(removeEatedProduct.fulfilled, (state, action) => {
-        const index = state.eatedProducts.findIndex(
-          ep => ep._id === action.payload
-        );
-        state.eatedProducts.splice(index, 1);
+        // const index = state.eatedProducts.findIndex(
+        //   ep => ep._id === action.payload
+        // );
+        // state.eatedProducts.splice(index, 1);
       })
       .addCase(dailyCalorie.fulfilled, (state, action) => {
         state.recomendetToNotEat = action.payload;
