@@ -28,3 +28,34 @@ export const Title = styled.h2`
     padding-top: 25px;
   }
 `;
+
+export const Button = styled.button`
+  padding: 0px;
+  width: 48px;
+  height: 48px;
+
+  background-color: #fc842d;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.3);
+  outline: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 0.3),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 0.3);
+
+  cursor: pointer;
+
+  :hover,
+  :focus {
+    color: #fc842d;
+    background-color: #ffffff;
+    border: 2px solid #fc842d;
+    box-shadow: none;
+  }
+
+  & svg {
+    fill: currentColor;
+  }
+`;

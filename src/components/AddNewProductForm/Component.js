@@ -20,16 +20,8 @@ const AddNewProductForm = () => {
     <Formik
       initialValues={{ title: '', categories: '', calories: '', weight: '' }}
       onSubmit={values => {
-        dispatch(
-          addNewProduct({
-            newProduct: values,
-            user: user,
-          })
-        );
-        console.log({
-          newProduct: values,
-          user: user,
-        });
+        dispatch(addNewProduct(values));
+        console.log(values);
         // form.reset();
       }}
       validate={values => {
