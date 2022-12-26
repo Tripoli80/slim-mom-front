@@ -43,7 +43,7 @@ export const Link = styled(NavLink)`
   :hover {
     color: #212121;
     color: #fc842d;
-    font-size: 16px;
+    // font-size: 16px;
   }
 `;
 

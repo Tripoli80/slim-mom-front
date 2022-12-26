@@ -35,7 +35,7 @@ export const Link = styled(NavLink)`
   &:focus-visible:not(.active) {
     // color: #212121;
     color: #fc842d;
-    font-size: 16px;
+    // font-size: 16px;
   }
 `;
 

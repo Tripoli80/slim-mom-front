@@ -7,7 +7,7 @@ export const DEU = {
   refreshingUser: 'Benutzer aktualisieren...',
   startLosingweight: 'Beginnen Sie mit dem Abnehmen',
   age: 'Alter*',
-  kca: 'kcal.',
+  kca: 'kcal',
   foodsYouShouldNotEat: 'Lebensmittel, die Sie nicht essen sollten',
   bloodType: 'Blutgruppe *',
   calculateYourDaily: 'Berechnen Sie jetzt Ihre tägliche Kalorienzufuhr',

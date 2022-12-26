@@ -19,7 +19,7 @@ export const DiaryProductListItem = ({ id, title, weight, calories }) => {
         {weight} {Translator('g')}
       </Weight>
       <Calories>
-        {calories} {Translator('kcal')}
+        {calories} {Translator('kca')}
       </Calories>
       <Button
         type="button"
