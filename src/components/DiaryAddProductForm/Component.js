@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEatedProduct, getProductsByTitle } from 'redux/products/operations';
 import { Translator } from 'components/language/translator';
 
+// import { useDispatch } from 'react-redux';
+// import { addEatedProduct } from 'redux/products/operations';
+
 import {
   Form,
   Input,
@@ -21,10 +24,15 @@ export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
   const [product, setProduct] = useState(null);
   const [weight, setWeight] = useState('');
+
+
+
+
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
   const lang = useSelector(getLanguage).toLowerCase();
   let sp = useSelector(selectSelectedProducts);
+
   const handleAddProduct = e => {
     e.preventDefault();
     dispatch(addEatedProduct({ product, weight, date }));

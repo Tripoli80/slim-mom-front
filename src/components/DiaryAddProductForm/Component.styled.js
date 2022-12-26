@@ -45,7 +45,7 @@ export const Label = styled.label`
   top: 50%;
   transform: translateY(-50%);
 
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 0.3);
 
   font-family: 'Verdana';
   font-weight: 700;
@@ -107,11 +107,13 @@ export const Button = styled.button`
 
   border: none;
   border-radius: 50%;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.3);
   outline: none;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 0.3),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 0.3);
+
+
   cursor: pointer;
 
   :hover,

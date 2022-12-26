@@ -66,13 +66,13 @@ export default function Summary({ dailyData, dailyCalorie, date }) {
   );
 }
 
-// Summary.propTypes = {
-//   dailyData: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       intakeCalories: PropTypes.number,
-//     }),
-//   ),
-//   dailyCalorie: PropTypes.number,
-//   date: PropTypes.string
-// };
-// Summary.defaultProps = { dailyData: [], dailyCalorie: 0, date: '' };
+Summary.propTypes = {
+  dailyData: PropTypes.arrayOf(
+    PropTypes.shape({
+      intakeCalories: PropTypes.number,
+    }),
+  ),
+  dailyCalorie: PropTypes.number,
+  date: PropTypes.string
+};
+Summary.defaultProps = { dailyData: [], dailyCalorie: 0, date: '' };

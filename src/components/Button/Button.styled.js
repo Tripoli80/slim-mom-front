@@ -12,6 +12,7 @@ const PrimaryBtn = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
   /* transition: scale 250ms; */
+  
 
   &:focus,
   &:hover {

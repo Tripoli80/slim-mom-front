@@ -24,7 +24,7 @@ const DailyCalorieIntake = ({ stats }) => {
           <WrapperCallories>
             <Callories>
               {stats.dailyCalorie}
-              <CalloriesText>{Translator('kcal')}</CalloriesText>
+              <CalloriesText> {Translator('kca')}</CalloriesText>
             </Callories>
           </WrapperCallories>
           <div>
