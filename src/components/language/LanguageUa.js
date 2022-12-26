@@ -41,6 +41,8 @@ export const UA = {
   yourDietWill: 'Ваша дієта буде відображатися тут',
   yourRecommendedDaily: 'Рекомендована добова норма',
   addNewProduct: 'Додати власний продукт',
-  add: 'додати',
-  categories: 'категорія',
+  add: 'Додати',
+  categories: 'Категорія',
+  kca100g: 'Ккал/100грамів',
+  required: 'Обов’язкове',
 };

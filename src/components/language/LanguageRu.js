@@ -42,6 +42,8 @@ export const RU = {
   yourDietWill: 'Ваша диета будет отображаться здесь',
   yourRecommendedDaily: 'Рекомендуемая суточная норма',
   addNewProduct: 'Добавить собственный продукт',
-  add: 'добавить',
-  categories: 'категория',
+  add: 'Добавить',
+  categories: 'Категория',
+  kca100g: 'Ккал/100грамов',
+  required: 'Обязательное',
 };
