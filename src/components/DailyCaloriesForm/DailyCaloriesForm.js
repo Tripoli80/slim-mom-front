@@ -57,7 +57,7 @@ const DailyCaloriesForm = () => {
         age: '',
         cWeight: '',
         dWeight: '',
-        blood: '',
+        blood: '1',
       };
   const formik = useFormik({
     initialValues: initialValues,
@@ -207,7 +207,12 @@ const DailyCaloriesForm = () => {
             dispatch(closeModal());
           }}
         >
-          <DailyCalorieIntake stats={categories}> </DailyCalorieIntake>
+          <DailyCalorieIntake
+            stats={categories}
+            onClose={() => {
+              dispatch(closeModal());
+            }}
+          ></DailyCalorieIntake>
         </Modal>
       )}
     </>
