@@ -28,11 +28,13 @@ import { Button } from 'components/Button/Button';
 import validation from './validateFormik';
 import { dailyCalorie } from 'redux/products/operations';
 import { selectCategories } from 'redux/products/selectors';
+import { Loader } from 'components/Loading/Loading';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const { isOpen } = useSelector(store => store.modal);
+  const { isLoading } = useSelector(store => store.products);
   const categories = useSelector(selectCategories);
   const onOpenModal = async () => {
     await dispatch(dailyCalorie(formik.values));
@@ -189,6 +191,7 @@ const DailyCaloriesForm = () => {
           </BtnSub>
         </Form>
       </Container>
+      {isLoading && <Loader size={80} />}
       {isOpen && (
         <Modal
           onClose={() => {
