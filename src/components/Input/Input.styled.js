@@ -32,11 +32,11 @@ export const InputValue = styled.input.attrs(props => ({}))`
   height: 48px;
   width: 100%;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   padding-left: 8px;
   color: #212121;
   outline: none;
-  background-color: rgba(rgba(224, 224, 224, 0.5));
+  background-color: rgb(255 255 255 / 70%);
   :hover,
   :focus {
     border-color: #fc842d;
@@ -52,11 +52,11 @@ export const InputValueField = styled(Field)`
   height: 48px;
   width: 100%;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   padding-left: 8px;
   color: #212121;
   outline: none;
-  background-color: rgba(rgba(224, 224, 224, 0.5));
+  background-color: rgb(255 255 255 / 70%);
   :hover,
   :focus {
     border-color: #fc842d;
@@ -93,7 +93,7 @@ export const InputRadioStyled = styled.span`
   width: 20px;
   height: 20px;
   background: #ffffff;
-  border: 1px solid #e0e0e0;
+  border: 2px solid #e0e0e0;
   border-radius: 50%;
   ${InputRadio}:checked + && {
     ::before {
@@ -140,10 +140,12 @@ export const TitleRaioGroup = styled.span`
 `;
 export const BtnSub = styled.div`
   min-width: 100px;
-  margin: 10px auto;
+  // margin: 10px auto;
+  padding-top: 50px;
   @media (min-width: 768px) {
     margin-top: 60px;
     margin-left: 32px;
+    // padding-top: 0;
   }
   @media (min-width: 1260px) {
     margin-top: 60px;

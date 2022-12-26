@@ -40,9 +40,10 @@ export const Link = styled(NavLink)`
     color: #212121;
   }
 
-  :hover:not(.active),
-  &:focus-visible:not(.active) {
+  :hover {
     color: #212121;
+    color: #fc842d;
+    font-size: 16px;
   }
 `;
 
@@ -57,7 +58,8 @@ export const SignInText = styled.div`
 
   @media (min-width: 1280px) {
     margin-left: 20px;
-  }
+  }  
+  
 `;
 
 export const RegistrationText = styled.div`

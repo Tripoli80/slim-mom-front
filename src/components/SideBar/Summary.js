@@ -59,6 +59,8 @@ export default function Summary({ dailyCalorie }) {
 }
 
 Summary.propTypes = {
+
   dailyCalorie: PropTypes.number,
 };
 Summary.defaultProps = { dailyCalorie: 0 };
+

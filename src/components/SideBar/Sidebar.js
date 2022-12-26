@@ -11,6 +11,11 @@ import {
 } from './Sidebar.styled';
 import privateDiet from './data/diet.json';
 
+// import defaultsBaseURL from '../../redux/auth/authOperations';
+//+++import { SidebarSection, SidebarWrap, Back } from './Sidebar.styled';
+// import dailyData from './data/dailyData.json';
+
+
 export default function Sidebar() {
   // const dispatch = useDispatch();
   // const privateDiet = useSelector(selectDiet);
