@@ -35,6 +35,7 @@ export const DiaryAddProductForm = () => {
 
   const handleAddProduct = e => {
     e.preventDefault();
+    // не встор а на сервак відправляй
     dispatch(addEatedProduct({ product, weight, date }));
 
     resetForm();
