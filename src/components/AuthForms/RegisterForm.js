@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 import * as yup from 'yup';
 import {
+  AuthFormTitle,
   AuthFormWrapper,
   AuthBtnsWrapper,
   AuthFormNavLink,
@@ -37,6 +38,8 @@ export const RegisterForm = () => {
   };
 
   return (
+    <>
+    <AuthFormTitle>REGISTER</AuthFormTitle>
     <Formik
       onSubmit={handleSubmit}
       validationSchema={validationRegisterSchema}
@@ -45,20 +48,20 @@ export const RegisterForm = () => {
       <AuthFormWrapper>
         <AuthFormItemWrap>
           <InputAuth
-            placeHolder={Translator('name')}
+            placeHolder={Translator('Name')}
             id="name"
             name="name"
             required
           />
           <InputAuth
-            placeHolder={Translator('email')}
+            placeHolder={Translator('Email')}
             id="email"
             name="email"
             type="email"
             required
           />
           <InputAuth
-            placeHolder={Translator('password')}
+            placeHolder={Translator('Password')}
             id="password"
             name="password"
             type="password"
@@ -67,10 +70,11 @@ export const RegisterForm = () => {
         </AuthFormItemWrap>
 
         <AuthBtnsWrapper>
-          <Button type="submit">{Translator('register')}</Button>
-          <AuthFormNavLink to="/singin">{Translator('logIn')}</AuthFormNavLink>
+          <Button type="submit">{Translator('Register')}</Button>
+          <AuthFormNavLink to="/singin">{Translator('LogIn')}</AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
+    </>
   );
 };
