@@ -22,7 +22,6 @@ export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
   const [product, setProduct] = useState(null);
   const [weight, setWeight] = useState('');
-
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
   const lang = useSelector(getLanguage).toLowerCase();
@@ -32,6 +31,7 @@ export const DiaryAddProductForm = () => {
     e.preventDefault();
     dispatch(addEatedProduct({ product, weight, date }));
     dispatch(setSelectedProduct());
+    setProduct(null);
     resetForm();
   };
 
@@ -88,7 +88,7 @@ export const DiaryAddProductForm = () => {
         />
         <LabelR htmlFor="weight">{Translator('grams')}</LabelR>
       </FieldWeight>
-      <Button type="submit">
+      <Button type="submit" disabled={!product || !title || !weight}>
         <svg width="14" height="14">
           <path d="M13.72 7.96H7.96v5.76H6.04V7.96H.28V6.04h5.76V.28h1.92v5.76h5.76v1.92Z" />
         </svg>

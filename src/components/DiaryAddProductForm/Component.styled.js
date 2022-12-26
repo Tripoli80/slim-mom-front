@@ -115,14 +115,17 @@ export const Button = styled.button`
 
   cursor: pointer;
 
-  :hover,
-  :focus {
+  :enabled:hover,
+  :enabled:focus {
     color: #fc842d;
     background-color: #ffffff;
     border: 2px solid #fc842d;
     box-shadow: none;
   }
-
+  :disabled {
+    background-color: #fc842d50;
+    box-shadow: none;
+  }
   & svg {
     fill: currentColor;
   }
