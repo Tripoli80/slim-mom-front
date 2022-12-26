@@ -5,7 +5,7 @@ export const AddNewProductFormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 40px;
+  padding: 40px 0;
   outline: 1px tomato dotted;
 
   /* @media screen and (min-width: 480px) {
@@ -14,7 +14,7 @@ export const AddNewProductFormStyled = styled(Form)`
 
   @media screen and (min-width: 768px) {
     width: 100%;
-    padding-top: 140px;
+    padding: 14px 0;
     padding-left: 16px;
   }
 

@@ -13,7 +13,7 @@ import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import './App.css';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
-// const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
+const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 

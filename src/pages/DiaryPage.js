@@ -15,6 +15,7 @@ const DiaryPageWrap = styled.div`
   @media screen and (min-width: 1280px) {
     display: flex;
     width: 714px;
+    padding: 0 38px;
   }
 `;
 const DiaryPage = () => {
