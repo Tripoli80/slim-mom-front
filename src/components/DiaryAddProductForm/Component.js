@@ -20,7 +20,7 @@ import { setSelectedProduct } from 'redux/products/slice';
 
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
@@ -31,12 +31,16 @@ export const DiaryAddProductForm = () => {
     e.preventDefault();
     dispatch(addEatedProduct({ product, weight, date }));
     dispatch(setSelectedProduct());
-    setProduct(null);
+    setProduct('');
     resetForm();
   };
 
   useEffect(() => {
-    if (title.length > 3) dispatch(getProductsByTitle(title));
+    if (title.length > 3) {
+      dispatch(getProductsByTitle(title));
+    } else {
+      setProduct('');
+    }
   }, [dispatch, title]);
 
   const resetForm = () => {
@@ -60,6 +64,7 @@ export const DiaryAddProductForm = () => {
         <LabelL htmlFor="title">{Translator('enterProductName')}</LabelL>
         <FilteredList>
           {title.length > 3 &&
+            !product &&
             sp.map(({ _id, title }) => (
               <li key={_id}>
                 <button
