@@ -1,4 +1,4 @@
-import { LoginForm } from "components/AuthForms/LoginForm";
+import { LoginForm } from 'components/AuthForms/LoginForm';
 
 const LoginPage = () => {
   return (
@@ -6,6 +6,5 @@ const LoginPage = () => {
       <LoginForm />
     </>
   );
-}
-
+};
 export default LoginPage;
