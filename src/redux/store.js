@@ -5,7 +5,6 @@ import { filterSlice } from './services/filterSlice';
 import { diaryApi } from './services/createApi';
 import { languageSlice } from './services/languageSlice';
 import { productsReducer } from './products/slice';
-import { dailySlice } from './services/privateDailySlice';
 import { dietSlice } from './services/privateDietSlice';
 
 import {
@@ -26,7 +25,6 @@ export const store = configureStore({
     [languageSlice.name]: languageSlice.reducer,
     modal: modalReducer,
     products: productsReducer,
-    daily: dailySlice.reducer,
     diet: dietSlice.reducer,
   },
   middleware: getDefaultMiddleware => [
