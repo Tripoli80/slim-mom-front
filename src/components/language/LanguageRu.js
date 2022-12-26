@@ -27,7 +27,7 @@ export const RU = {
   height: 'Рост*',
   logout: 'Выйти',
   homePage: 'Домашняя страница',
-  left: 'Слева',
+  left: 'Осталось',
   logIn: 'авторизироваться',
   mom: 'Мама',
   nOfNormal: '% от нормы',

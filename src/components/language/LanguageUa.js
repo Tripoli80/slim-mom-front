@@ -26,7 +26,7 @@ export const UA = {
   height: 'Зріст*',
   logout: 'Вийти',
   homePage: 'Домашня сторінка',
-  left: 'Зліва',
+  left: 'Залишилось',
   logIn: 'авторизуватися',
   mom: 'Мама',
   nOfNormal: '% від норми',

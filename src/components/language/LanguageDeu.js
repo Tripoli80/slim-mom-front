@@ -24,7 +24,7 @@ export const DEU = {
   foodNotRecommended: 'Essen nicht empfohlen',
   goToHomepage: 'Zur Startseite gehen',
   height: 'Größe*',
-  left: 'Links',
+  left: 'Überreste',
   logIn: 'login',
   mom: 'Mama',
   nOfNormal: '% des Wertes',
