@@ -25,9 +25,6 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log('====================================');
-    console.log(values);
-    console.log('====================================');
     dispatch(
       login({
         email: values.email,
