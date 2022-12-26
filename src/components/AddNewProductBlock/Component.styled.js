@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin: 32px 0;
+  margin-top: 32px;
   outline: 1px black dotted;
 `;
 
@@ -25,6 +25,6 @@ export const Title = styled.h2`
 
   @media (min-width: 1264px) {
     width: 600px;
-    padding-top: 145px;
+    padding-top: 25px;
   }
 `;
