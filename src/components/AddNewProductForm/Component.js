@@ -1,20 +1,18 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { useAuth } from 'hooks/hooks';
 import { addNewProduct } from '../../redux/products/operations';
-// import Input from 'components/Input/Input';
-// import { Button } from 'components/Button/Button';
 import {
   AddNewProductFormStyled,
+  Title,
   AddNewProductInput,
   AddNewProductButton,
   ErrorMessage,
 } from './Component.styled';
 import { Translator } from 'components/language/translator';
+import { closeModal } from 'redux/services/modalSlice';
 
 const AddNewProductForm = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
 
   return (
     <Formik
@@ -22,6 +20,7 @@ const AddNewProductForm = () => {
       onSubmit={values => {
         dispatch(addNewProduct(values));
         console.log(values);
+        dispatch(closeModal());
         // form.reset();
       }}
       validate={values => {
@@ -45,9 +44,9 @@ const AddNewProductForm = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-        // isSubmitting,
       }) => (
         <AddNewProductFormStyled onSubmit={handleSubmit} autoComplete="off">
+          <Title>{Translator('addNewProduct')}</Title>
           <AddNewProductInput
             type="text"
             name="title"
