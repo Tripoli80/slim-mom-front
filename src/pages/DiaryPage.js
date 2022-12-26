@@ -14,15 +14,13 @@ import AddNewProductBlock from 'components/AddNewProductBlock/Component';
 const DiaryPageWrap = styled.div`
   @media screen and (min-width: 1280px) {
     display: flex;
+    width: 714px;
   }
 `;
 const DiaryPage = () => {
   const windowWidth = useWindowWidth();
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
-
   useEffect(() => {
     dispatch(getProductsByDate(date));
   }, [date, dispatch]);

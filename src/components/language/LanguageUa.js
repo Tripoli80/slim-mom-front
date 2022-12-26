@@ -40,4 +40,7 @@ export const UA = {
   submit: 'Надіслати',
   yourDietWill: 'Ваша дієта буде відображатися тут',
   yourRecommendedDaily: 'Рекомендована добова норма',
+  addNewProduct: 'Додати власний продукт',
+  add: 'додати',
+  categories: 'категорія',
 };

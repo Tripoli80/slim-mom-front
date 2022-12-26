@@ -45,7 +45,7 @@ export const Label = styled.label`
   top: 50%;
   transform: translateY(-50%);
 
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 0.3);
 
   font-family: 'Verdana';
   font-weight: 700;
@@ -74,6 +74,16 @@ export const Input = styled.input`
   &:valid ~ label {
     top: 0px;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
 `;
 
 export const LabelR = styled(Label)`
@@ -97,11 +107,13 @@ export const Button = styled.button`
 
   border: none;
   border-radius: 50%;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.3);
   outline: none;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 0.3),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 0.3);
+
+
   cursor: pointer;
 
   :hover,
@@ -114,5 +126,33 @@ export const Button = styled.button`
 
   & svg {
     fill: currentColor;
+  }
+`;
+
+export const FilteredList = styled.ul`
+  z-index: 10;
+  position: absolute;
+  background-color: #f0f1f3;
+  width: max-content;
+
+  li {
+    width: 100%;
+    border-bottom: 1px solid #264061;
+    border-top: 1px solid #e0e0e0;
+  }
+  button {
+    padding: 4px;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    color: #264061;
+    background-color: #f0f1f3;
+    cursor: pointer;
+    outline: none;
+    /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  }
+  button:focus,
+  button:hover {
+    color: #fc842d;
   }
 `;

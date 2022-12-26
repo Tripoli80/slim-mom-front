@@ -45,18 +45,24 @@ export const UserNameDefault = styled.p`
 `;
 
 export const Exit = styled.p`
+  display: flex;
   margin: 0;
-  padding-left: 15px;
+  padding-left: 27px;
   padding-right: 15px;
   color: #9b9faa;
   border-left: 2px solid #e0e0e0;
   cursor: pointer;
+  height: 17px;
+  flex-direction: column;
+  justify-content: center;
 
   &.active {
-    color: #212121;
+    color: #fc842d;
+  //  font-size: 16px;
   }
   :hover:not(.active),
   &:focus-visible:not(.active) {
-    color: #212121;
+    color: #fc842d;
+   font-size: 16px;
   }
 `;

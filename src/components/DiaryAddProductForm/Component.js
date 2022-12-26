@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addEatedProduct, getProductsByTitle } from 'redux/products/operations';
 import { Translator } from 'components/language/translator';
-import { useDispatch } from 'react-redux';
-import { addEatedProduct } from 'redux/products/operations';
+
+// import { useDispatch } from 'react-redux';
+// import { addEatedProduct } from 'redux/products/operations';
+
 import {
   Form,
   Input,
@@ -11,19 +15,38 @@ import {
   InputR,
   FieldProduct,
   FieldWeight,
+  FilteredList,
 } from './Component.styled';
+import { selectDate, selectSelectedProducts } from 'redux/products/selectors';
+import { getLanguage } from 'redux/selectors';
 
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
+  const [product, setProduct] = useState(null);
   const [weight, setWeight] = useState('');
+
+
+
+
+  const date = useSelector(selectDate);
   const dispatch = useDispatch();
+  const lang = useSelector(getLanguage).toLowerCase();
+  let sp = useSelector(selectSelectedProducts);
 
   const handleAddProduct = e => {
     e.preventDefault();
+    dispatch(addEatedProduct({ product, weight, date }));
 
-    // dispatch(addEatedProduct({ title, weight }));
     resetForm();
   };
+
+  // useEffect(() => {
+  //   dispatch(getProductsByDate(date));
+  // }, [date, dispatch]);
+
+  useEffect(() => {
+    if (title.length > 3) dispatch(getProductsByTitle(title));
+  }, [dispatch, title]);
 
   const resetForm = () => {
     setTitle('');
@@ -37,12 +60,31 @@ export const DiaryAddProductForm = () => {
           id="title"
           type="text"
           value={title}
-          onChange={e => setTitle(e.currentTarget.value)}
+          onChange={e => {
+            setTitle(e.currentTarget.value);
+          }}
           name="title"
           required
         />
         <LabelL htmlFor="title">{Translator('enterProductName')}</LabelL>
+        <FilteredList>
+          {title.length > 3 &&
+            sp.map(({ _id, title }) => (
+              <li key={_id}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTitle(title[lang]);
+                    setProduct(_id);
+                  }}
+                >
+                  {title[lang]}
+                </button>
+              </li>
+            ))}
+        </FilteredList>
       </FieldProduct>
+
       <FieldWeight>
         <InputR
           id="weight"

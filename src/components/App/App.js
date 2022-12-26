@@ -8,7 +8,7 @@ import { useAuth } from '../../hooks/hooks';
 import { refreshUser } from 'redux/auth/authOperations';
 import { Translator } from 'components/language/translator';
 import Container from 'components/Container/Container';
-import { Image } from 'components/App/App.stiled';
+import { Image, Image2 } from 'components/App/App.stiled';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import './App.css';
 
@@ -19,7 +19,7 @@ const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();  
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -29,28 +29,62 @@ const App = () => {
     <b>{Translator('refreshingUser')}</b>
   ) : (
     <>
-
-      <Image />
       <Container>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<DailyCaloriesForm />} />
+            <Route
+              index
+              element={
+                <>
+                  <DailyCaloriesForm />
+                  <Image />
+                  <Image2 />
+                </>
+              }
+            />
             <Route
               path="/registration"
               element={
-                <PublicRoute redirectTo="/diary" component={<RegisterPage />} />
+                <PublicRoute
+                  redirectTo="/diary"
+                  component={
+                    <>
+                      <RegisterPage />
+                      <Image />
+                      <Image2 />
+                    </>
+                  }
+                />
               }
             />
             <Route
               path="/singin"
               element={
-                <PublicRoute redirectTo="/diary" component={<LoginPage />} />
+                <PublicRoute
+                  redirectTo="/diary"
+                  component={
+                    <>
+                      <LoginPage />
+                      <Image />
+                      <Image2 />
+                    </>
+                  }
+                />
               }
             />
             <Route
               path="/diary"
               element={
                 <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
+              }
+            />
+            <Route
+              path="/calculator"
+              element={
+                <PrivateRoute
+                  redirectTo="/singin"
+                  component={<CalculatorPage />}
+                />
               }
             />
           </Route>
