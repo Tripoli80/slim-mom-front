@@ -9,7 +9,7 @@ export const DEU = {
   age: 'Alter*',
   kca: 'kcal.',
   foodsYouShouldNotEat: 'Lebensmittel, die Sie nicht essen sollten',
-  bloodType: 'blutgruppe *',
+  bloodType: 'Blutgruppe *',
   calculateYourDaily: 'Berechnen Sie jetzt Ihre tägliche Kalorienzufuhr',
   calculator: 'Rechner',
   calorieIntakeIs: 'Kalorienzufuhr ist',

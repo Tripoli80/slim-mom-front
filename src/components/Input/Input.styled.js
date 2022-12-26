@@ -137,6 +137,9 @@ export const TitleRaioGroup = styled.span`
   display: block;
   color: #9b9faa;
   margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
 `;
 export const BtnSub = styled.div`
   min-width: 100px;

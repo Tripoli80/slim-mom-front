@@ -16,7 +16,11 @@ import { getLanguage } from 'redux/services/languageSlice';
 
 const DailyCalorieIntake = ({ stats }) => {
   const len = useSelector(getLanguage);
+  function ucFirst(str) {
+    if (!str) return str;
 
+    return str[0].toUpperCase() + str.slice(1);
+  }
   return (
     <>
       <>
@@ -34,7 +38,7 @@ const DailyCalorieIntake = ({ stats }) => {
                 {stats.products.map(product => {
                   return (
                     <ListItem key={nanoid()}>
-                      {product._id[len.toLowerCase()]}
+                      {ucFirst(product._id[len.toLowerCase()])}
                     </ListItem>
                   );
                 })}

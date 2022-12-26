@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const PrimaryBtn = styled.button`
   cursor: pointer;
@@ -12,11 +12,11 @@ const PrimaryBtn = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
   border-radius: 30px;
   /* transition: scale 250ms; */
-  
 
   &:focus,
   &:hover {
     scale: 1.1;
+    outline: none;
   }
 `;
 
@@ -45,7 +45,7 @@ const RoundBtn = styled.button`
   color: #ffffff;
   background-color: #fc842d;
   border-radius: 50%;
-  transition:  250ms;
+  transition: 250ms;
 
   &:focus,
   &:hover {
@@ -53,9 +53,4 @@ const RoundBtn = styled.button`
   }
 `;
 
-export {
-  PrimaryBtn,
-  SecondaryBtn,
-  RoundBtn
-}
-;
+export { PrimaryBtn, SecondaryBtn, RoundBtn };

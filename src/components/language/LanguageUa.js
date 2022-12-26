@@ -12,7 +12,7 @@ export const UA = {
   bloodType: 'Група крові *',
   calculateYourDaily: 'Обчисліть добову норму споживання калорій прямо зараз',
   calculator: 'Калькулятор',
-  calorieIntakeIs: 'Споживання калорій становить',
+  calorieIntakeIs: 'споживання калорій становить',
   consumed: 'Спожито',
   currentWeight: 'Поточна вага*',
   dailyRate: 'Денна норма',

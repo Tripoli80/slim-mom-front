@@ -15,10 +15,12 @@ import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 const modalRoot = document.querySelector('#modal-root');
 
+
 export const Modal = ({ onClose, children }) => {
   // const navigate = useNavigate();
   // const goToRegistrationPage = () =>
   //   navigate('/registration', { replace: true });
+
 
   useEffect(() => {
     const handleKeyDown = e => {
