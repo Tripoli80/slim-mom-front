@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { login } from 'redux/auth/authOperations';
 import {
+  AuthFormTitle,
   AuthFormWrapper,
   AuthBtnsWrapper,
   AuthFormNavLink,
@@ -35,6 +36,8 @@ export const LoginForm = () => {
   };
 
   return (
+    <>
+    <AuthFormTitle>SIGN IN</AuthFormTitle>
     <Formik
       onSubmit={handleSubmit}
       validationSchema={validationLoginSchema}
@@ -43,14 +46,14 @@ export const LoginForm = () => {
       <AuthFormWrapper>
         <AuthFormItemWrap>
           <InputAuth
-            placeHolder={Translator('email')}
+            placeHolder={Translator('Email')}
             id="email"
             name="email"
             type="email"
             required
           />
           <InputAuth
-            placeHolder={Translator('password')}
+            placeHolder={Translator('Password')}
             id="password"
             name="password"
             type="password"
@@ -59,12 +62,13 @@ export const LoginForm = () => {
         </AuthFormItemWrap>
 
         <AuthBtnsWrapper>
-          <Button type="submit">{Translator('logIn')}</Button>
+          <Button type="submit">{Translator('LogIn')}</Button>
           <AuthFormNavLink to="/registration">
-            {Translator('register')}
+            {Translator('Register')}
           </AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
+    </>
   );
 };

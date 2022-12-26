@@ -6,16 +6,11 @@ export const AuthFormWrapper = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 40px;
   align-items: center;
 
-  /* @media screen and (min-width: 480px) {
-    width: 280px;
-  } */
 
   @media screen and (min-width: 768px) {
     width: 100%;
-    padding-top: 140px;
     padding-left: 16px;
     align-items: normal;
   }
@@ -27,10 +22,11 @@ export const AuthFormWrapper = styled(Form)`
 
 export const AuthFormTitle = styled.h3`
   margin: 0 auto;
+  margin-top: 40px;
   margin-bottom: 60px;
   align-items: center;
   text-align: center;
-  font-family: 'Gotham Pro';
+  font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -40,7 +36,9 @@ export const AuthFormTitle = styled.h3`
   color: #fc842d;
 
   @media screen and (min-width: 768px) {
+    margin-top: 160px;
     margin-left: 0;
+    text-align: start;
   }
 `;
 
@@ -108,6 +106,7 @@ export const AuthBtnsWrapper = styled.div`
 export const AuthFormNavLink = styled(NavLink)`
   cursor: pointer;
   text-decoration: none;
+  font-family: 'Verdana';
   min-width: 180px;
   height: 42px;
   padding-top: 8px;
