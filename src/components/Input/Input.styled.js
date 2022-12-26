@@ -36,7 +36,7 @@ export const InputValue = styled.input.attrs(props => ({}))`
   padding-left: 8px;
   color: #212121;
   outline: none;
-  background-color: rgba(224, 224, 224, 0.7);
+  background-color: rgb(255 255 255 / 70%);
   :hover,
   :focus {
     border-color: #fc842d;
@@ -56,7 +56,7 @@ export const InputValueField = styled(Field)`
   padding-left: 8px;
   color: #212121;
   outline: none;
-  background-color: rgba(224, 224, 224, 0.7);
+  background-color: rgb(255 255 255 / 70%);
   :hover,
   :focus {
     border-color: #fc842d;
