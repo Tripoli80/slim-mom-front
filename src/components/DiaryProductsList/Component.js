@@ -1,11 +1,8 @@
 import { DiaryProductListItem } from 'components/DiaryProductsListItem/Component';
-import { Loader } from 'components/Loading/Loading';
+
 import { useSelector } from 'react-redux';
 import { Translator } from 'components/language/translator';
-import {
-  selectEtedProductsByDate,
-  selectIsLoading,
-} from 'redux/products/selectors';
+import { selectEtedProductsByDate } from 'redux/products/selectors';
 import { List, ListItem } from './Component.styled';
 import { getLanguage } from 'redux/selectors';
 

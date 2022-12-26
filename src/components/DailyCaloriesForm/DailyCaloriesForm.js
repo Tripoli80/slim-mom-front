@@ -56,7 +56,7 @@ const DailyCaloriesForm = () => {
         age: '',
         cWeight: '',
         dWeight: '',
-        blood: '1',
+        blood: '',
       };
   const formik = useFormik({
     initialValues: initialValues,
@@ -139,7 +139,7 @@ const DailyCaloriesForm = () => {
                       type="radio"
                       value="1"
                       onChange={handleChange}
-                      checked={values.blood === '1'}
+                      checked={values.blood === '1' || true}
                     />
                     <InputRadioStyled />
                     <LabelRadioText>1</LabelRadioText>
