@@ -18,7 +18,6 @@ export const fetchDiet = createAsyncThunk(
       const response = await axios.post('api/diet/personal', bodyData);
       return response.data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -32,7 +31,7 @@ const isRejectedActions = isRejected(...requestActions);
 export const dietSlice = createSlice({
   name: 'diet',
   initialState: {
-    bodyData: {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70},
+    bodyData: {blood: 1, height: 168, age: 38, cWeight: 83, dWeight: 70},
     items: {},
     isLoading: false,
     error: null,
