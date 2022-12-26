@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addEatedProduct, getProductsByTitle } from 'redux/products/operations';
 import { Translator } from 'components/language/translator';
 
-// import { useDispatch } from 'react-redux';
-// import { addEatedProduct } from 'redux/products/operations';
-
 import {
   Form,
   Input,
@@ -19,14 +16,12 @@ import {
 } from './Component.styled';
 import { selectDate, selectSelectedProducts } from 'redux/products/selectors';
 import { getLanguage } from 'redux/selectors';
+import { setSelectedProduct } from 'redux/products/slice';
 
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
   const [product, setProduct] = useState(null);
   const [weight, setWeight] = useState('');
-
-
-
 
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
@@ -35,15 +30,10 @@ export const DiaryAddProductForm = () => {
 
   const handleAddProduct = e => {
     e.preventDefault();
-    // не встор а на сервак відправляй
     dispatch(addEatedProduct({ product, weight, date }));
-
+    dispatch(setSelectedProduct());
     resetForm();
   };
-
-  // useEffect(() => {
-  //   dispatch(getProductsByDate(date));
-  // }, [date, dispatch]);
 
   useEffect(() => {
     if (title.length > 3) dispatch(getProductsByTitle(title));
