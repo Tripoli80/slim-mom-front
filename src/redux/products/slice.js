@@ -44,8 +44,8 @@ const productsSlice = createSlice({
       .addCase(getProductsByTitle.fulfilled, (state, action) => {
         state.selectedProduct = action.payload;
       })
-      .addCase(addEatedProduct.fulfilled, (state, action) => {
-        // state.eatedProducts.push(action.payload);
+      .addCase(addEatedProduct.fulfilled, (state, action) => {        
+        state.eatedProducts.push(action.payload);
       })
       .addCase(removeEatedProduct.fulfilled, (state, action) => {
         // const index = state.eatedProducts.findIndex(

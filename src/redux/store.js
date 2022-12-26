@@ -1,8 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
 import { modalReducer } from './services/modalSlice';
-import { filterSlice } from './services/filterSlice';
-import { diaryApi } from './services/createApi';
 import { languageSlice } from './services/languageSlice';
 import { productsReducer } from './products/slice';
 import { dietSlice } from './services/privateDietSlice';
@@ -20,8 +18,6 @@ import {
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    [diaryApi.reducerPath]: diaryApi.reducer,
-    [filterSlice.name]: filterSlice.reducer,
     [languageSlice.name]: languageSlice.reducer,
     modal: modalReducer,
     products: productsReducer,
@@ -33,7 +29,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    diaryApi.middleware,
   ],
 });
 
