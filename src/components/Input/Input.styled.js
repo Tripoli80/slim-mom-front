@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
   position: relative;
-  margin: 32px 0 0 0;
+  margin: 16px 0 0 0;
   display: block;
   font-weight: 700;
   width: 100%;
@@ -137,6 +137,9 @@ export const TitleRaioGroup = styled.span`
   display: block;
   color: #9b9faa;
   margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
 `;
 export const BtnSub = styled.div`
   min-width: 100px;

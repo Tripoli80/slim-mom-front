@@ -13,8 +13,9 @@ export const SidebarSection = styled.div`
     height: 100%;
     z-index: -1;
     top: 0;
-    //  right: 126px; 
-    width: 527px;
+    //  right: 126px;
+    // width: 527px;
+    margin-left: 68px;
   }
 `;
 export const Back = styled.div`

@@ -62,7 +62,7 @@ export const Calories = styled(Text)`
 
 export const Button = styled.button`
   padding: 0;
-
+  width: 20px;
   background-color: transparent;
   color: #9b9faa;
   border: none;

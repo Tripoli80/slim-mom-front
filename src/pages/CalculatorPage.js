@@ -7,9 +7,9 @@ const CalcPageWrap = styled.div`
 }
 `
 const H2 = styled.h2`
-  font-size: 40px;
+  font-size: 33px;
   text-align: center;
-  margin: 200px 0;
+  margin: 200px 18px;
 `
 const CalculatorPage = () => {
   return (
