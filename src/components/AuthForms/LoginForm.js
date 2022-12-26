@@ -46,14 +46,14 @@ export const LoginForm = () => {
       <AuthFormWrapper>
         <AuthFormItemWrap>
           <InputAuth
-            placeHolder={Translator('Email')}
+            placeHolder={Translator('email')}
             id="email"
             name="email"
             type="email"
             required
           />
           <InputAuth
-            placeHolder={Translator('Password')}
+            placeHolder={Translator('password')}
             id="password"
             name="password"
             type="password"
@@ -62,9 +62,9 @@ export const LoginForm = () => {
         </AuthFormItemWrap>
 
         <AuthBtnsWrapper>
-          <Button type="submit">{Translator('LogIn')}</Button>
+          <Button type="submit">{Translator('logIn')}</Button>
           <AuthFormNavLink to="/registration">
-            {Translator('Register')}
+            {Translator('register')}
           </AuthFormNavLink>
         </AuthBtnsWrapper>
       </AuthFormWrapper>

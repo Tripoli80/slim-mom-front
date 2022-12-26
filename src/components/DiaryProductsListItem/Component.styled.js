@@ -38,7 +38,8 @@ export const Title = styled(Text)`
 
 export const Weight = styled(Text)`
   margin-right: 8px;
-  width: max-content;
+  /* width: max-content; */
+  width: 49px;
   @media screen and (min-width: 768px) {
     margin-right: 22px;
     width: 106px;
@@ -51,10 +52,17 @@ export const Weight = styled(Text)`
 `;
 export const Calories = styled(Text)`
   margin-right: 17px;
-  width: max-content;
+  width: 58px;
+
+  span {
+    font-size: 10px;
+  }
   @media screen and (min-width: 768px) {
     margin-right: 32px;
     width: 106px;
+    span {
+      font-size: 14px;
+    }
   }
 
   text-align: right;
