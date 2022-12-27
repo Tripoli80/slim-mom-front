@@ -11,9 +11,7 @@ export const Translator = name => {
 
   const audit = Obj => {
     const auditEN = Object.keys(Obj).includes(name);
-    return auditEN
-      ? titles.push(Obj[name])
-      : titles.push('!!!');
+    return auditEN ? titles.push(Obj[name]) : titles.push(name);
   };
 
   switch (len) {
