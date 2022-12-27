@@ -20,6 +20,7 @@ const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 const ForgotPasswordPage = lazy(() => import('../../pages/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('../../pages/ResetPasswordPage'));
+const GoogleRegistration = lazy(() => import('../../pages/GoogleRegistration'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -81,7 +82,7 @@ const App = () => {
                   }
                 />
               }
-            /> 
+            />
             <Route
               path="/resetpassword"
               element={
@@ -98,7 +99,7 @@ const App = () => {
                   }
                 />
               }
-            />  
+            />
             <Route
               path="/singin"
               element={
@@ -116,6 +117,16 @@ const App = () => {
                 />
               }
             />
+            <Route
+              path="/google-registration"
+              element={
+                <PublicRoute
+                  redirectTo="/diary"
+                  component={<GoogleRegistration />}
+                />
+              }
+            />
+
             <Route
               path="/diary"
               element={

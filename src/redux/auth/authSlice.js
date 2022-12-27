@@ -1,7 +1,13 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { register, login, logOut, refreshUser, forgotPassword } from './authOperations';
+import {
+  register,
+  login,
+  logOut,
+  refreshUser,
+  forgotPassword,
+} from './authOperations';
 
 const initialState = {
   user: { username: null, email: null },
@@ -18,6 +24,15 @@ const authPersistConfig = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    google: (state, action) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.longtoken = action.payload.longtoken;
+      state.isLoggedIn = true;
+      state.isRefreshing = false;
+    },
+  },
   extraReducers: buider => {
     buider
       .addCase(logOut.fulfilled, state => {
@@ -50,6 +65,6 @@ const authSlice = createSlice({
   },
 });
 
-
+export const { google } = authSlice.actions;
 
 export const authReducer = persistReducer(authPersistConfig, authSlice.reducer);

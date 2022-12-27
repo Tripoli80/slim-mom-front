@@ -9,6 +9,7 @@ import {
   AuthBtnsWrapper,
   AuthFormNavLink,
   AuthFormItemWrap,
+  GoogleLink
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
@@ -67,8 +68,13 @@ export const LoginForm = () => {
             <AuthFormNavLink to="/registration">
               {Translator('register')}
             </AuthFormNavLink>
+            <GoogleLink href={'http://localhost:3030/api/users/google'}>
+              Continue with Google
+            </GoogleLink>
           </AuthBtnsWrapper>
-          <NavLink to="/forgotpassword">{ Translator('Forgot password?')}</NavLink>
+          <NavLink to="/forgotpassword">
+            {Translator('Forgot password?')}
+          </NavLink>
         </AuthFormWrapper>
       </Formik>
     </>
