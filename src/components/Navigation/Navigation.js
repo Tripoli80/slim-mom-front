@@ -7,7 +7,8 @@ export const Navigation = () => {
         <Link to="/diary">{Translator('diary')}</Link>
       </DiaryLink>
       <div>
-        <Link to="/calculator">{Translator('calculator')}</Link>
+        <Link to="/">{Translator('calculator')}</Link>
+        {/* <Link to="/calculator">{Translator('calculator')}</Link> */}
       </div>
     </Container>
   );

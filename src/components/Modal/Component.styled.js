@@ -52,7 +52,7 @@ export const CloseBtn = styled(MdClose)`
   padding: 0;
   z-index: 10;
   @media screen and (max-width: 767px) {
-    display: none;
+    // display: none;
   }
 `;
 
@@ -81,8 +81,19 @@ export const Title = styled.h2`
 `;
 
 export const Button = styled.button`
-  height: 40px;
-  width: 200px;
+  cursor: pointer;
+  height: 42px;
+  padding-left: 24px;
+  padding-right: 24px;
+  text-align: center;
+  color: #fc842d;
+  border: 2px solid #fc842d;
+  border-radius: 30px;
+  background-color: transparent;
+  &:focus,
+  &:hover {
+    scale: 1.1;
+  }
 `;
 
 export const BackArrow = styled(FiCornerDownLeft)`

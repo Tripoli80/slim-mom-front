@@ -41,7 +41,7 @@ export const Image2 = styled.div`
   height: 100%;
   position: absolute;
   bottom: 0;
-  right 0;
+  right: 0;
   z-index: -2;  
   background-repeat: no-repeat;  
 

@@ -39,6 +39,12 @@ const productsSlice = createSlice({
     setDate: (state, action) => {
       state.date = action.payload;
     },
+    setEatedProducts: state => {
+      state.eatedProducts = [];
+    },
+    setSelectedProduct: state => {
+      state.selectedProduct = [];
+    },
   },
 
   extraReducers: buider =>
@@ -50,13 +56,13 @@ const productsSlice = createSlice({
         state.selectedProduct = action.payload;
       })
       .addCase(addEatedProduct.fulfilled, (state, action) => {
-        // state.eatedProducts.push(action.payload);
+        state.eatedProducts.push(action.payload);
       })
       .addCase(removeEatedProduct.fulfilled, (state, action) => {
-        // const index = state.eatedProducts.findIndex(
-        //   ep => ep._id === action.payload
-        // );
-        // state.eatedProducts.splice(index, 1);
+        const index = state.eatedProducts.findIndex(
+          ep => ep._id === action.payload._id
+        );
+        state.eatedProducts.splice(index, 1);
       })
       .addCase(dailyCalorie.fulfilled, (state, action) => {
         state.recomendetToNotEat = action.payload;
@@ -74,6 +80,7 @@ const productsSlice = createSlice({
       }),
 });
 
-export const { setDate } = productsSlice.actions;
+export const { setDate, setEatedProducts, setSelectedProduct } =
+  productsSlice.actions;
 
 export const productsReducer = productsSlice.reducer;

@@ -7,7 +7,7 @@ export const RU = {
   refreshingUser: 'Обновление пользователя...',
   startLosingweight: 'Начать худеть',
   age: 'Возраст*',
-  kca: 'ккал.',
+  kca: 'ккал',
   foodsYouShouldNotEat: 'Продукты, которые вы не должны жрать',
   bloodType: 'Группа крови *',
   calculateYourDaily:
@@ -27,7 +27,7 @@ export const RU = {
   height: 'Рост*',
   logout: 'Выйти',
   homePage: 'Домашняя страница',
-  left: 'Слева',
+  left: 'Осталось',
   logIn: 'авторизироваться',
   mom: 'Мама',
   nOfNormal: '% от нормы',
@@ -42,6 +42,8 @@ export const RU = {
   yourDietWill: 'Ваша диета будет отображаться здесь',
   yourRecommendedDaily: 'Рекомендуемая суточная норма',
   addNewProduct: 'Добавить собственный продукт',
-  add: 'добавить',
-  categories: 'категория',
+  add: 'Добавить',
+  categories: 'Категория',
+  kca100g: 'Ккал/100грамов',
+  required: 'Обязательное',
 };

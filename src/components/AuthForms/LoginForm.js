@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { login } from 'redux/auth/authOperations';
 import {
+  AuthFormTitle,
   AuthFormWrapper,
   AuthBtnsWrapper,
   AuthFormNavLink,
@@ -35,6 +36,8 @@ export const LoginForm = () => {
   };
 
   return (
+    <>
+    <AuthFormTitle>SIGN IN</AuthFormTitle>
     <Formik
       onSubmit={handleSubmit}
       validationSchema={validationLoginSchema}
@@ -66,5 +69,6 @@ export const LoginForm = () => {
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
+    </>
   );
 };
