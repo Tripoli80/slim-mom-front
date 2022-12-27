@@ -10,6 +10,7 @@ import { getProductsByDate } from 'redux/products/operations';
 import { selectDate } from 'redux/products/selectors';
 // test AddNewProductForm
 import AddNewProductBlock from 'components/AddNewProductBlock/AddNewProductBlock';
+import { DiaryAddProductMobile } from 'components/DiaryAddProductForm/DiaryAddProductMobile';
 
 const DiaryPageWrap = styled.div`
   justify-content: space-between;
@@ -37,7 +38,9 @@ const DiaryPage = () => {
     <DiaryPageWrap>
       <div>
         <DiaryDateСalendar />
-        {windowWidth >= 768 && <DiaryAddProductForm />} <DiaryProductList />
+        {windowWidth >= 768 && <DiaryAddProductForm />}
+        <DiaryProductList />
+        {windowWidth < 768 && <DiaryAddProductMobile />}
         <AddNewProductBlock />
       </div>
       <Sidebar />

@@ -22,6 +22,7 @@ const productsInitState = {
   date: moment(new Date()).format('YYYY-MM-DD'),
   isLoading: false,
   error: null,
+  isOpenModal: false,
 };
 
 const requestActions = [
@@ -47,6 +48,9 @@ const productsSlice = createSlice({
     },
     setSelectedProduct: state => {
       state.selectedProduct = [];
+    },
+    setIsOpenModal: (state, action) => {
+      state.isOpenModal = action.payload;
     },
   },
 
@@ -86,7 +90,7 @@ const productsSlice = createSlice({
       }),
 });
 
-export const { setDate, setEatedProducts, setSelectedProduct } =
+export const { setDate, setEatedProducts, setSelectedProduct, setIsOpenModal } =
   productsSlice.actions;
 
 export const productsReducer = productsSlice.reducer;

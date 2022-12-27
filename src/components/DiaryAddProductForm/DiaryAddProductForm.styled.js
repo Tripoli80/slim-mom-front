@@ -1,12 +1,25 @@
 import styled from '@emotion/styled';
 
-export const Form = styled.form`
+export const DivCtnterd = styled.div`
+  padding: 60px 0;
   display: flex;
+  justify-content: center;
+`;
 
-  align-items: center;
+export const Form = styled.form`
+  padding-top: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+
   @media screen and (min-width: 768px) {
+    display: flex;
+
+    align-items: center;
     margin-top: 53px;
+
+    padding-top: 0;
     padding-left: 32px;
+    padding-right: 0;
   }
   @media screen and (min-width: 1280px) {
     margin-top: 60px;
@@ -18,26 +31,26 @@ export const Form = styled.form`
 
 export const FieldProduct = styled.div`
   position: relative;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     margin-right: 22px;
+    width: 240px;
   }
-  @media screen and (min-width: 1280px) {
-    // margin-right: 48px;
-  }
-  width: 240px;
 `;
 
 export const FieldWeight = styled.div`
   position: relative;
+  width: 100%;
+  margin-top: 32px;
   @media screen and (min-width: 768px) {
+    margin-top: 0;
     margin-right: 67px;
+    width: 107px;
   }
   @media screen and (min-width: 1280px) {
     margin-right: 60px;
   }
-
-  width: 107px;
 `;
 export const Label = styled.label`
   position: absolute;
@@ -86,18 +99,30 @@ export const Input = styled.input`
   }
 `;
 
-export const LabelR = styled(Label)`
-  right: 0;
+export const LabelWeight = styled(Label)`
+  left: 0;
+  @media screen and (min-width: 768px) {
+    left: auto;
+    right: 0;
+  }
 `;
-export const LabelL = styled(Label)`
+export const LabelTitle = styled(Label)`
   left: 0;
 `;
 
-export const InputR = styled(Input)`
-  text-align: right;
+export const InputWeight = styled(Input)`
+  @media screen and (min-width: 768px) {
+    text-align: right;
+  }
+  text-align: left;
 `;
 
 export const Button = styled.button`
+  margin-top: 80px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+
   padding: 0px;
   width: 48px;
   height: 48px;
@@ -135,7 +160,11 @@ export const FilteredList = styled.ul`
   z-index: 10;
   position: absolute;
   background-color: #ffffff;
-  width: 630px;
+
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 630px;
+  }
 
   li {
     width: 100%;
@@ -155,5 +184,23 @@ export const FilteredList = styled.ul`
   button:focus,
   button:hover {
     color: #fc842d;
+  }
+`;
+
+export const ButtonAdd = styled(Button)`
+  display: block;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 80px;
+  width: 176px;
+  height: 44px;
+  border-radius: 22px;
+`;
+export const ButtonIcon = styled(Button)`
+  @media screen and (max-width: 767px) {
+    display: none;
   }
 `;
