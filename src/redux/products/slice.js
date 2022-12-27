@@ -4,6 +4,7 @@ import {
   getProductsByTitle,
   removeEatedProduct,
   dailyCalorie,
+  fetchPersonalDiet,
 } from './operations';
 import {
   createSlice,
@@ -17,6 +18,7 @@ import moment from 'moment';
 const productsInitState = {
   eatedProducts: [],
   selectedProduct: [],
+  personalDiet: {},
   date: moment(new Date()).format('YYYY-MM-DD'),
   isLoading: false,
   error: null,
@@ -27,6 +29,7 @@ const requestActions = [
   addEatedProduct,
   removeEatedProduct,
   dailyCalorie,
+  fetchPersonalDiet,
 ];
 const isPendingActions = isPending(...requestActions);
 const isFulfilledActions = isFulfilled(...requestActions);
@@ -66,6 +69,9 @@ const productsSlice = createSlice({
       })
       .addCase(dailyCalorie.fulfilled, (state, action) => {
         state.recomendetToNotEat = action.payload;
+      })
+      .addCase(fetchPersonalDiet.fulfilled, (state, action) => {
+        state.personalDiet = action.payload;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {
         state.isLoading = false;

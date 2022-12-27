@@ -15,7 +15,7 @@ export const fetchDiet = createAsyncThunk(
   'diet/getDiet',
   async (bodyData, thunkAPI) => {
     try {
-      const response = await axios.post('api/diet/personal', bodyData);
+      const response = await axios.post('api/diet/', bodyData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

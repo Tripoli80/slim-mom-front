@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchDiet } from '../../redux/services/privateDietSlice';
-import { selectDiet, selectBodyData } from '../../redux/selectors';
+import { fetchPersonalDiet } from '../../redux/products/operations';
+import { selectPersonalDiet } from '../../redux/products/selectors';
 import Summary from './Summary';
 import Diet from './Diet';
 import {
@@ -13,21 +13,22 @@ import {
 
 export default function Sidebar() {
   const dispatch = useDispatch();
-  const privateDiet = useSelector(selectDiet);
-  const bodyData = useSelector(selectBodyData);
 
   useEffect(() => {
-    dispatch(fetchDiet(bodyData));
-  },[dispatch, bodyData]);
+    dispatch(fetchPersonalDiet());
+  }, [dispatch]);
 
+  const diet = useSelector(selectPersonalDiet);
+  const privateDiet = diet.answer;
+  
   console.log('diet', privateDiet);
 
   return (
     <Back>
       <SidebarSection>
         <SidebarWrap>
-          <Summary dailyCalorie={privateDiet.dailyCalorie || 0}/>
-          <Diet diet={privateDiet.products || []} />
+          <Summary dailyCalorie={privateDiet ? privateDiet.dailyCalorie : 0}/>
+          <Diet diet={privateDiet ? privateDiet.products : []} />
         </SidebarWrap>
       </SidebarSection>
     </Back>
