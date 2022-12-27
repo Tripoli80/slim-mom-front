@@ -8,6 +8,7 @@ import {
   AuthBtnsWrapper,
   AuthFormNavLink,
   AuthFormItemWrap,
+  GoogleLink,
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
@@ -39,42 +40,47 @@ export const RegisterForm = () => {
 
   return (
     <>
-    <AuthFormTitle>REGISTER</AuthFormTitle>
-    <Formik
-      onSubmit={handleSubmit}
-      validationSchema={validationRegisterSchema}
-      initialValues={{ name: '', email: '', password: '' }}
-    >
-      <AuthFormWrapper>
-        <AuthFormItemWrap>
-          <InputAuth
-            placeHolder={Translator('name')}
-            id="name"
-            name="name"
-            required
-          />
-          <InputAuth
-            placeHolder={Translator('email')}
-            id="email"
-            name="email"
-            type="email"
-            required
-          />
-          <InputAuth
-            placeHolder={Translator('password')}
-            id="password"
-            name="password"
-            type="password"
-            required
-          />
-        </AuthFormItemWrap>
+      <AuthFormTitle>REGISTER</AuthFormTitle>
+      <Formik
+        onSubmit={handleSubmit}
+        validationSchema={validationRegisterSchema}
+        initialValues={{ name: '', email: '', password: '' }}
+      >
+        <AuthFormWrapper>
+          <AuthFormItemWrap>
+            <InputAuth
+              placeHolder={Translator('name')}
+              id="name"
+              name="name"
+              required
+            />
+            <InputAuth
+              placeHolder={Translator('email')}
+              id="email"
+              name="email"
+              type="email"
+              required
+            />
+            <InputAuth
+              placeHolder={Translator('password')}
+              id="password"
+              name="password"
+              type="password"
+              required
+            />
+          </AuthFormItemWrap>
 
-        <AuthBtnsWrapper>
-          <Button type="submit">{Translator('register')}</Button>
-          <AuthFormNavLink to="/singin">{Translator('logIn')}</AuthFormNavLink>
-        </AuthBtnsWrapper>
-      </AuthFormWrapper>
-    </Formik>
+          <AuthBtnsWrapper>
+            <Button type="submit">{Translator('register')}</Button>
+            <AuthFormNavLink to="/singin">
+              {Translator('logIn')}
+            </AuthFormNavLink>
+            <GoogleLink href={'http://localhost:3030/api/users/google'}>
+              Continue with Google
+            </GoogleLink>
+          </AuthBtnsWrapper>
+        </AuthFormWrapper>
+      </Formik>
     </>
   );
 };
