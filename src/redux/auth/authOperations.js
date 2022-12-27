@@ -37,14 +37,17 @@ export const login = createAsyncThunk('auth/login', async userData => {
     console.log(error);
   }
 });
-export const resetPassword = createAsyncThunk('auth/resetpassword', async userData => {
+export const forgotPassword = createAsyncThunk('auth/forgotpassword', async userData => {
   try {
-    const { data } = await axios.post('api/users/resetpassword', userData);
+    const { data } = await axios.post('api/users/forgotpassword', userData);
     token.set(data.token);
     return data;
   } catch (error) {
     console.log(error);
   }
+});
+export const resetPassword = createAsyncThunk('auth/resetpassword', async () => {
+
 });
 export const logOut = createAsyncThunk('auth/logOut', async () => {
   try {

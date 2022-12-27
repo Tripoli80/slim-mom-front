@@ -18,6 +18,8 @@ const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
+const ForgotPasswordPage = lazy(() => import('../../pages/ForgotPasswordPage'));
+const ResetPasswordPage = lazy(() => import('../../pages/ResetPasswordPage'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -63,6 +65,40 @@ const App = () => {
                 />
               }
             />
+            <Route
+              path="/forgotpassword"
+              element={
+                <PublicRoute
+                  redirectTo="/"
+                  component={
+                    <React.Suspense fallback={<LoaderBox />}>
+                      <>
+                        <ForgotPasswordPage />
+                        <Image />
+                        <Image2 />
+                      </>
+                    </React.Suspense>
+                  }
+                />
+              }
+            /> 
+            <Route
+              path="/resetpassword"
+              element={
+                <PublicRoute
+                  redirectTo="/"
+                  component={
+                    <React.Suspense fallback={<LoaderBox />}>
+                      <>
+                        <ResetPasswordPage />
+                        <Image />
+                        <Image2 />
+                      </>
+                    </React.Suspense>
+                  }
+                />
+              }
+            />  
             <Route
               path="/singin"
               element={
