@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { resetPassword } from 'redux/auth/authOperations';
+import { forgotPassword } from 'redux/auth/authOperations';
 import {
   AuthFormWrapper,
   AuthFormItemWrap,
@@ -10,12 +10,12 @@ import {
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 
-export const ResetPasswordForm = () => {
+export const ForgotPasswordForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
-      resetPassword({
+      forgotPassword({
         email: values.email,
       })
     );
