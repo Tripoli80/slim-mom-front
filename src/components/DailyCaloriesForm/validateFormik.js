@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 const validation = Yup.object().shape({
   height: Yup.number()
     .typeError('Must be a number')
-    .min(100, 'Minimal 20')
+    .min(100, 'Minimal 100')
     .max(250, 'Max 250')
     .required('Required!'),
   age: Yup.number()
