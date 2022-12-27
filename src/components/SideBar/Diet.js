@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Translator } from '../language/translator';
 import { useSelector } from 'react-redux';
@@ -15,8 +14,11 @@ export default function Diet({ diet }) {
   const lengUse = leng !== false ? leng.toLowerCase() : 'en';
   const categoriesArray = diet.length!==0 && diet.flatMap((product) => product._id);
   const categories = diet.length!==0 ? categoriesArray.map((el) => el[lengUse]) : [];
-  // console.log('categories', categories);
-  // console.log('leng', leng, lengUse);
+
+  function ucFirst(str) {
+    if (!str) return str;
+    return str[0].toUpperCase() + str.slice(1);
+  }
   return (
     <div>
       <SidebarTitle>{Translator('foodNotRecommended')}</SidebarTitle>
@@ -26,7 +28,7 @@ export default function Diet({ diet }) {
           <SidebarList>
             {categories.map((category) => (
               <SidebarItem key={nanoid()}>
-                <SidebarText>{category}</SidebarText>
+                <SidebarText>{ucFirst(category)}</SidebarText>
               </SidebarItem>
             ))}
           </SidebarList>
@@ -34,15 +36,3 @@ export default function Diet({ diet }) {
     </div>
   );
 }
-
-// Diet.propTypes = {
-//   diet: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       _id: PropTypes.shape(
-//         PropTypes.string,
-//       ),
-//     }),
-//   ),
-// };
-
-// Diet.defaultProps = { diet: [] };

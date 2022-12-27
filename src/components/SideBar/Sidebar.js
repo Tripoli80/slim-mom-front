@@ -1,7 +1,7 @@
-// import { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { fetchDiet } from '../../redux/services/privateDietSlice';
-// import { selectDiet, selectBodyData } from '../../redux/selectors';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPersonalDiet } from '../../redux/products/operations';
+import { selectPersonalDiet, selectCategories } from '../../redux/products/selectors';
 import Summary from './Summary';
 import Diet from './Diet';
 import {
@@ -9,30 +9,28 @@ import {
   SidebarWrap,
   Back
 } from './Sidebar.styled';
-import privateDiet from './data/diet.json';
-
-// import defaultsBaseURL from '../../redux/auth/authOperations';
-//+++import { SidebarSection, SidebarWrap, Back } from './Sidebar.styled';
-// import dailyData from './data/dailyData.json';
-
+// import privateDiet from './data/diet.json';
 
 export default function Sidebar() {
   // const dispatch = useDispatch();
-  // const privateDiet = useSelector(selectDiet);
-  // const bodyData = useSelector(selectBodyData);
-  // // const bodyData = {blood: 4, height: 178, age: 26, cWeight: 83, dWeight: 70};
-  // useEffect(() => {
-  //   dispatch(fetchDiet(bodyData));
-  // }, [dispatch, bodyData]);
 
-  // console.log('diet', privateDiet);
+
+  // useEffect(() => {
+  //   dispatch(fetchPersonalDiet());
+  // }, [dispatch]);
+
+  // const diet = useSelector(selectPersonalDiet);
+  // const privateDiet = diet.answer;
+  const privateDiet = useSelector(selectCategories);
+  
+  console.log('diet', privateDiet);
 
   return (
     <Back>
       <SidebarSection>
         <SidebarWrap>
-          <Summary dailyCalorie={privateDiet.dailyCalorie || 0}/>
-          <Diet diet={privateDiet.products || []} />
+          <Summary dailyCalorie={privateDiet ? privateDiet.dailyCalorie : 0}/>
+          <Diet diet={privateDiet ? privateDiet.products : []} />
         </SidebarWrap>
       </SidebarSection>
     </Back>
