@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPersonalDiet } from '../../redux/products/operations';
-import { selectPersonalDiet } from '../../redux/products/selectors';
+import { selectPersonalDiet, selectCategories } from '../../redux/products/selectors';
 import Summary from './Summary';
 import Diet from './Diet';
 import {
@@ -12,14 +12,16 @@ import {
 // import privateDiet from './data/diet.json';
 
 export default function Sidebar() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchPersonalDiet());
-  }, [dispatch]);
 
-  const diet = useSelector(selectPersonalDiet);
-  const privateDiet = diet.answer;
+  // useEffect(() => {
+  //   dispatch(fetchPersonalDiet());
+  // }, [dispatch]);
+
+  // const diet = useSelector(selectPersonalDiet);
+  // const privateDiet = diet.answer;
+  const privateDiet = useSelector(selectCategories);
   
   console.log('diet', privateDiet);
 
