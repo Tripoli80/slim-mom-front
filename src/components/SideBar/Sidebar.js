@@ -23,7 +23,7 @@ export default function Sidebar() {
   // const privateDiet = diet.answer;
   const privateDiet = useSelector(selectCategories);
   
-  console.log('diet', privateDiet);
+  // console.log('diet', privateDiet);
 
   return (
     <Back>
