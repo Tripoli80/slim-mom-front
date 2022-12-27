@@ -1,22 +1,42 @@
 import styled from 'styled-components';
 
 const PrimaryBtn = styled.button`
+  transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  min-width: 180px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  border: 2px solid #fc842d;
+  color: #fc842d;
+
+  text-decoration: none;
+  font-size: 14px;
   height: 42px;
-  padding-left: 24px;
-  padding-right: 24px;
+  font-weight: 500;
+  min-width: 180px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
   color: #ffffff;
   border: none;
   background-color: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  /* transition: scale 250ms; */
 
-  &:focus,
   &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
     scale: 1.1;
+  }
+
+  &:active {
+    background-color: #eeeeee;
+    scale: 1.1;
+  }
+
+  &:focus {
     outline: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 0 0 3px #c8dafc;
   }
 `;
 

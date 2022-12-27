@@ -38,7 +38,7 @@ export const BurgerMenuStyle = styled.div`
   cursor: pointer;
   color: #696969;
   position: absolute;
-  right: 35px;
+  right: 25px;
   top: 30px;
 
   @media (min-width: 768px) {

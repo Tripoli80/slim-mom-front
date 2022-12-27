@@ -10,8 +10,10 @@ export const Translator = name => {
   const titles = [];
 
   const audit = Obj => {
-    const auditEN = Object.keys(Obj).includes(name);
-    return auditEN ? titles.push(Obj[name]) : titles.push('*!!!*');
+    const auditEN = Object.keys(Obj).includes(name.toLowerCase());
+    return auditEN
+      ? titles.push(Obj[name.toLowerCase()])
+      : titles.push('!!!');
   };
 
   switch (len) {
@@ -29,6 +31,7 @@ export const Translator = name => {
       break;
     default:
       titles.push('*!!!*');
+      console.log('name', name);
   }
 
   return <>{[titles]}</>;

@@ -1,5 +1,6 @@
 export const UA = {
   slim: 'Струнка',
+  forgotPassword: 'Забули пароль?',
   g: 'г',
   timeToEat: "Пора щось з'їсти",
   grams: 'Грами',

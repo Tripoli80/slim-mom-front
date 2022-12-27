@@ -42,9 +42,9 @@ const App = () => {
               element={
                 <React.Suspense fallback={<LoaderBox />}>
                   <>
-                    <DailyCaloriesForm />
                     <Image />
                     <Image2 />
+                    <DailyCaloriesForm />
                   </>
                 </React.Suspense>
               }
