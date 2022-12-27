@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Wrapper = styled.div`
   position: absolute;
   top: 30px;
-  right: 40px;
+  right: 10px;
 
   display: flex;
   align-items: flex-end;
@@ -13,12 +13,19 @@ export const Wrapper = styled.div`
   font-family: 'Gotham Pro';
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #9b9faa;
   margin-bottom: 14px;
+  // font-size: 10px;
+
+  // @media (min-width: 429px) {
+    font-size: 12px;
+  //   position: static;
+  //   font-size: 14px;
+  }
 
   @media (min-width: 768px) {
     position: static;

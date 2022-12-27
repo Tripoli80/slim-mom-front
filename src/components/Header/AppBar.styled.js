@@ -36,12 +36,16 @@ export const Link = styled(NavLink)`
 
 export const BurgerMenuStyle = styled.div`
   cursor: pointer;
-
-  position: absolute;
-  top: 30px;
-  right: 40px;
   color: #696969;
+  position: absolute;
+  right: 35px;
+  top: 30px;
+
   @media (min-width: 768px) {
+    position: inherit;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
     // top: 26px;
     right: 84px;
   }
@@ -49,5 +53,4 @@ export const BurgerMenuStyle = styled.div`
   @media (min-width: 1280px) {
     display: none;
   }
-  
 `;

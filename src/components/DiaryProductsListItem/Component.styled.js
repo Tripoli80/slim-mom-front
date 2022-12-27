@@ -30,7 +30,7 @@ export const Title = styled(Text)`
     width: 240px;
   }
   @media screen and (min-width: 1280px) {
-    margin-right: 48px;
+    // margin-right: 48px;
   }
 
   text-align: left;
