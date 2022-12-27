@@ -28,7 +28,7 @@ import { Button } from 'components/Button/Button';
 import validation from './validateFormik';
 import { dailyCalorie } from 'redux/products/operations';
 import { selectCategories } from 'redux/products/selectors';
-import { Loader } from 'components/Loading/Loading';
+import { LoaderBox } from 'components/Loading/LoaderBox';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
@@ -191,7 +191,7 @@ const DailyCaloriesForm = () => {
           </BtnSub>
         </Form>
       </Container>
-      {isLoading && <Loader size={80} />}
+      {isLoading && <LoaderBox />}
       {isOpen && (
         <Modal
           onClose={() => {
