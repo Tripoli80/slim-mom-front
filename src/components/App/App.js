@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
@@ -9,6 +10,7 @@ import { refreshUser } from 'redux/auth/authOperations';
 import { Translator } from 'components/language/translator';
 import Container from 'components/Container/Container';
 import { Image, Image2 } from 'components/App/App.stiled';
+import { LoaderBox } from 'components/Loading/LoaderBox';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import './App.css';
 
@@ -35,11 +37,13 @@ const App = () => {
             <Route
               index
               element={
-                <>
-                  <DailyCaloriesForm />
-                  <Image />
-                  <Image2 />
-                </>
+                <React.Suspense fallback={<LoaderBox />}>
+                  <>
+                    <DailyCaloriesForm />
+                    <Image />
+                    <Image2 />
+                  </>
+                </React.Suspense>
               }
             />
             <Route
@@ -48,11 +52,13 @@ const App = () => {
                 <PublicRoute
                   redirectTo="/diary"
                   component={
-                    <>
-                      <RegisterPage />
-                      <Image />
-                      <Image2 />
-                    </>
+                    <React.Suspense fallback={<LoaderBox />}>
+                      <>
+                        <RegisterPage />
+                        <Image />
+                        <Image2 />
+                      </>
+                    </React.Suspense>
                   }
                 />
               }
@@ -63,11 +69,13 @@ const App = () => {
                 <PublicRoute
                   redirectTo="/diary"
                   component={
-                    <>
-                      <LoginPage />
-                      <Image />
-                      <Image2 />
-                    </>
+                    <React.Suspense fallback={<LoaderBox />}>
+                      <>
+                        <LoginPage />
+                        <Image />
+                        <Image2 />
+                      </>
+                    </React.Suspense>
                   }
                 />
               }
@@ -75,20 +83,34 @@ const App = () => {
             <Route
               path="/diary"
               element={
-                <PrivateRoute redirectTo="/singin" component={<DiaryPage />} />
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<DiaryPage />}
+                  />
+                </React.Suspense>
               }
             />
             <Route
               path="/calculator"
               element={
-                <PrivateRoute
-                  redirectTo="/singin"
-                  component={<CalculatorPage />}
-                />
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<CalculatorPage />}
+                  />
+                </React.Suspense>
               }
             />
           </Route>
-          <Route path="/diary" element={<DiaryPage />} />
+          <Route
+            path="/diary"
+            element={
+              <React.Suspense fallback={<LoaderBox />}>
+                <DiaryPage />
+              </React.Suspense>
+            }
+          />
         </Routes>
       </Container>
     </>

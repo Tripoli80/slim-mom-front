@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { login } from 'redux/auth/authOperations';
 import {
+  AuthFormTitle,
   AuthFormWrapper,
   AuthBtnsWrapper,
   AuthFormNavLink,
@@ -35,36 +36,39 @@ export const LoginForm = () => {
   };
 
   return (
-    <Formik
-      onSubmit={handleSubmit}
-      validationSchema={validationLoginSchema}
-      initialValues={{ email: '', password: '' }}
-    >
-      <AuthFormWrapper>
-        <AuthFormItemWrap>
-          <InputAuth
-            placeHolder={Translator('email')}
-            id="email"
-            name="email"
-            type="email"
-            required
-          />
-          <InputAuth
-            placeHolder={Translator('password')}
-            id="password"
-            name="password"
-            type="password"
-            required
-          />
-        </AuthFormItemWrap>
+    <>
+      <AuthFormTitle>SIGN IN</AuthFormTitle>
+      <Formik
+        onSubmit={handleSubmit}
+        validationSchema={validationLoginSchema}
+        initialValues={{ email: '', password: '' }}
+      >
+        <AuthFormWrapper>
+          <AuthFormItemWrap>
+            <InputAuth
+              placeHolder={Translator('email')}
+              id="email"
+              name="email"
+              type="email"
+              required
+            />
+            <InputAuth
+              placeHolder={Translator('password')}
+              id="password"
+              name="password"
+              type="password"
+              required
+            />
+          </AuthFormItemWrap>
 
-        <AuthBtnsWrapper>
-          <Button type="submit">{Translator('logIn')}</Button>
-          <AuthFormNavLink to="/registration">
-            {Translator('register')}
-          </AuthFormNavLink>
-        </AuthBtnsWrapper>
-      </AuthFormWrapper>
-    </Formik>
+          <AuthBtnsWrapper>
+            <Button type="submit">{Translator('logIn')}</Button>
+            <AuthFormNavLink to="/registration">
+              {Translator('register')}
+            </AuthFormNavLink>
+          </AuthBtnsWrapper>
+        </AuthFormWrapper>
+      </Formik>
+    </>
   );
 };

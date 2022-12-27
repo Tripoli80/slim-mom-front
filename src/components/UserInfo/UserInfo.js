@@ -4,6 +4,8 @@ import { useAuth } from '../../hooks/hooks';
 import { Wrapper, UserName, Exit, UserNameDefault } from './UserInfo.styled';
 import { Translator } from 'components/language/translator';
 import { Language } from 'components/language/index';
+import { setDate, setEatedProducts } from 'redux/products/slice';
+
 export const UserInfo = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -15,7 +17,15 @@ export const UserInfo = () => {
       ) : (
         <UserNameDefault>{Translator('nik')}</UserNameDefault>
       )}
-      <Exit onClick={() => dispatch(logOut())}>{Translator('exit')}</Exit>
+      <Exit
+        onClick={() => {
+          dispatch(logOut());
+          dispatch(setEatedProducts());
+          dispatch(setDate(null));
+        }}
+      >
+        {Translator('exit')}
+      </Exit>
       <Language />
     </Wrapper>
   );

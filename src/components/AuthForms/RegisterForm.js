@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 import * as yup from 'yup';
 import {
+  AuthFormTitle,
   AuthFormWrapper,
   AuthBtnsWrapper,
   AuthFormNavLink,
@@ -37,6 +38,8 @@ export const RegisterForm = () => {
   };
 
   return (
+    <>
+    <AuthFormTitle>REGISTER</AuthFormTitle>
     <Formik
       onSubmit={handleSubmit}
       validationSchema={validationRegisterSchema}
@@ -72,5 +75,6 @@ export const RegisterForm = () => {
         </AuthBtnsWrapper>
       </AuthFormWrapper>
     </Formik>
+    </>
   );
 };

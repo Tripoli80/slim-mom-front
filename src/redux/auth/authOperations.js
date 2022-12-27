@@ -37,6 +37,15 @@ export const login = createAsyncThunk('auth/login', async userData => {
     console.log(error);
   }
 });
+export const resetPassword = createAsyncThunk('auth/resetpassword', async userData => {
+  try {
+    const { data } = await axios.post('api/users/resetpassword', userData);
+    token.set(data.token);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 export const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
     await axios.post('api/users/logout');

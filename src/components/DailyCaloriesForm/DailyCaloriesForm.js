@@ -20,7 +20,7 @@ import {
   Wrapper,
 } from './DailyCaloriesForm.styled';
 import { useWindowWidth } from '@react-hook/window-size';
-import { Modal } from 'components/Modal/Component';
+import { Modal } from 'components/Modal/Modal';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal, closeModal } from 'redux/services/modalSlice';
@@ -29,10 +29,14 @@ import validation from './validateFormik';
 import { dailyCalorie } from 'redux/products/operations';
 import { selectCategories } from 'redux/products/selectors';
 
+import { LoaderBox } from 'components/Loading/LoaderBox';
+import { useEffect } from 'react';
+
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const { isOpen } = useSelector(store => store.modal);
+  const { isLoading } = useSelector(store => store.products);
   const categories = useSelector(selectCategories);
   const onOpenModal = async () => {
     await dispatch(dailyCalorie(formik.values));
@@ -79,125 +83,143 @@ const DailyCaloriesForm = () => {
   }
 
   const { handleSubmit, handleChange, values, touched, errors } = formik;
+  //! шоб зробити ідеальний дебаунс треба гратися з onchange а так як формік його юзає то це рефактор великий має бути
+  // const dabounce = useCallback(
+  //   _debounce(values => {
+  //     localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
+  //   }, 1),
+  //   []
+  // );
+  useEffect(() => {
+    localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
+  }, [values]);
+  const forma = (
+    <Form onSubmit={handleSubmit}>
+      <Title>{Translator('calculateYourDaily')}</Title>
+      <Wrapper>
+        <Section>
+          <Input
+            placeHolder={Translator('height')}
+            id="height"
+            name="height"
+            onChange={handleChange}
+            value={values.height}
+            required
+          />
+          {touched.height && <ErrorMessage>{errors.height}</ErrorMessage>}
+
+          <Input
+            placeHolder={Translator('age')}
+            id="age"
+            name="age"
+            type="text"
+            onChange={handleChange}
+            value={values.age}
+            required
+          />
+          {touched.age && <ErrorMessage>{errors.age}</ErrorMessage>}
+
+          <Input
+            placeHolder={Translator('currentWeight')}
+            id="cWeight"
+            name="cWeight"
+            type="text"
+            onChange={handleChange}
+            value={values.cWeight}
+            required
+          />
+          {touched.cWeight && <ErrorMessage>{errors.cWeight}</ErrorMessage>}
+        </Section>
+        <div>
+          <Input
+            placeHolder={Translator('desiredWeight')}
+            id="dWeight"
+            name="dWeight"
+            type="text"
+            onChange={handleChange}
+            value={values.dWeight}
+            required
+          />
+          {touched.dWeight && <ErrorMessage>{errors.dWeight}</ErrorMessage>}
+
+          <Box>
+            <TitleRaioGroup>{Translator('bloodType')}</TitleRaioGroup>
+            <WrapperRadio>
+              <LabelRadio>
+                <InputRadio
+                  name="blood"
+                  type="radio"
+                  value="1"
+                  onChange={handleChange}
+                  checked={values.blood === '1'}
+                />
+                <InputRadioStyled />
+                <LabelRadioText>1</LabelRadioText>
+              </LabelRadio>
+              <LabelRadio>
+                <InputRadio
+                  name="blood"
+                  type="radio"
+                  onChange={handleChange}
+                  value="2"
+                  checked={values.blood === '2'}
+                />
+                <InputRadioStyled />
+                <LabelRadioText>2</LabelRadioText>
+              </LabelRadio>
+              <LabelRadio>
+                <InputRadio
+                  name="blood"
+                  type="radio"
+                  onChange={handleChange}
+                  value="3"
+                  checked={values.blood === '3'}
+                />
+                <InputRadioStyled />
+                <LabelRadioText>3</LabelRadioText>
+              </LabelRadio>
+              <LabelRadio>
+                <InputRadio
+                  name="blood"
+                  type="radio"
+                  onChange={handleChange}
+                  value="4"
+                  checked={values.blood === '4'}
+                />
+                <InputRadioStyled />
+                <LabelRadioText>4</LabelRadioText>
+              </LabelRadio>
+            </WrapperRadio>
+          </Box>
+          {touched.blood && <ErrorMessage>{errors.blood}</ErrorMessage>}
+        </div>
+      </Wrapper>
+      <BtnSub>
+        <Button type="submit" onSubmit={handleSubmit}>
+          {Translator('startLosingweight')}
+        </Button>
+      </BtnSub>
+    </Form>
+  );
+  const modal = (
+    <Modal
+      onClose={() => {
+        dispatch(closeModal());
+      }}
+    >
+      <DailyCalorieIntake
+        stats={categories}
+        onClose={() => {
+          dispatch(closeModal());
+        }}
+      ></DailyCalorieIntake>
+    </Modal>
+  );
   return (
     <>
-      <Container>
-        <Form onSubmit={handleSubmit}>
-          <Title>{Translator('calculateYourDaily')}</Title>
-          <Wrapper>
-            <Section>
-              <Input
-                placeHolder={Translator('height')}
-                id="height"
-                name="height"
-                onChange={handleChange}
-                value={values.height}
-                required
-              />
-              {touched.height && <ErrorMessage>{errors.height}</ErrorMessage>}
-
-              <Input
-                placeHolder={Translator('age')}
-                id="age"
-                name="age"
-                type="text"
-                onChange={handleChange}
-                value={values.age}
-                required
-              />
-              {touched.age && <ErrorMessage>{errors.age}</ErrorMessage>}
-
-              <Input
-                placeHolder={Translator('currentWeight')}
-                id="cWeight"
-                name="cWeight"
-                type="text"
-                onChange={handleChange}
-                value={values.cWeight}
-                required
-              />
-              {touched.cWeight && <ErrorMessage>{errors.cWeight}</ErrorMessage>}
-            </Section>
-            <div>
-              <Input
-                placeHolder={Translator('desiredWeight')}
-                id="dWeight"
-                name="dWeight"
-                type="text"
-                onChange={handleChange}
-                value={values.dWeight}
-                required
-              />
-              {touched.dWeight && <ErrorMessage>{errors.dWeight}</ErrorMessage>}
-
-              <Box>
-                <TitleRaioGroup>{Translator('bloodType')}</TitleRaioGroup>
-                <WrapperRadio>
-                  <LabelRadio>
-                    <InputRadio
-                      name="blood"
-                      type="radio"
-                      value="1"
-                      onChange={handleChange}
-                      checked={values.blood === '1'}
-                    />
-                    <InputRadioStyled />
-                    <LabelRadioText>1</LabelRadioText>
-                  </LabelRadio>
-                  <LabelRadio>
-                    <InputRadio
-                      name="blood"
-                      type="radio"
-                      onChange={handleChange}
-                      value="2"
-                      checked={values.blood === '2'}
-                    />
-                    <InputRadioStyled />
-                    <LabelRadioText>2</LabelRadioText>
-                  </LabelRadio>
-                  <LabelRadio>
-                    <InputRadio
-                      name="blood"
-                      type="radio"
-                      onChange={handleChange}
-                      value="3"
-                      checked={values.blood === '3'}
-                    />
-                    <InputRadioStyled />
-                    <LabelRadioText>3</LabelRadioText>
-                  </LabelRadio>
-                  <LabelRadio>
-                    <InputRadio
-                      name="blood"
-                      type="radio"
-                      onChange={handleChange}
-                      value="4"
-                      checked={values.blood === '4'}
-                    />
-                    <InputRadioStyled />
-                    <LabelRadioText>4</LabelRadioText>
-                  </LabelRadio>
-                </WrapperRadio>
-              </Box>
-              {touched.blood && <ErrorMessage>{errors.blood}</ErrorMessage>}
-            </div>
-          </Wrapper>
-          <BtnSub>
-            <Button type="submit" onSubmit={handleSubmit}>
-              {Translator('startLosingweight')}
-            </Button>
-          </BtnSub>
-        </Form>
-      </Container>
-      {isOpen && (
-        <Modal
-          onClose={() => {
-            dispatch(closeModal());
-          }}
-        >
-          <DailyCalorieIntake stats={categories}> </DailyCalorieIntake>
-        </Modal>
-      )}
+      <Container>{forma}</Container>
+      {isLoading && <LoaderBox />}
+      {isOpen && modal}
     </>
   );
 };

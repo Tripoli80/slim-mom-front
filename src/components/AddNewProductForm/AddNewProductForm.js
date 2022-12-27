@@ -1,35 +1,26 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { useAuth } from 'hooks/hooks';
 import { addNewProduct } from '../../redux/products/operations';
-// import Input from 'components/Input/Input';
-// import { Button } from 'components/Button/Button';
 import {
   AddNewProductFormStyled,
+  Title,
   AddNewProductInput,
   AddNewProductButton,
   ErrorMessage,
-} from './Component.styled';
+} from './AddNewProductForm.styled';
 import { Translator } from 'components/language/translator';
+import { closeModal } from 'redux/services/modalSlice';
 
 const AddNewProductForm = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
 
   return (
     <Formik
-      initialValues={{ title: '', categories: '', calories: '', weight: '' }}
+      initialValues={{ title: '', categories: '', calories: '' }}
       onSubmit={values => {
-        dispatch(
-          addNewProduct({
-            newProduct: values,
-            user: user,
-          })
-        );
-        console.log({
-          newProduct: values,
-          user: user,
-        });
+        dispatch(addNewProduct({ ...values, weight: 100 }));
+        // console.log({ ...values, weight: Number(100) });
+        dispatch(closeModal());
         // form.reset();
       }}
       validate={values => {
@@ -40,9 +31,10 @@ const AddNewProductForm = () => {
           errors.categories = 'Required';
         } else if (!values.calories) {
           errors.calories = 'Required';
-        } else if (!values.weight) {
-          errors.weight = 'Required';
         }
+        // } else if (!values.weight) {
+        //   errors.weight = 'Required';
+        // }
         return errors;
       }}
     >
@@ -53,9 +45,9 @@ const AddNewProductForm = () => {
         handleChange,
         handleBlur,
         handleSubmit,
-        // isSubmitting,
       }) => (
         <AddNewProductFormStyled onSubmit={handleSubmit} autoComplete="off">
+          <Title>{Translator('addNewProduct')}</Title>
           <AddNewProductInput
             type="text"
             name="title"
@@ -87,12 +79,12 @@ const AddNewProductForm = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.calories}
-            placeHolder={Translator('kca')}
+            placeHolder={Translator('kca100g')}
           />
           {errors.calories && touched.calories && (
             <ErrorMessage>{errors.calories}</ErrorMessage>
           )}
-          <AddNewProductInput
+          {/* <AddNewProductInput
             type="number"
             name="weight"
             id="weight"
@@ -103,7 +95,7 @@ const AddNewProductForm = () => {
           />
           {errors.weight && touched.weight && (
             <ErrorMessage>{errors.weight}</ErrorMessage>
-          )}
+          )} */}
           <AddNewProductButton
             type="submit"
             // disabled={!values.titles || !values.categories || !values.calories}

@@ -38,9 +38,11 @@ export const EN = {
   homePage: 'Home Page',
   logout: 'Logout',
   summaryFor: 'Summary for',
-  kca: 'kcal.',
+  kca: 'kcal',
   foodsYouShouldNotEat: 'Foods you should not eat',
   addNewProduct: 'Add your own product',
   add: 'Add',
   categories: 'Category',
+  kca100g: 'Kcal/100grams',
+  required: 'Required',
 };

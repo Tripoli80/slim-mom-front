@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
   position: relative;
-  margin: 16px 0 0 0;
+  margin: 26px 0 0 0;
   display: block;
   font-weight: 700;
   width: 100%;
@@ -47,7 +47,9 @@ export const InputValue = styled.input.attrs(props => ({}))`
     top: 0px;
   }
 `;
-export const InputValueField = styled(Field)`
+export const InputValueField = styled(Field).attrs(props => ({
+  placeholder: ' ',
+}))`
   display: inline-block;
   height: 48px;
   width: 100%;
@@ -63,7 +65,9 @@ export const InputValueField = styled(Field)`
   }
 
   &:focus ~ label,
-  &:valid ~ label {
+  &:valid ~ label,
+  :not(:placeholder-shown) ~ label {
+    border-color: green;
     top: 0px;
   }
 `;
