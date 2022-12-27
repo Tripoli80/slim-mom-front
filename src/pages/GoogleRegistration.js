@@ -9,7 +9,6 @@ const GoogleRegistration = () => {
   const googleLongToken = searchParams.get('longtoken');
   const googleUsername = searchParams.get('username');
   const googleUserEmail = searchParams.get('email');
-  console.log(googleToken);
 
   //рефреш для получение данных
 
