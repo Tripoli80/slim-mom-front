@@ -1,7 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { removeEatedProduct } from 'redux/products/operations';
 import EllipsisText from 'react-ellipsis-text';
-import { Button, Title, Weight, Calories } from './DiaryProductsListItem.styled';
+import {
+  Button,
+  Title,
+  Weight,
+  Calories,
+} from './DiaryProductsListItem.styled';
 import { useWindowWidth } from 'hooks/useWindowWidth';
 import { Translator } from 'components/language/translator';
 import { useState } from 'react';
@@ -19,7 +24,7 @@ export const DiaryProductListItem = ({ id, title, weight, calories }) => {
         {weight} {Translator('g')}
       </Weight>
       <Calories>
-        {calories} {Translator('kca')}
+        {Math.round(calories)} <span>{Translator('kca')}</span>
       </Calories>
       <Button
         type="button"
