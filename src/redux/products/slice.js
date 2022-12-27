@@ -22,7 +22,12 @@ const productsInitState = {
   error: null,
 };
 
-const requestActions = [getProductsByDate, addEatedProduct, removeEatedProduct];
+const requestActions = [
+  getProductsByDate,
+  addEatedProduct,
+  removeEatedProduct,
+  dailyCalorie,
+];
 const isPendingActions = isPending(...requestActions);
 const isFulfilledActions = isFulfilled(...requestActions);
 const isRejectedActions = isRejected(...requestActions);

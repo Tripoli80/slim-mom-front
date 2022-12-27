@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import { Circles } from 'react-loader-spinner';
 
-export const Loader = ({ size, color }) => {
+export const Loader = () => {
   return (
     <>
       <Circles
-        color={color}
-        height={size}
-        width={size}
-        wrapperStyle={{ justifyContent: 'center' }}
+        color="#FC842D"
+        height="35"
+        width="35"
+        wrapperStyle={{ justifyContent: 'center', margin: 10 }}
       />
     </>
   );
@@ -16,5 +16,4 @@ export const Loader = ({ size, color }) => {
 
 Loader.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
 };
