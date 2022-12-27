@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { NavLink } from 'react-router-dom';
-import {
-  Overlay,
-  ModalWindow,
-  Title,
-  CloseBtn,
-  Button,
-  BackArrow,
-} from './Component.styled';
-import { Translator } from 'components/language/translator';
+// import {
+//   Overlay,
+//   ModalWindow,
+//   Title,
+//   CloseBtn,
+//   Button,
+//   BackArrow,
+// } from './Modal.styled';
+// import { Translator } from 'components/language/translator';
+import { Overlay, ModalWindow, CloseBtn, BackArrow } from './Modal.styled';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children }) => {
-
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') onClose();
@@ -37,15 +37,19 @@ export const Modal = ({ onClose, children }) => {
       <ModalWindow onClose={onClose}>
         <CloseBtn type="button" onClick={onClose}></CloseBtn>
         <BackArrow color="black" size="20px" onClick={onClose} left="20px" />
-        <Title>
+        {/* <Title>
           {Translator('yourRecommendedDaily')} {'\n'}
           {Translator('calorieIntakeIs')}
-        </Title>
+        </Title> */}
         {children}
         <NavLink to="/registration">
-          <Button type="button" onClick={onClose}>
+          {/* <Title>
+            {Translator('yourRecommendedDaily')} {'\n'}
+            {Translator('calorieIntakeIs')}
+          </Title> */}
+          {/* <Button type="button" onClick={onClose}>
             {Translator('startLosingweight')}
-          </Button>
+          </Button> */}
         </NavLink>
       </ModalWindow>
     </Overlay>,

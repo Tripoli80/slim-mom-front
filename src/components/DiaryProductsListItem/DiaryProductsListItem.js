@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { removeEatedProduct } from 'redux/products/operations';
 import EllipsisText from 'react-ellipsis-text';
-import { Button, Title, Weight, Calories } from './Component.styled';
+import { Button, Title, Weight, Calories } from './DiaryProductsListItem.styled';
 import { useWindowWidth } from 'hooks/useWindowWidth';
 import { Translator } from 'components/language/translator';
 import { useState } from 'react';

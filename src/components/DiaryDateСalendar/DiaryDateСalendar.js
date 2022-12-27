@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
-import { DateForm, DateInput, DateButton } from './Component.styled';
+import { DateForm, DateInput, DateButton } from './DiaryDateСalendar.styled';
 import { setDate } from 'redux/products/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDate } from 'redux/products/selectors';

@@ -13,7 +13,7 @@ import {
   FieldProduct,
   FieldWeight,
   FilteredList,
-} from './Component.styled';
+} from './DiaryAddProductForm.styled';
 import { selectDate, selectSelectedProducts } from 'redux/products/selectors';
 import { getLanguage } from 'redux/selectors';
 import { setSelectedProduct } from 'redux/products/slice';

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { DiaryAddProductForm } from 'components/DiaryAddProductForm/Component';
-import { DiaryDateСalendar } from 'components/DiaryDateСalendar/Component';
-import { DiaryProductList } from 'components/DiaryProductsList/Component';
+import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
+import { DiaryDateСalendar } from 'components/DiaryDateСalendar/DiaryDateСalendar';
+import { DiaryProductList } from 'components/DiaryProductsList/DiaryProductsList';
 import { useWindowWidth } from 'hooks/useWindowWidth';
 import Sidebar from 'components/SideBar/Sidebar';
 import { useEffect } from 'react';
@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductsByDate } from 'redux/products/operations';
 import { selectDate } from 'redux/products/selectors';
 // test AddNewProductForm
-import AddNewProductBlock from 'components/AddNewProductBlock/Component';
+import AddNewProductBlock from 'components/AddNewProductBlock/AddNewProductBlock';
 
 const DiaryPageWrap = styled.div`
   justify-content: space-between;
