@@ -28,7 +28,7 @@ export const RU = {
   logout: 'Выйти',
   homePage: 'Домашняя страница',
   left: 'Осталось',
-  logIn: 'авторизироваться',
+  logIn: 'Авторизироваться',
   mom: 'Мама',
   nOfNormal: '% от нормы',
   nik: 'Ник',

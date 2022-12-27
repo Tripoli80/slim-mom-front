@@ -27,7 +27,7 @@ export const UA = {
   logout: 'Вийти',
   homePage: 'Домашня сторінка',
   left: 'Залишилось',
-  logIn: 'авторизуватися',
+  logIn: 'Авторизуватися',
   mom: 'Мама',
   nOfNormal: '% від норми',
   nik: 'Нік',

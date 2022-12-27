@@ -31,10 +31,12 @@ import { selectCategories } from 'redux/products/selectors';
 
 import { LoaderBox } from 'components/Loading/LoaderBox';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isOpen } = useSelector(store => store.modal);
   const { isLoading } = useSelector(store => store.products);
   const categories = useSelector(selectCategories);
@@ -42,6 +44,11 @@ const DailyCaloriesForm = () => {
     await dispatch(dailyCalorie(formik.values));
 
     await dispatch(openModal());
+  };
+
+  const redirectToRegistration = () => {
+    navigate('/registration', { replace: true });
+    dispatch(closeModal());
   };
 
   const getFromLocalStorage = JSON.parse(
@@ -209,9 +216,7 @@ const DailyCaloriesForm = () => {
     >
       <DailyCalorieIntake
         stats={categories}
-        onClose={() => {
-          dispatch(closeModal());
-        }}
+        onClose={redirectToRegistration}
       ></DailyCalorieIntake>
     </Modal>
   );

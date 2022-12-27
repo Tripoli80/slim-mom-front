@@ -25,10 +25,6 @@ const longtoken = {
 };
 
 export const register = createAsyncThunk('auth/register', async userData => {
-  console.log(
-    '🚀 ~ file: authOperations.js:18 ~ register ~ userData',
-    userData
-  );
   try {
     const { data } = await axios.post('api/users/signup', userData);
     token.set(data.token);
@@ -57,10 +53,11 @@ export const forgotPassword = createAsyncThunk('auth/mailtoreset', async userDat
   } catch (error) {
     console.log(error);
   }
-});
-export const resetPassword = createAsyncThunk('auth/resetpassword', async () => {
-
-});
+);
+export const resetPassword = createAsyncThunk(
+  'auth/resetpassword',
+  async () => {}
+);
 export const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
     await axios.post('api/users/logout');
