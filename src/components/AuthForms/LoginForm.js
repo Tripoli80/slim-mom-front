@@ -68,7 +68,9 @@ export const LoginForm = () => {
             <AuthFormNavLink to="/registration">
               {Translator('register')}
             </AuthFormNavLink>
-            <GoogleLink href={'http://localhost:3030/api/users/google'}>
+            <GoogleLink
+              href={'https://creepy-tan-parrot.cyclic.app/api/users/google'}
+            >
               Continue with Google
             </GoogleLink>
           </AuthBtnsWrapper>
