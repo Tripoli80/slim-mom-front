@@ -16,8 +16,8 @@ const token = {
 };
 
 const longtoken = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  set(longtoken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${longtoken}`;
   },
   unset() {
     axios.defaults.headers.common.Authorization = '';
