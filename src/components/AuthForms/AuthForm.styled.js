@@ -16,7 +16,7 @@ export const AuthFormWrapper = styled(Form)`
   }
 
   @media screen and (min-width: 1280px) {
-    padding-left: 0;
+    // padding-left: 0;
   }
 `;
 

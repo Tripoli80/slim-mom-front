@@ -13,7 +13,7 @@ export const SidebarSection = styled.div`
     height: 100%;
     z-index: -1;
     top: 0;
-    box-shadow: 60px 1px 55px #e2e2e2;
+    box-shadow: 40px 1px 55px #e2e2e2;
     //  right: 126px;
     // width: 527px;
     // margin-left: 68px;
@@ -69,7 +69,7 @@ export const SidebarWrap = styled.div`
     width: 588px;
     // width: 517px;
     height: auto;
-    padding: 292px 16px 166px 106px;
+    padding: 292px 140px 166px 0;
     flex-direction: column;
     gap: 60px;
     background-image: url(${leavesDesk1x});

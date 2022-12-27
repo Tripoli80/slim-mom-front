@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   margin: 0;
+  padding: 0;
   padding-top: 20px;
 
   display: flex;
@@ -13,8 +14,9 @@ export const Header = styled.header`
 
   @media (min-width: 768px) {
     flex-direction: row;
-
     padding-bottom: 20px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 
   @media (min-width: 1280px) {
@@ -22,6 +24,7 @@ export const Header = styled.header`
     border-bottom: none;
     align-items: flex-end;
     justify-content: flex-start;
+    padding-right: 95px;
   }
 `;
 
