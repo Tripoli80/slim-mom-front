@@ -9,6 +9,7 @@ import {
   AuthBtnsWrapper,
   AuthFormNavLink,
   AuthFormItemWrap,
+  ForgotPasswordLink,
   GoogleLink
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
@@ -72,9 +73,9 @@ export const LoginForm = () => {
               Continue with Google
             </GoogleLink>
           </AuthBtnsWrapper>
-          <NavLink to="/forgotpassword">
-            {Translator('Forgot password?')}
-          </NavLink>
+          <ForgotPasswordLink to="/forgotpassword">
+            Forgot password?
+          </ForgotPasswordLink>
         </AuthFormWrapper>
       </Formik>
     </>

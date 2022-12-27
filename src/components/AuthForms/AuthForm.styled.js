@@ -113,7 +113,7 @@ export const AuthFormNavLink = styled(NavLink)`
   padding-right: 24px;
   text-align: center;
   color: #fc842d;
-  // background-color: #ffffff;
+  background-color: #ffffff;
   border: 2px solid #fc842d;
   border-radius: 30px;
 
@@ -122,6 +122,28 @@ export const AuthFormNavLink = styled(NavLink)`
     scale: 1.1;
   }
 `;
+
+export const ForgotPasswordLink = styled(NavLink)`
+  cursor: pointer;
+  display: inline-block;
+  width: 200px;
+  margin-top: 8px;
+  text-align: end;
+  text-decoration: none;
+  font-family: 'Verdana';
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 420px;
+  }
+
+  &:focus,
+  &:hover {
+    color: #fc842d;
+  }  
+`
 
 export const GoogleLink = styled.a`
   transition: background-color 0.3s, box-shadow 0.3s;
