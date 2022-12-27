@@ -7,7 +7,7 @@ import {
   AddNewProductInput,
   AddNewProductButton,
   ErrorMessage,
-} from './Component.styled';
+} from './AddNewProductForm.styled';
 import { Translator } from 'components/language/translator';
 import { closeModal } from 'redux/services/modalSlice';
 

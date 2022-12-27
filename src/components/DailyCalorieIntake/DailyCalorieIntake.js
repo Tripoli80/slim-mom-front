@@ -12,7 +12,7 @@ import { nanoid } from 'nanoid';
 import { Translator } from 'components/language/translator';
 import { useSelector } from 'react-redux';
 import { getLanguage } from 'redux/services/languageSlice';
-import { Title } from 'components/Modal/Component.styled';
+import { Title } from 'components/Modal/Modal.styled';
 import { Button } from 'components/Button/Button';
 
 const DailyCalorieIntake = ({ stats, onClose }) => {
@@ -24,37 +24,34 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
   }
   return (
     <>
-      <>
-        <Title>
-          {Translator('yourRecommendedDaily')} {'\n'}
-          {Translator('calorieIntakeIs')}
-        </Title>
+      <Title>
+        {Translator('yourRecommendedDaily')} {'\n'}
+        {Translator('calorieIntakeIs')}
+      </Title>
+      <div>
+        <WrapperCallories>
+          <Callories>
+            {stats.dailyCalorie}
+            <CalloriesText> {Translator('kca')}</CalloriesText>
+          </Callories>
+        </WrapperCallories>
+
         <div>
-          <WrapperCallories>
-            <Callories>
-              {stats.dailyCalorie}
-              <CalloriesText> {Translator('kca')}</CalloriesText>
-            </Callories>
-          </WrapperCallories>
-          <div>
-            <div>
-              <TitleList>{Translator('foodsYouShouldNotEat')}</TitleList>
-              <List>
-                {stats.products.map(product => {
-                  return (
-                    <ListItem key={nanoid()}>
-                      {ucFirst(product._id[len.toLowerCase()])}
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </div>
-          </div>
+          <TitleList>{Translator('foodsYouShouldNotEat')}</TitleList>
+          <List>
+            {stats.products.map(product => {
+              return (
+                <ListItem key={nanoid()}>
+                  {ucFirst(product._id[len.toLowerCase()])}
+                </ListItem>
+              );
+            })}
+          </List>
         </div>
-        <Button type="button" onClick={onClose}>
-          {Translator('startLosingweight')}
-        </Button>
-      </>
+      </div>
+      <Button type="button" onClick={onClose}>
+        {Translator('startLosingweight')}
+      </Button>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import Container from 'components/Container/Container';
-import { Wrapper, Inner, Title, Button } from './Component.styled';
-import AddNewProductForm from 'components/AddNewProductForm/Component';
+import { Wrapper, Inner, Title, Button } from './AddNewProductBlock.styled';
+import AddNewProductForm from 'components/AddNewProductForm/AddNewProductForm';
 import { Translator } from 'components/language/translator';
-import { Modal } from 'components/Modal/Component';
+import { Modal } from 'components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal, closeModal } from 'redux/services/modalSlice';
 

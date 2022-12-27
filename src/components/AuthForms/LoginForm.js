@@ -37,38 +37,38 @@ export const LoginForm = () => {
 
   return (
     <>
-    <AuthFormTitle>SIGN IN</AuthFormTitle>
-    <Formik
-      onSubmit={handleSubmit}
-      validationSchema={validationLoginSchema}
-      initialValues={{ email: '', password: '' }}
-    >
-      <AuthFormWrapper>
-        <AuthFormItemWrap>
-          <InputAuth
-            placeHolder={Translator('email')}
-            id="email"
-            name="email"
-            type="email"
-            required
-          />
-          <InputAuth
-            placeHolder={Translator('password')}
-            id="password"
-            name="password"
-            type="password"
-            required
-          />
-        </AuthFormItemWrap>
+      <AuthFormTitle>SIGN IN</AuthFormTitle>
+      <Formik
+        onSubmit={handleSubmit}
+        validationSchema={validationLoginSchema}
+        initialValues={{ email: '', password: '' }}
+      >
+        <AuthFormWrapper>
+          <AuthFormItemWrap>
+            <InputAuth
+              placeHolder={Translator('email')}
+              id="email"
+              name="email"
+              type="email"
+              required
+            />
+            <InputAuth
+              placeHolder={Translator('password')}
+              id="password"
+              name="password"
+              type="password"
+              required
+            />
+          </AuthFormItemWrap>
 
-        <AuthBtnsWrapper>
-          <Button type="submit">{Translator('logIn')}</Button>
-          <AuthFormNavLink to="/registration">
-            {Translator('register')}
-          </AuthFormNavLink>
-        </AuthBtnsWrapper>
-      </AuthFormWrapper>
-    </Formik>
+          <AuthBtnsWrapper>
+            <Button type="submit">{Translator('logIn')}</Button>
+            <AuthFormNavLink to="/registration">
+              {Translator('register')}
+            </AuthFormNavLink>
+          </AuthBtnsWrapper>
+        </AuthFormWrapper>
+      </Formik>
     </>
   );
 };
