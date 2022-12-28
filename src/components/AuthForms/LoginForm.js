@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { login } from 'redux/auth/authOperations';
 import {
   AuthFormTitle,
@@ -75,6 +75,9 @@ export const LoginForm = () => {
               {Translator('forgotPassword')}
             </AuthFormNavLink>
           </AuthBtnsWrapper>
+          {/* <NavLink to="/forgotpassword">
+            {Translator('Forgot password?')}
+          </NavLink> */}
         </AuthFormWrapper>
       </Formik>
     </>
