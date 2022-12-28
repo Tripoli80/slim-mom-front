@@ -88,7 +88,7 @@ const App = () => {
               }
             />
             <Route
-              path="/reset/:id"
+              path="/reset/:token"
               element={
                 <PublicRoute
                   redirectTo="/"
