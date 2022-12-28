@@ -3,7 +3,6 @@ import { authReducer } from './auth/authSlice';
 import { modalReducer } from './services/modalSlice';
 import { languageSlice } from './services/languageSlice';
 import { productsReducer } from './products/slice';
-import { dietSlice } from './services/privateDietSlice';
 
 import {
   persistStore,
@@ -21,7 +20,6 @@ export const store = configureStore({
     [languageSlice.name]: languageSlice.reducer,
     modal: modalReducer,
     products: productsReducer,
-    diet: dietSlice.reducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
