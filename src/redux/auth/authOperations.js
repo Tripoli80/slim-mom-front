@@ -44,9 +44,7 @@ export const login = createAsyncThunk('auth/login', async userData => {
     console.log(error);
   }
 });
-export const forgotPassword = createAsyncThunk(
-  'auth/mailtoreset',
-  async userData => {
+export const forgotPassword = createAsyncThunk('auth/mailtoreset', async userData => {
     try {
       const { data } = await axios.post('api/users/mailtoreset', userData);
       token.set(data.token);
@@ -57,9 +55,16 @@ export const forgotPassword = createAsyncThunk(
     }
   }
 );
-export const resetPassword = createAsyncThunk(
-  'auth/resetpassword',
-  async () => {}
+export const resetPassword = createAsyncThunk('auth/resetpassword', async userData => {
+  try {
+    const { data } = await axios.post('api/users/reset', userData);
+    token.set(data.token);
+    longtoken.set(data.longtoken);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 );
 export const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
