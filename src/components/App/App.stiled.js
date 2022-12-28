@@ -11,7 +11,7 @@ export const Image = styled.div`
   height: 100%;
 
   @media (min-width: 768px) {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: -1;
