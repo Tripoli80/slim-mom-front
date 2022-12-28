@@ -24,6 +24,8 @@ const GoogleRegistration = lazy(() => import('../../pages/GoogleRegistration'));
 const DiaryAddProductPage = lazy(() =>
   import('../../pages/DiaryAddProductPage')
 );
+const NewProductPage = lazy(() => import('../../pages/NewProductPage'));
+
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
@@ -126,6 +128,17 @@ const App = () => {
                   <PrivateRoute
                     redirectTo="/singin"
                     component={<DiaryAddProductPage />}
+                  />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/diary/add-new-product"
+              element={
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<NewProductPage />}
                   />
                 </React.Suspense>
               }
