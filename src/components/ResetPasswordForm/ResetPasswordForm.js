@@ -5,13 +5,16 @@ import { ForgotPasswordFormWrapper, ForgotPasswordFormItemWrap } from './ForgotP
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 import InputAuth from 'components/Input/InputAuth';
+import { useParams } from 'react-router-dom';
 
 export const ResetPasswordForm = () => {
   const dispatch = useDispatch();
+  const { token } = useParams();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       resetPassword({
+        token: token,
         password: values.password,
       })
     );
