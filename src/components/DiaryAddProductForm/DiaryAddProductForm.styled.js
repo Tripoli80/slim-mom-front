@@ -118,7 +118,7 @@ export const InputWeight = styled(Input)`
 `;
 
 export const Button = styled.button`
-  margin-top: 80px;
+  margin-top: 60px;
   @media screen and (min-width: 768px) {
     margin-top: 0;
   }

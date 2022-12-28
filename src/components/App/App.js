@@ -21,7 +21,9 @@ const LoginPage = lazy(() => import('../../pages/LoginPage'));
 const ForgotPasswordPage = lazy(() => import('../../pages/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('../../pages/ResetPasswordPage'));
 const GoogleRegistration = lazy(() => import('../../pages/GoogleRegistration'));
-
+const DiaryAddProductPage = lazy(() =>
+  import('../../pages/DiaryAddProductPage')
+);
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
@@ -115,6 +117,17 @@ const App = () => {
                     </React.Suspense>
                   }
                 />
+              }
+            />
+            <Route
+              path="/diary/add-product"
+              element={
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<DiaryAddProductPage />}
+                  />
+                </React.Suspense>
               }
             />
             <Route
