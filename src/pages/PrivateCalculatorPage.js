@@ -4,9 +4,11 @@ import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
 import Sidebar from 'components/SideBar/Sidebar';
 
 const CalcPageWrap = styled.div`
-@media screen and (min-width: 1280px) {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
 }
 `
 export const PrivateCalculatorPage = () => {
