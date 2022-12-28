@@ -7,22 +7,28 @@ export const AuthFormWrapper = styled(Form)`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-direction: column;
 
   @media screen and (min-width: 768px) {
     width: 100%;
     padding-left: 16px;
     align-items: normal;
-    padding: 0 40px;
+    padding: 40px;
+    justify-content: center;
+    display: grid;
   }
 
   @media screen and (min-width: 1280px) {
     // padding-left: 0;
+    justify-content: flex-start;
   }
 `;
 
 export const AuthFormTitle = styled.h3`
   margin: 0 auto;
-  padding: 0 40px;
+  // padding: 0 40px;
   margin-top: 40px;
   margin-bottom: 60px;
   align-items: center;
@@ -37,7 +43,7 @@ export const AuthFormTitle = styled.h3`
   color: #fc842d;
 
   @media screen and (min-width: 768px) {
-    margin-top: 160px;
+    margin-top: 100px;
     margin-left: 0;
     text-align: start;
   }

@@ -41,13 +41,13 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <AuthFormTitle>{Translator('register')}</AuthFormTitle>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={validationRegisterSchema}
         initialValues={{ name: '', email: '', password: '' }}
       >
         <AuthFormWrapper>
+          <AuthFormTitle>{Translator('register')}</AuthFormTitle>
           <AuthFormItemWrap>
             <InputAuth
               placeHolder={Translator('name')}
@@ -77,7 +77,7 @@ export const RegisterForm = () => {
               {Translator('logIn')}
             </AuthFormNavLink>
             <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
-              Continue with Google
+              {Translator('continueWithGoogle')}
             </GoogleLink>
           </AuthBtnsWrapper>
         </AuthFormWrapper>

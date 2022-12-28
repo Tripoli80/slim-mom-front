@@ -1,7 +1,10 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { forgotPassword } from 'redux/auth/authOperations';
-import {ForgotPasswordFormWrapper, ForgotPasswordFormItemWrap} from './ForgotPasswordForm.styled';
+import {
+  ForgotPasswordFormWrapper,
+  ForgotPasswordFormItemWrap,
+} from './ForgotPasswordForm.styled';
 import { Button } from 'components/Button/Button';
 import InputAuth from 'components/Input/InputAuth';
 import { Translator } from 'components/language/translator';
@@ -27,10 +30,12 @@ export const ForgotPasswordForm = () => {
             id="email"
             name="email"
             type="email"
-            required    
+            required
           />
         </ForgotPasswordFormItemWrap>
-        <Button type="submit" style={{width: "200px"}}>{Translator('submit')}</Button>
+        <Button type="submit" style={{ width: '200px' }}>
+          {Translator('submit')}
+        </Button>
       </ForgotPasswordFormWrapper>
     </Formik>
   );
