@@ -108,8 +108,18 @@ export const AuthBtnsWrapper = styled.div`
 export const AuthFormNavLink = styled(NavLink)`
   transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  padding: 12px 24px;
-  border: none;
+
+  /* text-decoration: none; */
+  /* font-family: 'Verdana'; */
+  /* min-width: 180px; */
+  /* height: 42px; */
+  padding-top: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  /* text-align: center; */
+  color: #fc842d;
+  /* background-color: #ffffff; */
+  border: 2px solid #fc842d;
   border-radius: 30px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
   border: 2px solid #fc842d;
@@ -141,6 +151,28 @@ export const AuthFormNavLink = styled(NavLink)`
     outline: none;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
       0 0 0 3px #c8dafc;
+  }
+`;
+
+export const ForgotPasswordLink = styled(NavLink)`
+  cursor: pointer;
+  display: inline-block;
+  width: 200px;
+  margin-top: 8px;
+  text-align: end;
+  text-decoration: none;
+  font-family: 'Verdana';
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  letter-spacing: 0.04em;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 420px;
+  }
+
+  &:focus,
+  &:hover {
+    color: #fc842d;
   }
 `;
 

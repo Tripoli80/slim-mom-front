@@ -12,6 +12,7 @@ import {
 const initialState = {
   user: { username: null, email: null },
   token: null,
+  longtoken: null,
   isLoggedIn: false,
   isRefreshing: false,
 };
@@ -38,6 +39,7 @@ const authSlice = createSlice({
       .addCase(logOut.fulfilled, state => {
         state.user = { username: null, email: null };
         state.token = null;
+        state.longtoken = null;
         state.isLoggedIn = false;
       })
       .addCase(refreshUser.pending, state => {
@@ -53,12 +55,14 @@ const authSlice = createSlice({
       })
       .addCase(forgotPassword.fulfilled, (state, action) => {
         state.token = action.payload.token;
+        state.longtoken = action.payload.longtoken;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled),
         (state, action) => {
           state.user = action.payload.user;
           state.token = action.payload.token;
+          state.longtoken = action.payload.longtoken;
           state.isLoggedIn = true;
         }
       );

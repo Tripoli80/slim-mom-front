@@ -15,10 +15,20 @@ const token = {
   },
 };
 
+const longtoken = {
+  set(longtoken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${longtoken}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+
 export const register = createAsyncThunk('auth/register', async userData => {
   try {
     const { data } = await axios.post('api/users/signup', userData);
     token.set(data.token);
+    longtoken.set(data.longtoken);
     return data;
   } catch (error) {
     console.log(error);
@@ -28,17 +38,19 @@ export const login = createAsyncThunk('auth/login', async userData => {
   try {
     const { data } = await axios.post('api/users/login', userData);
     token.set(data.token);
+    longtoken.set(data.longtoken);
     return data;
   } catch (error) {
     console.log(error);
   }
 });
 export const forgotPassword = createAsyncThunk(
-  'auth/forgotpassword',
+  'auth/mailtoreset',
   async userData => {
     try {
-      const { data } = await axios.post('api/users/forgotpassword', userData);
+      const { data } = await axios.post('api/users/mailtoreset', userData);
       token.set(data.token);
+      longtoken.set(data.longtoken);
       return data;
     } catch (error) {
       console.log(error);
@@ -53,6 +65,7 @@ export const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
     await axios.post('api/users/logout');
     token.unset();
+    longtoken.unset();
   } catch (error) {
     console.log(error);
   }
