@@ -71,9 +71,9 @@ export const dailyCalorie = createAsyncThunk(
 
 export const fetchPersonalDiet = createAsyncThunk(
   'diet/getPersonalDiet',
-  async (bodyData, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await axios.get('api/diet', bodyData);
+      const response = await axios.get('api/diet');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

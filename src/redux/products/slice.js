@@ -18,6 +18,7 @@ import moment from 'moment';
 const productsInitState = {
   eatedProducts: [],
   selectedProduct: [],
+  recomendetToNotEat: {},
   personalDiet: {},
   date: moment(new Date()).format('YYYY-MM-DD'),
   isLoading: false,

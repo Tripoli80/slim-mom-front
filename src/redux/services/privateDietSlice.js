@@ -12,7 +12,7 @@ import defaultsBaseURL from '../../redux/auth/authOperations';
 axios.defaults.baseURL = defaultsBaseURL;
 
 export const fetchDiet = createAsyncThunk(
-  'diet/getDiet',
+  'diet/fetchDiet',
   async (bodyData, thunkAPI) => {
     try {
       const response = await axios.post('api/diet/', bodyData);
@@ -23,7 +23,19 @@ export const fetchDiet = createAsyncThunk(
   }
 );
 
-const requestActions = [fetchDiet];
+export const fetchPersonalDiet = createAsyncThunk(
+  'diet/fetchPersonalDiet',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('api/diet');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+const requestActions = [fetchDiet, fetchPersonalDiet];
 const isPendingActions = isPending(...requestActions);
 const isFulfilledActions = isFulfilled(...requestActions);
 const isRejectedActions = isRejected(...requestActions);
@@ -33,6 +45,7 @@ export const dietSlice = createSlice({
   initialState: {
     bodyData: {blood: 1, height: 168, age: 38, cWeight: 83, dWeight: 70},
     items: {},
+    personalDiet: {},
     isLoading: false,
     error: null,
   },
@@ -45,6 +58,9 @@ export const dietSlice = createSlice({
     buider
       .addCase(fetchDiet.fulfilled, (state, action) => {
         state.items = action.payload;
+      })
+      .addCase(fetchPersonalDiet.fulfilled, (state, action) => {
+        state.personalDiet = action.payload;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {
         state.isLoading = false;
