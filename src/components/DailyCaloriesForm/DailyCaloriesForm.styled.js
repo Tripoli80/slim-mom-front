@@ -3,7 +3,6 @@ export const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 100%;
   position: relative;
 
   // padding-bottom: 10px;

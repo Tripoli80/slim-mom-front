@@ -222,7 +222,7 @@ const DailyCaloriesForm = () => {
   );
   return (
     <>
-      <Container>{forma}</Container>
+      {forma}
       {isLoading && <LoaderBox />}
       {isOpen && modal}
     </>

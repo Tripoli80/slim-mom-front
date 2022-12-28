@@ -1,20 +1,21 @@
+import React from 'react';
 import styled from '@emotion/styled';
-import { Image, Image2 } from 'components/App/App.stiled';
 import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
+import Sidebar from 'components/SideBar/Sidebar';
 
 const CalcPageWrap = styled.div`
 @media screen and (min-width: 1280px) {
   display: flex;
+  flex-direction: row;
 }
 `
-const CalculatorPage = () => {
+export const PrivateCalculatorPage = () => {
   return (
     <CalcPageWrap>
-      <Image />
-      <Image2 />
       <DailyCaloriesForm />
+      <Sidebar/>
     </CalcPageWrap>
   );
 };
 
-export default CalculatorPage;
+//
