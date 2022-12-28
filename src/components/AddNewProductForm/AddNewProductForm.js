@@ -10,9 +10,12 @@ import {
 } from './AddNewProductForm.styled';
 import { Translator } from 'components/language/translator';
 import { closeModal } from 'redux/services/modalSlice';
+import { useLocation, useNavigate } from 'react-router';
 
 const AddNewProductForm = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <Formik
@@ -21,6 +24,7 @@ const AddNewProductForm = () => {
         dispatch(addNewProduct({ ...values, weight: 100 }));
         // console.log({ ...values, weight: Number(100) });
         dispatch(closeModal());
+        location.state?.from && navigate(location.state?.from);
         // form.reset();
       }}
       validate={values => {

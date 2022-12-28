@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const DivCtnterd = styled.div`
-  padding: 60px 0;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
 `;
@@ -118,10 +118,7 @@ export const InputWeight = styled(Input)`
 `;
 
 export const Button = styled.button`
-  margin-top: 60px;
-  @media screen and (min-width: 768px) {
-    margin-top: 0;
-  }
+  margin-top: 0;
 
   padding: 0px;
   width: 48px;

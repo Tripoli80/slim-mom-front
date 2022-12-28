@@ -76,7 +76,7 @@ export const RegisterForm = () => {
             <AuthFormNavLink to="/singin">
               {Translator('logIn')}
             </AuthFormNavLink>
-            <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
+            <GoogleLink href={`${defaultsBaseURL}api/users/google`}>
               {Translator('continueWithGoogle')}
             </GoogleLink>
           </AuthBtnsWrapper>
