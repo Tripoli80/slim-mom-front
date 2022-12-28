@@ -24,23 +24,23 @@ const emailShema =
 const validationLoginSchema = yup.object().shape({
   email: yup
     .string()
-    .min(3, 'Email must be 3 characters or more')
-    .max(254, 'Name must be 254 characters or less')
+    .min(3, 'Email must contain minimum 3 characters')
+    .max(254, 'Email must contain maximum 254 characters')
     .required('Email is required')
     .matches(emailShema, 'Wrong type of email. Example: myemail@gmail.com'),
   password: yup
     .string()
     .min(
       8,
-      'Password must be 8 characters or more, includes latin letters and numbers, Symbols are not allowed '
+      'Password must contain minimum 3 characters, includes latin letters and numbers, symbols are not allowed'
     )
     .max(
       100,
-      'Password must be 100 characters or less, includes latin letters and numbers, Symbols are not allowed'
+      'Password must contain maximum 100 characters, includes latin letters and numbers, symbols are not allowed'
     )
     .matches(
       passwordShema,
-      'Password must be 8 characters or more, includes latin letters and numbers, Symbols are not allowed'
+      'Password must contain minimum 8 characters, includes latin letters and numbers, symbols are not allowed'
     )
     .required('Password is required'),
 });

@@ -226,5 +226,5 @@ export const Error = styled.div`
   width: 240px;
   text-align: start;
   font-size: 14px;
-  color: red;
+  color: rgb(200, 10, 65);
 `;
