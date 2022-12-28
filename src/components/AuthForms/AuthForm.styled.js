@@ -221,3 +221,10 @@ export const GoogleLink = styled.a`
       0 0 0 3px #c8dafc;
   }
 `;
+
+export const Error = styled.div`
+  width: 240px;
+  text-align: start;
+  font-size: 14px;
+  color: rgb(200, 10, 65);
+`;
