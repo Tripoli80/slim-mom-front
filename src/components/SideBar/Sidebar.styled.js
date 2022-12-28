@@ -39,18 +39,17 @@ export const Back = styled.div`
   // }
 `;
 export const SidebarWrap = styled.div`
-  width: 100vh;
-  // height: 100vh;
-  // margin: 0 -40px;
+  width: 100vw;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
   @media screen and (min-width: 768px) {
-      width: 768px;
+      /* width: 768px; */
       padding: 80px 32px;
       flex-direction: row;
+      align-items: flex-start;
       gap: 96px;
       background-image: url(${leavesTab1x});
 
@@ -71,6 +70,7 @@ export const SidebarWrap = styled.div`
     height: auto;
     padding: 292px 140px 166px 0;
     flex-direction: column;
+    align-items: center;
     gap: 60px;
     background-image: url(${leavesDesk1x});
     @media (min-device-pixel-ratio: 2),

@@ -19,20 +19,23 @@ export default function Diet({ diet }) {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
   }
+
+  const isGetDiet = () => {
+    if (diet || diet.length !== 0) return true;
+    return false;
+  }
   return (
     <div>
       <SidebarTitle>{Translator('foodNotRecommended')}</SidebarTitle>
-      {!categories.length
-        ? (<SidebarText>{Translator('yourDietWill')}</SidebarText>)
-        : (
-          <SidebarList>
-            {categories.map((category) => (
-              <SidebarItem key={nanoid()}>
-                <SidebarText>{ucFirst(category)}</SidebarText>
-              </SidebarItem>
-            ))}
-          </SidebarList>
-        )}
+      {!isGetDiet && (<SidebarText>{Translator('yourDietWill')}</SidebarText>)}
+      {isGetDiet && (
+        <SidebarList>
+          {categories.map((category) => (
+            <SidebarItem key={nanoid()}>
+              <SidebarText>{ucFirst(category)}</SidebarText>
+            </SidebarItem>
+          ))}
+        </SidebarList>)}
     </div>
   );
 }

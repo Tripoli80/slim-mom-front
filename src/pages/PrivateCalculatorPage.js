@@ -6,10 +6,11 @@ import Sidebar from 'components/SideBar/Sidebar';
 const CalcPageWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   @media screen and (min-width: 1280px) {
+    width: 714px;
     flex-direction: row;
-}
+    justify-content: space-between;
+  }
 `
 export const PrivateCalculatorPage = () => {
   return (
@@ -19,5 +20,3 @@ export const PrivateCalculatorPage = () => {
     </CalcPageWrap>
   );
 };
-
-//
