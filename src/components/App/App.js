@@ -84,7 +84,7 @@ const App = () => {
               }
             />
             <Route
-              path="/resetpassword"
+              path="/reset/:id"
               element={
                 <PublicRoute
                   redirectTo="/"
