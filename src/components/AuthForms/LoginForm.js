@@ -40,13 +40,13 @@ export const LoginForm = () => {
 
   return (
     <>
-      <AuthFormTitle>{Translator('signIn')}</AuthFormTitle>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={validationLoginSchema}
         initialValues={{ email: '', password: '' }}
-      >
+        >
         <AuthFormWrapper>
+          <AuthFormTitle>{Translator('signIn')}</AuthFormTitle>
           <AuthFormItemWrap>
             <InputAuth
               placeHolder={Translator('email')}
