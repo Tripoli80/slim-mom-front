@@ -4,6 +4,7 @@ export const EN = {
   password: 'password *',
   logIn: 'Log in',
   g: 'g',
+  forgotPassword: 'Forgot password?',
   timeToEat: "It's time to eat something",
   grams: 'Grams',
   enterProductName: 'Enter product name',

@@ -41,7 +41,7 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <AuthFormTitle>REGISTER</AuthFormTitle>
+      <AuthFormTitle>{Translator('register')}</AuthFormTitle>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={validationRegisterSchema}

@@ -11,7 +11,7 @@ export const Image = styled.div`
   height: 100%;
 
   @media (min-width: 768px) {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: -1;
@@ -37,13 +37,13 @@ export const Image = styled.div`
   }
 `;
 export const Image2 = styled.div`
-  width: 100%;    
-  height: 100%;
-  position: absolute;
+  width: 100%;
+  height: 778px;
+  position: fixed;
   bottom: 0;
   right: 0;
-  z-index: -2;  
-  background-repeat: no-repeat;  
+  z-index: -2;
+  background-repeat: no-repeat;
 
   @media (min-width: 1264px) {
     background-image: url(${FrameDeck2});
