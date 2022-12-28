@@ -5,9 +5,13 @@ export const BurgerMenu = ({ active, setActive }) => {
     <Menu className={active ? 'active' : ''} onClick={() => setActive(false)}>
       <MenuContent onClick={e => e.stopPropagation()}>
         <LinkWrapper>
-          <Link to="/diary">{Translator('diary')}</Link>
+          <Link to="/diary" onClick={() => setActive(false)}>
+            {Translator('diary')}
+          </Link>
         </LinkWrapper>
-        <Link to="/calculator">{Translator('calculator')}</Link>
+        <Link to="/calculator" onClick={() => setActive(false)}>
+          {Translator('calculator')}
+        </Link>
       </MenuContent>
     </Menu>
   );

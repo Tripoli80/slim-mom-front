@@ -23,8 +23,7 @@ const NotFoundView = () => {
       navigate('/');
     }
   }, [navigate, time]);
-  console.log('time:', time);
-  console.log('timerId:', timerId);
+
 
   return (
     <div

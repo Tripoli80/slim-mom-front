@@ -9,12 +9,13 @@ import {
   AuthBtnsWrapper,
   AuthFormNavLink,
   AuthFormItemWrap,
+  ForgotPasswordLink,
   GoogleLink
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
-
 import InputAuth from 'components/Input/InputAuth';
+import defaultsBaseURL from '../../redux/auth/authOperations';
 
 const validationLoginSchema = yup.object().shape({
   email: yup
@@ -68,13 +69,16 @@ export const LoginForm = () => {
             <AuthFormNavLink to="/registration">
               {Translator('register')}
             </AuthFormNavLink>
-            <GoogleLink href={'http://localhost:3030/api/users/google'}>
+            <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
               Continue with Google
             </GoogleLink>
             <AuthFormNavLink to="/forgotpassword">
               {Translator('forgotPassword')}
             </AuthFormNavLink>
           </AuthBtnsWrapper>
+          <NavLink to="/forgotpassword">
+            {Translator('Forgot password?')}
+          </NavLink>
         </AuthFormWrapper>
       </Formik>
     </>

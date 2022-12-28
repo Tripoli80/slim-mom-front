@@ -26,10 +26,10 @@ export const ForgotPasswordForm = () => {
     <Formik onSubmit={handleSubmit} initialValues={{ email: '' }}>
       <AuthFormWrapper>
         <AuthFormItemWrap>
-          <AuthFormLabel>{Translator('email')}</AuthFormLabel>
+          <AuthFormLabel>{Translator('Email')}</AuthFormLabel>
           <AuthFormItem id="email" name="email" type="email" required />
         </AuthFormItemWrap>
-        <Button type="submit">{Translator('submit')}</Button>
+        <Button type="submit">{Translator('Submit')}</Button>
       </AuthFormWrapper>
     </Formik>
   );

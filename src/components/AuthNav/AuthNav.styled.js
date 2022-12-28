@@ -22,10 +22,10 @@ export const Wrapper = styled.div`
   // font-size: 10px;
 
   // @media (min-width: 429px) {
-    font-size: 12px;
+  font-size: 12px;
   //   position: static;
   //   font-size: 14px;
-  }
+  /* } */
 
   @media (min-width: 768px) {
     position: static;
@@ -65,8 +65,7 @@ export const SignInText = styled.div`
 
   @media (min-width: 1280px) {
     margin-left: 20px;
-  }  
-  
+  }
 `;
 
 export const RegistrationText = styled.div`
