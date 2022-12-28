@@ -6,7 +6,6 @@ import {
   login,
   logOut,
   refreshUser,
-  forgotPassword,
 } from './authOperations';
 
 const initialState = {
@@ -52,10 +51,6 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-      })
-      .addCase(forgotPassword.fulfilled, (state, action) => {
-        state.token = action.payload.token;
-        state.longtoken = action.payload.longtoken;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled),

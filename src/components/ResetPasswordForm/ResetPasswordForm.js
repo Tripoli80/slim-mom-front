@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import * as yup from 'yup';
 import { resetPassword } from 'redux/auth/authOperations';
 import {
   ForgotPasswordFormWrapper,
@@ -8,10 +9,15 @@ import {
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 import InputAuth from 'components/Input/InputAuth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
+const validationResetSchema = yup.object().shape({
+  password: yup.string().required("The field 'Password' is required"),
+})
 
 export const ResetPasswordForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { token } = useParams();
 
   const handleSubmit = (values, { resetForm }) => {
@@ -21,11 +27,15 @@ export const ResetPasswordForm = () => {
         password: values.password,
       })
     );
+    navigate("/singin");
     resetForm();
   };
 
   return (
-    <Formik onSubmit={handleSubmit} initialValues={{ password: '' }}>
+    <Formik
+      onSubmit={handleSubmit}
+      validationSchema={validationResetSchema}
+      initialValues={{ password: '' }}>
       <ForgotPasswordFormWrapper>
         <ForgotPasswordFormItemWrap>
           <InputAuth
