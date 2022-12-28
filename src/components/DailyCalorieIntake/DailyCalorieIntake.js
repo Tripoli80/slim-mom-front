@@ -6,6 +6,7 @@ import {
   TitleList,
   WrapperCallories,
 } from './DailyCalorieIntake.styled';
+import { useAuth } from '../../hooks/hooks';
 
 import { nanoid } from 'nanoid';
 
@@ -13,10 +14,12 @@ import { Translator } from 'components/language/translator';
 import { useSelector } from 'react-redux';
 import { getLanguage } from 'redux/services/languageSlice';
 import { Title } from 'components/Modal/Modal.styled';
-//import { Button } from 'components/Button/Button';
+import { Button } from 'components/Button/Button';
 
 const DailyCalorieIntake = ({ stats, onClose }) => {
   const len = useSelector(getLanguage);
+  const { isLoggedIn } = useAuth();
+
   function ucFirst(str) {
     if (!str) return str;
 
@@ -49,7 +52,10 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
           </List>
         </div>
       </div>
-
+      {isLoggedIn === true ? '' :
+        <Button type="button" onClick={onClose}>
+        {Translator('startLosingweight')}
+      </Button>}
     </>
   );
 };
