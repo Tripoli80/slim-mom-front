@@ -1,4 +1,3 @@
-import Container from 'components/Container/Container';
 import Input from 'components/Input/Input';
 import {
   Box,
@@ -222,7 +221,7 @@ const DailyCaloriesForm = () => {
   );
   return (
     <>
-      <Container>{forma}</Container>
+      {forma}
       {isLoading && <LoaderBox />}
       {isOpen && modal}
     </>
