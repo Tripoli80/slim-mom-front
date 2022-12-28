@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 export const defaultsBaseURL = 'https://creepy-tan-parrot.cyclic.app/';
 // export const defaultsBaseURL = 'http://localhost:3008/';
@@ -24,59 +25,62 @@ const longtoken = {
   },
 };
 
-export const register = createAsyncThunk('auth/register', async userData => {
+export const register = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
   try {
     const { data } = await axios.post('api/users/signup', userData);
     token.set(data.token);
     longtoken.set(data.longtoken);
     return data;
   } catch (error) {
-    console.log(error);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
-export const login = createAsyncThunk('auth/login', async userData => {
+export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
   try {
     const { data } = await axios.post('api/users/login', userData);
     token.set(data.token);
     longtoken.set(data.longtoken);
     return data;
   } catch (error) {
-    console.log(error);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const forgotPassword = createAsyncThunk(
   'auth/mailtoreset',
-  async userData => {
+  async (userData, thunkAPI) => {
     try {
       const { data } = await axios.post('api/users/mailtoreset', userData);
-      token.set(data.token);
-      longtoken.set(data.longtoken);
+      Notiflix.Notify.success(`${data.message}`);
       return data;
     } catch (error) {
-      console.log(error);
+        if (error.message === "Request failed with status code 404") {
+          return Notiflix.Notify.warning("No user found with this email.");
+        }
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 export const resetPassword = createAsyncThunk(
   'auth/resetpassword',
-  async userData => {
+  async (userData, thunkAPI) => {
     try {
       const { data } = await axios.post('api/users/reset', userData);
       token.set(data.token);
       longtoken.set(data.longtoken);
       return data;
     } catch (error) {
-      console.log(error);
+      
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-export const logOut = createAsyncThunk('auth/logOut', async () => {
+export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
     await axios.post('api/users/logout');
     token.unset();
     longtoken.unset();
   } catch (error) {
-    console.log(error);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const refreshUser = createAsyncThunk(
@@ -95,7 +99,7 @@ export const refreshUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

@@ -8,10 +8,11 @@ import {
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 import InputAuth from 'components/Input/InputAuth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const ResetPasswordForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { token } = useParams();
 
   const handleSubmit = (values, { resetForm }) => {
@@ -21,6 +22,7 @@ export const ResetPasswordForm = () => {
         password: values.password,
       })
     );
+    navigate("/singin", { replace: true });
     resetForm();
   };
 

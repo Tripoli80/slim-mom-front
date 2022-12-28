@@ -15,6 +15,7 @@ const initialState = {
   longtoken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  resetMailMessage: "",
 };
 const authPersistConfig = {
   key: 'auth',
@@ -54,8 +55,13 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(forgotPassword.fulfilled, (state, action) => {
-        state.token = action.payload.token;
-        state.longtoken = action.payload.longtoken;
+        state.resetMailMessage = "";
+      })
+      .addCase(forgotPassword.pending, (state, action) => {
+        state.resetMailMessage = "";
+      })
+      .addCase(forgotPassword.rejected, (state, action) => {
+        state.resetMailMessage = action.payload.message;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled),

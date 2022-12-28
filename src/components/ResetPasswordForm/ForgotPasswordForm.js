@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { forgotPassword } from 'redux/auth/authOperations';
 import {
@@ -11,6 +12,7 @@ import { Translator } from 'components/language/translator';
 
 export const ForgotPasswordForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
@@ -18,6 +20,7 @@ export const ForgotPasswordForm = () => {
         email: values.email,
       })
     );
+    navigate("/singin", { replace: true });
     resetForm();
   };
 
