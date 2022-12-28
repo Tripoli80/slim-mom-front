@@ -1,5 +1,7 @@
 export const UA = {
   slim: 'Струнка',
+  continueWithGoogle: 'За допомогою Google?',
+  forgotPassword: 'Забули пароль?',
   g: 'г',
   timeToEat: "Пора щось з'їсти",
   grams: 'Грами',
@@ -27,7 +29,7 @@ export const UA = {
   logout: 'Вийти',
   homePage: 'Домашня сторінка',
   left: 'Залишилось',
-  logIn: 'авторизуватися',
+  logIn: 'Авторизуватися',
   mom: 'Мама',
   nOfNormal: '% від норми',
   nik: 'Нік',

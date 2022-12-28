@@ -28,7 +28,21 @@ export const Wrapper = styled.div`
     margin-left: auto;
     margin-bottom: 4px;
     align-items: flex-end;
-  } ;
+  }
+
+  @media (max-width: 767px) {
+    a {
+      margin-left: 20px;
+      margin-right: auto;
+    }
+    svg {
+      stroke: #000000;
+      :hover,
+      :focus {
+        stroke: #fc842d;
+      }
+    }
+  }
 `;
 
 export const UserName = styled.p`
@@ -58,11 +72,11 @@ export const Exit = styled.p`
 
   &.active {
     color: #fc842d;
-  //  font-size: 16px;
+    //  font-size: 16px;
   }
   :hover:not(.active),
   &:focus-visible:not(.active) {
     color: #fc842d;
-  //  font-size: 16px;
+    //  font-size: 16px;
   }
 `;

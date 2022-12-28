@@ -1,5 +1,7 @@
 export const RU = {
   slim: 'Стройная',
+  continueWithGoogle: 'Продолжить через Google',
+  forgotPassword: 'Забыли пароль?',
   g: 'г',
   timeToEat: 'Пора что-то съесть',
   grams: 'Граммы',
@@ -28,7 +30,7 @@ export const RU = {
   logout: 'Выйти',
   homePage: 'Домашняя страница',
   left: 'Осталось',
-  logIn: 'авторизироваться',
+  logIn: 'Авторизироваться',
   mom: 'Мама',
   nOfNormal: '% от нормы',
   nik: 'Ник',

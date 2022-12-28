@@ -10,6 +10,7 @@ export const Inner = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 0 10px;
   /* outline: 1px black dotted; */
 `;
 

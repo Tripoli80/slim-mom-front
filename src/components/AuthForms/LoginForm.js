@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import { NavLink } from 'react-router-dom';
+
 import { login } from 'redux/auth/authOperations';
 import {
   AuthFormTitle,
@@ -9,12 +9,12 @@ import {
   AuthBtnsWrapper,
   AuthFormNavLink,
   AuthFormItemWrap,
-  GoogleLink
+  GoogleLink,
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
-
 import InputAuth from 'components/Input/InputAuth';
+import defaultsBaseURL from '../../redux/auth/authOperations';
 
 const validationLoginSchema = yup.object().shape({
   email: yup
@@ -39,13 +39,13 @@ export const LoginForm = () => {
 
   return (
     <>
-      <AuthFormTitle>SIGN IN</AuthFormTitle>
       <Formik
         onSubmit={handleSubmit}
         validationSchema={validationLoginSchema}
         initialValues={{ email: '', password: '' }}
-      >
+        >
         <AuthFormWrapper>
+          <AuthFormTitle>{Translator('signIn')}</AuthFormTitle>
           <AuthFormItemWrap>
             <InputAuth
               placeHolder={Translator('email')}
@@ -68,13 +68,14 @@ export const LoginForm = () => {
             <AuthFormNavLink to="/registration">
               {Translator('register')}
             </AuthFormNavLink>
-            <GoogleLink href={'http://localhost:3030/api/users/google'}>
-              Continue with Google
+            <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
+              {Translator('continueWithGoogle')}
             </GoogleLink>
+            <AuthFormNavLink to="/forgotpassword">
+              {Translator('forgotPassword')}
+            </AuthFormNavLink>
           </AuthBtnsWrapper>
-          <NavLink to="/forgotpassword">
-            {Translator('Forgot password?')}
-          </NavLink>
+
         </AuthFormWrapper>
       </Formik>
     </>

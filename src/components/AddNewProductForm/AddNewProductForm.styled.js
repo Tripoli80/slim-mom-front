@@ -29,6 +29,7 @@ export const Title = styled.h2`
   font-size: 26px;
   margin-bottom: 34px;
   padding-top: 32px;
+  padding: 0 20px;
 
   @media (min-width: 768px) {
     width: 700px;

@@ -10,6 +10,4 @@ export const selectError = state => state.products.error;
 
 export const selectCategories = state => state.products.recomendetToNotEat;
 
-export const selectIsOpenModal = state => state.products.isOpenModal;
-
 export const selectPersonalDiet = state => state.products.personalDiet;

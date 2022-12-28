@@ -1,9 +1,11 @@
 export const EN = {
   email: 'email *',
+  continueWithGoogle: 'Continue with Google',
   refreshingUser: 'Refreshing user...',
   password: 'password *',
   logIn: 'Log in',
   g: 'g',
+  forgotPassword: 'Forgot password?',
   timeToEat: "It's time to eat something",
   grams: 'Grams',
   enterProductName: 'Enter product name',

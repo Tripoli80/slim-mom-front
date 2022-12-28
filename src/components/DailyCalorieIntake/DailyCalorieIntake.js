@@ -6,6 +6,7 @@ import {
   TitleList,
   WrapperCallories,
 } from './DailyCalorieIntake.styled';
+import { useAuth } from '../../hooks/hooks';
 
 import { nanoid } from 'nanoid';
 
@@ -17,6 +18,8 @@ import { Button } from 'components/Button/Button';
 
 const DailyCalorieIntake = ({ stats, onClose }) => {
   const len = useSelector(getLanguage);
+  const { isLoggedIn } = useAuth();
+
   function ucFirst(str) {
     if (!str) return str;
 
@@ -49,10 +52,17 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
           </List>
         </div>
       </div>
-      <Button type="button" onClick={onClose}>
+      {isLoggedIn === true ? '' :
+        <Button type="button" onClick={onClose}>
         {Translator('startLosingweight')}
-      </Button>
+      </Button>}
     </>
   );
 };
 export default DailyCalorieIntake;
+
+/*
+      <Button type="button" onClick={onClose}>
+        {Translator('startLosingweight')}
+      </Button>
+*/

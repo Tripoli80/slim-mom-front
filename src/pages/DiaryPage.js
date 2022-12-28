@@ -8,9 +8,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsByDate } from 'redux/products/operations';
 import { selectDate } from 'redux/products/selectors';
+import { DiaryAddProductMobile } from 'components/DiaryAddProductForm/DiaryAddProductMobile';
 // test AddNewProductForm
 import AddNewProductBlock from 'components/AddNewProductBlock/AddNewProductBlock';
-import { DiaryAddProductMobile } from 'components/DiaryAddProductForm/DiaryAddProductMobile';
 
 const DiaryPageWrap = styled.div`
   justify-content: space-between;
@@ -20,7 +20,7 @@ const DiaryPageWrap = styled.div`
   // border: solid;
 
   @media screen and (min-width: 1280px) {
-    // display: flex;
+    display: flex;
     width: 714px;
     padding: 0 38px;
     flex-direction: row;
@@ -30,6 +30,7 @@ const DiaryPage = () => {
   const windowWidth = useWindowWidth();
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getProductsByDate(date));
   }, [date, dispatch]);

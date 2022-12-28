@@ -11,7 +11,7 @@ import { Translator } from 'components/language/translator';
 import Container from 'components/Container/Container';
 import { Image, Image2 } from 'components/App/App.stiled';
 import { LoaderBox } from 'components/Loading/LoaderBox';
-import DailyCaloriesForm from 'components/DailyCaloriesForm/DailyCaloriesForm';
+import { PrivateCalculatorPage } from 'pages/PrivateCalculatorPage';
 import './App.css';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
@@ -21,10 +21,14 @@ const LoginPage = lazy(() => import('../../pages/LoginPage'));
 const ForgotPasswordPage = lazy(() => import('../../pages/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('../../pages/ResetPasswordPage'));
 const GoogleRegistration = lazy(() => import('../../pages/GoogleRegistration'));
+const DiaryAddProductPage = lazy(() =>
+  import('../../pages/DiaryAddProductPage')
+);
+const NewProductPage = lazy(() => import('../../pages/NewProductPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -42,9 +46,7 @@ const App = () => {
               element={
                 <React.Suspense fallback={<LoaderBox />}>
                   <>
-                    <DailyCaloriesForm />
-                    <Image />
-                    <Image2 />
+                    { isLoggedIn === true ? <PrivateCalculatorPage/> : <CalculatorPage/>}
                   </>
                 </React.Suspense>
               }
@@ -84,7 +86,7 @@ const App = () => {
               }
             />
             <Route
-              path="/resetpassword"
+              path="/reset/:token"
               element={
                 <PublicRoute
                   redirectTo="/"
@@ -118,15 +120,40 @@ const App = () => {
               }
             />
             <Route
+              path="/diary/add-product"
+              element={
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<DiaryAddProductPage />}
+                  />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/diary/add-new-product"
+              element={
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<NewProductPage />}
+                  />
+                </React.Suspense>
+              }
+            />
+            <Route
               path="/google-registration"
               element={
                 <PublicRoute
                   redirectTo="/diary"
-                  component={<GoogleRegistration />}
+                  component={
+                    <React.Suspense fallback={<LoaderBox />}>
+                      <GoogleRegistration />
+                    </React.Suspense>
+                  }
                 />
               }
             />
-
             <Route
               path="/diary"
               element={
@@ -144,7 +171,7 @@ const App = () => {
                 <React.Suspense fallback={<LoaderBox />}>
                   <PrivateRoute
                     redirectTo="/singin"
-                    component={<CalculatorPage />}
+                    component={<PrivateCalculatorPage/>}
                   />
                 </React.Suspense>
               }
