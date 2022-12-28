@@ -17,7 +17,8 @@ import {
 } from './DiaryAddProductForm.styled';
 import { selectDate, selectSelectedProducts } from 'redux/products/selectors';
 import { getLanguage } from 'redux/selectors';
-import { setIsOpenModal, setSelectedProduct } from 'redux/products/slice';
+import { setSelectedProduct } from 'redux/products/slice';
+import { useLocation, useNavigate } from 'react-router';
 
 export const DiaryAddProductForm = () => {
   const [title, setTitle] = useState('');
@@ -26,6 +27,8 @@ export const DiaryAddProductForm = () => {
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
   const lang = useSelector(getLanguage).toLowerCase();
+  const location = useLocation();
+  const navigate = useNavigate();
   let sp = useSelector(selectSelectedProducts);
 
   const handleAddProduct = e => {
@@ -34,11 +37,11 @@ export const DiaryAddProductForm = () => {
     dispatch(setSelectedProduct());
     setProduct('');
     resetForm();
-    dispatch(setIsOpenModal(false));
+    location.state?.from && navigate(location.state?.from);
   };
 
   useEffect(() => {
-    if (title.length > 3) {
+    if (title.length >= 3) {
       dispatch(getProductsByTitle(title));
     } else {
       setProduct('');
@@ -68,7 +71,7 @@ export const DiaryAddProductForm = () => {
           {Translator('enterProductName')}
         </LabelTitle>
         <FilteredList>
-          {title.length > 3 &&
+          {title.length >= 3 &&
             !product &&
             sp.map(({ _id, title }) => (
               <li key={_id}>
