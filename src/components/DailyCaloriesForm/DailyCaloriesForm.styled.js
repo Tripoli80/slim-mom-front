@@ -12,6 +12,8 @@ export const Form = styled.form`
   @media (min-width: 768px) {
     padding-bottom: 20px;
     align-items: normal;
+    padding-right: 32px;
+    padding-left: 32px;
   }
   @media (min-width: 1280px) {
     padding-bottom: 40px;
@@ -25,6 +27,7 @@ export const Title = styled.h2`
   width: 100%;
   font-size: 18px;
   margin-bottom: 34px;
+  padding: 0 10px;
   padding-top: 32px;
   display: flex;
   justify-content: center;

@@ -20,7 +20,7 @@ const DiaryPageWrap = styled.div`
   // border: solid;
 
   @media screen and (min-width: 1280px) {
-    // display: flex;
+     display: flex;
     width: 714px;
     padding: 0 38px;
     flex-direction: row;

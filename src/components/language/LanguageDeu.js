@@ -1,6 +1,7 @@
 export const DEU = {
   slim: 'Delgado',
   g: 'g',
+  forgotPassword: 'Passwort vergessen?',
   timeToEat: 'Es ist Zeit, etwas zu essen',
   grams: 'Gramm',
   enterProductName: 'Geben Sie den Produktnamen ein',

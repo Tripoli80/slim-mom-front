@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   margin: 0;
   flex-grow: 1;
   margin-bottom: 16px;
+  padding: 0 5px;
 
   @media (min-width: 768px) {
     margin: 0;
