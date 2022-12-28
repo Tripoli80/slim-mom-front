@@ -148,11 +148,14 @@ const App = () => {
               element={
                 <PublicRoute
                   redirectTo="/diary"
-                  component={<GoogleRegistration />}
+                  component={
+                    <React.Suspense fallback={<LoaderBox />}>
+                      <GoogleRegistration />
+                    </React.Suspense>
+                  }
                 />
               }
             />
-
             <Route
               path="/diary"
               element={

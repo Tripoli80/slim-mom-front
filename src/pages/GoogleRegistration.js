@@ -1,16 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+import { refreshUser } from 'redux/auth/authOperations';
+import { useEffect } from 'react';
 import { google } from 'redux/auth/authSlice';
+// import { useAuth } from '../../hooks/hooks';
 
 const GoogleRegistration = () => {
   const [searchParams] = useSearchParams();
-  const dispatch = useDispatch();
   const googleToken = searchParams.get('token');
   const googleLongToken = searchParams.get('longtoken');
   const googleUsername = searchParams.get('username');
   const googleUserEmail = searchParams.get('email');
-
-  //рефреш для получение данных
+  const dispatch = useDispatch();
 
   dispatch(
     google({
@@ -22,7 +23,10 @@ const GoogleRegistration = () => {
       },
     })
   );
-  // const { user } = useSelector(store => store.auth);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 };
 
 export default GoogleRegistration;
