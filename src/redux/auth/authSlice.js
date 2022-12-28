@@ -6,7 +6,6 @@ import {
   login,
   logOut,
   refreshUser,
-  forgotPassword,
 } from './authOperations';
 
 const initialState = {
@@ -15,7 +14,6 @@ const initialState = {
   longtoken: null,
   isLoggedIn: false,
   isRefreshing: false,
-  resetMailMessage: "",
 };
 const authPersistConfig = {
   key: 'auth',
@@ -53,15 +51,6 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-      })
-      .addCase(forgotPassword.fulfilled, (state, action) => {
-        state.resetMailMessage = "";
-      })
-      .addCase(forgotPassword.pending, (state, action) => {
-        state.resetMailMessage = "";
-      })
-      .addCase(forgotPassword.rejected, (state, action) => {
-        state.resetMailMessage = action.payload.message;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled),

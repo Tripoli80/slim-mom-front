@@ -22,7 +22,7 @@ export const ResetPasswordForm = () => {
         password: values.password,
       })
     );
-    navigate("/singin", { replace: true });
+    navigate("/singin");
     resetForm();
   };
 

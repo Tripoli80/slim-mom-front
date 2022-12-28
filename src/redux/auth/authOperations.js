@@ -56,8 +56,8 @@ export const forgotPassword = createAsyncThunk(
         if (error.message === "Request failed with status code 404") {
           return Notiflix.Notify.warning("No user found with this email.");
         }
-      return thunkAPI.rejectWithValue(error.message);
-    }
+        return thunkAPI.rejectWithValue(error.message);
+      }
   }
 );
 export const resetPassword = createAsyncThunk(
@@ -67,11 +67,12 @@ export const resetPassword = createAsyncThunk(
       const { data } = await axios.post('api/users/reset', userData);
       token.set(data.token);
       longtoken.set(data.longtoken);
+      Notiflix.Notify.success(`${data.message}`);
       return data;
     } catch (error) {
-      
-      return thunkAPI.rejectWithValue(error.message);
-    }
+        Notiflix.Notify.warning("Something went wrong. Try again.");
+        return thunkAPI.rejectWithValue(error.message);
+      }
   }
 );
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
