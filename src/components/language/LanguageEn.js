@@ -1,5 +1,6 @@
 export const EN = {
   email: 'email *',
+  continueWithGoogle: 'Continue with Google',
   refreshingUser: 'Refreshing user...',
   password: 'password *',
   logIn: 'Log in',

@@ -70,12 +70,12 @@ export const LoginForm = () => {
               {Translator('register')}
             </AuthFormNavLink>
             <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
-              Continue with Google
+              {Translator('continueWithGoogle')}
             </GoogleLink>
             <AuthFormNavLink to="/forgotpassword">
               {Translator('forgotPassword')}
             </AuthFormNavLink>
-          </AuthBtnsWrapper>          
+          </AuthBtnsWrapper>
         </AuthFormWrapper>
       </Formik>
     </>

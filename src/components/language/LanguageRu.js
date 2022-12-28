@@ -1,5 +1,6 @@
 export const RU = {
   slim: 'Стройная',
+  continueWithGoogle: 'Продолжить через Google',
   forgotPassword: 'Забыли пароль?',
   g: 'г',
   timeToEat: 'Пора что-то съесть',
