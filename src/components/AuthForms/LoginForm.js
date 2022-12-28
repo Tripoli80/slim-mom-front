@@ -75,10 +75,7 @@ export const LoginForm = () => {
             <AuthFormNavLink to="/forgotpassword">
               {Translator('forgotPassword')}
             </AuthFormNavLink>
-          </AuthBtnsWrapper>
-          <NavLink to="/forgotpassword">
-            {Translator('Forgot password?')}
-          </NavLink>
+          </AuthBtnsWrapper>          
         </AuthFormWrapper>
       </Formik>
     </>
