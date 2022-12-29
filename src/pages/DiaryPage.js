@@ -31,9 +31,10 @@ const DiaryPage = () => {
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProductsByDate(date));
-  }, [date, dispatch]);
+  // не правильно написаний юз ефект
+  // useEffect(() => {
+  //   dispatch(getProductsByDate(date));
+  // }, [date, dispatch]);
 
   return (
     <DiaryPageWrap>
