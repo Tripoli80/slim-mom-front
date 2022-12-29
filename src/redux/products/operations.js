@@ -70,7 +70,7 @@ export const dailyCalorie = createAsyncThunk(
 );
 
 export const fetchPersonalDiet = createAsyncThunk(
-  'diet/getPersonalDiet',
+  'diet/fetchPersonalDiet',
   async (bodyData, thunkAPI) => {
     try {
       const response = await axios.get('api/diet', bodyData);
