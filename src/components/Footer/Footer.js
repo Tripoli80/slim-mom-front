@@ -28,12 +28,10 @@ const Footer = () => {
               <Carousel>
                 {dev.developers.map(developer => {
                   return (
-                    <>
-                      <DeveloperCard
-                        key={nanoid()}
-                        {...developer}
-                      ></DeveloperCard>
-                    </>
+                    <DeveloperCard
+                      key={nanoid()}
+                      {...developer}
+                    ></DeveloperCard>
                   );
                 })}
               </Carousel>
