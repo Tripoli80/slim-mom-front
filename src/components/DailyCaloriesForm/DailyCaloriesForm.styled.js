@@ -16,6 +16,7 @@ export const Form = styled.form`
   }
   @media (min-width: 1280px) {
     padding-bottom: 40px;
+    padding-right: 44px;
   }
 `;
 export const Title = styled.h2`

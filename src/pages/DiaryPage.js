@@ -13,16 +13,17 @@ import { DiaryAddProductMobile } from 'components/DiaryAddProductForm/DiaryAddPr
 import AddNewProductBlock from 'components/AddNewProductBlock/AddNewProductBlock';
 
 const DiaryPageWrap = styled.div`
+  justify-content: space-between;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    align-items: flex-start;
-  }
+  // border: solid;
+
   @media screen and (min-width: 1280px) {
+    display: flex;
     width: 714px;
+    padding: 0 38px;
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 const DiaryPage = () => {
@@ -30,9 +31,10 @@ const DiaryPage = () => {
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProductsByDate(date));
-  }, [date, dispatch]);
+  // не правильно написаний юз ефект
+  // useEffect(() => {
+  //   dispatch(getProductsByDate(date));
+  // }, [date, dispatch]);
 
   return (
     <DiaryPageWrap>

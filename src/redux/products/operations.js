@@ -70,10 +70,10 @@ export const dailyCalorie = createAsyncThunk(
 );
 
 export const fetchPersonalDiet = createAsyncThunk(
-  'diet/fetchPersonalDiet',
-  async (_, thunkAPI) => {
+  'diet/getPersonalDiet',
+  async (bodyData, thunkAPI) => {
     try {
-      const response = await axios.get('api/diet');
+      const response = await axios.get('api/diet', bodyData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -86,6 +86,7 @@ export const addNewProduct = createAsyncThunk(
   async (newProduct, thunkAPI) => {
     try {
       const { data } = await axios.post('api/products', newProduct);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -18,7 +18,7 @@ import moment from 'moment';
 const productsInitState = {
   eatedProducts: [],
   selectedProduct: [],
-  recomendetToNotEat: {},
+  personalDiet: {},
   date: moment(new Date()).format('YYYY-MM-DD'),
   isLoading: false,
   error: null,
@@ -71,7 +71,7 @@ const productsSlice = createSlice({
         state.recomendetToNotEat = action.payload;
       })
       .addCase(fetchPersonalDiet.fulfilled, (state, action) => {
-        state.recomendetToNotEat = action.payload.answer;
+        state.personalDiet = action.payload;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {
         state.isLoading = false;

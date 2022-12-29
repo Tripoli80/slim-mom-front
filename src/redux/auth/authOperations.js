@@ -25,26 +25,34 @@ const longtoken = {
   },
 };
 
-export const register = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
-  try {
-    const { data } = await axios.post('api/users/signup', userData);
-    token.set(data.token);
-    longtoken.set(data.longtoken);
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+export const register = createAsyncThunk(
+  'auth/register',
+  async (userData, thunkAPI) => {
+    try {
+      const { data } = await axios.post('api/users/signup', userData);
+      token.set(data.token);
+      longtoken.set(data.longtoken);
+      return data;
+    } catch (error) {
+      if (error.response.data.message === 'Email in use')
+        window.alert(error.response.data.message);
+      return Promise.reject(error);
+    }
   }
-});
-export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
-  try {
-    const { data } = await axios.post('api/users/login', userData);
-    token.set(data.token);
-    longtoken.set(data.longtoken);
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+);
+export const login = createAsyncThunk(
+  'auth/login',
+  async (userData, thunkAPI) => {
+    try {
+      const { data } = await axios.post('api/users/login', userData);
+      token.set(data.token);
+      longtoken.set(data.longtoken);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 export const forgotPassword = createAsyncThunk(
   'auth/mailtoreset',
   async (userData, thunkAPI) => {
@@ -53,11 +61,11 @@ export const forgotPassword = createAsyncThunk(
       Notiflix.Notify.success(`${data.message}`);
       return data;
     } catch (error) {
-        if (error.message === "Request failed with status code 404") {
-          return Notiflix.Notify.warning("No user found with this email.");
-        }
-        return thunkAPI.rejectWithValue(error.message);
+      if (error.message === 'Request failed with status code 404') {
+        return Notiflix.Notify.warning('No user found with this email.');
       }
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 export const resetPassword = createAsyncThunk(
@@ -70,14 +78,14 @@ export const resetPassword = createAsyncThunk(
       Notiflix.Notify.success(`${data.message}`);
       return data;
     } catch (error) {
-        Notiflix.Notify.warning("Something went wrong. Try again.");
-        return thunkAPI.rejectWithValue(error.message);
-      }
+      Notiflix.Notify.warning('Something went wrong. Try again.');
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    await axios.post('api/users/logout');
+    await axios.get('api/users/logout');
     token.unset();
     longtoken.unset();
   } catch (error) {
