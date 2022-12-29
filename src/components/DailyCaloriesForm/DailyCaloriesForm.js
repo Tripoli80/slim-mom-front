@@ -73,13 +73,14 @@ const DailyCaloriesForm = () => {
     initialValues: initialValues,
     enableReinitialize: true,
     validationSchema: validation,
-    onSubmit: values => {
+    onSubmit: async values => {
       localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
 
       if (windowWidth >= 768) {
         return onOpenModal();
       }
-      navigate('daily-calorie-intake', { state: { from: location } });
+      await dispatch(dailyCalorie(formik.values));
+      await navigate('daily-calorie-intake', { state: { from: location } });
     },
   });
 
