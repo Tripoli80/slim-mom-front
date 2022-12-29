@@ -18,22 +18,23 @@ export default function Sidebar() {
     dispatch(fetchPersonalDiet());
   }, [dispatch]);
 
-  const isGetDiet = () => {
-    if (privateDiet || Object.keys(privateDiet).length !== 0) return true;
-    return false;
+  function isGetDiet () {
+    if (privateDiet === undefined || Object.keys(privateDiet).length === 0) return false;
+    return true;
   }
 
+  // console.log('diet', privateDiet);
+  // console.log(isGetDiet());
   return (
     <Back>
       <SidebarSection>
         <SidebarWrap>
-          {isGetDiet && <Summary dailyCalorie={privateDiet.dailyCalorie || 0}/>}
-          {isGetDiet && <Diet diet={privateDiet.products || []} />}
+          {!isGetDiet() && <Summary dailyCalorie={0}/>}
+          {isGetDiet() && <Summary dailyCalorie={privateDiet.dailyCalorie}/>}
+          {!isGetDiet() && <Diet diet={[]} />}
+          {isGetDiet() && <Diet diet={privateDiet.products} />}
         </SidebarWrap>
       </SidebarSection>
     </Back>
   );
 };
-
-
-
