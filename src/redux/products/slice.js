@@ -25,10 +25,10 @@ const productsInitState = {
 };
 
 const requestActions = [
-  getProductsByDate,
   addEatedProduct,
   removeEatedProduct,
   dailyCalorie,
+  getProductsByDate,
   fetchPersonalDiet,
 ];
 const isPendingActions = isPending(...requestActions);
