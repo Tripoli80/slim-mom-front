@@ -36,7 +36,7 @@ const DiaryPage = () => {
 
   useEffect(() => {
     if (date !== null) dispatch(getProductsByDate(date));
-  }, [date, dispatch]);
+  }, [date, dispatch, ]);
 
  
   return (

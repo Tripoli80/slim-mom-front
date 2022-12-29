@@ -42,11 +42,11 @@ const productsSlice = createSlice({
     setDate: (state, action) => {
       state.date = action.payload;
     },
-    setEatedProducts: state => {
-      state.eatedProducts = [];
-    },
     setSelectedProduct: state => {
       state.selectedProduct = [];
+    },
+    setEatedProducts: state => {
+      state.eatedProducts = [];
     },
   },
 
