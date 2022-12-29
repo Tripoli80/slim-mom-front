@@ -13,6 +13,7 @@ import { Image, Image2 } from 'components/App/App.stiled';
 import { LoaderBox } from 'components/Loading/LoaderBox';
 import { PrivateCalculatorPage } from 'pages/PrivateCalculatorPage';
 import './App.css';
+import Footer from 'components/Footer/Footer';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('../../pages/CalculatorPage'));
@@ -187,6 +188,7 @@ const App = () => {
           />
         </Routes>
       </Container>
+      <Footer></Footer>
     </>
   );
 };

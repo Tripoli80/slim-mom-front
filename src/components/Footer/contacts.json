@@ -1,0 +1,132 @@
+{
+    "developers": [
+        {
+            "name": "Сергій",
+            "email": "tripoli80@gmail.com",
+            "phone": "0634608224",
+            "github": "https://github.com/Tripoli80",
+            "photo": "https://api.github.com/users/Tripoli80",
+            "role": "Team Lead"
+        },
+        {
+            "name": "Василь",
+            "email": "markfamiliytitan@gmail.com",
+            "phone": "0983366033",
+            "github": "https://github.com/Mark4Titan",
+            "photo": "https://api.github.com/users/Mark4Titan",
+            "role": "Scrum-master"
+        },
+        {
+            "name": "Роман",
+            "email": "akrir@ukr.net",
+            "phone": "0503850724",
+            "github": "https://github.com/akrir6",
+            "photo": "https://api.github.com/users/akrir6",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Олександр",
+            "email": "al.khrapak@gmail.com",
+            "phone": "0634697612",
+            "github": "https://github.com/shoorick-kh",
+            "photo": "https://api.github.com/users/shoorick-kh",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Антоніна",
+            "email": "antoshka.tarasyuk@gmail.com",
+            "phone": "0973819671",
+            "github": "https://github.com/AntoninaTarasyuk",
+            "photo": "https://api.github.com/users/AntoninaTarasyuk",
+            "role": "frontend"
+        },
+        {
+            "name": "Юрій",
+            "email": "ukucher@gmail.com",
+            "phone": "0975628327",
+            "github": "https://github.com/dev-kucha",
+            "photo": "https://api.github.com/users/dev-kucha",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Стефан",
+            "email": "stefandunikovskyi@gmail.com",
+            "phone": "0994820346",
+            "photo": "https://github.com/gliexik",
+            "github": "https://api.github.com/users/GlieXik",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Дар'я",
+            "email": "dariaonlynew@gmail.com",
+            "phone": "0509179711",
+            "github": "https://github.com/DariaOdessa",
+            "photo": "https://api.github.com/users/DariaOdessa",
+            "role": "frontend"
+        },
+        {
+            "name": "Валерій",
+            "email": "semko74@meta.ua",
+            "phone": "0677039215",
+            "github": "https://github.com/Ussuriec74",
+            "photo": "https://api.github.com/users/Ussuriec74/",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Антоніна",
+            "email": "toshka.kosha@gmail.com",
+            "phone": "0502510509",
+            "github": "",
+            "photo": "",
+            "role": "QA - testing"
+        },
+        {
+            "name": "Іван",
+            "email": "ivanchudiyovuch@ukr.net",
+            "phone": "0974419845",
+            "github": "https://github.com/IvanChudiyovuch",
+            "photo": "https://api.github.com/users/IvanChudiyovuch/",
+            "role": "frontend"
+        },
+        {
+            "name": "Влад",
+            "email": "kolesnychenko_v@icloud.com",
+            "phone": "0956320853",
+            "github": "https://github.com/kolesnva",
+            "photo": "https://api.github.com/users/kolesnva/",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Денис",
+            "email": "denischuprin9619@gmail.com",
+            "phone": "0961766011",
+            "github": "https://github.com/Dante4Rungun",
+            "photo": "https://api.github.com/users/Dante4Rungun/",
+            "role": "frontend/back"
+        },
+        {
+            "name": "Артем",
+            "email": "artemgoryuk@gmail.com",
+            "phone": "0983201320",
+            "github": "https://github.com/artemhoriuk1994",
+            "photo": "https://api.github.com/users/artemhoriuk1994/",
+            "role": "backe"
+        },
+        {
+            "name": "Христина",
+            "email": "khrystyna.mokh@gmail.com",
+            "phone": "420774114356",
+            "github": "https://github.com/Kristina1771",
+            "photo": "https://api.github.com/users/Kristina1771/",
+            "role": "QA - testing"
+        },
+        {
+            "name": "Анастасія",
+            "email": "chomargo1@gmail.com",
+            "phone": "0971841693",
+            "github": "https://github.com/Anastasia2223",
+            "photo": "https://api.github.com/users/Anastasia2223/",
+            "role": "QA - testing"
+        }
+    ]
+}
