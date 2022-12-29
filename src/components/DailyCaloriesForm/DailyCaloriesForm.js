@@ -46,6 +46,11 @@ const DailyCaloriesForm = () => {
     await dispatch(openModal());
   };
 
+  const onOpenMobileModal = async () => {
+    await dispatch(dailyCalorie(formik.values));
+    navigate('daily-calorie-intake', { state: { from: location } });
+  };
+
   const redirectToRegistration = () => {
     navigate('/registration', { replace: true });
     dispatch(closeModal());
@@ -79,7 +84,7 @@ const DailyCaloriesForm = () => {
       if (windowWidth >= 768) {
         return onOpenModal();
       }
-      navigate('daily-calorie-intake', { state: { from: location } });
+      return onOpenMobileModal();
     },
   });
 
