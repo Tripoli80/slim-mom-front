@@ -70,7 +70,7 @@ const productsSlice = createSlice({
         state.recomendetToNotEat = action.payload;
       })
       .addCase(fetchPersonalDiet.fulfilled, (state, action) => {
-        state.personalDiet = action.payload;
+        state.recomendetToNotEat = action.payload.answer;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {
         state.isLoading = false;

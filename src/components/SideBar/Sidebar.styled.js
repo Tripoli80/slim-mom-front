@@ -39,7 +39,7 @@ export const Back = styled.div`
   // }
 `;
 export const SidebarWrap = styled.div`
-  width: 100vh;
+  width: 100vw;
   // height: 100vh;
   // margin: 0 -40px;
   padding: 40px 20px;
@@ -48,7 +48,7 @@ export const SidebarWrap = styled.div`
   gap: 40px;
   align-items: center;
   @media screen and (min-width: 768px) {
-      width: 768px;
+      /* width: 768px; */
       padding: 80px 32px;
       flex-direction: row;
       gap: 96px;
