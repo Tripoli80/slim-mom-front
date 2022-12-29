@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 
 export const defaultsBaseURL = 'https://creepy-tan-parrot.cyclic.app/';
 // export const defaultsBaseURL = 'http://localhost:3008/';
@@ -32,7 +32,7 @@ export const register = createAsyncThunk('auth/register', async (userData, thunk
     longtoken.set(data.longtoken);
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    // return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
@@ -42,7 +42,7 @@ export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) =
     longtoken.set(data.longtoken);
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    // return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const forgotPassword = createAsyncThunk(
@@ -50,13 +50,13 @@ export const forgotPassword = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const { data } = await axios.post('api/users/mailtoreset', userData);
-      Notiflix.Notify.success(`${data.message}`);
+      // Notiflix.Notify.success(`${data.message}`);
       return data;
     } catch (error) {
         if (error.message === "Request failed with status code 404") {
-          return Notiflix.Notify.warning("No user found with this email.");
+          // return Notiflix.Notify.warning("No user found with this email.");
         }
-        return thunkAPI.rejectWithValue(error.message);
+        // return thunkAPI.rejectWithValue(error.message);
       }
   }
 );
@@ -67,21 +67,21 @@ export const resetPassword = createAsyncThunk(
       const { data } = await axios.post('api/users/reset', userData);
       token.set(data.token);
       longtoken.set(data.longtoken);
-      Notiflix.Notify.success(`${data.message}`);
+      // Notiflix.Notify.success(`${data.message}`);
       return data;
     } catch (error) {
-        Notiflix.Notify.warning("Something went wrong. Try again.");
-        return thunkAPI.rejectWithValue(error.message);
+        // Notiflix.Notify.warning("Something went wrong. Try again.");
+        // return thunkAPI.rejectWithValue(error.message);
       }
   }
 );
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    await axios.post('api/users/logout');
+    await axios.get('api/users/logout');
     token.unset();
     longtoken.unset();
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    // return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const refreshUser = createAsyncThunk(
@@ -100,7 +100,7 @@ export const refreshUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      // return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
