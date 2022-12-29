@@ -10,8 +10,16 @@ export const Inner = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 10px;
+  /* padding: 0 16px; */
   /* outline: 1px black dotted; */
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 16px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -19,11 +27,11 @@ export const Title = styled.h2`
   font-style: normal;
   font-weight: 700;
   color: #212121;
-  font-size: 18px;
+  font-size: 14px;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     font-size: 26px;
-  }
+  } */
 `;
 
 export const Button = styled.button`
