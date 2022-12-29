@@ -112,7 +112,7 @@ export const AuthBtnsWrapper = styled.div`
 `;
 
 export const AuthFormNavLink = styled(NavLink)`
-  transition: background-color 0.3s, box-shadow 0.3s;
+  // transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
 
   /* text-decoration: none; */
@@ -183,7 +183,7 @@ export const ForgotPasswordLink = styled(NavLink)`
 `;
 
 export const GoogleLink = styled.a`
-  transition: background-color 0.3s, box-shadow 0.3s;
+  // transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   padding: 12px 16px 12px 42px;
   border: none;
