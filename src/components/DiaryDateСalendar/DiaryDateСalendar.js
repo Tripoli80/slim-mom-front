@@ -42,7 +42,7 @@ export const DiaryDateСalendar = () => {
       dateFormat="DD.MM.YYYY"
       timeFormat={false}
       closeOnSelect={true}
-      initialValue={new Date()}
+      initialValue={moment(selectedDate).format('DD.MM.YYYY')}
       renderInput={renderInput}
       onChange={onChangeDate}
     />
