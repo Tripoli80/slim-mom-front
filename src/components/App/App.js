@@ -69,6 +69,18 @@ const App = () => {
             />
 
             <Route
+              path="/calculator/daily-calorie-intake"
+              element={
+                <React.Suspense fallback={<LoaderBox />}>
+                  <PrivateRoute
+                    redirectTo="/singin"
+                    component={<DailyCalorieIntakePage />}
+                  />
+                </React.Suspense>
+              }
+            />
+
+            <Route
               path="/registration"
               element={
                 <PublicRoute
