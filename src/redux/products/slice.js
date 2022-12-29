@@ -25,10 +25,10 @@ const productsInitState = {
 };
 
 const requestActions = [
-  getProductsByDate,
   addEatedProduct,
   removeEatedProduct,
   dailyCalorie,
+  getProductsByDate,
   fetchPersonalDiet,
 ];
 const isPendingActions = isPending(...requestActions);
@@ -42,11 +42,11 @@ const productsSlice = createSlice({
     setDate: (state, action) => {
       state.date = action.payload;
     },
-    setEatedProducts: state => {
-      state.eatedProducts = [];
-    },
     setSelectedProduct: state => {
       state.selectedProduct = [];
+    },
+    setEatedProducts: state => {
+      state.eatedProducts = [];
     },
   },
 
