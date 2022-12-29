@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-
 export const List = styled.ul`
   margin-top: 32px;
   padding: 0 12px 0 14px;
@@ -38,4 +37,10 @@ export const ListItem = styled.li`
   width: auto;
 
   align-items: center;
+`;
+export const EmptyList = styled.span`
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 `;
