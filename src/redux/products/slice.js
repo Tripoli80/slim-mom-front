@@ -26,7 +26,6 @@ const productsInitState = {
 
 const requestActions = [
   addEatedProduct,
-  removeEatedProduct,
   dailyCalorie,
   getProductsByDate,
   fetchPersonalDiet,

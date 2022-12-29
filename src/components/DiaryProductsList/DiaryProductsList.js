@@ -2,9 +2,13 @@ import { DiaryProductListItem } from 'components/DiaryProductsListItem/DiaryProd
 
 import { useSelector } from 'react-redux';
 import { Translator } from 'components/language/translator';
-import { selectEtedProductsByDate } from 'redux/products/selectors';
+import {
+  selectEtedProductsByDate,
+  selectIsLoading,
+} from 'redux/products/selectors';
 import { List, ListItem } from './DiaryProductsList.styled';
 import { getLanguage } from 'redux/selectors';
+import { LoaderBox } from 'components/Loading/LoaderBox';
 
 export const DiaryProductList = () => {
   const products = useSelector(selectEtedProductsByDate);
@@ -25,5 +29,10 @@ export const DiaryProductList = () => {
     ) : (
       <h3>{timeToEat}</h3>
     );
-  return <List>{itemsOfEated}</List>;
+  return (
+    <>
+      {useSelector(selectIsLoading) && <LoaderBox />}
+      <List>{itemsOfEated}</List>
+    </>
+  );
 };
