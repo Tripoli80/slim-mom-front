@@ -1,6 +1,7 @@
 import {
   Callories,
   CalloriesText,
+  DivCenteredMobile,
   List,
   ListItem,
   TitleList,
@@ -52,10 +53,15 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
           </List>
         </div>
       </div>
-      {isLoggedIn === true ? '' :
-        <Button type="button" onClick={onClose}>
-        {Translator('startLosingweight')}
-      </Button>}
+      {isLoggedIn === true ? (
+        ''
+      ) : (
+        <DivCenteredMobile>
+          <Button type="button" onClick={onClose}>
+            {Translator('startLosingweight')}
+          </Button>
+        </DivCenteredMobile>
+      )}
     </>
   );
 };

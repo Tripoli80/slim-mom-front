@@ -25,6 +25,9 @@ const DiaryAddProductPage = lazy(() =>
   import('../../pages/DiaryAddProductPage')
 );
 const NewProductPage = lazy(() => import('../../pages/NewProductPage'));
+const DailyCalorieIntakePage = lazy(() =>
+  import('pages/DailyCalorieIntakePage')
+);
 
 const App = () => {
   const dispatch = useDispatch();
@@ -46,11 +49,25 @@ const App = () => {
               element={
                 <React.Suspense fallback={<LoaderBox />}>
                   <>
-                    { isLoggedIn === true ? <PrivateCalculatorPage/> : <CalculatorPage/>}
+                    {isLoggedIn === true ? (
+                      <PrivateCalculatorPage />
+                    ) : (
+                      <CalculatorPage />
+                    )}
                   </>
                 </React.Suspense>
               }
             />
+
+            <Route
+              path="/daily-calorie-intake"
+              element={
+                <React.Suspense fallback={<LoaderBox />}>
+                  <DailyCalorieIntakePage />
+                </React.Suspense>
+              }
+            />
+
             <Route
               path="/registration"
               element={
@@ -171,7 +188,7 @@ const App = () => {
                 <React.Suspense fallback={<LoaderBox />}>
                   <PrivateRoute
                     redirectTo="/singin"
-                    component={<PrivateCalculatorPage/>}
+                    component={<PrivateCalculatorPage />}
                   />
                 </React.Suspense>
               }

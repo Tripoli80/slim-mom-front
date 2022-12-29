@@ -30,12 +30,13 @@ import { selectCategories } from 'redux/products/selectors';
 
 import { LoaderBox } from 'components/Loading/LoaderBox';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const KEY_DAILY_CALORIE = 'dailyCalorie';
 const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const { isOpen } = useSelector(store => store.modal);
   const { isLoading } = useSelector(store => store.products);
   const categories = useSelector(selectCategories);
@@ -74,7 +75,11 @@ const DailyCaloriesForm = () => {
     validationSchema: validation,
     onSubmit: values => {
       localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
-      onOpenModal();
+
+      if (windowWidth >= 768) {
+        return onOpenModal();
+      }
+      navigate('daily-calorie-intake', { state: { from: location } });
     },
   });
 

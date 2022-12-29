@@ -52,3 +52,9 @@ export const ListItem = styled.li`
 
   color: #9b9faa;
 `;
+
+export const DivCenteredMobile = styled.div`
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+`;
