@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Translator } from 'components/language/translator';
 
 import { selectEtedProductsByDate, selectIsLoading } from 'redux/products/selectors';
-import { List, ListItem } from './DiaryProductsList.styled';
+import { EmptyList, List, ListItem } from './DiaryProductsList.styled';
 
 
 import { getLanguage } from 'redux/selectors';
