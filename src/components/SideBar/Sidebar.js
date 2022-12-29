@@ -17,27 +17,21 @@ export default function Sidebar() {
   //   dispatch(fetchPersonalDiet());
   // }, [dispatch]);
 
+  // const diet = useSelector(selectPersonalDiet);
+  // const privateDiet = diet.answer;
+  const privateDiet = useSelector(selectCategories);
 
-  function isGetDiet () {
-    if (privateDiet === undefined || Object.keys(privateDiet).length === 0) return false;
-    return true;
-  }
-
-
-  // console.log('diet', privateDiet);
-  // console.log(isGetDiet());
   return (
     <Back>
       <SidebarSection>
         <SidebarWrap>
-
-          {!isGetDiet() && <Summary dailyCalorie={0}/>}
-          {isGetDiet() && <Summary dailyCalorie={privateDiet.dailyCalorie}/>}
-          {!isGetDiet() && <Diet diet={[]} />}
-          {isGetDiet() && <Diet diet={privateDiet.products} />}
-
+          <Summary dailyCalorie={privateDiet ? privateDiet.dailyCalorie : 0}/>
+          <Diet diet={privateDiet ? privateDiet.products : []} />
         </SidebarWrap>
       </SidebarSection>
     </Back>
   );
 };
+
+
+
