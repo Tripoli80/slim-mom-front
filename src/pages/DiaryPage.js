@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductsByDate } from 'redux/products/operations';
 import { selectDate } from 'redux/products/selectors';
 import { DiaryAddProductMobile } from 'components/DiaryAddProductForm/DiaryAddProductMobile';
-// test AddNewProductForm
 import AddNewProductBlock from 'components/AddNewProductBlock/AddNewProductBlock';
+import { useAuth } from '../hooks/hooks';
 
 const DiaryPageWrap = styled.div`
   justify-content: space-between;
@@ -30,8 +30,16 @@ const DiaryPage = () => {
   const windowWidth = useWindowWidth();
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
+  const { user } = useAuth();
 
-  // не правильно написаний юз ефект
+  const getFromLocalStorage = JSON.parse(localStorage.getItem('persist:auth'));
+  const { isLoading } = useSelector(store => store.products);
+  useEffect(() => {
+    if (getFromLocalStorage !== null && isLoading)
+      dispatch(getProductsByDate(date));
+  }, [date, dispatch, user, getFromLocalStorage, isLoading]);
+
+  //не правильно написаний useEffect
   // useEffect(() => {
   //   dispatch(getProductsByDate(date));
   // }, [date, dispatch]);
