@@ -19,6 +19,7 @@ export default function Diet({ diet }) {
   function ucFirst(str) {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
+
   };
 
   return (
@@ -33,6 +34,7 @@ export default function Diet({ diet }) {
             </SidebarItem>
           ))}
         </SidebarList>)}
+
     </div>
   );
 }

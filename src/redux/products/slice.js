@@ -18,17 +18,16 @@ import moment from 'moment';
 const productsInitState = {
   eatedProducts: [],
   selectedProduct: [],
-  recomendetToNotEat: {},
+  personalDiet: {},
   date: moment(new Date()).format('YYYY-MM-DD'),
   isLoading: false,
   error: null,
 };
 
 const requestActions = [
-  getProductsByDate,
   addEatedProduct,
-  removeEatedProduct,
   dailyCalorie,
+  getProductsByDate,
   fetchPersonalDiet,
 ];
 const isPendingActions = isPending(...requestActions);
@@ -42,11 +41,11 @@ const productsSlice = createSlice({
     setDate: (state, action) => {
       state.date = action.payload;
     },
-    setEatedProducts: state => {
-      state.eatedProducts = [];
-    },
     setSelectedProduct: state => {
       state.selectedProduct = [];
+    },
+    setEatedProducts: state => {
+      state.eatedProducts = [];
     },
   },
 
@@ -71,7 +70,7 @@ const productsSlice = createSlice({
         state.recomendetToNotEat = action.payload;
       })
       .addCase(fetchPersonalDiet.fulfilled, (state, action) => {
-        state.recomendetToNotEat = action.payload.answer;
+        state.personalDiet = action.payload;
       })
       .addMatcher(isAnyOf(isFulfilledActions), state => {
         state.isLoading = false;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const PrimaryBtn = styled.button`
-  transition: background-color 0.3s, box-shadow 0.3s;
+  // transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   padding: 12px 24px;
   border: none;
