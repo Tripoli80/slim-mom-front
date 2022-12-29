@@ -3,7 +3,7 @@ import { DiaryProductListItem } from 'components/DiaryProductsListItem/DiaryProd
 import { useSelector } from 'react-redux';
 import { Translator } from 'components/language/translator';
 import { selectEtedProductsByDate } from 'redux/products/selectors';
-import { List, ListItem } from './DiaryProductsList.styled';
+import { EmptyList, List, ListItem } from './DiaryProductsList.styled';
 import { getLanguage } from 'redux/selectors';
 
 export const DiaryProductList = () => {
@@ -23,7 +23,7 @@ export const DiaryProductList = () => {
         </ListItem>
       ))
     ) : (
-      <h3>{timeToEat}</h3>
+      <EmptyList>{timeToEat}</EmptyList>
     );
   return <List>{itemsOfEated}</List>;
 };
