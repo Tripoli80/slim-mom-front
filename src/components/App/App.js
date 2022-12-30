@@ -12,6 +12,7 @@ import Container from 'components/Container/Container';
 import { Image, Image2 } from 'components/App/App.stiled';
 import { LoaderBox } from 'components/Loading/LoaderBox';
 import { PrivateCalculatorPage } from 'pages/PrivateCalculatorPage';
+import NotFoundView from 'components/NotFound/NotFound';
 import './App.css';
 
 const DiaryPage = lazy(() => import('../../pages/DiaryPage'));
@@ -28,6 +29,7 @@ const NewProductPage = lazy(() => import('../../pages/NewProductPage'));
 const DailyCalorieIntakePage = lazy(() =>
   import('pages/DailyCalorieIntakePage')
 );
+// const NotFoundView = lazy(() => import('../../components/NotFound/NotFound'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -214,6 +216,7 @@ const App = () => {
               </React.Suspense>
             }
           />
+          <Route path="*" element={<NotFoundView />}></Route>
         </Routes>
       </Container>
     </>
