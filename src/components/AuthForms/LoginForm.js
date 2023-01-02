@@ -15,7 +15,6 @@ import {
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 import InputAuth from 'components/Input/InputAuth';
-import defaultsBaseURL from '../../redux/auth/authOperations';
 
 const passwordShema = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,100}$/;
 const emailShema =
@@ -94,7 +93,9 @@ export const LoginForm = () => {
               <AuthFormNavLink to="/registration">
                 {Translator('register')}
               </AuthFormNavLink>
-              <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
+              <GoogleLink
+                href={`${process.env.REACT_APP_BASE_URL}api/users/google`}
+              >
                 {Translator('continueWithGoogle')}
               </GoogleLink>
               <AuthFormNavLink to="/forgotpassword">

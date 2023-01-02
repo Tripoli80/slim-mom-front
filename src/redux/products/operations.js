@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import defaultsBaseURL from '../../redux/auth/authOperations';
 
-axios.defaults.baseURL = defaultsBaseURL;
 
 export const getProductsByDate = createAsyncThunk(
   'products/getByDate',

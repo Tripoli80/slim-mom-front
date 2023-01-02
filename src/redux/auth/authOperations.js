@@ -2,10 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-export const defaultsBaseURL = 'https://creepy-tan-parrot.cyclic.app/';
-// export const defaultsBaseURL = 'http://localhost:3008/';
-
-axios.defaults.baseURL = defaultsBaseURL;
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 const token = {
   set(token) {
@@ -112,5 +109,3 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
-
-export default defaultsBaseURL;

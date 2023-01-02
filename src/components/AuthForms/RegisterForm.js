@@ -13,7 +13,6 @@ import {
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
-import defaultsBaseURL from '../../redux/auth/authOperations';
 
 import InputAuth from 'components/Input/InputAuth';
 
@@ -107,7 +106,9 @@ export const RegisterForm = () => {
               <AuthFormNavLink to="/singin">
                 {Translator('logIn')}
               </AuthFormNavLink>
-              <GoogleLink href={`${defaultsBaseURL}api/users/google`}>
+              <GoogleLink
+                href={`${process.env.REACT_APP_BASE_URL}api/users/google`}
+              >
                 {Translator('continueWithGoogle')}
               </GoogleLink>
             </AuthBtnsWrapper>

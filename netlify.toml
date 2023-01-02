@@ -5,3 +5,5 @@
   from = "/*"
   to = "/index.html"
   status = 200
+[context.dev.environment]
+  REACT_APP_BASE = 'dddd://creepy-tan-parrot.cyclic.app/'

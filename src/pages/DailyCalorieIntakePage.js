@@ -20,6 +20,7 @@ const DailyCalorieIntakePage = () => {
     navigate('/registration', { replace: true });
   };
 
+  
   return (
     <>
       {isLoggedIn === false && (
