@@ -16,6 +16,7 @@ import {
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 import InputAuth from 'components/Input/InputAuth';
+
 import { useState } from 'react';
 import { Loader } from 'components/Loading/Loading';
 
