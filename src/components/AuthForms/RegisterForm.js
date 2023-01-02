@@ -10,15 +10,18 @@ import {
   AuthFormItemWrap,
   GoogleLink,
   Error,
+  Spiner,
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
-import defaultsBaseURL from '../../redux/auth/authOperations';
 
 import InputAuth from 'components/Input/InputAuth';
+import { useState } from 'react';
+import { Loader } from 'components/Loading/Loading';
 
-const passwordShema = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,100}$/;
-const emailShema =
+export const passwordShema =
+  /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,100}$/;
+export const emailShema =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
 const validationRegisterSchema = yup.object().shape({
@@ -51,17 +54,20 @@ const validationRegisterSchema = yup.object().shape({
 });
 
 export const RegisterForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
+    setIsLoading(true);
     dispatch(
       register({
         username: values.name,
         email: values.email,
         password: values.password,
+        setIsLoading,
       })
     );
-    resetForm();
   };
 
   return (
@@ -103,11 +109,22 @@ export const RegisterForm = () => {
             </AuthFormItemWrap>
 
             <AuthBtnsWrapper>
-              <Button type="submit">{Translator('register')}</Button>
+              <Button type="submit">
+                {Translator('register')}
+                <Spiner>
+                  {isLoading ? (
+                    <Loader size={18} color={'#fff'}></Loader>
+                  ) : (
+                    <></>
+                  )}
+                </Spiner>
+              </Button>
               <AuthFormNavLink to="/singin">
                 {Translator('logIn')}
               </AuthFormNavLink>
-              <GoogleLink href={`${defaultsBaseURL}api/users/google`}>
+              <GoogleLink
+                href={`${process.env.REACT_APP_BASE_URL}api/users/google`}
+              >
                 {Translator('continueWithGoogle')}
               </GoogleLink>
             </AuthBtnsWrapper>

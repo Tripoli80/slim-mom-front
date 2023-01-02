@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/authOperations';
 import { useEffect } from 'react';
 import { google } from 'redux/auth/authSlice';
-// import { useAuth } from '../../hooks/hooks';
 
 const GoogleRegistration = () => {
   const [searchParams] = useSearchParams();

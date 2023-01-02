@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductsByDate } from 'redux/products/operations';
 import { selectDate } from 'redux/products/selectors';
 import { DiaryAddProductMobile } from 'components/DiaryAddProductForm/DiaryAddProductMobile';
-// test AddNewProductForm
 import AddNewProductBlock from 'components/AddNewProductBlock/AddNewProductBlock';
 
 const DiaryPageWrap = styled.div`
@@ -31,14 +30,10 @@ const DiaryPage = () => {
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
 
-
-  
-
   useEffect(() => {
     if (date !== null) dispatch(getProductsByDate(date));
-  }, [date, dispatch, ]);
+  }, [date, dispatch]);
 
- 
   return (
     <DiaryPageWrap>
       <div>

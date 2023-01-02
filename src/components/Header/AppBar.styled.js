@@ -49,7 +49,6 @@ export const BurgerMenuStyle = styled.div`
     display: flex;
     align-items: center;
     padding-left: 20px;
-    // top: 26px;
     right: 84px;
   }
 

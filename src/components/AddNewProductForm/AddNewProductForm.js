@@ -22,10 +22,8 @@ const AddNewProductForm = () => {
       initialValues={{ title: '', categories: '', calories: '' }}
       onSubmit={values => {
         dispatch(addNewProduct({ ...values, weight: 100 }));
-        // console.log({ ...values, weight: Number(100) });
         dispatch(closeModal());
         location.state?.from && navigate(location.state?.from);
-        // form.reset();
       }}
       validate={values => {
         const errors = {};
@@ -36,9 +34,7 @@ const AddNewProductForm = () => {
         } else if (!values.calories) {
           errors.calories = 'Required';
         }
-        // } else if (!values.weight) {
-        //   errors.weight = 'Required';
-        // }
+     
         return errors;
       }}
     >
@@ -88,21 +84,9 @@ const AddNewProductForm = () => {
           {errors.calories && touched.calories && (
             <ErrorMessage>{errors.calories}</ErrorMessage>
           )}
-          {/* <AddNewProductInput
-            type="number"
-            name="weight"
-            id="weight"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.weight}
-            placeHolder={Translator('grams')}
-          />
-          {errors.weight && touched.weight && (
-            <ErrorMessage>{errors.weight}</ErrorMessage>
-          )} */}
+        
           <AddNewProductButton
             type="submit"
-            // disabled={!values.titles || !values.categories || !values.calories}
           >
             {Translator('add')}
           </AddNewProductButton>

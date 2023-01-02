@@ -95,7 +95,7 @@ export const Input = styled.input`
   }
 
   &[type='number'] {
-    -moz-appearance: textfield; /* Firefox */
+    -moz-appearance: textfield; 
   }
 `;
 

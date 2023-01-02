@@ -1,12 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import {
-  register,
-  login,
-  logOut,
-  refreshUser,
-} from './authOperations';
+import { register,checkToken, login, logOut, refreshUser } from './authOperations';
 
 const initialState = {
   user: { username: null, email: null },
@@ -51,6 +46,16 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(login.rejected, (state, action) => {
+        action.payload.setIsLoading(false);
+      })
+      .addCase(register.rejected, (state, action) => {
+        action.payload.setIsLoading(false);
+      })
+      .addCase(checkToken.fulfilled, (state, action) => {
+      })
+      .addCase(checkToken.rejected, (state, action) => {
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled),

@@ -29,7 +29,6 @@ const NewProductPage = lazy(() => import('../../pages/NewProductPage'));
 const DailyCalorieIntakePage = lazy(() =>
   import('pages/DailyCalorieIntakePage')
 );
-// const NotFoundView = lazy(() => import('../../components/NotFound/NotFound'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
     <b>{Translator('refreshingUser')}</b>

@@ -15,7 +15,7 @@ export default function Summary({ dailyCalorie }) {
   const currentDate = format(Date.now(), 'yyyy-MM-dd');
   const dateSelected = useSelector(selectDate);
   const date = dateSelected !== null||'' ? dateSelected : currentDate;
-  const summaryDate = date.split('-').reverse().join('/');
+  const summaryDate = date.split('-').reverse().join('.');
 
   const dailyData = useSelector(selectEtedProductsByDate);
   const calories = dailyData.length !==0 ? dailyData.flatMap((el) => el.intakeCalories) : [];

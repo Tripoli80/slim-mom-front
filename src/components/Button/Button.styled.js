@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 const PrimaryBtn = styled.button`
-  // transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
   padding: 12px 24px;
   border: none;
   border-radius: 30px;
@@ -15,7 +18,6 @@ const PrimaryBtn = styled.button`
   height: 42px;
   font-weight: 500;
   min-width: 180px;
-  text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 

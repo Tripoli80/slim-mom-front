@@ -11,8 +11,6 @@ export const CalculatorСalorieForm = () => {
     const desWeight = document.getElementById('desWeight').value;
     const blood = document.querySelector('input[name="radio"]:checked').value;
 
-    // console.log(height + ' ' + age + ' ' + currWeight + ' ' + desWeight + ' ' + blood)
-    // form.reset()
   };
 
   return (

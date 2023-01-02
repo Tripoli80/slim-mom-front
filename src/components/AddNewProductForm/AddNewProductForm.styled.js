@@ -7,8 +7,7 @@ export const AddNewProductFormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px 18px;  
-  /* outline: 1px tomato dotted; */
+  padding: 32px 18px;
 
   @media screen and (min-width: 480px) {
     padding: 40px 26px;
@@ -66,6 +65,5 @@ export const AddNewProductButton = styled(Button)`
 `;
 
 export const ErrorMessage = styled.p`
-  /* position: absolute; */
   color: rgb(200, 10, 65);
 `;

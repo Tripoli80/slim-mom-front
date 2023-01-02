@@ -99,13 +99,7 @@ const DailyCaloriesForm = () => {
   }
 
   const { handleSubmit, handleChange, values, touched, errors } = formik;
-  //! шоб зробити ідеальний дебаунс треба гратися з onchange а так як формік його юзає то це рефактор великий має бути
-  // const dabounce = useCallback(
-  //   _debounce(values => {
-  //     localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
-  //   }, 1),
-  //   []
-  // );
+
   useEffect(() => {
     localStorage.setItem(KEY_DAILY_CALORIE, JSON.stringify(values));
   }, [values]);

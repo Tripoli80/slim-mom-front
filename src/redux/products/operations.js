@@ -1,8 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import defaultsBaseURL from '../../redux/auth/authOperations';
-
-axios.defaults.baseURL = defaultsBaseURL;
 
 export const getProductsByDate = createAsyncThunk(
   'products/getByDate',
@@ -28,11 +25,6 @@ export const getProductsByTitle = createAsyncThunk(
   }
 );
 
-// {
-//     "product":"5d51694802b2373622ff56cf",
-//     "weight":100,
-//     "date":"2022-12-24"
-// }
 export const addEatedProduct = createAsyncThunk(
   'products/addEatedProduct',
   async (product, thunkAPI) => {

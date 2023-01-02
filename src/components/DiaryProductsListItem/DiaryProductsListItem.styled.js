@@ -30,7 +30,7 @@ export const Title = styled(Text)`
     width: 240px;
   }
   @media screen and (min-width: 1280px) {
-    // margin-right: 48px;
+     margin-right: 48px;
   }
 
   text-align: left;
@@ -38,7 +38,6 @@ export const Title = styled(Text)`
 
 export const Weight = styled(Text)`
   margin-right: 8px;
-  /* width: max-content; */
   width: 49px;
   @media screen and (min-width: 768px) {
     margin-right: 22px;
@@ -80,7 +79,6 @@ export const Button = styled.button`
     mix-blend-mode: lighten;
   }
 
-  /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
   cursor: pointer;
 
   :hover,

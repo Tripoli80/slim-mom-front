@@ -16,8 +16,11 @@ import { useSelector } from 'react-redux';
 import { getLanguage } from 'redux/services/languageSlice';
 import { Title } from 'components/Modal/Modal.styled';
 import { Button } from 'components/Button/Button';
+import { selectCategories } from 'redux/products/selectors';
+import { Navigate } from 'react-router-dom';
 
 const DailyCalorieIntake = ({ stats, onClose }) => {
+  const categories = useSelector(selectCategories);
   const len = useSelector(getLanguage);
   const { isLoggedIn } = useAuth();
 
@@ -26,7 +29,10 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
 
     return str[0].toUpperCase() + str.slice(1);
   }
-  return (
+
+  return !categories ? (
+    <Navigate to={'/'} />
+  ) : (
     <>
       <Title>
         {Translator('yourRecommendedDaily')} {'\n'}
@@ -35,7 +41,7 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
       <div>
         <WrapperCallories>
           <Callories>
-            {stats.dailyCalorie}
+            {categories.dailyCalorie}
             <CalloriesText> {Translator('kca')}</CalloriesText>
           </Callories>
         </WrapperCallories>
@@ -43,7 +49,7 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
         <div>
           <TitleList>{Translator('foodsYouShouldNotEat')}</TitleList>
           <List>
-            {stats.products.map(product => {
+            {categories.products.map(product => {
               return (
                 <ListItem key={nanoid()}>
                   {ucFirst(product._id[len.toLowerCase()])}
@@ -66,9 +72,3 @@ const DailyCalorieIntake = ({ stats, onClose }) => {
   );
 };
 export default DailyCalorieIntake;
-
-/*
-      <Button type="button" onClick={onClose}>
-        {Translator('startLosingweight')}
-      </Button>
-*/

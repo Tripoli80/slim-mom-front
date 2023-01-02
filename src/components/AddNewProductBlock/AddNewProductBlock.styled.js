@@ -3,15 +3,12 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   margin-top: 32px;
   margin-bottom: 32px;
-  /* outline: 1px black dotted; */
 `;
 
 export const Inner = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* padding: 0 16px; */
-  /* outline: 1px black dotted; */
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
@@ -29,9 +26,7 @@ export const Title = styled.h2`
   color: #212121;
   font-size: 14px;
 
-  /* @media (min-width: 768px) {
-    font-size: 26px;
-  } */
+
 `;
 
 export const Button = styled.button`

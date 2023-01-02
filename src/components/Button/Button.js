@@ -1,22 +1,9 @@
 import { PrimaryBtn } from 'components/Button/Button.styled';
 
-// const buttonsByStyleName = {
-//   primary: PrimaryBtn,
-//   secondary: SecondaryBtn,
-//   round: RoundBtn
-// };
-
-export const Button = ({
-  children, onclick,  ...attrs
-}) => {
-
-  //const Tag = buttonsByStyleName[styleName];
-
+export const Button = ({ children, onclick, ...attrs }) => {
   return (
-    <PrimaryBtn
-      {...attrs}
-      onclick={onclick}
-    >{children}</PrimaryBtn>
+    <PrimaryBtn {...attrs} onclick={onclick}>
+      {children}
+    </PrimaryBtn>
   );
 };
-

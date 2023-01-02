@@ -14,61 +14,37 @@ export const SidebarSection = styled.div`
     z-index: -1;
     top: 0;
     box-shadow: 40px 1px 55px #e2e2e2;
-    //  right: 126px;
-    // width: 527px;
-    // margin-left: 68px;
   }
 `;
-export const Back = styled.div`
-  // width: 100%;
-  // // background-color: #ffffff;
-  // position: absolute;
-  // border: solid;
-  // width: 100vh;
-  // height: 100vh;
-  // background-color: var(--sidebar-bg);
-  // z-index: -1;
-  // // padding-top: 100px;
-  // height: 400px;
-  // // top: 0px;
-
-  // right: 0;
-  // @media screen and (min-width: 1280px) {
-  //   top: 0px;
-  //   height: 100%;
-  // }
-`;
+export const Back = styled.div``;
 export const SidebarWrap = styled.div`
   width: 100vw;
-  // height: 100vh;
-  // margin: 0 -40px;
+
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
   @media screen and (min-width: 768px) {
-      /* width: 768px; */
-      padding: 80px 32px;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 96px;
-      background-image: url(${leavesTab1x});
+    padding: 80px 32px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 96px;
+    background-image: url(${leavesTab1x});
 
-      @media (min-device-pixel-ratio: 2),
+    @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-        background-image: url(${leavesTab2x});
-      }
-      background-repeat: no-repeat;
-      background-size: 370px 350px;
-      background-position: right 0 bottom 0
+      background-image: url(${leavesTab2x});
+    }
+    background-repeat: no-repeat;
+    background-size: 370px 350px;
+    background-position: right 0 bottom 0;
   }
 
   @media screen and (min-width: 1280px) {
     width: 588px;
-    // width: 517px;
     height: auto;
     padding: 292px 140px 166px 0;
     flex-direction: column;

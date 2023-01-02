@@ -19,13 +19,9 @@ export const Wrapper = styled.div`
   text-transform: uppercase;
   color: #9b9faa;
   margin-bottom: 14px;
-  // font-size: 10px;
 
-  // @media (min-width: 429px) {
   font-size: 12px;
-  //   position: static;
-  //   font-size: 14px;
-  /* } */
+ 
 
   @media (min-width: 768px) {
     position: static;
@@ -50,7 +46,6 @@ export const Link = styled(NavLink)`
   :hover {
     color: #212121;
     color: #fc842d;
-    // font-size: 16px;
   }
 `;
 

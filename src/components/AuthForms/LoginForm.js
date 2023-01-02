@@ -11,11 +11,13 @@ import {
   AuthFormItemWrap,
   GoogleLink,
   Error,
+  Spiner,
 } from 'components/AuthForms/AuthForm.styled';
 import { Button } from 'components/Button/Button';
 import { Translator } from 'components/language/translator';
 import InputAuth from 'components/Input/InputAuth';
-import defaultsBaseURL from '../../redux/auth/authOperations';
+import { useState } from 'react';
+import { Loader } from 'components/Loading/Loading';
 
 const passwordShema = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,100}$/;
 const emailShema =
@@ -47,15 +49,18 @@ const validationLoginSchema = yup.object().shape({
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (values, { resetForm }) => {
+    setIsLoading(true);
     dispatch(
       login({
         email: values.email,
         password: values.password,
+        setIsLoading,
       })
     );
-    resetForm();
+    ;
   };
 
   return (
@@ -90,11 +95,18 @@ export const LoginForm = () => {
             </AuthFormItemWrap>
 
             <AuthBtnsWrapper>
-              <Button type="submit">{Translator('logIn')}</Button>
+              <Button type="submit">
+                {Translator('logIn')}
+                <Spiner>
+                  {isLoading ? <Loader size={18} color={'#fff'}></Loader> : <></>}
+                </Spiner>
+              </Button>
               <AuthFormNavLink to="/registration">
                 {Translator('register')}
               </AuthFormNavLink>
-              <GoogleLink href={`${defaultsBaseURL}/api/users/google`}>
+              <GoogleLink
+                href={`${process.env.REACT_APP_BASE_URL}api/users/google`}
+              >
                 {Translator('continueWithGoogle')}
               </GoogleLink>
               <AuthFormNavLink to="/forgotpassword">

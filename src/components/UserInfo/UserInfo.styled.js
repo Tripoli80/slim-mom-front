@@ -72,11 +72,9 @@ export const Exit = styled.p`
 
   &.active {
     color: #fc842d;
-    //  font-size: 16px;
   }
   :hover:not(.active),
   &:focus-visible:not(.active) {
     color: #fc842d;
-    //  font-size: 16px;
   }
 `;

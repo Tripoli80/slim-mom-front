@@ -5,7 +5,6 @@ export const Form = styled.form`
   flex-direction: column;
   position: relative;
 
-  // padding-bottom: 10px;
   align-items: center;
 
   @media (min-width: 768px) {

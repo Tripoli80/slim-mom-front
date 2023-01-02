@@ -78,15 +78,11 @@ export const LabelRadio = styled.label`
 `;
 export const InputRadio = styled.input`
   margin-right: 8px;
-  /* hidden */
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
-  /* -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; */
 `;
 
 export const InputRadioStyled = styled.span`
@@ -147,12 +143,10 @@ export const TitleRaioGroup = styled.span`
 `;
 export const BtnSub = styled.div`
   min-width: 100px;
-  // margin: 10px auto;
   padding-top: 50px;
   @media (min-width: 768px) {
     margin-top: 60px;
     margin-left: 32px;
-    // padding-top: 0;
   }
   @media (min-width: 1260px) {
     margin-top: 60px;

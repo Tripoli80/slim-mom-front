@@ -52,7 +52,6 @@ export const CloseBtn = styled(MdClose)`
   padding: 0;
   z-index: 10;
   @media screen and (max-width: 767px) {
-    // display: none;
   }
 `;
 

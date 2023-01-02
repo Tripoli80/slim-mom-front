@@ -21,14 +21,12 @@ export const AuthFormWrapper = styled(Form)`
   }
 
   @media screen and (min-width: 1280px) {
-    // padding-left: 0;
     justify-content: flex-start;
   }
 `;
 
 export const AuthFormTitle = styled.h3`
   margin: 0 auto;
-  // padding: 0 40px;
   margin-top: 40px;
   margin-bottom: 60px;
   align-items: center;
@@ -112,31 +110,19 @@ export const AuthBtnsWrapper = styled.div`
 `;
 
 export const AuthFormNavLink = styled(NavLink)`
-  // transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
-
-  /* text-decoration: none; */
-  /* font-family: 'Verdana'; */
-  /* min-width: 180px; */
-  /* height: 42px; */
-  padding-top: 8px;
-  padding-left: 24px;
-  padding-right: 24px;
-  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fc842d;
-  /* background-color: #ffffff; */
-  border: 2px solid #fc842d;
   border-radius: 30px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
   border: 2px solid #fc842d;
-  color: #fc842d;
-
   text-decoration: none;
   font-size: 14px;
   height: 42px;
   font-weight: 500;
   min-width: 180px;
-  text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
@@ -183,7 +169,6 @@ export const ForgotPasswordLink = styled(NavLink)`
 `;
 
 export const GoogleLink = styled.a`
-  // transition: background-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
   padding: 12px 16px 12px 42px;
   border: none;
@@ -227,4 +212,12 @@ export const Error = styled.div`
   text-align: start;
   font-size: 14px;
   color: rgb(200, 10, 65);
+`;
+
+export const Spiner = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 10px;
 `;
